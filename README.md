@@ -21,9 +21,9 @@ Now you need to link the ConfigurableTableView static library to your project. C
 
 Now you need to add ConfigurableTableView as a dependency of your project, so Xcode compiles it whenever you compile your project. Expand the "Targets" section of the sidebar and double-click your application's target. Under the "General" tab you will see a "Direct Dependencies" section. Click the "+" button, select "ConfigurableTableView", and click "Add Target".
 
- Now you need to add the bundle of images and strings to your app. Locate "ConfigurableTableView.bundle" under "ConfigurableTableView/src" and drag and drop it into your project. A dialog will appear -- make sure "Create Folder References" is selected, "Copy items" is unchecked, and "Reference Type" is "Relative to Project" before clicking "Add". 
+Now you need to add the bundle of images and strings to your app. Locate "ConfigurableTableView.bundle" under "ConfigurableTableView/src" and drag and drop it into your project. A dialog will appear -- make sure "Create Folder References" is selected, "Copy items" is unchecked, and "Reference Type" is "Relative to Project" before clicking "Add". 
 
-/* Now you need to add the Core Animation framework to your project. Right click on the "Frameworks" group in your project (or equivalent) and select Add > Existing Frameworks. Then locate QuartzCore.framework and add it to the project. */
+Now you need to add the Core Animation framework to your project. Right click on the "Frameworks" group in your project (or equivalent) and select Add > Existing Frameworks. Then locate QuartzCore.framework and add it to the project.
 
 Finally, we need to tell your project where to find the ConfigurableTableView headers. Open your "Project Settings" and go to the "Build" tab. Look for "Header Search Paths" and double-click it. Add the relative path from your project's directory to the "ConfigurableTableView/src/CBConfigurableTableView" directory.
 
