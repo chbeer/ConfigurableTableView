@@ -1,7 +1,7 @@
 Configurable Table View
 =======================
 
-A Configurable Table View is based on a lightweight model structure, that defines the sections and cells in the table. There are different cells for different types of data like text, numeric, boolean, etc. Each cell knows how to display the data. You can also very easily add your own cell types for special cells. 
+A Configurable Table View is a UITableView extension for iOS (universal) based on a lightweight model structure. It defines the sections and cells in the table. There are different cells for different types of data like text, numeric, boolean, etc. Each cell knows how to display the data. You can also very easily add your own cell types for special cells. 
 
 Each cell has a keyValuePath it uses to access the data it displays. The data object this keyValuePath accesses is set at the Configurable Table View.
 

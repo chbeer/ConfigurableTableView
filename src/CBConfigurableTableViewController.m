@@ -294,6 +294,11 @@
     CGFloat heightDifference = 0.0;
     if (CBCTVIsIPad() && UIKeyboardFrameEndUserInfoKey != nil) {
         CGRect keyboardFrame = [[notif.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+        
+        if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
+            keyboardFrame.size = (CGSize){keyboardFrame.size.height, keyboardFrame.size.width};
+        }
+        
         keyboardFrame = [self.view convertRect:keyboardFrame 
                                       fromView:nil];
         
