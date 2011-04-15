@@ -1,0 +1,11 @@
+/* 
+   Localizable.strings
+   Configurable TableView
+
+   Created by Christian Beer on 07.01.10.
+   Copyright 2010 Christian Beer. All rights reserved.
+ */
+"Choose Image Source" = "Bildquelle wählen";
+"Cancel" = "Abbrechen";
+"Choose Image" = "Bilderverzeichnis";
+"Take Picture" = "Bild aufnehmen";
