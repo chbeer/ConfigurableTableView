@@ -28,3 +28,30 @@ Now you need to add the Core Animation framework to your project. Right click on
 Finally, we need to tell your project where to find the ConfigurableTableView headers. Open your "Project Settings" and go to the "Build" tab. Look for "Header Search Paths" and double-click it. Add the relative path from your project's directory to the "ConfigurableTableView/src/CBConfigurableTableView" directory.
 
 While you are in Project Settings, go to "Other Linker Flags" under the "Linker" section, and add "-ObjC" and "-all_load" to the list of flags.
+
+
+Example
+=======
+
+The following example initializes the subclass of CBConfigurableTableView and adds a section with four cells:
+
+	- (id)init {
+	    self = [super initWithStyle:UITableViewStyleGrouped];
+	    if (!self) return nil;
+	
+	    CBTable *model = [CBTable tableWithSections:
+							[CBSection sectionWithTitle:@"Strings"
+											   andCells:
+								[CBCellString cellWithTitle:@"Name" valuePath:@"name"],
+								[CBCellString cellWithTitle:@"First Name" valuePath:@"firstName"],
+								[CBCellPassword cellWithTitle:@"Password" valuePath:@"password" 
+													   editor:[CBEditorPassword editor]],
+								[CBCellString cellMultilineWithValuePath:@"description"],
+								nil],
+							nil];
+					         
+	    self.model = model;
+	    self.data = [NSMutableDictionary dictionary];
+	        
+	    return self;
+	}
