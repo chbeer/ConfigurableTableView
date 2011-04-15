@@ -65,25 +65,13 @@
 - (void) viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillShow:) 
-                                                 name:UIKeyboardWillShowNotification 
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillHide:) 
-                                                 name:UIKeyboardWillHideNotification 
-                                               object:nil];        
+    [self addKeyboardObservers]; 
 }
 
 - (void) viewDidDisappear:(BOOL)animated {
 	[super viewDidDisappear:animated];
     
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIKeyboardWillShowNotification 
-                                                  object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:UIKeyboardWillHideNotification 
-                                                  object:nil];
+    [self removeKeyboardObservers];
 }
 
 - (void) setEditing:(BOOL)editing animated:(BOOL)animated {
@@ -278,6 +266,27 @@
 
 #pragma mark Keyboard
 
+- (void) addKeyboardObservers;
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillShow:) 
+                                                 name:UIKeyboardWillShowNotification 
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:) 
+                                                 name:UIKeyboardWillHideNotification 
+                                               object:nil];
+}
+- (void) removeKeyboardObservers;
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillShowNotification 
+                                                  object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:UIKeyboardWillHideNotification 
+                                                  object:nil];
+}
+
 - (void)keyboardWillShow:(NSNotification*)notif {
     if (_kbDidShow) {
         return;
@@ -294,10 +303,6 @@
     CGFloat heightDifference = 0.0;
     if (CBCTVIsIPad() && UIKeyboardFrameEndUserInfoKey != nil) {
         CGRect keyboardFrame = [[notif.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-        
-        if (UIInterfaceOrientationIsLandscape(self.interfaceOrientation)) {
-            keyboardFrame.size = (CGSize){keyboardFrame.size.height, keyboardFrame.size.width};
-        }
         
         keyboardFrame = [self.view convertRect:keyboardFrame 
                                       fromView:nil];

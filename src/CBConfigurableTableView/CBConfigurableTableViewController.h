@@ -41,4 +41,7 @@
 - (void) setValue:(id)value forCell:(CBCell*)cell;
 - (id) valueForCell:(CBCell*)cell;
 
+- (void) addKeyboardObservers;
+- (void) removeKeyboardObservers;
+
 @end
