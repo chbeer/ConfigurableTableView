@@ -8,45 +8,6 @@
 
 #import "RootViewController.h"
 
-@interface DummyDataObject : NSObject {
-	NSString *name;
-	NSString *firstName;
-	NSString *password;
-	NSString *description;
-	
-	int age;
-	float decimal;
-	float euro;
-	float percent;
-	float slider;
-	float repeat;
-	
-	BOOL male;
-	
-	UIImage *image;
-	NSData *sound;
-}
-
-@property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *firstName;
-@property (nonatomic, copy) NSString *password;
-@property (nonatomic, copy) NSString *description;
-
-@property (nonatomic, assign) int age;
-@property (nonatomic, assign) float decimal;
-@property (nonatomic, assign) float euro;
-@property (nonatomic, assign) float slider;
-@property (nonatomic, assign) float percent;
-@property (nonatomic, assign) float repeat;
-
-@property (nonatomic, assign) BOOL male;
-
-@property (nonatomic, retain) UIImage *image;
-@property (nonatomic, retain) NSData *sound;
-
-@end
-
-
 @implementation RootViewController
 
 - (NSArray*) numberArrayFrom:(int)f to:(int)t {
@@ -61,17 +22,6 @@
     [super viewDidLoad];
 	
 	DummyDataObject *data = [[DummyDataObject alloc] init];
-	data.firstName = @"Tom";
-	data.name = @"Tester";
-	data.password = @"abcdef";
-	data.description = @"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
-	data.age = 12;
-	data.decimal = 12.23;
-	data.euro = 16.95;
-	data.male = YES;
-	data.percent = 0.25;
-	data.slider = 0.8;
-	data.repeat = 0.5;
 	
 	CBCell *numWithEditor = [CBCellNumeric cellWithTitle:@"Age With Editor" valuePath:@"age"];
 	numWithEditor.editor = [CBEditorPicker editorWithOptions:[self numberArrayFrom:1 to:99]];
@@ -145,10 +95,40 @@
 
 @end
 
+/////////////////////////////////////////////////////////////
+///// Helper Classes ////////////////////////////////////////
+/////////////////////////////////////////////////////////////
+
+
 @implementation DummyDataObject 
 
 @synthesize name, firstName, password, description, age, decimal, euro, percent, slider,repeat, male, image, sound;
 
-// dealloc misssing ... it's only an example
+- (id)init {
+    self = [super init];
+    if (!self) return nil;
+    
+    self.firstName = @"Tom";
+	self.name = @"Tester";
+	self.password = @"abcdef";
+	self.description = @"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam "
+                        "nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam "
+                        "erat, sed diam voluptua. At vero eos et accusam et justo duo "
+                        "dolores et ea rebum. Stet clita kasd gubergren, no sea takimata "
+                        "sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit "
+                        "amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor "
+                        "invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. "
+                        "At vero eos et accusam et justo duo dolores et ea rebum. Stet clita "
+                        "kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.";
+	self.age = 12;
+	self.decimal = 12.23;
+	self.euro = 16.95;
+	self.male = YES;
+	self.percent = 0.25;
+	self.slider = 0.8;
+	self.repeat = 0.5;
+    
+    return self;
+}
 
 @end
