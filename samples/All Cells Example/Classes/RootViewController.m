@@ -127,7 +127,7 @@
 						   nil],
 						[CBSection sectionWithTitle:@"Specials"
 										   andCells:
-							[CBCellImage cellWithTitle:@"Image" valuePath:@"image" editable:YES],
+							[CBCellImage cellWithTitle:@"Image" valuePath:@"image"],
 						 nil],
 					  nil];
 
