@@ -8,7 +8,7 @@
 #import "CBTextFieldTableViewCell.h"
 
 // table view cell content offsets
-#define kCellLeftOffset			15.0
+#define kCellLeftOffset			10.0
 #define kCellTopOffset			10.0
 
 #define kTextFieldHeight		25.0

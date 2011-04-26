@@ -43,16 +43,17 @@
 												sections:
 							[CBSection sectionWithTitle:@"Strings"
 											   andCells:
-								[CBCellString cellWithTitle:@"Name" valuePath:@"name"],
-								[CBCellString cellWithTitle:@"First Name" valuePath:@"firstName"],
+								[CBCellStringInlineEditor cellWithTitle:@"Name" valuePath:@"name"],
+								[CBCellStringInlineEditor cellWithTitle:@"First Name" valuePath:@"firstName"],
 								nil],
 							nil];
 	
 	CBTable *model = [CBTable tableWithSections:
 						[CBSection sectionWithTitle:@"Strings"
 										   andCells:
-							[CBCellString cellWithTitle:@"Name" valuePath:@"name"],
-							[CBCellString cellWithTitle:@"First Name" valuePath:@"firstName"],
+							[CBCellString cellWithTitle:@"Name" valuePath:@"name"
+                                                 editor:[CBEditorString editor]],
+							[CBCellStringInlineEditor cellWithTitle:@"First Name" valuePath:@"firstName"],
 							[CBCellPassword cellWithTitle:@"Password" valuePath:@"password" 
 												   editor:[CBEditorPassword editor]],
 							[CBCellString cellMultilineWithValuePath:@"description"],
