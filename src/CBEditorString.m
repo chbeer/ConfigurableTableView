@@ -18,28 +18,30 @@
 @synthesize autocapitalizationType = _autocapitalizationType;
 
 - (id) init {
-	if (self = [super init]) {
-		_keyboardType = UIKeyboardTypeDefault;
-		_autocorrectionType = UITextAutocorrectionTypeDefault;
-        _autocapitalizationType = UITextAutocapitalizationTypeNone;
-	}
-	return self;
+	self = [super init];
+    if (!self) return nil;
+    
+    _keyboardType = UIKeyboardTypeDefault;
+    _autocorrectionType = UITextAutocorrectionTypeDefault;
+    _autocapitalizationType = UITextAutocapitalizationTypeNone;
+	
+    return self;
 }
 
 + (CBEditor*) editorWithKeyboardType:(UIKeyboardType)keyboardType 
 				  autocorrectionType:(UITextAutocorrectionType)autocorrectionType {
-	CBEditorString *es = (CBEditorString*)[CBEditorString editor];
+	CBEditorString *es = (CBEditorString*)[self editor];
 	es.keyboardType = keyboardType;
 	es.autocorrectionType = autocorrectionType;
 	return es;
 }
 + (CBEditor*) editorWithKeyboardType:(UIKeyboardType)keyboardType {
-	return [CBEditorString editorWithKeyboardType:keyboardType
-							   autocorrectionType:UITextAutocorrectionTypeDefault];
+	return [self editorWithKeyboardType:keyboardType
+                     autocorrectionType:UITextAutocorrectionTypeDefault];
 }
 + (CBEditor*) editorWithAutocorrectionType:(UITextAutocorrectionType)autocorrectionType {
-	return [CBEditorString editorWithKeyboardType:UIKeyboardTypeDefault
-							   autocorrectionType:autocorrectionType];
+	return [self editorWithKeyboardType:UIKeyboardTypeDefault
+                     autocorrectionType:autocorrectionType];
 }
 
 - (void) openEditorForCell:(CBCell*)cell 
