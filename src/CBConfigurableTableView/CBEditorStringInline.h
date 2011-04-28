@@ -12,6 +12,10 @@
 
 @interface CBEditorStringInline : CBEditorString <UITextFieldDelegate> {
     
+    UITextField *_textField;
+    
+    CBCell *_cell;
+    
 }
 
 @end
