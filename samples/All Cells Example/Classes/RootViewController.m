@@ -79,7 +79,24 @@
 						[CBSection sectionWithTitle:@"Specials"
 										   andCells:
 							[CBCellImage cellWithTitle:@"Image" valuePath:@"image"],
-						 nil],
+                         
+                            [CBCellSubtable cellWithTitle:@"Subtable Demo" 
+                                                 sections:
+                                [CBSection sectionWithTitle:@"Strings"
+                                                   andCells:
+                                    [CBCellString cellWithTitle:@"String 1" valuePath:@"string1"
+                                                         editor:[CBEditorStringInline editor]],
+                                    [CBCellString cellWithTitle:@"String 2" valuePath:@"string2"
+                                                         editor:[CBEditorStringInline editor]],
+                                    [CBCellString cellWithTitle:@"String 3" valuePath:@"string3"
+                                                         editor:[CBEditorStringInline editor]],
+                                    [CBCellString cellWithTitle:@"String 4" valuePath:@"string4"
+                                                         editor:[CBEditorStringInline editor]],
+                                    [CBCellString cellWithTitle:@"String 5" valuePath:@"string5"
+                                                         editor:[CBEditorStringInline editor]],
+                                 nil],
+                            nil],
+                        nil],
 					  nil];
 
 	self.model = model;
@@ -103,7 +120,9 @@
 
 @implementation DummyDataObject 
 
-@synthesize name, firstName, password, description, age, decimal, euro, percent, slider,repeat, male, image, sound;
+@synthesize name, firstName, password, description, age, decimal;
+@synthesize euro, percent, slider,repeat, male, image, sound;
+@synthesize string1, string2, string3, string4, string5;
 
 - (id)init {
     self = [super init];

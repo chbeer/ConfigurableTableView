@@ -77,7 +77,7 @@
 - (void) displayValue {
     CGRect contentRect = [self.contentView bounds];
     CGRect frame = CGRectMake(contentRect.origin.x + kCellLeftOffset, kCellTopOffset, 
-							  contentRect.size.width - 2 * kCellLeftOffset, 
+							  roundf(contentRect.size.width - 2 * kCellLeftOffset), 
 							  kCellHeight);
     
     NSString *v = nil;
@@ -96,7 +96,7 @@
 	
 	// In this example we will never be editing, but this illustrates the appropriate pattern
 	CGRect frame = CGRectMake(contentRect.origin.x + kCellLeftOffset, kCellTopOffset, 
-							  contentRect.size.width - 2 * kCellLeftOffset, 
+							  roundf(contentRect.size.width - 2 * kCellLeftOffset), 
 							  kCellHeight);
 	
 	float nameLabelHeight = 0;
@@ -125,7 +125,7 @@
 		
 		minLabel.frame = minFrame;
 		maxLabel.frame = maxFrame;
-	}
+    }
     
     if (_showValue) {
         [self displayValue];
@@ -145,23 +145,37 @@
 }
 
 - (void)setMinLabel:(NSString*)min maxLabel:(NSString*)max {
-	minLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 13)];
-	minLabel.font = [UIFont systemFontOfSize:[UIFont smallSystemFontSize]];
-	minLabel.textColor = [UIColor darkGrayColor];
-    minLabel.backgroundColor = [UIColor clearColor];
-    minLabel.opaque = NO;
-	minLabel.text = min;
+    if (min) {
+        if (!minLabel) {
+            minLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 13)];
+            minLabel.font = [UIFont systemFontOfSize:[UIFont smallSystemFontSize]];
+            minLabel.textColor = [UIColor darkGrayColor];
+            minLabel.backgroundColor = [UIColor clearColor];
+            minLabel.opaque = NO;
+            [self.contentView addSubview:minLabel];
+            [minLabel release];
+        }
+        minLabel.text = min;
+    } else {
+        [minLabel removeFromSuperview]; 
+        minLabel = nil;
+    }
 	
-	maxLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 13)];
-	maxLabel.font = [UIFont systemFontOfSize:[UIFont smallSystemFontSize]];
-	maxLabel.textColor = [UIColor darkGrayColor];
-	maxLabel.textAlignment = UITextAlignmentRight;
-    maxLabel.backgroundColor = [UIColor clearColor];
-    maxLabel.opaque = NO;
-	maxLabel.text = max;
-	
-	[self.contentView addSubview:minLabel];
-	[self.contentView addSubview:maxLabel];
+    if (max) {
+        if (!maxLabel) {
+            maxLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 13)];
+            maxLabel.font = [UIFont systemFontOfSize:[UIFont smallSystemFontSize]];
+            maxLabel.textColor = [UIColor darkGrayColor];
+            maxLabel.textAlignment = UITextAlignmentRight;
+            maxLabel.backgroundColor = [UIColor clearColor];
+            maxLabel.opaque = NO;
+            [self.contentView addSubview:maxLabel];
+        }
+        maxLabel.text = max;
+    } else {
+        [maxLabel removeFromSuperview]; 
+        maxLabel = nil;
+    }
 }
 
 - (void) sliderChanged:(UISlider*)sender {

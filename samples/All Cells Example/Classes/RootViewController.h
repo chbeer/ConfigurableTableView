@@ -36,6 +36,12 @@
 	
 	UIImage *image;
 	NSData *sound;
+
+    NSString *string1;
+    NSString *string2;
+    NSString *string3;
+    NSString *string4;
+    NSString *string5;
 }
 
 @property (nonatomic, copy) NSString *name;
@@ -54,5 +60,11 @@
 
 @property (nonatomic, retain) UIImage *image;
 @property (nonatomic, retain) NSData *sound;
+
+@property (nonatomic, copy) NSString *string1;
+@property (nonatomic, copy) NSString *string2;
+@property (nonatomic, copy) NSString *string3;
+@property (nonatomic, copy) NSString *string4;
+@property (nonatomic, copy) NSString *string5;
 
 @end

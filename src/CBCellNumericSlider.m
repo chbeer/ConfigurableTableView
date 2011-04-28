@@ -100,9 +100,7 @@
 
 - (void) setupCell:(UITableViewCell*)cell withObject:(NSObject*)object inTableView:(UITableView*)tableView {
 	CBSliderCell *sc = (CBSliderCell*)cell;
-	if (_minLabel || _maxLabel) {
-		[sc setMinLabel:_minLabel maxLabel:_maxLabel];
-	}
+    [sc setMinLabel:_minLabel maxLabel:_maxLabel];
     sc.minValue = _minValue;
     sc.maxValue = _maxValue;
     
