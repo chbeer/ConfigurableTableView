@@ -52,7 +52,7 @@
 						[CBSection sectionWithTitle:@"Strings"
 										   andCells:
 							[CBCellString cellWithTitle:@"Name" valuePath:@"name"
-                                                 editor:[CBEditorString editor]],
+                                                 editor:[CBEditorStringInline editor]],
 							[CBCellStringInlineEditor cellWithTitle:@"First Name" valuePath:@"firstName"],
 							[CBCellPassword cellWithTitle:@"Password" valuePath:@"password" 
 												   editor:[CBEditorPassword editor]],

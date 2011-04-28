@@ -144,19 +144,6 @@
             cell.accessoryType = UITableViewCellAccessoryNone;
             cell.editingAccessoryType = UITableViewCellAccessoryNone;
         }
-
-        if ([_editor respondsToSelector:@selector(cell:didSetupTableViewCell:withObject:inTableView:)]) {
-            NSMethodSignature *signature  = [_editor methodSignatureForSelector:@selector(cell:didSetupTableViewCell:withObject:inTableView:)];
-            NSInvocation      *invocation = [NSInvocation invocationWithMethodSignature:signature];
-            
-            [invocation setTarget:_editor];
-            [invocation setSelector:@selector(cell:didSetupTableViewCell:withObject:inTableView:)];
-            [invocation setArgument:&self atIndex:2];      // starting at index 2!
-            [invocation setArgument:&cell atIndex:3];
-            [invocation setArgument:&object atIndex:4];
-            [invocation setArgument:&tableView atIndex:5];
-            [invocation invoke];
-        }
     }
     
     if (_iconName) {
@@ -173,6 +160,12 @@
 		id val = [object valueForKeyPath:_valueKeyPath];
 		[self setValue:val ofCell:cell inTableView:tableView];
 	}
+    
+    if ([self hasEditor] && _editor && [_editor respondsToSelector:@selector(cell:didSetupTableViewCell:withObject:inTableView:)]) {
+
+        [_editor cell:self didSetupTableViewCell:cell withObject:object inTableView:tableView];
+        
+    }
 }
 - (CGFloat) heightForCellInTableView:(UITableView*)tableView withObject:(NSObject*)object {
 	return 44;

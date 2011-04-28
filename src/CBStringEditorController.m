@@ -107,6 +107,8 @@
 
 
 -(void)cancel:(id)sender {
+    [_textField resignFirstResponder];
+    
 	[self.navigationController popViewControllerAnimated:YES];
 }
 

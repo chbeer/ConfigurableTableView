@@ -19,6 +19,7 @@
 		AA96511E123B8E41005F9CF4 /* CBCellButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = AA96511C123B8E41005F9CF4 /* CBCellButtons.m */; };
 		AA987C8E11B4F3270066D3BE /* CBEditorOpenURL.m in Sources */ = {isa = PBXBuildFile; fileRef = AA987C8C11B4F3270066D3BE /* CBEditorOpenURL.m */; };
 		AA99AFC710CD212E00538E1F /* CBCellSubtable.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99AFC510CD212E00538E1F /* CBCellSubtable.m */; };
+		AA99C6E013695528002C5386 /* CBEditorStringInline.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C6DE13695528002C5386 /* CBEditorStringInline.m */; };
 		AAA158DA10F4B4E10080D3B7 /* CBEditorString.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA158D810F4B4E10080D3B7 /* CBEditorString.m */; };
 		AAA158DE10F4B50D0080D3B7 /* CBStringEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA158DC10F4B50D0080D3B7 /* CBStringEditorController.m */; };
 		AAA1590C10F4B66C0080D3B7 /* CBTextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1590810F4B66C0080D3B7 /* CBTextFieldTableViewCell.m */; };
@@ -106,7 +107,9 @@
 		AA987C8C11B4F3270066D3BE /* CBEditorOpenURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBEditorOpenURL.m; sourceTree = "<group>"; };
 		AA987CA411B4F57C0066D3BE /* CBEditorOpenURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBEditorOpenURL.h; path = CBConfigurableTableView/CBEditorOpenURL.h; sourceTree = "<group>"; };
 		AA99AFC510CD212E00538E1F /* CBCellSubtable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCellSubtable.m; sourceTree = "<group>"; };
-		AA9D8517113FF0BE0085127D /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		AA99C6DC13695506002C5386 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		AA99C6DE13695528002C5386 /* CBEditorStringInline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBEditorStringInline.m; sourceTree = "<group>"; };
+		AA99C700136959F9002C5386 /* CBEditorStringInline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; name = CBEditorStringInline.h; path = CBConfigurableTableView/CBEditorStringInline.h; sourceTree = "<group>"; };
 		AAA158D810F4B4E10080D3B7 /* CBEditorString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBEditorString.m; sourceTree = "<group>"; };
 		AAA158DC10F4B50D0080D3B7 /* CBStringEditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBStringEditorController.m; sourceTree = "<group>"; };
 		AAA1590810F4B66C0080D3B7 /* CBTextFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTextFieldTableViewCell.m; sourceTree = "<group>"; };
@@ -212,7 +215,7 @@
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
-				AA9D8517113FF0BE0085127D /* LICENSE */,
+				AA99C6DC13695506002C5386 /* LICENSE */,
 			);
 			name = ConfigurableTableView;
 			sourceTree = "<group>";
@@ -345,6 +348,8 @@
 				AAD5CFEC10C9671E003D3A14 /* CBEditorPicker.m */,
 				AADC278211217E6900E71852 /* CBEditorString.h */,
 				AAA158D810F4B4E10080D3B7 /* CBEditorString.m */,
+				AA99C700136959F9002C5386 /* CBEditorStringInline.h */,
+				AA99C6DE13695528002C5386 /* CBEditorStringInline.m */,
 				AADC277F11217E6900E71852 /* CBEditorNumeric.h */,
 				AA39A4CD10FC5BD50038C291 /* CBEditorNumeric.m */,
 				AADC278011217E6900E71852 /* CBEditorPassword.h */,
@@ -530,6 +535,7 @@
 				AAD110CB11E489EE00072707 /* CBConfigTableViewCell.m in Sources */,
 				AA96511E123B8E41005F9CF4 /* CBCellButtons.m in Sources */,
 				AAD27252129EBAF600ABEDF8 /* CBEditorTargetAction.m in Sources */,
+				AA99C6E013695528002C5386 /* CBEditorStringInline.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

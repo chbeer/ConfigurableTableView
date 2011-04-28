@@ -29,6 +29,7 @@
 #import "CBCellButtons.h"
 
 #import "CBEditorString.h"
+#import "CBEditorStringInline.h"
 #import "CBEditorPicker.h"
 #import "CBEditorPassword.h"
 #import "CBEditorDatePicker.h"

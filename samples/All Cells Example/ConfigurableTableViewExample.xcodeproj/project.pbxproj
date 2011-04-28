@@ -14,26 +14,9 @@
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
+		AA99C70313695BC0002C5386 /* libConfigurableTableView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA99C70213695BC0002C5386 /* libConfigurableTableView.a */; };
 		AADC27BE11217F6900E71852 /* ConfigurableTableView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AADC27BD11217F6900E71852 /* ConfigurableTableView.bundle */; };
-		AADC28741121828B00E71852 /* libConfigurableTableView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AADC27BC11217F5E00E71852 /* libConfigurableTableView.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		AADC27BB11217F5E00E71852 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AADC27B711217F5E00E71852 /* ConfigurableTableView.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D2AAC07E0554694100DB518D;
-			remoteInfo = ConfigurableTableView;
-		};
-		AADC27D211217F7400E71852 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AADC27B711217F5E00E71852 /* ConfigurableTableView.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D2AAC07D0554694100DB518D;
-			remoteInfo = ConfigurableTableView;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -48,7 +31,7 @@
 		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* ConfigurableTableViewExample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ConfigurableTableViewExample-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
-		AADC27B711217F5E00E71852 /* ConfigurableTableView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ConfigurableTableView.xcodeproj; path = ../../src/ConfigurableTableView.xcodeproj; sourceTree = SOURCE_ROOT; };
+		AA99C70213695BC0002C5386 /* libConfigurableTableView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libConfigurableTableView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AADC27BD11217F6900E71852 /* ConfigurableTableView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ConfigurableTableView.bundle; path = ../../src/ConfigurableTableView.bundle; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -57,10 +40,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA99C70313695BC0002C5386 /* libConfigurableTableView.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
-				AADC28741121828B00E71852 /* libConfigurableTableView.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,7 +72,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				AADC27B711217F5E00E71852 /* ConfigurableTableView.xcodeproj */,
+				AA99C70213695BC0002C5386 /* libConfigurableTableView.a */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -128,14 +111,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		AADC27B811217F5E00E71852 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AADC27BC11217F5E00E71852 /* libConfigurableTableView.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -150,7 +125,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				AADC27D311217F7400E71852 /* PBXTargetDependency */,
 			);
 			name = ConfigurableTableViewExample;
 			productName = ConfigurableTableViewExample;
@@ -175,28 +149,12 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = AADC27B811217F5E00E71852 /* Products */;
-					ProjectRef = AADC27B711217F5E00E71852 /* ConfigurableTableView.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* ConfigurableTableViewExample */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		AADC27BC11217F5E00E71852 /* libConfigurableTableView.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libConfigurableTableView.a;
-			remoteRef = AADC27BB11217F5E00E71852 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1D60588D0D05DD3D006BFB54 /* Resources */ = {
@@ -222,14 +180,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		AADC27D311217F7400E71852 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ConfigurableTableView;
-			targetProxy = AADC27D211217F7400E71852 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
