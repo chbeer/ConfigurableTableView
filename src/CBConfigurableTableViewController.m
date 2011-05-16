@@ -217,16 +217,19 @@
 
 #pragma mark Value access
 
-- (void) setValue:(id)value forCell:(CBCell*)cell {
+- (void) setValue:(id)value forCell:(CBCell*)cell withReload:(BOOL)reload {
 	if (_data && cell.valueKeyPath) {
 		[_data setValue:value forKeyPath:cell.valueKeyPath];
 		
 		NSIndexPath *idx = [_model indexPathOfCell:cell];
-		if (idx) {
+		if (reload && idx) {
 			[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:idx] 
 								  withRowAnimation:_reloadAnimation];
 		}
 	}
+}
+- (void) setValue:(id)value forCell:(CBCell*)cell {
+	[self setValue:value forCell:cell withReload:YES];
 }
 - (id) valueForCell:(CBCell*)cell {
 	if (_data && cell.valueKeyPath) {

@@ -56,20 +56,21 @@
 
 - (CBSection*) applyTag:(NSString *)tag;
 
-+ (CBSection*) sectionWithTitle:(NSString*)title;
-+ (CBSection*) sectionWithTitle:(NSString*)title andCells:(CBCell*)cell, ...NS_REQUIRES_NIL_TERMINATION;
++ (id) sectionWithTitle:(NSString*)title;
++ (id) sectionWithTitle:(NSString*)title andCells:(CBCell*)cell, ...NS_REQUIRES_NIL_TERMINATION;
 
 - (NSInteger) cellCount;
-- (CBCell*) cellAtIndex:(NSUInteger)idx;
+- (id) cellAtIndex:(NSUInteger)idx;
 - (NSUInteger) indexOfCell:(CBCell*)cell;
-- (CBCell*) addCell:(CBCell*)cell;
-- (CBCell*) insertCell:(CBCell*)cell atIndex:(NSUInteger)index;
+- (id) addCell:(CBCell*)cell;
+- (id) insertCell:(CBCell*)cell atIndex:(NSUInteger)index;
 - (void) addCells:(CBCell*)cell, ...NS_REQUIRES_NIL_TERMINATION;
 - (void) addCellsFromArray:(NSArray*)cells;
 
-- (CBCell*) cellWithTag:(NSString*)tag;
+- (id) cellWithTag:(NSString*)tag;
 
-- (CBCell*) removeCell:(CBCell*)cell;
+- (id) removeCell:(CBCell*)cell;
 - (void) removeCells:(CBCell*)cell, ...NS_REQUIRES_NIL_TERMINATION;
+- (id) removeCellWithTag:(NSString*)cellTag;
 
 @end

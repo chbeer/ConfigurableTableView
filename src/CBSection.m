@@ -49,11 +49,11 @@
 	return self;
 }
 
-+ (CBSection*) sectionWithTitle:(NSString*)title {
++ (id) sectionWithTitle:(NSString*)title {
 	CBSection *section = [[CBSection alloc] initWithTitle:title];
 	return [section autorelease];
 }
-+ (CBSection*) sectionWithTitle:(NSString*)title andCells:(CBCell*)cell, ... {
++ (id) sectionWithTitle:(NSString*)title andCells:(CBCell*)cell, ... {
 	CBSection *section = [[CBSection alloc] initWithTitle:title];
 	[section addCell:cell];
 	
@@ -92,7 +92,7 @@
     }
 }
 
-- (CBSection*) applyTag:(NSString *)tag {
+- (id) applyTag:(NSString *)tag {
     self.tag = tag;
     return self;
 }
@@ -107,14 +107,14 @@
 	return _cells.count;
 }
 
-- (CBCell*) cellAtIndex:(NSUInteger)idx {
+- (id) cellAtIndex:(NSUInteger)idx {
 	return [_cells objectAtIndex:idx];
 }
 - (NSUInteger) indexOfCell:(CBCell*)cell {
 	return [_cells indexOfObject:cell];
 }
 
-- (CBCell*) addCell:(CBCell*)cell {
+- (id) addCell:(CBCell*)cell {
 	cell.section = self;
 	[_cells addObject:cell];
 	
@@ -126,7 +126,7 @@
 	
 	return cell;
 }
-- (CBCell*) insertCell:(CBCell*)cell atIndex:(NSUInteger)index {
+- (id) insertCell:(CBCell*)cell atIndex:(NSUInteger)index {
 	cell.section = self;
 	[_cells insertObject:cell atIndex:index];
 	
@@ -139,7 +139,7 @@
 	return cell;
 }
 
-- (CBCell*) cellWithTag:(NSString*)tag {
+- (id) cellWithTag:(NSString*)tag {
     if (!tag || [@"" isEqual:tag]) return nil;
     
     // linear search since we are optimized for a small amount of cells
@@ -209,6 +209,14 @@
 					   section:self 
         cellsRemovedAtIndexPaths:idxs];
 	}
+}
+- (id) removeCellWithTag:(NSString*)cellTag
+{
+    CBCell *cell = [self cellWithTag:cellTag];
+    if (cell) {
+        [self removeCell:cell];
+    }
+    return cell;
 }
 
 - (NSArray*) cells {

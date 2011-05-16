@@ -15,6 +15,8 @@
 
 @implementation CBEditorStringInline
 
+@synthesize secureTextEntry = _secureTextEntry;
+
 - (void)dealloc {
     
     [_textField release], _textField = nil;
@@ -22,7 +24,15 @@
     [super dealloc];
 }
 
-#pragma -
+#pragma mark -
+
+- (id) applySecureTextEntry:(BOOL)inSecureTextEntry;
+{
+    _secureTextEntry = inSecureTextEntry;
+    return self;
+}
+
+#pragma mark -
 
 - (void) openEditorForCell:(CBCell*)cell 
 			  inController:(CBConfigurableTableViewController*)ctrl {
@@ -42,6 +52,7 @@
     _textField.delegate = self;
     _textField.adjustsFontSizeToFitWidth = YES;
     _textField.textAlignment = UITextAlignmentRight;
+    _textField.secureTextEntry = _secureTextEntry;
     
     [tableViewCell.contentView addSubview:_textField];
     
@@ -75,6 +86,14 @@
 
 #pragma UITextFieldDelegate
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    [_cell.controller setValue:newString
+                       forCell:_cell
+                    withReload:NO];
+    return YES;
+}
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
     [_cell.controller setValue:textField.text 

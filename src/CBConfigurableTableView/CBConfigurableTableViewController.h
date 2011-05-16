@@ -38,6 +38,7 @@
 - (id)initWithTableModel:(CBTable*)model;
 - (id)initWithTableModel:(CBTable*)model andData:(NSObject*)object;
 
+- (void) setValue:(id)value forCell:(CBCell*)cell withReload:(BOOL)reload;
 - (void) setValue:(id)value forCell:(CBCell*)cell;
 - (id) valueForCell:(CBCell*)cell;
 

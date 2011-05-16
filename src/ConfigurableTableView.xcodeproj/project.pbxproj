@@ -8,12 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		AA04E27C1111144D0019434D /* CBEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA04E27B1111144D0019434D /* CBEditorController.m */; };
+		AA0E4CB11381504600A2FCF0 /* CBEditorStringInline.h in Headers */ = {isa = PBXBuildFile; fileRef = AA99C700136959F9002C5386 /* CBEditorStringInline.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA0E4CB2138151AA00A2FCF0 /* CBCellCharacter.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD1106411E4871300072707 /* CBCellCharacter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA0E4CB3138151AE00A2FCF0 /* CBCellButtons.h in Headers */ = {isa = PBXBuildFile; fileRef = AA96511B123B8E41005F9CF4 /* CBCellButtons.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA0E4CB71381521300A2FCF0 /* CBConfigTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = AA0E4CB51381520700A2FCF0 /* CBConfigTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA0E4CB81381524E00A2FCF0 /* CBEditorOpenURL.h in Headers */ = {isa = PBXBuildFile; fileRef = AA987CA411B4F57C0066D3BE /* CBEditorOpenURL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA0E4CB91381525100A2FCF0 /* CBEditorTargetAction.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD27264129EBC9500ABEDF8 /* CBEditorTargetAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA39A4CF10FC5BD50038C291 /* CBEditorNumeric.m in Sources */ = {isa = PBXBuildFile; fileRef = AA39A4CD10FC5BD50038C291 /* CBEditorNumeric.m */; };
 		AA39A4D310FC5C2E0038C291 /* CBNumericEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA39A4D110FC5C2E0038C291 /* CBNumericEditorController.m */; };
-		AA6422071144FF100093A091 /* CBCellStringInlineEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = AA6422051144FF100093A091 /* CBCellStringInlineEditor.h */; };
+		AA6422071144FF100093A091 /* CBCellStringInlineEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = AA6422051144FF100093A091 /* CBCellStringInlineEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA6422081144FF100093A091 /* CBCellStringInlineEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6422061144FF100093A091 /* CBCellStringInlineEditor.m */; };
 		AA65526011119B390048C23B /* CBCellOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = AA65525E11119B390048C23B /* CBCellOptions.m */; };
-		AA717C4E112006C500FB5173 /* UIImageAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = AA717C4C112006C500FB5173 /* UIImageAdditions.h */; };
+		AA717C4E112006C500FB5173 /* UIImageAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = AA717C4C112006C500FB5173 /* UIImageAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA717C4F112006C600FB5173 /* UIImageAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AA717C4D112006C500FB5173 /* UIImageAdditions.m */; };
 		AA747D9F0F9514B9006C5449 /* ConfigurableTableView_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* ConfigurableTableView_Prefix.pch */; };
 		AA96511E123B8E41005F9CF4 /* CBCellButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = AA96511C123B8E41005F9CF4 /* CBCellButtons.m */; };
@@ -25,63 +31,63 @@
 		AAA1590C10F4B66C0080D3B7 /* CBTextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1590810F4B66C0080D3B7 /* CBTextFieldTableViewCell.m */; };
 		AAA1590E10F4B66C0080D3B7 /* CBTextViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1590A10F4B66C0080D3B7 /* CBTextViewTableViewCell.m */; };
 		AAA1591710F4B6AA0080D3B7 /* CBEditableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1591510F4B6AA0080D3B7 /* CBEditableTableViewCell.m */; };
-		AAA9424E110C66C70045A98E /* CBMultilineTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = AAA9424C110C66C70045A98E /* CBMultilineTableViewCell.h */; };
+		AAA9424E110C66C70045A98E /* CBMultilineTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = AAA9424C110C66C70045A98E /* CBMultilineTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AAA9424F110C66C70045A98E /* CBMultilineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA9424D110C66C70045A98E /* CBMultilineTableViewCell.m */; };
 		AAA945B5110DA1A70045A98E /* CBCellImage.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA945B3110DA1A70045A98E /* CBCellImage.m */; };
 		AAA945E8110DA9C20045A98E /* CBImageEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA945E6110DA9C20045A98E /* CBImageEditorController.m */; };
-		AAA9466F110DB4FC0045A98E /* CBCTVGlobal.h in Headers */ = {isa = PBXBuildFile; fileRef = AAA9466D110DB4FC0045A98E /* CBCTVGlobal.h */; };
+		AAA9466F110DB4FC0045A98E /* CBCTVGlobal.h in Headers */ = {isa = PBXBuildFile; fileRef = AAA9466D110DB4FC0045A98E /* CBCTVGlobal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AAA94670110DB4FC0045A98E /* CBCTVGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA9466E110DB4FC0045A98E /* CBCTVGlobal.m */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		AAD1103511E4835100072707 /* CBCellCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD1103311E4835100072707 /* CBCellCharacter.m */; };
 		AAD1103911E4838200072707 /* CBCharacterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD1103711E4838200072707 /* CBCharacterTableViewCell.m */; };
 		AAD110CB11E489EE00072707 /* CBConfigTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD110C911E489EE00072707 /* CBConfigTableViewCell.m */; };
 		AAD27252129EBAF600ABEDF8 /* CBEditorTargetAction.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD27250129EBAF600ABEDF8 /* CBEditorTargetAction.m */; };
-		AAD5CBF810C8FC86003D3A14 /* CBConfigurableTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD5CBF610C8FC86003D3A14 /* CBConfigurableTableViewController.h */; };
+		AAD5CBF810C8FC86003D3A14 /* CBConfigurableTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD5CBF610C8FC86003D3A14 /* CBConfigurableTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AAD5CBF910C8FC86003D3A14 /* CBConfigurableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CBF710C8FC86003D3A14 /* CBConfigurableTableViewController.m */; };
 		AAD5CBFE10C8FDDB003D3A14 /* CBTable.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CBFC10C8FDDB003D3A14 /* CBTable.m */; };
 		AAD5CC0210C8FEE2003D3A14 /* CBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CC0010C8FEE2003D3A14 /* CBCell.m */; };
 		AAD5CC0610C9009C003D3A14 /* CBSection.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CC0410C9009C003D3A14 /* CBSection.m */; };
-		AAD5CC3C10C90623003D3A14 /* CBCellString.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD5CC3A10C90623003D3A14 /* CBCellString.h */; };
+		AAD5CC3C10C90623003D3A14 /* CBCellString.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD5CC3A10C90623003D3A14 /* CBCellString.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AAD5CC3D10C90623003D3A14 /* CBCellString.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CC3B10C90623003D3A14 /* CBCellString.m */; };
 		AAD5CCE410C90E02003D3A14 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD5CCE310C90E02003D3A14 /* UIKit.framework */; };
 		AAD5CDDA10C91A3A003D3A14 /* CBCellNumeric.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CDD810C91A3A003D3A14 /* CBCellNumeric.m */; };
 		AAD5CE6F10C9537C003D3A14 /* CBCellBoolean.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CE6D10C9537C003D3A14 /* CBCellBoolean.m */; };
-		AAD5CED710C95AC3003D3A14 /* CBSliderCell.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD5CED510C95AC3003D3A14 /* CBSliderCell.h */; };
+		AAD5CED710C95AC3003D3A14 /* CBSliderCell.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD5CED510C95AC3003D3A14 /* CBSliderCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AAD5CED810C95AC3003D3A14 /* CBSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CED610C95AC3003D3A14 /* CBSliderCell.m */; };
 		AAD5CEF210C95C20003D3A14 /* CBCellNumericSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CEF010C95C20003D3A14 /* CBCellNumericSlider.m */; };
 		AAD5CFE510C96676003D3A14 /* CBPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CFE310C96676003D3A14 /* CBPickerController.m */; };
 		AAD5CFEE10C9671E003D3A14 /* CBEditorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CFEC10C9671E003D3A14 /* CBEditorPicker.m */; };
 		AAD5D07310C97290003D3A14 /* CBEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5D07210C97290003D3A14 /* CBEditor.m */; };
-		AADC277511217DA100E71852 /* CBCellAction.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC276C11217DA100E71852 /* CBCellAction.h */; };
-		AADC277611217DA100E71852 /* CBCellBoolean.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC276D11217DA100E71852 /* CBCellBoolean.h */; };
-		AADC277711217DA100E71852 /* CBCellDate.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC276E11217DA100E71852 /* CBCellDate.h */; };
-		AADC277811217DA100E71852 /* CBCellImage.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC276F11217DA100E71852 /* CBCellImage.h */; };
-		AADC277911217DA100E71852 /* CBCellNumeric.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC277011217DA100E71852 /* CBCellNumeric.h */; };
-		AADC277A11217DA100E71852 /* CBCellNumericSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC277111217DA100E71852 /* CBCellNumericSlider.h */; };
-		AADC277B11217DA100E71852 /* CBCellOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC277211217DA100E71852 /* CBCellOptions.h */; };
-		AADC277C11217DA100E71852 /* CBCellPassword.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC277311217DA100E71852 /* CBCellPassword.h */; };
-		AADC277D11217DA100E71852 /* CBCellSubtable.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC277411217DA100E71852 /* CBCellSubtable.h */; };
-		AADC278311217E6900E71852 /* CBEditorDatePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC277E11217E6900E71852 /* CBEditorDatePicker.h */; };
-		AADC278411217E6900E71852 /* CBEditorNumeric.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC277F11217E6900E71852 /* CBEditorNumeric.h */; };
-		AADC278511217E6900E71852 /* CBEditorPassword.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC278011217E6900E71852 /* CBEditorPassword.h */; };
-		AADC278611217E6900E71852 /* CBEditorPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC278111217E6900E71852 /* CBEditorPicker.h */; };
-		AADC278711217E6900E71852 /* CBEditorString.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC278211217E6900E71852 /* CBEditorString.h */; };
-		AADC278C11217E9000E71852 /* CBCell.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC278811217E9000E71852 /* CBCell.h */; };
-		AADC278D11217E9000E71852 /* CBEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC278911217E9000E71852 /* CBEditor.h */; };
-		AADC278E11217E9000E71852 /* CBSection.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC278A11217E9000E71852 /* CBSection.h */; };
-		AADC278F11217E9000E71852 /* CBTable.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC278B11217E9000E71852 /* CBTable.h */; };
-		AADC279611217EEA00E71852 /* CBEditorController.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC279011217EEA00E71852 /* CBEditorController.h */; };
-		AADC279711217EEA00E71852 /* CBImageEditorController.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC279111217EEA00E71852 /* CBImageEditorController.h */; };
-		AADC279811217EEA00E71852 /* CBNumericEditorController.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC279211217EEA00E71852 /* CBNumericEditorController.h */; };
-		AADC279911217EEA00E71852 /* CBOptionsPickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC279311217EEA00E71852 /* CBOptionsPickerController.h */; };
-		AADC279A11217EEA00E71852 /* CBPickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC279411217EEA00E71852 /* CBPickerController.h */; };
-		AADC279B11217EEA00E71852 /* CBStringEditorController.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC279511217EEA00E71852 /* CBStringEditorController.h */; };
-		AADC279F11217F1300E71852 /* CBTextFieldTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC279C11217F1300E71852 /* CBTextFieldTableViewCell.h */; };
-		AADC27A011217F1300E71852 /* CBTextViewTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC279D11217F1300E71852 /* CBTextViewTableViewCell.h */; };
-		AADC27A111217F1300E71852 /* CBEditableTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC279E11217F1300E71852 /* CBEditableTableViewCell.h */; };
-		AADC28621121823000E71852 /* CBConfigurableTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC28611121823000E71852 /* CBConfigurableTableView.h */; };
-		AADC28641121824300E71852 /* CBDatePickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC28631121824300E71852 /* CBDatePickerController.h */; };
-		AAE8E953110FAC9D00352032 /* CBPickerOption.h in Headers */ = {isa = PBXBuildFile; fileRef = AAE8E951110FAC9D00352032 /* CBPickerOption.h */; };
+		AADC277511217DA100E71852 /* CBCellAction.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC276C11217DA100E71852 /* CBCellAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC277611217DA100E71852 /* CBCellBoolean.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC276D11217DA100E71852 /* CBCellBoolean.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC277711217DA100E71852 /* CBCellDate.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC276E11217DA100E71852 /* CBCellDate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC277811217DA100E71852 /* CBCellImage.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC276F11217DA100E71852 /* CBCellImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC277911217DA100E71852 /* CBCellNumeric.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC277011217DA100E71852 /* CBCellNumeric.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC277A11217DA100E71852 /* CBCellNumericSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC277111217DA100E71852 /* CBCellNumericSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC277B11217DA100E71852 /* CBCellOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC277211217DA100E71852 /* CBCellOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC277C11217DA100E71852 /* CBCellPassword.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC277311217DA100E71852 /* CBCellPassword.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC277D11217DA100E71852 /* CBCellSubtable.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC277411217DA100E71852 /* CBCellSubtable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC278311217E6900E71852 /* CBEditorDatePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC277E11217E6900E71852 /* CBEditorDatePicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC278411217E6900E71852 /* CBEditorNumeric.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC277F11217E6900E71852 /* CBEditorNumeric.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC278511217E6900E71852 /* CBEditorPassword.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC278011217E6900E71852 /* CBEditorPassword.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC278611217E6900E71852 /* CBEditorPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC278111217E6900E71852 /* CBEditorPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC278711217E6900E71852 /* CBEditorString.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC278211217E6900E71852 /* CBEditorString.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC278C11217E9000E71852 /* CBCell.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC278811217E9000E71852 /* CBCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC278D11217E9000E71852 /* CBEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC278911217E9000E71852 /* CBEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC278E11217E9000E71852 /* CBSection.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC278A11217E9000E71852 /* CBSection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC278F11217E9000E71852 /* CBTable.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC278B11217E9000E71852 /* CBTable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC279611217EEA00E71852 /* CBEditorController.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC279011217EEA00E71852 /* CBEditorController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC279711217EEA00E71852 /* CBImageEditorController.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC279111217EEA00E71852 /* CBImageEditorController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC279811217EEA00E71852 /* CBNumericEditorController.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC279211217EEA00E71852 /* CBNumericEditorController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC279911217EEA00E71852 /* CBOptionsPickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC279311217EEA00E71852 /* CBOptionsPickerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC279A11217EEA00E71852 /* CBPickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC279411217EEA00E71852 /* CBPickerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC279B11217EEA00E71852 /* CBStringEditorController.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC279511217EEA00E71852 /* CBStringEditorController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC279F11217F1300E71852 /* CBTextFieldTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC279C11217F1300E71852 /* CBTextFieldTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC27A011217F1300E71852 /* CBTextViewTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC279D11217F1300E71852 /* CBTextViewTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC27A111217F1300E71852 /* CBEditableTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC279E11217F1300E71852 /* CBEditableTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC28621121823000E71852 /* CBConfigurableTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC28611121823000E71852 /* CBConfigurableTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AADC28641121824300E71852 /* CBDatePickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC28631121824300E71852 /* CBDatePickerController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AAE8E953110FAC9D00352032 /* CBPickerOption.h in Headers */ = {isa = PBXBuildFile; fileRef = AAE8E951110FAC9D00352032 /* CBPickerOption.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AAE8E954110FAC9D00352032 /* CBPickerOption.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE8E952110FAC9D00352032 /* CBPickerOption.m */; };
 		AAE94AE310F4EF0900234EA2 /* CBCellPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE94AE110F4EF0900234EA2 /* CBCellPassword.m */; };
 		AAE94AE810F4EF9300234EA2 /* CBEditorPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE94AE610F4EF9300234EA2 /* CBEditorPassword.m */; };
@@ -94,6 +100,7 @@
 
 /* Begin PBXFileReference section */
 		AA04E27B1111144D0019434D /* CBEditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBEditorController.m; sourceTree = "<group>"; };
+		AA0E4CB51381520700A2FCF0 /* CBConfigTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; name = CBConfigTableViewCell.h; path = CBConfigurableTableView/CBConfigTableViewCell.h; sourceTree = "<group>"; };
 		AA39A4CD10FC5BD50038C291 /* CBEditorNumeric.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBEditorNumeric.m; sourceTree = "<group>"; };
 		AA39A4D110FC5C2E0038C291 /* CBNumericEditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNumericEditorController.m; sourceTree = "<group>"; };
 		AA6422051144FF100093A091 /* CBCellStringInlineEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBCellStringInlineEditor.h; path = CBConfigurableTableView/CBCellStringInlineEditor.h; sourceTree = "<group>"; };
@@ -126,7 +133,6 @@
 		AAD1103711E4838200072707 /* CBCharacterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCharacterTableViewCell.m; sourceTree = "<group>"; };
 		AAD1106411E4871300072707 /* CBCellCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBCellCharacter.h; path = CBConfigurableTableView/CBCellCharacter.h; sourceTree = "<group>"; };
 		AAD1106611E4872400072707 /* CBCharacterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBCharacterTableViewCell.h; path = CBConfigurableTableView/CBCharacterTableViewCell.h; sourceTree = "<group>"; };
-		AAD110C811E489EE00072707 /* CBConfigTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBConfigTableViewCell.h; sourceTree = "<group>"; };
 		AAD110C911E489EE00072707 /* CBConfigTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBConfigTableViewCell.m; sourceTree = "<group>"; };
 		AAD27250129EBAF600ABEDF8 /* CBEditorTargetAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBEditorTargetAction.m; sourceTree = "<group>"; };
 		AAD27264129EBC9500ABEDF8 /* CBEditorTargetAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBEditorTargetAction.h; path = CBConfigurableTableView/CBEditorTargetAction.h; sourceTree = "<group>"; };
@@ -184,7 +190,7 @@
 		AAE94F5310F5D31500234EA2 /* CBEditorDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBEditorDatePicker.m; sourceTree = "<group>"; };
 		AAE94F7910F5D4F400234EA2 /* CBCellDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCellDate.m; sourceTree = "<group>"; };
 		AAFC018911105D7F00E5F04D /* CBCellAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCellAction.m; sourceTree = "<group>"; };
-		D2AAC07E0554694100DB518D /* libConfigurableTableView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libConfigurableTableView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2AAC07E0554694100DB518D /* libCBConfigurableTableView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCBConfigurableTableView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,7 +209,7 @@
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D2AAC07E0554694100DB518D /* libConfigurableTableView.a */,
+				D2AAC07E0554694100DB518D /* libCBConfigurableTableView.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -274,7 +280,7 @@
 		AAD5CBF510C8FC62003D3A14 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				AAD110C811E489EE00072707 /* CBConfigTableViewCell.h */,
+				AA0E4CB51381520700A2FCF0 /* CBConfigTableViewCell.h */,
 				AAD110C911E489EE00072707 /* CBConfigTableViewCell.m */,
 				AAD5CED510C95AC3003D3A14 /* CBSliderCell.h */,
 				AAD5CED610C95AC3003D3A14 /* CBSliderCell.m */,
@@ -402,7 +408,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA747D9F0F9514B9006C5449 /* ConfigurableTableView_Prefix.pch in Headers */,
 				AAD5CBF810C8FC86003D3A14 /* CBConfigurableTableViewController.h in Headers */,
 				AAD5CC3C10C90623003D3A14 /* CBCellString.h in Headers */,
 				AAD5CED710C95AC3003D3A14 /* CBSliderCell.h in Headers */,
@@ -419,11 +424,16 @@
 				AADC277B11217DA100E71852 /* CBCellOptions.h in Headers */,
 				AADC277C11217DA100E71852 /* CBCellPassword.h in Headers */,
 				AADC277D11217DA100E71852 /* CBCellSubtable.h in Headers */,
+				AA0E4CB2138151AA00A2FCF0 /* CBCellCharacter.h in Headers */,
+				AA0E4CB3138151AE00A2FCF0 /* CBCellButtons.h in Headers */,
 				AADC278311217E6900E71852 /* CBEditorDatePicker.h in Headers */,
 				AADC278411217E6900E71852 /* CBEditorNumeric.h in Headers */,
 				AADC278511217E6900E71852 /* CBEditorPassword.h in Headers */,
 				AADC278611217E6900E71852 /* CBEditorPicker.h in Headers */,
 				AADC278711217E6900E71852 /* CBEditorString.h in Headers */,
+				AA0E4CB81381524E00A2FCF0 /* CBEditorOpenURL.h in Headers */,
+				AA0E4CB91381525100A2FCF0 /* CBEditorTargetAction.h in Headers */,
+				AA0E4CB11381504600A2FCF0 /* CBEditorStringInline.h in Headers */,
 				AADC278C11217E9000E71852 /* CBCell.h in Headers */,
 				AADC278D11217E9000E71852 /* CBEditor.h in Headers */,
 				AADC278E11217E9000E71852 /* CBSection.h in Headers */,
@@ -440,6 +450,8 @@
 				AADC28621121823000E71852 /* CBConfigurableTableView.h in Headers */,
 				AADC28641121824300E71852 /* CBDatePickerController.h in Headers */,
 				AA6422071144FF100093A091 /* CBCellStringInlineEditor.h in Headers */,
+				AA0E4CB71381521300A2FCF0 /* CBConfigTableViewCell.h in Headers */,
+				AA747D9F0F9514B9006C5449 /* ConfigurableTableView_Prefix.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,7 +472,7 @@
 			);
 			name = ConfigurableTableView;
 			productName = ConfigurableTableView;
-			productReference = D2AAC07E0554694100DB518D /* libConfigurableTableView.a */;
+			productReference = D2AAC07E0554694100DB518D /* libCBConfigurableTableView.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -555,8 +567,9 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ConfigurableTableView_Prefix.pch;
-				INSTALL_PATH = /usr/local/lib;
-				PRODUCT_NAME = ConfigurableTableView;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				PRODUCT_NAME = CBConfigurableTableView;
+				PUBLIC_HEADERS_FOLDER_PATH = "/usr/local/include/$(PRODUCT_NAME)";
 			};
 			name = Debug;
 		};
@@ -569,8 +582,9 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ConfigurableTableView_Prefix.pch;
-				INSTALL_PATH = /usr/local/lib;
-				PRODUCT_NAME = ConfigurableTableView;
+				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				PRODUCT_NAME = CBConfigurableTableView;
+				PUBLIC_HEADERS_FOLDER_PATH = "/usr/local/include/$(PRODUCT_NAME)";
 			};
 			name = Release;
 		};

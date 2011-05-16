@@ -10,7 +10,7 @@
 
 @implementation CBEditor
 
-+ (CBEditor*) editor {
++ (id) editor {
 	CBEditor *editor = [[[self class] alloc] init];
 	return [editor autorelease];
 }

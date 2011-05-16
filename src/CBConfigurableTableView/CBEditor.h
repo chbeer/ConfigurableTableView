@@ -22,7 +22,7 @@
 
 @protocol CBEditor <NSObject>
 
-+ (CBEditor*) editor;
++ (id) editor;
 
 - (BOOL) isInline;
 
