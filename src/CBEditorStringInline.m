@@ -45,6 +45,7 @@
 - (UITableViewCell*) cell:(CBCell*)cell didCreateTableViewCell:(UITableViewCell*)tableViewCell {
 
     _textField = [[UITextField alloc] initWithFrame:tableViewCell.textLabel.bounds];
+    _textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _textField.keyboardType = _keyboardType;
     _textField.autocapitalizationType = _autocapitalizationType;
     _textField.autocorrectionType = _autocorrectionType;
