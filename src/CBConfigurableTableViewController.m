@@ -146,7 +146,7 @@
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     UIView *v;
-    if (v = [self tableView:tableView viewForHeaderInSection:section]) {
+    if ((v = [self tableView:tableView viewForHeaderInSection:section])) {
         if ([v respondsToSelector:@selector(heightForHeaderInTableView:)]) {
             return [(id<CBSectionHeaderView>)v heightForHeaderInTableView:tableView];
         } else {
@@ -164,6 +164,18 @@
 - (NSString *) tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
     CBSection *sect = [_model sectionAtIndex:section];
     return sect.footerTitle;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    CBSection *sect = [_model sectionAtIndex:section];
+    if (sect.footerView) {
+        return sect.footerView.bounds.size.height;
+    } else if (sect.footerTitle) {
+        return 24.0;
+    } else {
+        return 0.0;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

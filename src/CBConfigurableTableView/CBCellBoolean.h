@@ -14,11 +14,15 @@
 	NSObject *_object;
 	UISwitch *_switch;
     
+    UIActivityIndicatorView *_activityView;
+    
     BOOL _inverted;
 }
 
 @property (nonatomic, assign, getter=isInverted) BOOL inverted;
 
 - (CBCellBoolean*) applyInverted:(BOOL) inverted;
+- (void) setEnabled:(BOOL)enabled;
+- (void) setWorking:(BOOL)working;
 
 @end
