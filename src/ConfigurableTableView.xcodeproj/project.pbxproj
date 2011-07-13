@@ -571,7 +571,8 @@
 				GCC_PREFIX_HEADER = ConfigurableTableView_Prefix.pch;
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				PRODUCT_NAME = CBConfigurableTableView;
-				PUBLIC_HEADERS_FOLDER_PATH = "/usr/local/include/$(PRODUCT_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "../../public_headers/$(PRODUCT_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -586,7 +587,8 @@
 				GCC_PREFIX_HEADER = ConfigurableTableView_Prefix.pch;
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				PRODUCT_NAME = CBConfigurableTableView;
-				PUBLIC_HEADERS_FOLDER_PATH = "/usr/local/include/$(PRODUCT_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "../../public_headers/$(PRODUCT_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
