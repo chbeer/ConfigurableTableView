@@ -152,8 +152,10 @@
         } else {
             return v.frame.size.height;
         }
-    } 
-    return [tableView sectionHeaderHeight] + (tableView.style == UITableViewStyleGrouped ? 20 : 0);
+    } else if ([[self tableView:tableView titleForHeaderInSection:section] length] > 0) {
+        return [tableView sectionHeaderHeight] + (tableView.style == UITableViewStyleGrouped ? 20 : 0);
+    }
+    return 0;
 }
 
 - (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
