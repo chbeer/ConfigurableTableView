@@ -15,17 +15,19 @@
 	if (self = [super init]) {
 		_target = target;
         _selector = selector;
+        
+        _inline = NO;
 	}
 	return self;
 }
 
-+ (CBEditorTargetAction*) editorWithTarget:(id)target action:(SEL)selector {
++ (id) editorWithTarget:(id)target action:(SEL)selector {
 	CBEditorTargetAction *editor = [[[self class] alloc] initWithTarget:target action:selector];
 	return [editor autorelease];
 }
 
 - (BOOL) isInline {
-    return NO;
+    return _inline;
 }
 
 - (void) cell:(CBCell*)cell didSetupTableViewCell:(UITableViewCell*)tableViewCell withObject:(id)object inTableView:(UITableView*)tableView {
@@ -34,6 +36,12 @@
 
 - (void) openEditorForCell:(CBCell*)cell inController:(CBConfigurableTableViewController*)ctrl {
 	[_target performSelector:_selector];
+}
+
+- (id) applyHasDisclosureIndicator:(BOOL)hasDisclosureIndicator;
+{
+    _inline = !hasDisclosureIndicator;
+    return self;
 }
 
 @end

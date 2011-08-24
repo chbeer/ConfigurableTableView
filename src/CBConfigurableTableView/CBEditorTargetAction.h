@@ -12,8 +12,12 @@
 @interface CBEditorTargetAction : CBEditor {
     id _target;
     SEL _selector;
+    
+    BOOL _inline;
 }
 
-+ (CBEditorTargetAction*) editorWithTarget:(id)target action:(SEL)selector;
++ (id) editorWithTarget:(id)target action:(SEL)selector;
+
+- (id) applyHasDisclosureIndicator:(BOOL)hasDisclosureIndicator;
 
 @end
