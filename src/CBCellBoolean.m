@@ -85,6 +85,12 @@
 {
     _switch.enabled = enabled;
 }
+- (CBCellBoolean*) applyEnabled:(BOOL)enabled;
+{
+    [self setEnabled:enabled];
+    return self;
+}
+
 - (void) setWorking:(BOOL)working
 {
     _switch.hidden = working;
@@ -93,11 +99,7 @@
     } else {
         _activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [_activityView sizeToFit];
-        CGRect switchFrame = _switch.frame;
-        CGRect activityFrame = _activityView.bounds;
-        activityFrame.origin.x = switchFrame.origin.x + switchFrame.size.width - activityFrame.size.width;
-        activityFrame.origin.y = switchFrame.origin.y;
-        _activityView.frame = activityFrame;
+        _activityView.center = _switch.center;
         [_activityView startAnimating];
         [_switch.superview addSubview:_activityView];
         [_activityView release];

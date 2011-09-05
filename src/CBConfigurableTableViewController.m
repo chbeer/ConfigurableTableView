@@ -65,13 +65,17 @@
 - (void) viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
     
-    [self addKeyboardObservers]; 
+    if (!CBCTVIsIPad()) {
+        [self addKeyboardObservers]; 
+    }
 }
 
 - (void) viewDidDisappear:(BOOL)animated {
 	[super viewDidDisappear:animated];
     
-    [self removeKeyboardObservers];
+    if (!CBCTVIsIPad()) {
+        [self removeKeyboardObservers];
+    }
 }
 
 - (void) setEditing:(BOOL)editing animated:(BOOL)animated {
