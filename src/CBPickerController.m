@@ -28,7 +28,7 @@
 																				   target:self action:@selector(cancel:)];
 		UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
 																				target:NULL action:NULL];
-		UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave
+		UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
 																				 target:self action:@selector(done:)];
 		
 		[_toolbar setItems:[NSArray arrayWithObjects:cancelBtn, spacer, doneBtn, nil] animated:NO];
