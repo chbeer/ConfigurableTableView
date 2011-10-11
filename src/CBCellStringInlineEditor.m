@@ -184,7 +184,7 @@
 }
 
 - (BOOL) hasEditor {
-    return YES;
+    return NO;
 }
 
 // hack for iOS 3 in work! Doesn't work by now!

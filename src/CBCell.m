@@ -134,7 +134,7 @@
 - (void) setupCell:(UITableViewCell*)cell withObject:(NSObject*)object inTableView:(UITableView*)tableView {
 	cell.textLabel.text = _title;
 
-    if ([self hasEditor] && _editor) {
+    if ([self hasEditor]) {
         if (![_editor isInline]) {
             cell.selectionStyle = UITableViewCellSelectionStyleBlue;
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
