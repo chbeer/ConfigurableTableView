@@ -144,6 +144,10 @@
             cell.accessoryType = UITableViewCellAccessoryNone;
             cell.editingAccessoryType = UITableViewCellAccessoryNone;
         }
+    } else {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.editingAccessoryType = UITableViewCellAccessoryNone;
     }
     
     if (_iconName) {
