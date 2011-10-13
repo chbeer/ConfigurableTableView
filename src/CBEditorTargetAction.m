@@ -35,7 +35,8 @@
 }
 
 - (void) openEditorForCell:(CBCell*)cell inController:(CBConfigurableTableViewController*)ctrl {
-	[_target performSelector:_selector];
+    [[UIApplication sharedApplication] sendAction:_selector to:_target from:cell
+                                         forEvent:nil]; 
 }
 
 - (id) applyHasDisclosureIndicator:(BOOL)hasDisclosureIndicator;
