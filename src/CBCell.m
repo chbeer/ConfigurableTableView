@@ -135,7 +135,7 @@
 	cell.textLabel.text = _title;
 
     if ([self hasEditor]) {
-        if (![_editor isInline]) {
+        if (![self isEditorInline]) {
             cell.selectionStyle = UITableViewCellSelectionStyleBlue;
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.editingAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -178,6 +178,10 @@
 - (BOOL) hasEditor {
 	return _editor != NULL;
 }
+- (BOOL) isEditorInline {
+    return [_editor isInline];
+}
+
 - (void) openEditorInController:(CBConfigurableTableViewController*)controller {
 	[_editor openEditorForCell:self inController:controller];
 }

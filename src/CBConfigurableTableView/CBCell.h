@@ -29,6 +29,7 @@
 - (CGFloat) heightForCellInTableView:(UITableView*)tableView withObject:(NSObject*)object;
 
 - (BOOL) hasEditor;
+- (BOOL) isEditorInline;
 - (void) openEditorInController:(CBConfigurableTableViewController*)controller;
 - (void) setEditor:(CBEditor*)editor;
 

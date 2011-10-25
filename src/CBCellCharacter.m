@@ -34,6 +34,10 @@
     return YES;
 }
 
+- (BOOL) isEditorInline {
+    return YES;
+}
+
 - (void) openEditorInController:(CBConfigurableTableViewController *)controller {
     [controller.tableView scrollToRowAtIndexPath:[controller.model indexPathOfCell:self]
                                 atScrollPosition:UITableViewScrollPositionMiddle
