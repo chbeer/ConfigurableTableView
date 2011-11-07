@@ -27,65 +27,63 @@
 
 
 - (id) initWithStyle:(UITableViewStyle)style {
-	if (self = [super init]) {
-		_tableView = [[UITableView alloc] initWithFrame:CGRectZero style:style];
-		_tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-		_tableView.dataSource = self;
-		_tableView.delegate = self;
-        _tableView.allowsSelectionDuringEditing = YES;
-		[self.view addSubview:_tableView];
-        [_tableView release];
+	self = [super initWithStyle:style];
+    if (!self) return nil;
         
-        _addAnimation = UITableViewRowAnimationNone;
-        _removeAnimation = UITableViewRowAnimationNone; 
-        _reloadAnimation = UITableViewRowAnimationNone;
-		
-	}
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.allowsSelectionDuringEditing = YES;
+    
 	return self;
 }
-- (id)initWithTableModel:(CBTable*)model andData:(NSObject*)object {
-	if (self = [self initWithStyle:UITableViewStyleGrouped]) {
-		_model = [model retain];
-		_model.delegate = self;
-		
-		_data = [object retain];
-	}
-	return self;
-}
-- (id)initWithTableModel:(CBTable*)model {
-    if (self = [self initWithTableModel:model andData:NULL]) {
-    }
+- (id)initWithCoder:(NSCoder *)coder {
+    self = [super initWithCoder:coder];
+    if (!self) return nil;
+
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
     return self;
 }
 
+- (id)initWithTableModel:(CBTable*)model andData:(NSObject*)object {
+	self = [self initWithStyle:UITableViewStyleGrouped];
+    if (!self) return nil;
+    
+    _model = [model retain];
+    _model.delegate = self;
+    
+    _data = [object retain];
+	
+    return self;
+}
+- (id)initWithTableModel:(CBTable*)model {
+    return [self initWithTableModel:model andData:nil];
+}
+
 - (void) viewDidLoad {
-	_tableView.frame = self.view.bounds;
+    [super viewDidLoad];
+    
+    _addAnimation = UITableViewRowAnimationNone;
+    _removeAnimation = UITableViewRowAnimationNone; 
+    _reloadAnimation = UITableViewRowAnimationNone;
 }
 
 - (void) viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
     
-    if (!CBCTVIsIPad()) {
+/*    if (!CBCTVIsIPad()) {
         [self addKeyboardObservers]; 
-    }
+    }*/
 }
 
 - (void) viewDidDisappear:(BOOL)animated {
 	[super viewDidDisappear:animated];
     
-    if (!CBCTVIsIPad()) {
+/*    if (!CBCTVIsIPad()) {
         [self removeKeyboardObservers];
-    }
+    }*/
 }
-
-- (void) setEditing:(BOOL)editing animated:(BOOL)animated {
-    [super setEditing:editing 
-             animated:animated];
-    
-    [_tableView setEditing:editing 
-                  animated:animated];
-}
-
 
 - (void)dealloc {
 	[_model release];
