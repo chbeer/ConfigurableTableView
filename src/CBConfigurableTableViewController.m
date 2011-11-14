@@ -17,8 +17,6 @@
 
 @implementation CBConfigurableTableViewController
 
-@synthesize tableView = _tableView;
-
 @dynamic model;
 @dynamic data;
 
@@ -40,9 +38,6 @@
     self = [super initWithCoder:coder];
     if (!self) return nil;
 
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
-    
     return self;
 }
 
@@ -317,7 +312,7 @@
 	[UIView setAnimationCurve:[[notif.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] intValue]];
 	[UIView setAnimationDuration:[[notif.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
 	
-	CGRect frame = _tableView.frame;
+	CGRect frame = self.tableView.frame;
     
     CGFloat heightDifference = 0.0;
     if (CBCTVIsIPad() && UIKeyboardFrameEndUserInfoKey != nil) {
@@ -342,7 +337,7 @@
 
 	frame.size.height -= heightDifference;
     
-	_tableView.frame = frame;
+	self.tableView.frame = frame;
     
 	[UIView commitAnimations];
     
@@ -359,7 +354,7 @@
 	[UIView setAnimationCurve:[[notif.userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] intValue]];
 	[UIView setAnimationDuration:[[notif.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue]];
 	
-    _tableView.frame = self.view.bounds;
+    self.tableView.frame = self.view.bounds;
     
 	[UIView commitAnimations];
     
