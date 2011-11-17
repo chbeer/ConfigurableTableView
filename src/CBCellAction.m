@@ -39,13 +39,18 @@
 													reuseIdentifier:[self reuseIdentifier]];
 	cell.textLabel.textColor = [UIColor blueColor];
 	cell.textLabel.textAlignment = UITextAlignmentCenter;
-	cell.textLabel.font = [UIFont systemFontOfSize:14];
+	cell.textLabel.font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize] + 4];
 	
 	return [cell autorelease];
 }
 
 - (BOOL) hasEditor {
 	return _target != nil;
+}
+
+- (BOOL)isEditorInline
+{
+    return YES;
 }
 
 - (void) openEditorInController:(CBConfigurableTableViewController *)controller {

@@ -57,13 +57,13 @@
 }
 
 - (void) switchChanged:(id)sender {
-	if (_object && _valueKeyPath) {
+	if (_object && self.valueKeyPath) {
         BOOL value = _switch.on;
         if (_inverted) {
             value = !value;
         }
 		[_object setValue:[NSNumber numberWithBool:value] 
-               forKeyPath:_valueKeyPath];
+               forKeyPath:self.valueKeyPath];
 	}
 }
 

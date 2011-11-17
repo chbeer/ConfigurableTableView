@@ -15,8 +15,8 @@
 - (id) initWithTitle:(NSString*)title andValuePath:(NSString*)valuePath andPickerOptions:(NSArray*)options {
 	if (self = [super initWithTitle:title andValuePath:valuePath]) {
         
-		_style = title ? UITableViewCellStyleValue1 : UITableViewCellStyleDefault;
-		_multiline = NO;
+		self.style = title ? UITableViewCellStyleValue1 : UITableViewCellStyleDefault;
+		self.multiline = NO;
 		
 		NSMutableDictionary *d = [[NSMutableDictionary alloc] init];
 		for (CBPickerOption *o in options) {

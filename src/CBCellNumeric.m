@@ -17,6 +17,8 @@
 	if (self = [super initWithTitle:title]) {
 		_numberFormatter = [[NSNumberFormatter alloc] init];
 		[_numberFormatter setGeneratesDecimalNumbers:NO];
+        
+        self.style = UITableViewCellStyleValue1;
 	}
 	return self;
 }
@@ -31,10 +33,6 @@
 
 - (NSString*) reuseIdentifier {
 	return @"CBCellNumeric";
-}
-
-- (UITableViewCellStyle) tableViewCellStyle {
-    return UITableViewCellStyleValue1;
 }
 
 - (void) setValue:(id)value ofCell:(UITableViewCell*)cell inTableView:(UITableView*)tableView {

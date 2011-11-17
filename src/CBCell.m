@@ -18,6 +18,7 @@
 @synthesize section = _section;
 
 @synthesize tag = _tag;
+@synthesize style = _style;
 
 @synthesize title = _title;
 @synthesize valueKeyPath = _valueKeyPath;
@@ -28,6 +29,7 @@
 - (id) initWithTitle:(NSString*)title {
 	if (self = [super init]) {
 		_title = [title copy];
+        _style = UITableViewCellStyleDefault;
 	}
 	return self;
 }
@@ -76,6 +78,11 @@
     self.tag = tag;
     return self;
 }
+- (id) applyStyle:(UITableViewCellStyle)style;
+{
+    self.style = style;
+    return self;
+}
 
 - (void) dealloc {
     [_tag release], _tag = nil;
@@ -109,7 +116,7 @@
 }
 
 - (UITableViewCellStyle) tableViewCellStyle {
-    return UITableViewCellStyleDefault;
+    return self.style;
 }
 
 - (UITableViewCell*) createTableViewCellForTableView:(UITableView*)tableView {
