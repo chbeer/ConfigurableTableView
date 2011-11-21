@@ -30,6 +30,7 @@
 
 - (BOOL) hasEditor;
 - (BOOL) isEditorInline;
+- (void) openEditorInController:(CBConfigurableTableViewController*)controller fromTableViewCell:(UITableViewCell*)cell;
 - (void) openEditorInController:(CBConfigurableTableViewController*)controller;
 - (void) setEditor:(CBEditor*)editor;
 

@@ -37,26 +37,27 @@
 - (UITableViewCell*) createTableViewCellForTableView:(UITableView*)tableView {
 	UITableViewCell *cell =  [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
 													reuseIdentifier:[self reuseIdentifier]];
-	cell.textLabel.textColor = [UIColor blueColor];
 	cell.textLabel.textAlignment = UITextAlignmentCenter;
 	cell.textLabel.font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize] + 4];
 	
 	return [cell autorelease];
 }
-
-- (BOOL) hasEditor {
-	return _target != nil;
+- (void)setupCell:(UITableViewCell *)cell withObject:(NSObject *)object inTableView:(UITableView *)tableView
+{
+    [super setupCell:cell withObject:object inTableView:tableView];
+    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
 }
 
+- (BOOL) hasEditor {
+	return YES;
+}
 - (BOOL)isEditorInline
 {
     return YES;
 }
 
 - (void) openEditorInController:(CBConfigurableTableViewController *)controller {
-	if (_target) {
-		[_target performSelector:_action withObject:self];
-	}
+    [[UIApplication sharedApplication] sendAction:self.action to:self.target from:self forEvent:nil];
 }
 
 @end

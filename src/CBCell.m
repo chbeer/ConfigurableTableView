@@ -192,6 +192,9 @@
 - (void) openEditorInController:(CBConfigurableTableViewController*)controller {
 	[_editor openEditorForCell:self inController:controller];
 }
+- (void) openEditorInController:(CBConfigurableTableViewController*)controller fromTableViewCell:(UITableViewCell *)cell {
+    [self openEditorInController:controller];
+}
 - (void) setEditor:(CBEditor*)editor {
 	if (_editor != editor) {
 		[_editor release];
