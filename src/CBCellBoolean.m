@@ -15,10 +15,6 @@
 
 #pragma mark CBCell protocol
 
-- (NSString*) reuseIdentifier {
-	return @"CBCellBoolean";
-}
-
 - (UITableViewCell*) createTableViewCellForTableView:(UITableView*)tableView {
 	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
 								  reuseIdentifier:[self reuseIdentifier]];

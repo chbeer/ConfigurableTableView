@@ -11,10 +11,6 @@
 
 @implementation CBCellPassword
 
-- (NSString*) reuseIdentifier {
-	return @"CBCellPassword";
-}
-
 - (void) setValue:(id)value ofCell:(UITableViewCell*)cell inTableView:(UITableView*)tableView {
 	if (value && [value length] > 0) {
 		cell.detailTextLabel.text = @"•••••••";

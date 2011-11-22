@@ -109,10 +109,9 @@
 
 #pragma mark CBCell protocol
 
-/* Override! */
 - (NSString*) reuseIdentifier {
-	NSLog(@"!!! you must override reuseIdentifier in sub-cell !!!");
-	return @"CBCell";
+    // return different reuse identifier for different cell styles.
+	return [NSString stringWithFormat:@"%@_%d", NSStringFromClass([self class]), self.style];
 }
 
 - (UITableViewCellStyle) tableViewCellStyle {

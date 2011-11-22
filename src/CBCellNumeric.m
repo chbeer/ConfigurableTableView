@@ -31,10 +31,6 @@
 
 #pragma mark CBCell protocol
 
-- (NSString*) reuseIdentifier {
-	return @"CBCellNumeric";
-}
-
 - (void) setValue:(id)value ofCell:(UITableViewCell*)cell inTableView:(UITableView*)tableView {
 	if (value && [value isKindOfClass:[NSNumber class]]) {
 		cell.detailTextLabel.text = [_numberFormatter stringFromNumber:(NSNumber*)value];

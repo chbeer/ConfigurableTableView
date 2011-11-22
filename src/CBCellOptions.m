@@ -60,10 +60,6 @@
 
 #pragma mark CBCell protocol
 
-- (NSString*) reuseIdentifier {
-	return @"CBCellOptions";
-}
-
 - (void) setValue:(id)value 
 		   ofCell:(UITableViewCell*)cell
 	  inTableView:(UITableView*)tableView {

@@ -34,10 +34,6 @@
 
 #pragma mark CBCell protocol
 
-- (NSString*) reuseIdentifier {
-	return @"CBCellImage";
-}
-
 - (UITableViewCell*) createTableViewCellForTableView:(UITableView*)tableView {
 	CBTableViewCellImage *cell = [[CBTableViewCellImage alloc] initWithStyle:UITableViewCellStyleDefault
                                                              reuseIdentifier:[self reuseIdentifier]];

@@ -66,7 +66,7 @@
     if (_font) {
         reuseId = [reuseId stringByAppendingFormat:@"%x", [[_font description] hash]];
     }
-    return reuseId;
+    return [reuseId stringByAppendingFormat:@"_%d", self.style];
 }
 
 - (UITableViewCell*) createTableViewCellForTableView:(UITableView*)tableView {
