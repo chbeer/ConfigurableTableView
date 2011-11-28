@@ -153,7 +153,7 @@
             return v.frame.size.height;
         }
     } else if ([[self tableView:tableView titleForHeaderInSection:section] length] > 0) {
-        return [tableView sectionHeaderHeight] + (tableView.style == UITableViewStyleGrouped ? 20 : 0);
+        return [tableView sectionHeaderHeight] + (tableView.style == UITableViewStyleGrouped ? 24 : 0);
     }
     return 0;
 }
@@ -173,8 +173,13 @@
     CBSection *sect = [_model sectionAtIndex:section];
     if (sect.footerView) {
         return sect.footerView.bounds.size.height;
-    } else if (sect.footerTitle) {
-        return 24.0;
+    } else if ([sect.footerTitle length] > 0) {
+        CGFloat width = tableView.bounds.size.width;
+        CGSize constrain = CGSizeMake(width > 400 ? width - 120 : width - 40, 1000);
+        CGSize size = [sect.footerTitle sizeWithFont:[UIFont systemFontOfSize:16]
+                                   constrainedToSize:constrain 
+                                       lineBreakMode:UILineBreakModeWordWrap];
+        return size.height + 10;
     } else {
         return 0.0;
     }
