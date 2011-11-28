@@ -10,14 +10,8 @@
 
 #import "CBCell.h"
 
-@interface CBCellString : CBCell {
-	UITableViewCellStyle _style;
-	
-	BOOL _multiline;
-	UIFont *_font;
-}
+@interface CBCellString : CBCell 
 
-@property (nonatomic, assign) UITableViewCellStyle style;
 @property (nonatomic, assign) BOOL multiline;
 @property (nonatomic, retain) UIFont *font;
 

@@ -113,6 +113,9 @@
 - (NSUInteger) indexOfCell:(CBCell*)cell {
 	return [_cells indexOfObject:cell];
 }
+- (NSUInteger) indexOfCellWithTag:(NSString*)tag {
+	return [_cells indexOfObject:[self cellWithTag:tag]];
+}
 
 - (id) addCell:(CBCell*)cell {
 	cell.section = self;

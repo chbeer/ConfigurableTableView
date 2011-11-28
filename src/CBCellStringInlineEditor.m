@@ -71,7 +71,7 @@
 
 - (UITableViewCell*) createTextView {
     CBTextViewTableViewCell *cell = [[CBTextViewTableViewCell alloc] initWithReuseIdentifier:[self reuseIdentifier] 
-                                                                                   andLabel:_title];
+                                                                                   andLabel:self.title];
     _textViewCell = cell;
     return cell;
 }
@@ -83,7 +83,7 @@
 		cell = _textViewCell;
 	} else {
 		cell = [[[CBTextFieldTableViewCell alloc] initWithReuseIdentifier:[self reuseIdentifier] 
-                                                                 andLabel:_title] autorelease];
+                                                                 andLabel:self.title] autorelease];
 	}
     
 	return cell;
@@ -127,7 +127,7 @@
 						  withObject:(NSObject*)object {
 	CGFloat height = 44;
 	
-	if (_valueKeyPath && object && _multiline && _textViewCell) {
+	if (self.valueKeyPath && object && self.multiline && _textViewCell) {
         
         if (tableView.editing && !CBIsIOSVersionGreaterEqual(4, 0)) {
             
@@ -135,7 +135,7 @@
             
         } else {
         
-            NSString *text = [object valueForKeyPath:_valueKeyPath];
+            NSString *text = [object valueForKeyPath:self.valueKeyPath];
             if (!_textViewCell.textView.text || ![_textViewCell.textView.text isEqual:text]) {
                 
                 CGFloat paddingLeft = 0.0;
@@ -184,7 +184,7 @@
 }
 
 - (BOOL) hasEditor {
-    return YES;
+    return NO;
 }
 
 // hack for iOS 3 in work! Doesn't work by now!
@@ -211,17 +211,17 @@
 
 - (void) textViewTableViewCellDidBeginEditing:(CBTextViewTableViewCell *)cell {
     if (CBIsIOSVersionGreaterEqual(4, 0)) {
-        NSIndexPath *indexPath = [_controller.model indexPathOfCell:self];
-        [_controller.tableView scrollToRowAtIndexPath:indexPath 
-                                     atScrollPosition:UITableViewScrollPositionTop
-                                             animated:YES];
+        NSIndexPath *indexPath = [self.controller.model indexPathOfCell:self];
+        [self.controller.tableView scrollToRowAtIndexPath:indexPath 
+                                         atScrollPosition:UITableViewScrollPositionTop
+                                                 animated:YES];
     }
 }
 
 - (void) textViewTableViewCell:(CBTextViewTableViewCell *)cell didChangeTextTo:(NSString *)text {
     if (CBIsIOSVersionGreaterEqual(4, 0) && _currentTextViewHeight != cell.textView.contentSize.height) {
-        [_controller.tableView beginUpdates];
-        [_controller.tableView endUpdates];
+        [self.controller.tableView beginUpdates];
+        [self.controller.tableView endUpdates];
     }
 }
 

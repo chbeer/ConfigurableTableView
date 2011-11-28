@@ -13,12 +13,25 @@
 
 @synthesize value = _value;
 @synthesize label = _label;
+@synthesize iconName = _iconName;
 
-+ (CBPickerOption*) optionWithValue:(NSObject*)value label:(NSString*)label {
+- (void)dealloc {
+    self.value = nil;
+    self.label = nil;
+    self.iconName = nil;
+    
+    [super dealloc];
+}
+
++ (CBPickerOption*) optionWithValue:(NSObject*)value label:(NSString*)label iconName:(NSString *)iconName {
 	CBPickerOption *o = [[CBPickerOption alloc] init];
 	o.value = value;
 	o.label = label;
+    o.iconName = iconName;
 	return [o autorelease];
+}
++ (CBPickerOption*) optionWithValue:(NSObject*)value label:(NSString*)label {
+	return [self optionWithValue:value label:label iconName:nil];
 }
 
 + (NSArray*) arrayWithPickerOptionsValuesAndLabels:(NSObject*)firstValue, ... {
@@ -43,4 +56,7 @@
 
 CBPickerOption* CBPickerOptionMake(NSObject *value, NSString *label) {
     return [CBPickerOption optionWithValue:value label:label];
+}
+CBPickerOption* CBPickerOptionMakeWithIcon(NSObject *value, NSString *label, NSString *iconName) {
+    return [CBPickerOption optionWithValue:value label:label iconName:iconName];
 }

@@ -29,33 +29,24 @@
 - (CGFloat) heightForCellInTableView:(UITableView*)tableView withObject:(NSObject*)object;
 
 - (BOOL) hasEditor;
+- (BOOL) isEditorInline;
+- (void) openEditorInController:(CBConfigurableTableViewController*)controller fromTableViewCell:(UITableViewCell*)cell;
 - (void) openEditorInController:(CBConfigurableTableViewController*)controller;
 - (void) setEditor:(CBEditor*)editor;
 
 @end
 
 
-@interface CBCell : NSObject <CBCell> {
-	CBConfigurableTableViewController *_controller;
-    CBSection *_section;	
-    
-    NSString *_tag;
-	
-	NSString *_title;
-	NSString *_valueKeyPath;
-	
-	CBEditor *_editor;
-    
-    NSString *_iconName;
-}
+@interface CBCell : NSObject <CBCell>
 
 @property (nonatomic, assign) CBConfigurableTableViewController *controller;
 @property (nonatomic, assign) CBSection* section;
 
+@property (nonatomic, assign) UITableViewCellStyle style;
 @property (nonatomic, copy) NSString *tag;
 
-@property (readonly) NSString *title;
-@property (readonly) NSString *valueKeyPath;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *valueKeyPath;
 
 @property (readonly) NSString *reuseIdentifier;
 
@@ -73,6 +64,7 @@
 - (id) applyTag:(NSString *)tag;
 - (id) applyEditor:(CBEditor *)editor;
 - (id) applyIconName:(NSString*)iconName;
+- (id) applyStyle:(UITableViewCellStyle)style;
 
 @end
 

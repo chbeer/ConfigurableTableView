@@ -13,22 +13,21 @@
 
 @implementation CBCellString
 
-@synthesize style = _style;
 @synthesize multiline = _multiline;
 @synthesize font = _font;
 
 
 - (id) initWithTitle:(NSString*)title {
 	if (self = [super initWithTitle:title]) {
-		_style = title ? UITableViewCellStyleValue1 : UITableViewCellStyleDefault;
-		_multiline = NO;
+		self.style = title ? UITableViewCellStyleValue1 : UITableViewCellStyleDefault;
+		self.multiline = NO;
 	}
 	return self;
 }
 - (id) initWithTitle:(NSString*)title 
         andValuePath:(NSString*)valueKeyPath {
 	if (self = [self initWithTitle:title]) {
-		_valueKeyPath = [valueKeyPath copy];
+		self.valueKeyPath = valueKeyPath;
         
         if (title && !valueKeyPath) {
             self.style = UITableViewCellStyleDefault;
@@ -67,17 +66,17 @@
     if (_font) {
         reuseId = [reuseId stringByAppendingFormat:@"%x", [[_font description] hash]];
     }
-    return reuseId;
+    return [reuseId stringByAppendingFormat:@"_%d", self.style];
 }
 
 - (UITableViewCell*) createTableViewCellForTableView:(UITableView*)tableView {
 	UITableViewCell *cell = nil;
 	
 	if (_multiline) {
-		cell = [[CBMultilineTableViewCell alloc] initWithStyle:_style
+		cell = [[CBMultilineTableViewCell alloc] initWithStyle:self.style
 											   reuseIdentifier:[self reuseIdentifier]];
 	} else {
-		cell = [[UITableViewCell alloc] initWithStyle:_style
+		cell = [[UITableViewCell alloc] initWithStyle:self.style
 									  reuseIdentifier:[self reuseIdentifier]];
 	}
 	
@@ -99,7 +98,7 @@
 - (void) setValue:(id)value 
 		   ofCell:(UITableViewCell*)cell
 	  inTableView:(UITableView*)tableView {
-    if(_style == UITableViewCellStyleDefault && !_title) {
+    if(self.style == UITableViewCellStyleDefault && !self.title) {
         cell.textLabel.text = value ? [NSString stringWithFormat:@"%@", value] : @"";
     } else {
         cell.detailTextLabel.text = value ? [NSString stringWithFormat:@"%@", value] : @"";
@@ -128,8 +127,8 @@
 	
 	if (_multiline) {
         NSString *text = nil;
-        if (_valueKeyPath && object) {
-            text = [object valueForKeyPath:_valueKeyPath];
+        if (self.valueKeyPath && object) {
+            text = [object valueForKeyPath:self.valueKeyPath];
         } else {
             text = self.title;
         }

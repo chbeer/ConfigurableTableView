@@ -34,10 +34,6 @@
 
 #pragma mark CBCell protocol
 
-- (NSString*) reuseIdentifier {
-	return @"CBCellImage";
-}
-
 - (UITableViewCell*) createTableViewCellForTableView:(UITableView*)tableView {
 	CBTableViewCellImage *cell = [[CBTableViewCellImage alloc] initWithStyle:UITableViewCellStyleDefault
                                                              reuseIdentifier:[self reuseIdentifier]];
@@ -82,8 +78,8 @@
     CGFloat height = 44;
     
     CGFloat imgHeight = 0;
-    if (object && _valueKeyPath) {
-        UIImage *img = [object valueForKeyPath:_valueKeyPath];
+    if (object && self.valueKeyPath) {
+        UIImage *img = [object valueForKeyPath:self.valueKeyPath];
         
         if (img) {
             CGSize destSize = CGSizeMake(tableView.frame.size.width - 20, 44);

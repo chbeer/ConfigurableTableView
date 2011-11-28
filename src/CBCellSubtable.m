@@ -66,7 +66,7 @@
 - (void) setupCell:(UITableViewCell*)cell withObject:(NSObject*)object inTableView:(UITableView*)tableView {
     [super setupCell:cell withObject:object inTableView:tableView];
     
-	cell.textLabel.text = _title;
+	cell.textLabel.text = self.title;
 
 	cell.selectionStyle = UITableViewCellSelectionStyleBlue;
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;

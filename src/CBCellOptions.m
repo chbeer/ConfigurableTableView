@@ -14,13 +14,13 @@
 
 - (id) initWithTitle:(NSString*)title andValuePath:(NSString*)valuePath andPickerOptions:(NSArray*)options {
 	if (self = [super initWithTitle:title andValuePath:valuePath]) {
-		_style = UITableViewCellStyleValue1;
-		_multiline = NO;
-		
+        
+		self.style = title ? UITableViewCellStyleValue1 : UITableViewCellStyleDefault;
+		self.multiline = NO;
 		
 		NSMutableDictionary *d = [[NSMutableDictionary alloc] init];
 		for (CBPickerOption *o in options) {
-			[d setObject:o.label forKey:o.value];
+			[d setObject:o forKey:o.value];
 		}
 		_options = d;
 	}
@@ -60,10 +60,6 @@
 
 #pragma mark CBCell protocol
 
-- (NSString*) reuseIdentifier {
-	return @"CBCellOptions";
-}
-
 - (void) setValue:(id)value 
 		   ofCell:(UITableViewCell*)cell
 	  inTableView:(UITableView*)tableView {
@@ -72,7 +68,19 @@
         value = [_options objectForKey:_defaultValue];
     }
 	
-	[super setValue:value ofCell:cell inTableView:tableView];
+    if (![value isKindOfClass:[CBPickerOption class]]) {
+        [super setValue:value ofCell:cell inTableView:tableView];
+    } else {
+        CBPickerOption *option = value;
+        [super setValue:option.label ofCell:cell inTableView:tableView];
+        
+        if (option.iconName) {
+            cell.imageView.image = [UIImage imageNamed:option.iconName];
+        } else {
+            cell.imageView.image = nil;
+        }
+    }
+    
 }
 
 @end

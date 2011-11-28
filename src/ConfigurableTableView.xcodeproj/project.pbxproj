@@ -573,8 +573,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ConfigurableTableView_Prefix.pch;
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = CBConfigurableTableView;
-				PUBLIC_HEADERS_FOLDER_PATH = "../../public_headers/$(PRODUCT_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(PRODUCT_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -593,7 +594,7 @@
 				GCC_PREFIX_HEADER = ConfigurableTableView_Prefix.pch;
 				INSTALL_PATH = "$(BUILT_PRODUCTS_DIR)";
 				PRODUCT_NAME = CBConfigurableTableView;
-				PUBLIC_HEADERS_FOLDER_PATH = "../../public_headers/$(PRODUCT_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(PRODUCT_NAME)";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -601,9 +602,9 @@
 		1DEB922308733DC00010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
@@ -615,8 +616,8 @@
 		1DEB922408733DC00010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1;

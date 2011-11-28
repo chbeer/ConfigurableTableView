@@ -29,10 +29,6 @@
 
 #pragma mark CBCell protocol
 
-- (NSString*) reuseIdentifier {
-	return @"CBCellDate";
-}
-
 - (UITableViewCellStyle) tableViewCellStyle {
     return UITableViewCellStyleValue1;
 }

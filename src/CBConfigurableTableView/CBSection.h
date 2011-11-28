@@ -62,6 +62,7 @@
 - (NSInteger) cellCount;
 - (id) cellAtIndex:(NSUInteger)idx;
 - (NSUInteger) indexOfCell:(CBCell*)cell;
+- (NSUInteger) indexOfCellWithTag:(NSString*)tag;
 - (id) addCell:(CBCell*)cell;
 - (id) insertCell:(CBCell*)cell atIndex:(NSUInteger)index;
 - (void) addCells:(CBCell*)cell, ...NS_REQUIRES_NIL_TERMINATION;

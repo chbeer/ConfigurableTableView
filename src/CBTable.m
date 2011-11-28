@@ -68,7 +68,7 @@
 	return _sections.count;
 }
 
-- (CBSection*) sectionAtIndex:(NSUInteger)index {
+- (id) sectionAtIndex:(NSUInteger)index {
 	return [_sections objectAtIndex:index];
 }
 
@@ -79,7 +79,7 @@
     return [self indexOfSection:[self sectionWithTag:tag]];
 }
 
-- (CBSection*) addSection:(CBSection*)section {
+- (id) addSection:(CBSection*)section {
 	section.table = self;
 	[_sections addObject:section];
 	
@@ -90,7 +90,7 @@
 	return section;
 }
 
-- (CBSection*) insertSection:(CBSection*)section atIndex:(NSUInteger)index {
+- (id) insertSection:(CBSection*)section atIndex:(NSUInteger)index {
 	section.table = self;
 	[_sections insertObject:section atIndex:index];
 	
@@ -111,7 +111,7 @@
 
 - (void) addSectionsVargs:(va_list)args {
 	CBSection *s;
-    while (s = va_arg(args, CBSection *)) {
+    while ((s = va_arg(args, CBSection *))) {
         [self addSection:s];
     }
 	va_end(args);
@@ -132,7 +132,7 @@
 	return [[_sections copy] autorelease];
 }
 
-- (CBSection*) sectionWithTag:(NSString*)tag {
+- (id) sectionWithTag:(NSString*)tag {
     if (!tag || [@"" isEqual:tag]) return nil;
     
     // linear search since we are optimized for a small amount of sections
@@ -144,7 +144,7 @@
     
     return nil;
 }
-- (CBCell*) cellWithTag:(NSString*)tag {
+- (id) cellWithTag:(NSString*)tag {
     if (!tag || [@"" isEqual:tag]) return nil;
     
     // linear search since we are optimized for a small amount of sections

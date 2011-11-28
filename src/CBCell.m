@@ -18,6 +18,7 @@
 @synthesize section = _section;
 
 @synthesize tag = _tag;
+@synthesize style = _style;
 
 @synthesize title = _title;
 @synthesize valueKeyPath = _valueKeyPath;
@@ -28,6 +29,7 @@
 - (id) initWithTitle:(NSString*)title {
 	if (self = [super init]) {
 		_title = [title copy];
+        _style = UITableViewCellStyleDefault;
 	}
 	return self;
 }
@@ -76,6 +78,11 @@
     self.tag = tag;
     return self;
 }
+- (id) applyStyle:(UITableViewCellStyle)style;
+{
+    self.style = style;
+    return self;
+}
 
 - (void) dealloc {
     [_tag release], _tag = nil;
@@ -102,14 +109,13 @@
 
 #pragma mark CBCell protocol
 
-/* Override! */
 - (NSString*) reuseIdentifier {
-	NSLog(@"!!! you must override reuseIdentifier in sub-cell !!!");
-	return @"CBCell";
+    // return different reuse identifier for different cell styles.
+	return [NSString stringWithFormat:@"%@_%d", NSStringFromClass([self class]), self.style];
 }
 
 - (UITableViewCellStyle) tableViewCellStyle {
-    return UITableViewCellStyleDefault;
+    return self.style;
 }
 
 - (UITableViewCell*) createTableViewCellForTableView:(UITableView*)tableView {
@@ -134,8 +140,8 @@
 - (void) setupCell:(UITableViewCell*)cell withObject:(NSObject*)object inTableView:(UITableView*)tableView {
 	cell.textLabel.text = _title;
 
-    if ([self hasEditor] && _editor) {
-        if (![_editor isInline]) {
+    if ([self hasEditor]) {
+        if (![self isEditorInline]) {
             cell.selectionStyle = UITableViewCellSelectionStyleBlue;
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.editingAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -144,6 +150,10 @@
             cell.accessoryType = UITableViewCellAccessoryNone;
             cell.editingAccessoryType = UITableViewCellAccessoryNone;
         }
+    } else {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.editingAccessoryType = UITableViewCellAccessoryNone;
     }
     
     if (_iconName) {
@@ -174,8 +184,15 @@
 - (BOOL) hasEditor {
 	return _editor != NULL;
 }
+- (BOOL) isEditorInline {
+    return [_editor isInline];
+}
+
 - (void) openEditorInController:(CBConfigurableTableViewController*)controller {
 	[_editor openEditorForCell:self inController:controller];
+}
+- (void) openEditorInController:(CBConfigurableTableViewController*)controller fromTableViewCell:(UITableViewCell *)cell {
+    [self openEditorInController:controller];
 }
 - (void) setEditor:(CBEditor*)editor {
 	if (_editor != editor) {

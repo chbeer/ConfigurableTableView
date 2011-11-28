@@ -14,13 +14,13 @@
 	
 	NSDictionary *_options;
     
-    NSObject* _defaultValue;
+    id _defaultValue;
 
 }
 
 + (CBCellOptions*) cellWithTitle:(NSString*)title valuePath:(NSString*)valuePath pickerOptions:(NSArray*)options;
 + (CBCellOptions*) cellWithTitle:(NSString*)title valuePath:(NSString*)valuePath pickerOptions:(NSArray*)options editor:(CBEditor*)editor;
 
-- (CBCellOptions*) applyDefaultValue:(NSObject*) defaultValue;
+- (CBCellOptions*) applyDefaultValue:(id)defaultValue;
 
 @end

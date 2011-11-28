@@ -46,16 +46,16 @@
 + (CBTable*) tableWithSections:(CBSection*)section, ...NS_REQUIRES_NIL_TERMINATION;
 
 - (NSUInteger) sectionCount;
-- (CBSection*) sectionAtIndex:(NSUInteger)index;
+- (id) sectionAtIndex:(NSUInteger)index;
 - (NSUInteger) indexOfSection:(CBSection*)section;
 - (NSUInteger) indexOfSectionWithTag:(NSString*)tag;
-- (CBSection*) addSection:(CBSection*)section;
-- (CBSection*) insertSection:(CBSection*)section atIndex:(NSUInteger)index;
+- (id) addSection:(CBSection*)section;
+- (id) insertSection:(CBSection*)section atIndex:(NSUInteger)index;
 - (void) removeSection:(CBSection*)section;
 - (void) addSections:(CBSection*)section, ...NS_REQUIRES_NIL_TERMINATION;
 
-- (CBSection*) sectionWithTag:(NSString*)tag;
-- (CBCell*) cellWithTag:(NSString*)tag;
+- (id) sectionWithTag:(NSString*)tag;
+- (id) cellWithTag:(NSString*)tag;
 
 - (NSIndexPath*) indexPathOfCell:(CBCell*)cell;
 - (NSIndexPath*) indexPathOfCellWithTag:(NSString*)cellTag;
