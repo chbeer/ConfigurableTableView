@@ -37,6 +37,11 @@
 		AAA945E8110DA9C20045A98E /* CBImageEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA945E6110DA9C20045A98E /* CBImageEditorController.m */; };
 		AAA9466F110DB4FC0045A98E /* CBCTVGlobal.h in Headers */ = {isa = PBXBuildFile; fileRef = AAA9466D110DB4FC0045A98E /* CBCTVGlobal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AAA94670110DB4FC0045A98E /* CBCTVGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA9466E110DB4FC0045A98E /* CBCTVGlobal.m */; };
+		AABB397014879D4900A1AD86 /* CBCellNumericStepper.m in Sources */ = {isa = PBXBuildFile; fileRef = AABB396F14879D4900A1AD86 /* CBCellNumericStepper.m */; };
+		AABB397314879D5500A1AD86 /* CBCellNumericStepper.h in Sources */ = {isa = PBXBuildFile; fileRef = AABB397214879D5500A1AD86 /* CBCellNumericStepper.h */; };
+		AABB397614879F6700A1AD86 /* CBStepperCell.h in Sources */ = {isa = PBXBuildFile; fileRef = AABB397414879F6700A1AD86 /* CBStepperCell.h */; };
+		AABB397714879F6700A1AD86 /* CBStepperCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AABB397514879F6700A1AD86 /* CBStepperCell.m */; };
+		AABB39781487A15E00A1AD86 /* CBCellNumericStepper.h in Headers */ = {isa = PBXBuildFile; fileRef = AABB397214879D5500A1AD86 /* CBCellNumericStepper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		AAD1103511E4835100072707 /* CBCellCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD1103311E4835100072707 /* CBCellCharacter.m */; };
 		AAD1103911E4838200072707 /* CBCharacterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD1103711E4838200072707 /* CBCharacterTableViewCell.m */; };
@@ -128,6 +133,10 @@
 		AAA945E6110DA9C20045A98E /* CBImageEditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBImageEditorController.m; sourceTree = "<group>"; };
 		AAA9466D110DB4FC0045A98E /* CBCTVGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBCTVGlobal.h; path = CBConfigurableTableView/CBCTVGlobal.h; sourceTree = "<group>"; };
 		AAA9466E110DB4FC0045A98E /* CBCTVGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCTVGlobal.m; sourceTree = "<group>"; };
+		AABB396F14879D4900A1AD86 /* CBCellNumericStepper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCellNumericStepper.m; sourceTree = "<group>"; };
+		AABB397214879D5500A1AD86 /* CBCellNumericStepper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; name = CBCellNumericStepper.h; path = CBConfigurableTableView/CBCellNumericStepper.h; sourceTree = "<group>"; };
+		AABB397414879F6700A1AD86 /* CBStepperCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; path = CBStepperCell.h; sourceTree = "<group>"; };
+		AABB397514879F6700A1AD86 /* CBStepperCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBStepperCell.m; sourceTree = "<group>"; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AAD1103311E4835100072707 /* CBCellCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCellCharacter.m; sourceTree = "<group>"; };
 		AAD1103711E4838200072707 /* CBCharacterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCharacterTableViewCell.m; sourceTree = "<group>"; };
@@ -292,6 +301,8 @@
 				AAA1590810F4B66C0080D3B7 /* CBTextFieldTableViewCell.m */,
 				AADC279D11217F1300E71852 /* CBTextViewTableViewCell.h */,
 				AAA1590A10F4B66C0080D3B7 /* CBTextViewTableViewCell.m */,
+				AABB397414879F6700A1AD86 /* CBStepperCell.h */,
+				AABB397514879F6700A1AD86 /* CBStepperCell.m */,
 			);
 			name = TableViewCells;
 			sourceTree = "<group>";
@@ -327,6 +338,8 @@
 				AAD5CE6D10C9537C003D3A14 /* CBCellBoolean.m */,
 				AADC277111217DA100E71852 /* CBCellNumericSlider.h */,
 				AAD5CEF010C95C20003D3A14 /* CBCellNumericSlider.m */,
+				AABB397214879D5500A1AD86 /* CBCellNumericStepper.h */,
+				AABB396F14879D4900A1AD86 /* CBCellNumericStepper.m */,
 				AADC277411217DA100E71852 /* CBCellSubtable.h */,
 				AA99AFC510CD212E00538E1F /* CBCellSubtable.m */,
 				AADC277311217DA100E71852 /* CBCellPassword.h */,
@@ -448,6 +461,7 @@
 				AADC27A011217F1300E71852 /* CBTextViewTableViewCell.h in Headers */,
 				AADC27A111217F1300E71852 /* CBEditableTableViewCell.h in Headers */,
 				AADC28621121823000E71852 /* CBConfigurableTableView.h in Headers */,
+				AABB39781487A15E00A1AD86 /* CBCellNumericStepper.h in Headers */,
 				AADC28641121824300E71852 /* CBDatePickerController.h in Headers */,
 				AA6422071144FF100093A091 /* CBCellStringInlineEditor.h in Headers */,
 				AA0E4CB71381521300A2FCF0 /* CBConfigTableViewCell.h in Headers */,
@@ -551,6 +565,10 @@
 				AA96511E123B8E41005F9CF4 /* CBCellButtons.m in Sources */,
 				AAD27252129EBAF600ABEDF8 /* CBEditorTargetAction.m in Sources */,
 				AA99C6E013695528002C5386 /* CBEditorStringInline.m in Sources */,
+				AABB397014879D4900A1AD86 /* CBCellNumericStepper.m in Sources */,
+				AABB397314879D5500A1AD86 /* CBCellNumericStepper.h in Sources */,
+				AABB397614879F6700A1AD86 /* CBStepperCell.h in Sources */,
+				AABB397714879F6700A1AD86 /* CBStepperCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,6 +18,7 @@
 #import "CBCellStringInlineEditor.h"
 #import "CBCellNumeric.h"
 #import "CBCellNumericSlider.h"
+#import "CBCellNumericStepper.h"
 #import "CBCellBoolean.h"
 #import "CBCellSubtable.h"
 #import "CBCellPassword.h"
