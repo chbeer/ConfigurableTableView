@@ -60,6 +60,8 @@
 + (id) cellWithTitle:(NSString*)title valuePath:(NSString*)valueKeyPath;
 + (id) cellWithTitle:(NSString*)title valuePath:(NSString*)valueKeyPath editor:(CBEditor*)editor;
 + (id) cellWithTitle:(NSString*)title valuePath:(NSString*)valueKeyPath iconName:(NSString*)iconName;
++ (id) cellWithTitle:(NSString*)title valuePath:(NSString*)valueKeyPath 
+            iconName:(NSString*)iconName editor:(CBEditor*)editor;
 
 - (id) applyTag:(NSString *)tag;
 - (id) applyEditor:(CBEditor *)editor;
