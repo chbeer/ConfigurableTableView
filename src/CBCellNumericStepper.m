@@ -64,10 +64,13 @@
 
 - (void) setValue:(id)value ofCell:(UITableViewCell*)cell inTableView:(UITableView*)tableView {
 	UIStepper *stepper = ((CBStepperCell*)cell).stepper;
-	if (!value) {
+	if (!value || [value isKindOfClass:[NSNull class]]) {
 		stepper.value = 0;
 	} else if ([value isKindOfClass:[NSNumber class]]) {
-		stepper.value = [((NSNumber*)value) intValue];
+        double fval = [((NSNumber*)value) doubleValue];
+        if (fval < stepper.minimumValue) fval = stepper.minimumValue;
+        if (fval > stepper.maximumValue) fval = stepper.maximumValue;
+		stepper.value = fval;
 	}
 }
 
@@ -77,6 +80,8 @@
     stepper.minimumValue = self.minValue;
     stepper.maximumValue = self.maxValue;
     stepper.stepValue = self.stepValue;
+    if (stepper.value < self.minValue) stepper.value = self.minValue;
+    if (stepper.value > self.maxValue) stepper.value = self.maxValue;
     
 	[super setupCell:cell withObject:object inTableView:tableView];
 }

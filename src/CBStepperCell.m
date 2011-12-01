@@ -57,20 +57,20 @@
 	
 }
 
--(void) setValue:(float)value {	
+-(void) setValue:(double)value {	
     self.stepper.minimumValue = _minValue;
     self.stepper.maximumValue = _maxValue;
     self.stepper.stepValue = _stepValue;
     
 	self.stepper.value = value;
 }
-- (float)value {
+- (double)value {
 	return self.stepper.value;
 }
 
-- (void) stepperChanged:(UISlider*)sender {
+- (void) stepperChanged:(UIStepper*)sender {
     if (_object && _keyPath) {
-        [_object setValue:[NSNumber numberWithFloat:sender.value] 
+        [_object setValue:[NSNumber numberWithDouble:sender.value]
                forKeyPath:_keyPath];
     }
 }
