@@ -171,7 +171,7 @@
 
 - (void) addCellsVargs:(va_list)args {
 	CBCell *c;
-    while (c = va_arg(args, CBCell *)) {
+    while ((c = va_arg(args, CBCell *))) {
         [self addCell:c];
     }
 	va_end(args);
