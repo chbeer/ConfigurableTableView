@@ -15,10 +15,8 @@
 @property (nonatomic, assign)               float minValue;
 @property (nonatomic, assign)               float maxValue;
 @property (nonatomic, assign)               float stepValue;
+@property (nonatomic, assign)               double value;
 
 - (id)initWithReuseIdentifier:(NSString *)identifier;
-
--(void) setValue:(float)value;
-- (float)value;
 
 @end

@@ -16,6 +16,8 @@
 @synthesize maxValue = _maxValue;
 @synthesize stepValue = _stepValue;
 
+@dynamic value;
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)identifier {
 	self = [super initWithStyle:style 
                 reuseIdentifier:identifier];
