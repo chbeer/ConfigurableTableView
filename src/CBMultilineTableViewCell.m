@@ -39,12 +39,14 @@
 	
 	UIFont *fnt = font ? font : [UIFont boldSystemFontOfSize:FONT_SIZE];
 	
-	CGSize size = [text sizeWithFont:fnt
-				   constrainedToSize:constraint 
-					   lineBreakMode:UILineBreakModeWordWrap];
-	
-	CGFloat height = MAX(MIN(size.height + 16, MAX_HEIGHT), 44.0);
-	
+    CGFloat height = 0.0;
+    @synchronized(text){
+        CGSize size = [text sizeWithFont:fnt
+                       constrainedToSize:constraint 
+                           lineBreakMode:UILineBreakModeWordWrap];
+        
+        height = MAX(MIN(size.height + 16, MAX_HEIGHT), 44.0);
+    }	
 	return height;
 }
 
