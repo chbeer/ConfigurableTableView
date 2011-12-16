@@ -38,8 +38,6 @@
 		AAA9466F110DB4FC0045A98E /* CBCTVGlobal.h in Headers */ = {isa = PBXBuildFile; fileRef = AAA9466D110DB4FC0045A98E /* CBCTVGlobal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AAA94670110DB4FC0045A98E /* CBCTVGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA9466E110DB4FC0045A98E /* CBCTVGlobal.m */; };
 		AABB397014879D4900A1AD86 /* CBCellNumericStepper.m in Sources */ = {isa = PBXBuildFile; fileRef = AABB396F14879D4900A1AD86 /* CBCellNumericStepper.m */; };
-		AABB397314879D5500A1AD86 /* CBCellNumericStepper.h in Sources */ = {isa = PBXBuildFile; fileRef = AABB397214879D5500A1AD86 /* CBCellNumericStepper.h */; };
-		AABB397614879F6700A1AD86 /* CBStepperCell.h in Sources */ = {isa = PBXBuildFile; fileRef = AABB397414879F6700A1AD86 /* CBStepperCell.h */; };
 		AABB397714879F6700A1AD86 /* CBStepperCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AABB397514879F6700A1AD86 /* CBStepperCell.m */; };
 		AABB39781487A15E00A1AD86 /* CBCellNumericStepper.h in Headers */ = {isa = PBXBuildFile; fileRef = AABB397214879D5500A1AD86 /* CBCellNumericStepper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
@@ -566,8 +564,6 @@
 				AAD27252129EBAF600ABEDF8 /* CBEditorTargetAction.m in Sources */,
 				AA99C6E013695528002C5386 /* CBEditorStringInline.m in Sources */,
 				AABB397014879D4900A1AD86 /* CBCellNumericStepper.m in Sources */,
-				AABB397314879D5500A1AD86 /* CBCellNumericStepper.h in Sources */,
-				AABB397614879F6700A1AD86 /* CBStepperCell.h in Sources */,
 				AABB397714879F6700A1AD86 /* CBStepperCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
