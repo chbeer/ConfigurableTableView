@@ -13,17 +13,22 @@
 @synthesize target = _target;
 @synthesize action = _action;
 
+@synthesize enabled = _enabled;
+
 - (id) initWithTitle:(NSString*)title {
 	if (self = [super initWithTitle:title]) {
+        _enabled = YES;
 	}
 	return self;
 }
 
-+ (CBCell*)cellWithTitle:(NSString *)title target:(id)target action:(SEL)action {
++ (id)cellWithTitle:(NSString *)title target:(id)target action:(SEL)action {
 	CBCellAction *cell = [[[self class] alloc] initWithTitle:title];
 	
 	cell.target = target;
 	cell.action = action;
+    
+    cell.enabled = YES;
 	
 	return [cell autorelease];
 }
@@ -39,6 +44,8 @@
 													reuseIdentifier:[self reuseIdentifier]];
 	cell.textLabel.textAlignment = UITextAlignmentCenter;
 	cell.textLabel.font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize] + 4];
+    
+    cell.textLabel.enabled = _enabled;
 	
 	return [cell autorelease];
 }
@@ -57,6 +64,8 @@
 }
 
 - (void) openEditorInController:(CBConfigurableTableViewController *)controller {
+    if (!self.enabled) return;
+    
     [[UIApplication sharedApplication] sendAction:self.action to:self.target from:self forEvent:nil];
 }
 

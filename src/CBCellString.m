@@ -42,18 +42,18 @@
     [super dealloc];
 }
 
-+ (CBCellString*) cellMultilineWithValuePath:(NSString*)path {
++ (id) cellMultilineWithValuePath:(NSString*)path {
 	CBCellString *cell = (CBCellString*)[self cellWithTitle:nil valuePath:path];
 	cell.multiline = YES;
     cell.style = UITableViewCellStyleDefault;
 	return cell;
 }
 
-- (CBCellString*)applyFont:(UIFont*)font {
+- (id)applyFont:(UIFont*)font {
     self.font = font;
     return self;
 }
-- (CBCellString*)applyMultiline {
+- (id)applyMultiline {
     self.multiline = YES;
     self.style = UITableViewCellStyleDefault;
     return self;
@@ -102,6 +102,7 @@
         cell.textLabel.text = value ? [NSString stringWithFormat:@"%@", value] : @"";
     } else {
         cell.detailTextLabel.text = value ? [NSString stringWithFormat:@"%@", value] : @"";
+        cell.detailTextLabel.enabled = self.enabled;
     }
     
     if (_multiline) {     

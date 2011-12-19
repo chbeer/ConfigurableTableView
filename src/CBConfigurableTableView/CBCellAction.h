@@ -9,16 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "CBCell.h"
 
-@interface CBCellAction : CBCell {
-	
-	id _target;
-	SEL _action;
-	
-}
+@interface CBCellAction : CBCell
 
 @property (nonatomic, assign) id target;
 @property (nonatomic, assign) SEL action;
 
-+ (CBCell*)cellWithTitle:(NSString *)title target:(id)target action:(SEL)selector;
++ (id)cellWithTitle:(NSString *)title target:(id)target action:(SEL)selector;
 
 @end

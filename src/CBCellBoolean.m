@@ -13,12 +13,41 @@
 
 @synthesize inverted = _inverted;
 
-#pragma mark CBCell protocol
+- (void) dealloc {
+	[_switch release];
+	
+	[super dealloc];
+}
+
+#pragma mark - Accessors
+
+- (id) applyInverted:(BOOL) inverted {
+    _inverted = inverted;
+    
+    return self;
+}
+
+- (void) setWorking:(BOOL)working
+{
+    _switch.hidden = working;
+    if (!working && _activityView) {
+        [_activityView removeFromSuperview];
+    } else {
+        _activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [_activityView sizeToFit];
+        _activityView.center = _switch.center;
+        [_activityView startAnimating];
+        [_switch.superview addSubview:_activityView];
+        [_activityView release];
+    }
+}
+
+#pragma mark - CBCell protocol
 
 - (UITableViewCell*) createTableViewCellForTableView:(UITableView*)tableView {
 	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-								  reuseIdentifier:[self reuseIdentifier]];
-
+                                                   reuseIdentifier:[self reuseIdentifier]];
+    
 	cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	
 	return [cell autorelease];
@@ -44,11 +73,13 @@
 		[_switch addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
 	}
 	cell.accessoryView = _switch;
-
+    
 	CGPoint o = cell.textLabel.frame.origin;
 	CGSize s = cell.textLabel.frame.size;
 	cell.textLabel.frame = CGRectMake(o.x, _switch.frame.origin.y, s.width - _switch.frame.size.width, _switch.frame.size.height);
-
+    
+    _switch.enabled = self.enabled;
+    
     [super setupCell:cell withObject:object inTableView:tableView];
 }
 
@@ -61,45 +92,6 @@
 		[_object setValue:[NSNumber numberWithBool:value] 
                forKeyPath:self.valueKeyPath];
 	}
-}
-
-- (void) dealloc {
-	[_switch release];
-	
-	[super dealloc];
-}
-
-#pragma mark -
-
-- (CBCellBoolean*) applyInverted:(BOOL) inverted {
-    _inverted = inverted;
-    
-    return self;
-}
-
-- (void) setEnabled:(BOOL)enabled;
-{
-    _switch.enabled = enabled;
-}
-- (CBCellBoolean*) applyEnabled:(BOOL)enabled;
-{
-    [self setEnabled:enabled];
-    return self;
-}
-
-- (void) setWorking:(BOOL)working
-{
-    _switch.hidden = working;
-    if (!working && _activityView) {
-        [_activityView removeFromSuperview];
-    } else {
-        _activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        [_activityView sizeToFit];
-        _activityView.center = _switch.center;
-        [_activityView startAnimating];
-        [_switch.superview addSubview:_activityView];
-        [_activityView release];
-    }
 }
 
 @end

@@ -53,6 +53,7 @@
 @property (nonatomic, retain) CBEditor *editor;
 
 @property (nonatomic, retain) NSString *iconName;
+@property (nonatomic, assign, getter=isEnabled) BOOL enabled;
 
 - (id) initWithTitle:(NSString*)title;
 - (id) initWithTitle:(NSString*)title andValuePath:(NSString*)valueKeyPath;
@@ -67,6 +68,7 @@
 - (id) applyEditor:(CBEditor *)editor;
 - (id) applyIconName:(NSString*)iconName;
 - (id) applyStyle:(UITableViewCellStyle)style;
+- (id) applyEnabled:(BOOL)enabled;
 
 @end
 

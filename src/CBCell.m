@@ -26,10 +26,13 @@
 @synthesize editor = _editor;
 @synthesize iconName = _iconName;
 
+@synthesize enabled = _enabled;
+
 - (id) initWithTitle:(NSString*)title {
 	if (self = [super init]) {
 		_title = [title copy];
         _style = UITableViewCellStyleDefault;
+        _enabled = YES;
 	}
 	return self;
 }
@@ -81,6 +84,11 @@
 - (id) applyStyle:(UITableViewCellStyle)style;
 {
     self.style = style;
+    return self;
+}
+- (id) applyEnabled:(BOOL)enabled;
+{
+    self.enabled = enabled;
     return self;
 }
 
@@ -159,6 +167,8 @@
     if (_iconName) {
         cell.imageView.image = [UIImage imageNamed:_iconName];
     }
+    
+    cell.textLabel.enabled = self.enabled;
     
     if ([cell isKindOfClass:[CBConfigTableViewCell class]]) {
         CBConfigTableViewCell *cfgCell = (CBConfigTableViewCell*)cell;

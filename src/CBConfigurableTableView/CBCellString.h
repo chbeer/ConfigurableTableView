@@ -17,8 +17,8 @@
 
 + (id) cellMultilineWithValuePath:(NSString*)path;
 
-- (CBCellString*)applyFont:(UIFont*)font;
-- (CBCellString*)applyMultiline;
+- (id)applyFont:(UIFont*)font;
+- (id)applyMultiline;
 
 #pragma mark private
 
