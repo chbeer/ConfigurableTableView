@@ -20,9 +20,13 @@
 @property (nonatomic, assign) UITextAutocorrectionType autocorrectionType;
 @property (nonatomic, assign) UITextAutocapitalizationType autocapitalizationType;
 
-+ (CBEditor*) editorWithKeyboardType:(UIKeyboardType)keyboardType
-				  autocorrectionType:(UITextAutocorrectionType)autocorrectionType;
-+ (CBEditor*) editorWithKeyboardType:(UIKeyboardType)keyboardType;
-+ (CBEditor*) editorWithAutocorrectionType:(UITextAutocorrectionType)autocorrectionType;
++ (id) editorWithKeyboardType:(UIKeyboardType)keyboardType
+           autocorrectionType:(UITextAutocorrectionType)autocorrectionType;
++ (id) editorWithKeyboardType:(UIKeyboardType)keyboardType;
++ (id) editorWithAutocorrectionType:(UITextAutocorrectionType)autocorrectionType;
+
+- (id) applyKeyboardType:(UIKeyboardType)keyboardType;
+- (id) applyAutocorrectionType:(UITextAutocorrectionType)autocorrectionType;
+- (id) applyAutocapitalizationType:(UITextAutocapitalizationType)autocapitalizationType;
 
 @end

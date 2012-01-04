@@ -28,21 +28,39 @@
     return self;
 }
 
-+ (CBEditor*) editorWithKeyboardType:(UIKeyboardType)keyboardType 
-				  autocorrectionType:(UITextAutocorrectionType)autocorrectionType {
++ (id) editorWithKeyboardType:(UIKeyboardType)keyboardType 
+           autocorrectionType:(UITextAutocorrectionType)autocorrectionType {
 	CBEditorString *es = (CBEditorString*)[self editor];
 	es.keyboardType = keyboardType;
 	es.autocorrectionType = autocorrectionType;
 	return es;
 }
-+ (CBEditor*) editorWithKeyboardType:(UIKeyboardType)keyboardType {
++ (id) editorWithKeyboardType:(UIKeyboardType)keyboardType {
 	return [self editorWithKeyboardType:keyboardType
                      autocorrectionType:UITextAutocorrectionTypeDefault];
 }
-+ (CBEditor*) editorWithAutocorrectionType:(UITextAutocorrectionType)autocorrectionType {
++ (id) editorWithAutocorrectionType:(UITextAutocorrectionType)autocorrectionType {
 	return [self editorWithKeyboardType:UIKeyboardTypeDefault
                      autocorrectionType:autocorrectionType];
 }
+
+- (id) applyKeyboardType:(UIKeyboardType)keyboardType;
+{
+    self.keyboardType = keyboardType;
+    return self;
+}
+- (id) applyAutocorrectionType:(UITextAutocorrectionType)autocorrectionType;
+{
+    self.autocorrectionType = autocorrectionType;
+    return self;
+}
+- (id) applyAutocapitalizationType:(UITextAutocapitalizationType)autocapitalizationType;
+{
+    self.autocapitalizationType = autocapitalizationType;
+    return self;
+}
+
+#pragma mark -
 
 - (void) openEditorForCell:(CBCell*)cell 
 			  inController:(CBConfigurableTableViewController*)ctrl {

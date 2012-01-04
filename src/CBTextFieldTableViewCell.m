@@ -30,9 +30,6 @@
 		UITextField *textField = [[UITextField alloc] initWithFrame:CGRectZero];
 		textField.font = [UIFont boldSystemFontOfSize:18];
 		textField.keyboardAppearance = UIKeyboardAppearanceAlert;
-        textField.keyboardType = _keyboardType;
-        textField.autocorrectionType = _autocorrectionType;
-        textField.autocapitalizationType = _autocapitalizationType;
 		textField.clearButtonMode = UITextFieldViewModeWhileEditing;
         textField.backgroundColor = self.backgroundColor;
         textField.delegate = self;
@@ -55,7 +52,7 @@
 	[_textField release];
 	
 	_textField = inView;
-	
+
 	_textField.delegate = self;
 	
 	[self.contentView addSubview:_textField];
@@ -73,6 +70,10 @@
 								contentRect.size.width - (kCellLeftOffset*2.0),
 								kTextFieldHeight);
 	_textField.frame  = frame;
+
+    _textField.keyboardType = _keyboardType;
+    _textField.autocorrectionType = _autocorrectionType;
+    _textField.autocapitalizationType = _autocapitalizationType;
     
     if (self.textLabel.superview) {
         [self.textLabel removeFromSuperview];
