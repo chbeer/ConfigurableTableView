@@ -15,6 +15,7 @@
 
 @synthesize multiline = _multiline;
 @synthesize font = _font;
+@synthesize detailFont = _detailFont;
 
 
 - (id) initWithTitle:(NSString*)title {
@@ -37,7 +38,8 @@
 }
 
 - (void) dealloc {
-    [_font release], _font = nil;
+    self.font = nil;
+    self.detailFont = nil;
     
     [super dealloc];
 }
@@ -53,6 +55,11 @@
     self.font = font;
     return self;
 }
+- (id)applyDetailFont:(UIFont*)font {
+    self.detailFont = font;
+    return self;
+}
+
 - (id)applyMultiline {
     self.multiline = YES;
     self.style = UITableViewCellStyleDefault;
@@ -120,6 +127,9 @@
     
     if (_font) {
 		cell.textLabel.font = _font;
+	}
+    if (_detailFont) {
+		cell.detailTextLabel.font = _detailFont;
 	}
 }
 

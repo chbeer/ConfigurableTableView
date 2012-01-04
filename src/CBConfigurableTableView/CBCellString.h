@@ -14,10 +14,12 @@
 
 @property (nonatomic, assign) BOOL multiline;
 @property (nonatomic, retain) UIFont *font;
+@property (nonatomic, retain) UIFont *detailFont;
 
 + (id) cellMultilineWithValuePath:(NSString*)path;
 
 - (id)applyFont:(UIFont*)font;
+- (id)applyDetailFont:(UIFont*)font;
 - (id)applyMultiline;
 
 #pragma mark private
