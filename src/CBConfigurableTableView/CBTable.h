@@ -56,6 +56,7 @@
 
 - (id) sectionWithTag:(NSString*)tag;
 - (id) cellWithTag:(NSString*)tag;
+- (id) cellWithValueKeyPath:(NSString*)valuePath;
 
 - (NSIndexPath*) indexPathOfCell:(CBCell*)cell;
 - (NSIndexPath*) indexPathOfCellWithTag:(NSString*)cellTag;

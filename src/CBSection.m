@@ -154,6 +154,19 @@
     
     return nil;
 }
+- (id) cellWithValueKeyPath:(NSString*)valuePath
+{
+    if (!valuePath || [@"" isEqual:valuePath]) return nil;
+    
+    // linear search since we are optimized for a small amount of cells
+    for (CBCell *cell in _cells) {
+        if ([valuePath isEqual:cell.valueKeyPath]) {
+            return cell;
+        }
+    }
+    
+    return nil;
+}
 
 - (void) addCells:(CBCell*)cell, ... {
 	[self addCell:cell];

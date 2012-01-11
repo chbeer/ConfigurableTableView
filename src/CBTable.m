@@ -158,6 +158,20 @@
     
     return nil;
 }
+- (id) cellWithValueKeyPath:(NSString*)valuePath {
+    if (!valuePath || [@"" isEqual:valuePath]) return nil;
+    
+    // linear search since we are optimized for a small amount of sections
+    for (CBSection *section in _sections) {
+        CBCell *cell = [section cellWithValueKeyPath:valuePath];
+        
+        if (cell) {
+            return cell;
+        }
+    }
+    
+    return nil;
+}
 
 #pragma mark Cell access
 

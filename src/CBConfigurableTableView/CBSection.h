@@ -69,6 +69,7 @@
 - (void) addCellsFromArray:(NSArray*)cells;
 
 - (id) cellWithTag:(NSString*)tag;
+- (id) cellWithValueKeyPath:(NSString*)valuePath;
 
 - (id) removeCell:(CBCell*)cell;
 - (void) removeCells:(CBCell*)cell, ...NS_REQUIRES_NIL_TERMINATION;
