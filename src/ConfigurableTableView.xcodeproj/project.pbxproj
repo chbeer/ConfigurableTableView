@@ -313,10 +313,10 @@
 				AAE8E950110FAC7700352032 /* Data */,
 				AADC278B11217E9000E71852 /* CBTable.h */,
 				AAD5CBFC10C8FDDB003D3A14 /* CBTable.m */,
-				AADC278811217E9000E71852 /* CBCell.h */,
-				AAD5CC0010C8FEE2003D3A14 /* CBCell.m */,
 				AADC278A11217E9000E71852 /* CBSection.h */,
 				AAD5CC0410C9009C003D3A14 /* CBSection.m */,
+				AADC278811217E9000E71852 /* CBCell.h */,
+				AAD5CC0010C8FEE2003D3A14 /* CBCell.m */,
 				AADC278911217E9000E71852 /* CBEditor.h */,
 				AAD5D07210C97290003D3A14 /* CBEditor.m */,
 			);
@@ -575,10 +575,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/ConfigurableTableView.dst;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -598,10 +595,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				DSTROOT = /tmp/ConfigurableTableView.dst;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
