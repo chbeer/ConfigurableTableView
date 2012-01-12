@@ -16,11 +16,6 @@
 	CBTable *_model;
 
     BOOL _kbDidShow;    
-
-    UITableViewRowAnimation _addAnimation;
-    UITableViewRowAnimation _removeAnimation;
-    UITableViewRowAnimation _reloadAnimation;
-    
 }
 
 @property (nonatomic, retain) CBTable *model;
@@ -28,6 +23,7 @@
 
 @property (nonatomic, assign) UITableViewRowAnimation addAnimation;
 @property (nonatomic, assign) UITableViewRowAnimation removeAnimation;
+@property (nonatomic, assign) UITableViewRowAnimation reloadAnimation;
 
 
 - (id)initWithTableModel:(CBTable*)model;

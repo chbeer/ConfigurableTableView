@@ -22,6 +22,7 @@
 
 @synthesize addAnimation = _addAnimation;
 @synthesize removeAnimation = _removeAnimation;
+@synthesize reloadAnimation = _reloadAnimation;
 
 
 - (id) initWithStyle:(UITableViewStyle)style {
