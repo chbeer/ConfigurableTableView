@@ -17,6 +17,9 @@
 @property (nonatomic, assign)               float stepValue;
 @property (nonatomic, assign)               double value;
 
+@property (nonatomic, getter=isShowValue)   BOOL showValue;
+@property (nonatomic, copy)                 NSString *valueFormat;
+
 - (id)initWithReuseIdentifier:(NSString *)identifier;
 
 @end

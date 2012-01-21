@@ -16,6 +16,9 @@
 @synthesize maxValue    = _maxValue;
 @synthesize stepValue   = _stepValue;
 
+@synthesize showValue   = _showValue;
+@synthesize valueFormat = _valueFormat;
+
 
 + (id) cellWithTitle:(NSString*)title valuePath:(NSString*)valueKeyPath 
 				 minValue:(float)min maxValue:(float)max stepValue:(float)step {
@@ -55,6 +58,18 @@
     return self;
 }
 
+- (id) applyShowValue:(BOOL)showValue 
+{
+    self.showValue = showValue;
+    return self;
+}
+- (id) applyShowValue:(BOOL)showValue withFormat:(NSString*)format 
+{
+    self.showValue = showValue;
+    self.valueFormat = format;
+    return self;
+}
+
 #pragma mark CBCell protocol
 
 - (UITableViewCell*) createTableViewCellForTableView:(UITableView*)tableView {
@@ -63,25 +78,26 @@
 }
 
 - (void) setValue:(id)value ofCell:(UITableViewCell*)cell inTableView:(UITableView*)tableView {
-	UIStepper *stepper = ((CBStepperCell*)cell).stepper;
+    CBStepperCell *stepperCell = (CBStepperCell*)cell;
 	if (!value || [value isKindOfClass:[NSNull class]]) {
-		stepper.value = 0;
+		stepperCell.value = 0;
 	} else if ([value isKindOfClass:[NSNumber class]]) {
         double fval = [((NSNumber*)value) doubleValue];
-        if (fval < stepper.minimumValue) fval = stepper.minimumValue;
-        if (fval > stepper.maximumValue) fval = stepper.maximumValue;
-		stepper.value = fval;
+        if (fval < stepperCell.minValue) fval = stepperCell.minValue;
+        if (fval > stepperCell.maxValue) fval = stepperCell.maxValue;
+		stepperCell.value = fval;
 	}
 }
 
 - (void) setupCell:(UITableViewCell*)cell withObject:(NSObject*)object inTableView:(UITableView*)tableView {
-	UIStepper *stepper = ((CBStepperCell*)cell).stepper;
+    CBStepperCell *stepperCell = (CBStepperCell*)cell;
 
-    stepper.minimumValue = self.minValue;
-    stepper.maximumValue = self.maxValue;
-    stepper.stepValue = self.stepValue;
-    if (stepper.value < self.minValue) stepper.value = self.minValue;
-    if (stepper.value > self.maxValue) stepper.value = self.maxValue;
+    stepperCell.minValue = self.minValue;
+    stepperCell.maxValue = self.maxValue;
+    stepperCell.stepValue = self.stepValue;
+    
+    stepperCell.showValue = self.showValue;
+    stepperCell.valueFormat = self.valueFormat;
     
 	[super setupCell:cell withObject:object inTableView:tableView];
 }
