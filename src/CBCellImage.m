@@ -85,7 +85,8 @@
             CGSize destSize = CGSizeMake(tableView.frame.size.width - 20, 44);
             if (_maxHeight > 0) {
                 destSize.height = MIN(_maxHeight, img.size.height);
-            } 
+            }
+            destSize.height -= 10;
             
             CGSize imgSize = CBCGSizeFitToSize(img.size, 
                                                destSize);
@@ -117,9 +118,7 @@
     if (!self.textLabel.text && self.imageView.image) {
         CGSize destSize = self.contentView.frame.size;
         destSize.width -= 10;
-        if (_maxHeight > 0) {
-            destSize.height = MIN(_maxHeight, self.imageView.image.size.height);
-        }
+        destSize.height -= 10;
         
         CGSize imgSize = CBCGSizeFitToSize(self.imageView.image.size, 
                                            destSize);
