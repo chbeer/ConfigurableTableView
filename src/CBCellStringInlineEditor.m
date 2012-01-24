@@ -63,6 +63,12 @@
 	return cell;
 }
 
+- (id) applyFont:(UIFont*)font;
+{
+    self.font = font;
+    return self;
+}
+
 #pragma mark CBCell protocol
 
 - (NSString*) reuseIdentifier {
@@ -101,6 +107,14 @@
     if (_multiline) {
         CBTextViewTableViewCell *tvc = (CBTextViewTableViewCell*)tfc;
         tvc.delegate = self;
+        
+        if (_font) {
+            tvc.textView.font = _font;
+        }
+    } else {
+        if (_font) {
+            tfc.textField.font = _font;
+        }
     }
     
 	[super setupCell:cell withObject:object 
@@ -148,6 +162,9 @@
                 _textViewCell.textView.frame = r;
                 
                 _textViewCell.textView.text = text;
+                if (_font) {
+                    _textViewCell.textView.font = _font;
+                }
                 
                 r.size.height = _textViewCell.textView.contentSize.height;
                 _textViewCell.textView.frame = r;
@@ -213,7 +230,7 @@
     if (CBIsIOSVersionGreaterEqual(4, 0)) {
         NSIndexPath *indexPath = [self.controller.model indexPathOfCell:self];
         [self.controller.tableView scrollToRowAtIndexPath:indexPath 
-                                         atScrollPosition:UITableViewScrollPositionTop
+                                         atScrollPosition:UITableViewScrollPositionBottom
                                                  animated:YES];
     }
 }

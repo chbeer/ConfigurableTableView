@@ -43,6 +43,8 @@
 
 + (CBCellStringInlineEditor*) cellMultilineWithValuePath:(NSString*)path;
 
+- (id) applyFont:(UIFont*)font;
+
 - (UITableViewCell*) createTextView;
 
 @end
