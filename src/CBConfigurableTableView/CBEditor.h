@@ -39,7 +39,7 @@
 @interface CBEditor : NSObject <CBEditor> {
 }
 
-+ (CBEditor*) editor;
++ (id) editor;
 
 - (BOOL) isInline;
 
