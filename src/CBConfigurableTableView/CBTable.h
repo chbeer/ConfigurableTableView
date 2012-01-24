@@ -60,7 +60,7 @@
 
 - (NSIndexPath*) indexPathOfCell:(CBCell*)cell;
 - (NSIndexPath*) indexPathOfCellWithTag:(NSString*)cellTag;
-- (CBCell*) cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (id) cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

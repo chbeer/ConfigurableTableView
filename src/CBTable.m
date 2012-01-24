@@ -198,7 +198,7 @@
 {
     return [self indexPathOfCell:[self cellWithTag:cellTag]];
 }
-- (CBCell*) cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (id) cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	CBSection *sect = [self sectionAtIndex:indexPath.section];
 	return [sect cellAtIndex:indexPath.row];
 }
