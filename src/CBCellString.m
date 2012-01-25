@@ -97,6 +97,11 @@
 		height = [CBMultilineTableViewCell calculateHeightInTableView:tableView 
 															 withText:text
 															  andFont:_font];// + 10;
+        if (height < 0) {
+            height = 0;
+        } else if (height > 2009) {
+            height = 2009;
+        }
 	}
 	
 	return height;

@@ -222,7 +222,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	CBCell *cbCell = [_model cellForRowAtIndexPath:indexPath];
-    return [cbCell heightForCellInTableView:tableView withObject:_data];
+    CGFloat height = [cbCell heightForCellInTableView:tableView withObject:_data];
+    NSAssert(!isnan(height), @"Height should not be NaN!");
+    return height;
 }
 
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
