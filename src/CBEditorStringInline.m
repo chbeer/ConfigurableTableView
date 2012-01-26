@@ -71,7 +71,7 @@
     CGFloat x = roundf(cvBounds.size.width / 2 - kCBEditorTextFieldRightMargin);
     
     // layout subviews
-    tableViewCell.contentView;
+    [tableViewCell contentView];
     
     _textField.frame = CGRectMake(x, y, x, 24);
     _textField.text = tableViewCell.detailTextLabel.text;

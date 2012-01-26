@@ -19,8 +19,8 @@
 
 @property (readonly) CBTable *model;
 
-+ (CBCellSubtable*) cellWithTitle:(NSString*)title sectionArray:(NSArray*)sections;
-+ (CBCellSubtable*) cellWithTitle:(NSString*)title sections:(CBSection*)section, ...;
++ (id) cellWithTitle:(NSString*)title sectionArray:(NSArray*)sections;
++ (id) cellWithTitle:(NSString*)title sections:(CBSection*)section, ...;
 
 - (id) initWithTitle:(NSString*)title andModel:(CBTable*)model;
 

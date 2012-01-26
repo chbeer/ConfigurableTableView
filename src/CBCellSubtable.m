@@ -15,14 +15,14 @@
 
 @synthesize model = _model;
 
-+ (CBCell*) cellWithTitle:(NSString*)title sectionArray:(NSArray*)sections {
++ (id) cellWithTitle:(NSString*)title sectionArray:(NSArray*)sections {
 	CBTable *model = [CBTable tableWithSectionArray:sections];
 	
 	CBCellSubtable *cell = [[[self class] alloc] initWithTitle:title 
                                                       andModel:model];
 	return [cell autorelease];
 }
-+ (CBCell*) cellWithTitle:(NSString*)title sections:(CBSection*)section, ... {
++ (id) cellWithTitle:(NSString*)title sections:(CBSection*)section, ... {
 	CBTable *model = [[CBTable alloc] init];
 	
 	[model addSection:section];

@@ -209,7 +209,7 @@
     va_list args;
     va_start(args, cell);
     CBCell *c;
-    while (c = va_arg(args, CBCell *)) {
+    while ((c = va_arg(args, CBCell *))) {
         NSIndexPath *idx = [_table indexPathOfCell:c];
         if (idx) {
             [cells addObject:c];

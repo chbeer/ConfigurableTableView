@@ -21,18 +21,11 @@
 
 @end
 
-@interface CBTextView : UITextView {
-    BOOL _ignoreResign;
-}
-@property (nonatomic, assign) BOOL ignoreResign;
-@end
-
-
 
 @interface CBTextViewTableViewCell : CBConfigTableViewCell <UITextViewDelegate> {
     id<CBTextViewTableViewCellDelegate> _delegate;
 
-	CBTextView *_textView;
+	UITextView *_textView;
     
     UIKeyboardType _keyboardType;
 	UITextAutocorrectionType _autocorrectionType;
