@@ -141,6 +141,20 @@
 	
 	return cell;
 }
+- (void) insertCells:(NSArray*)cells atIndex:(NSUInteger)index {
+    NSUInteger idx = index;
+    for (CBCell *cell in cells) {
+        cell.section = self;
+        [_cells insertObject:cell atIndex:idx];
+        idx++;
+    }
+	
+	if (_table.delegate && [_table.delegate respondsToSelector:@selector(table:section:cellsAdded:)]) {
+		[_table.delegate table:self.table 
+					   section:self 
+                    cellsAdded:cells];
+	}
+}
 
 - (id) cellWithTag:(NSString*)tag {
     if (!tag || [@"" isEqual:tag]) return nil;
@@ -190,9 +204,10 @@
 	va_end(args);
 }
 
-- (CBCell*) removeCell:(CBCell*)cell {
+- (id) removeCell:(CBCell*)cell {
 	NSIndexPath *idx = [_table indexPathOfCell:cell];
 	
+    [cell retain];
 	[_cells removeObject:cell];
 	
 	if (_table.delegate && [_table.delegate respondsToSelector:@selector(table:section:cellRemovedAtIndexPath:)]) {
@@ -200,39 +215,45 @@
 					   section:self cellRemovedAtIndexPath:idx];
 	}
 	
-	return cell;
+	return [cell autorelease];
+}
+- (void) removeCellsInArray:(NSArray*)cells {
+    NSMutableArray *indexPaths = [NSMutableArray array];
+    for (CBCell *cell in cells) {
+        [indexPaths addObject:[self.table indexPathOfCell:cell]];
+    }
+    
+    [_cells removeObjectsInArray:cells];
+    
+	if (_table.delegate && [_table.delegate respondsToSelector:@selector(table:section:cellsRemovedAtIndexPaths:)]) {
+		[_table.delegate table:self.table 
+					   section:self 
+      cellsRemovedAtIndexPaths:indexPaths];
+	}
 }
 - (void) removeCells:(CBCell*)cell, ... {
     NSMutableArray *cells = [NSMutableArray arrayWithObject:cell];
-    NSMutableArray *idxs = [NSMutableArray arrayWithObject:[_table indexPathOfCell:cell]];
 
     va_list args;
     va_start(args, cell);
     CBCell *c;
     while ((c = va_arg(args, CBCell *))) {
-        NSIndexPath *idx = [_table indexPathOfCell:c];
+        NSIndexPath *idx = [self.table indexPathOfCell:c];
         if (idx) {
             [cells addObject:c];
-            [idxs addObject:idx];
         }
     }
 	va_end(args);
     
-    [_cells removeObjectsInArray:cells];
-    
-	if (_table.delegate && [_table.delegate respondsToSelector:@selector(table:section:cellRemovedAtIndexPath:)]) {
-		[_table.delegate table:self.table 
-					   section:self 
-        cellsRemovedAtIndexPaths:idxs];
-	}
+    [self removeCellsInArray:cells];
 }
 - (id) removeCellWithTag:(NSString*)cellTag
 {
-    CBCell *cell = [self cellWithTag:cellTag];
+    CBCell *cell = [[self cellWithTag:cellTag] retain];
     if (cell) {
         [self removeCell:cell];
     }
-    return cell;
+    return [cell autorelease];
 }
 
 - (NSArray*) cells {

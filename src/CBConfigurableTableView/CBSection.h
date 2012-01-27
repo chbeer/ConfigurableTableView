@@ -65,6 +65,7 @@
 - (NSUInteger) indexOfCellWithTag:(NSString*)tag;
 - (id) addCell:(CBCell*)cell;
 - (id) insertCell:(CBCell*)cell atIndex:(NSUInteger)index;
+- (void) insertCells:(NSArray*)cells atIndex:(NSUInteger)index;
 - (void) addCells:(CBCell*)cell, ...NS_REQUIRES_NIL_TERMINATION;
 - (void) addCellsFromArray:(NSArray*)cells;
 
@@ -72,6 +73,7 @@
 - (id) cellWithValueKeyPath:(NSString*)valuePath;
 
 - (id) removeCell:(CBCell*)cell;
+- (void) removeCellsInArray:(NSArray*)cells;
 - (void) removeCells:(CBCell*)cell, ...NS_REQUIRES_NIL_TERMINATION;
 - (id) removeCellWithTag:(NSString*)cellTag;
 

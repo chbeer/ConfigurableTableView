@@ -276,6 +276,16 @@
 	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:idxPath] 
 						  withRowAnimation:_addAnimation];
 }
+- (void) table:(CBTable*)table section:(CBSection*)section cellsAdded:(NSArray*)cells {
+    NSMutableArray *indexPaths = [NSMutableArray array];
+    for (CBCell *cell in cells) {
+        NSIndexPath *idxPath = [table indexPathOfCell:cell];
+        [indexPaths addObject:idxPath];
+    }
+	
+	[self.tableView insertRowsAtIndexPaths:indexPaths
+						  withRowAnimation:_addAnimation];
+}
 - (void) table:(CBTable*)table section:(CBSection*)section cellRemovedAtIndexPath:(NSIndexPath*)indexPath {
 	[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] 
 						  withRowAnimation:_removeAnimation];

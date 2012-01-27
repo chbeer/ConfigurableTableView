@@ -21,6 +21,7 @@
 - (void) table:(CBTable*)table sectionRemovedAtIndex:(NSUInteger)index;
 
 - (void) table:(CBTable*)table section:(CBSection*)section cellAdded:(CBCell*)cell;
+- (void) table:(CBTable*)table section:(CBSection*)section cellsAdded:(NSArray*)cells;
 - (void) table:(CBTable*)table section:(CBSection*)section cellRemovedAtIndexPath:(NSIndexPath*)indexPath;
 - (void) table:(CBTable*)table section:(CBSection*)section cellsRemovedAtIndexPaths:(NSArray*)indexPaths;
 
