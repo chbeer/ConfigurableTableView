@@ -43,7 +43,7 @@
 	UITableViewCell *cell =  [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
 													reuseIdentifier:[self reuseIdentifier]];
 	cell.textLabel.textAlignment = UITextAlignmentCenter;
-	cell.textLabel.font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize] + 4];
+	cell.textLabel.font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize] + 2];
     
     cell.textLabel.enabled = _enabled;
 	
