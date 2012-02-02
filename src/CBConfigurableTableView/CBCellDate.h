@@ -15,4 +15,13 @@
 
 @property (nonatomic, retain) NSDateFormatter *dateFormatter;
 
++ (id) cellWithTitle:(NSString *)title valuePath:(NSString *)valueKeyPath dateStyle:(NSDateFormatterStyle)dateStyle;
++ (id) cellWithTitle:(NSString *)title valuePath:(NSString *)valueKeyPath dateStyle:(NSDateFormatterStyle)dateStyle editor:(CBEditor*)editor;
+
++ (id) cellWithTitle:(NSString *)title valuePath:(NSString *)valueKeyPath timeStyle:(NSDateFormatterStyle)timeStyle;
++ (id) cellWithTitle:(NSString *)title valuePath:(NSString *)valueKeyPath timeStyle:(NSDateFormatterStyle)timeStyle editor:(CBEditor*)editor;
+
+- (id) applyDateStyle:(NSDateFormatterStyle)dateStyle;
+- (id) applyDateTime:(NSDateFormatterStyle)timeStyle;
+
 @end

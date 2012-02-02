@@ -31,8 +31,8 @@
 			  inController:(CBConfigurableTableViewController*)ctrl {
 	CBDatePickerController *c = [[CBDatePickerController alloc] init];
 	c.datePickerMode = mode;
+    [c setSelectedValue:[ctrl valueForCell:cell]];
 	[c openEditorForCell:cell inController:ctrl];
-	[c autorelease];
 }
 
 @end
