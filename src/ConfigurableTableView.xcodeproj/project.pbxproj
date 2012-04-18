@@ -42,6 +42,8 @@
 		AABB397014879D4900A1AD86 /* CBCellNumericStepper.m in Sources */ = {isa = PBXBuildFile; fileRef = AABB396F14879D4900A1AD86 /* CBCellNumericStepper.m */; };
 		AABB397714879F6700A1AD86 /* CBStepperCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AABB397514879F6700A1AD86 /* CBStepperCell.m */; };
 		AABB39781487A15E00A1AD86 /* CBCellNumericStepper.h in Headers */ = {isa = PBXBuildFile; fileRef = AABB397214879D5500A1AD86 /* CBCellNumericStepper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AACB802C1536F464002CCDD2 /* CBConfigurableDataSourceAndDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = AACB802A1536F464002CCDD2 /* CBConfigurableDataSourceAndDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AACB802D1536F464002CCDD2 /* CBConfigurableDataSourceAndDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AACB802B1536F464002CCDD2 /* CBConfigurableDataSourceAndDelegate.m */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 		AAD1103511E4835100072707 /* CBCellCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD1103311E4835100072707 /* CBCellCharacter.m */; };
 		AAD1103911E4838200072707 /* CBCharacterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD1103711E4838200072707 /* CBCharacterTableViewCell.m */; };
@@ -139,6 +141,8 @@
 		AABB397214879D5500A1AD86 /* CBCellNumericStepper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; name = CBCellNumericStepper.h; path = CBConfigurableTableView/CBCellNumericStepper.h; sourceTree = "<group>"; };
 		AABB397414879F6700A1AD86 /* CBStepperCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; path = CBStepperCell.h; sourceTree = "<group>"; };
 		AABB397514879F6700A1AD86 /* CBStepperCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBStepperCell.m; sourceTree = "<group>"; };
+		AACB802A1536F464002CCDD2 /* CBConfigurableDataSourceAndDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBConfigurableDataSourceAndDelegate.h; path = CBConfigurableTableView/CBConfigurableDataSourceAndDelegate.h; sourceTree = "<group>"; };
+		AACB802B1536F464002CCDD2 /* CBConfigurableDataSourceAndDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBConfigurableDataSourceAndDelegate.m; sourceTree = "<group>"; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AAD1103311E4835100072707 /* CBCellCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCellCharacter.m; sourceTree = "<group>"; };
 		AAD1103711E4838200072707 /* CBCharacterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCharacterTableViewCell.m; sourceTree = "<group>"; };
@@ -258,6 +262,8 @@
 				AA717C50112006CF00FB5173 /* Additions */,
 				AAD5CBF610C8FC86003D3A14 /* CBConfigurableTableViewController.h */,
 				AAD5CBF710C8FC86003D3A14 /* CBConfigurableTableViewController.m */,
+				AACB802A1536F464002CCDD2 /* CBConfigurableDataSourceAndDelegate.h */,
+				AACB802B1536F464002CCDD2 /* CBConfigurableDataSourceAndDelegate.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -426,6 +432,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAD5CBF810C8FC86003D3A14 /* CBConfigurableTableViewController.h in Headers */,
+				AACB802C1536F464002CCDD2 /* CBConfigurableDataSourceAndDelegate.h in Headers */,
 				AAD5CC3C10C90623003D3A14 /* CBCellString.h in Headers */,
 				AAD5CED710C95AC3003D3A14 /* CBSliderCell.h in Headers */,
 				AAA9424E110C66C70045A98E /* CBMultilineTableViewCell.h in Headers */,
@@ -573,6 +580,7 @@
 				AABB397014879D4900A1AD86 /* CBCellNumericStepper.m in Sources */,
 				AABB397714879F6700A1AD86 /* CBStepperCell.m in Sources */,
 				AA438C19153AD511001226B4 /* CBCellPerformSegue.m in Sources */,
+				AACB802D1536F464002CCDD2 /* CBConfigurableDataSourceAndDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

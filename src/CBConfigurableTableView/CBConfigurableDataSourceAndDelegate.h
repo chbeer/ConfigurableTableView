@@ -1,21 +1,19 @@
 //
-//  CBConfigurableTableView.h
+//  CBConfigurableDataSourceAndDelegate.h
 //  ConfigurableTableView
 //
-//  Created by Christian Beer on 04.12.09.
-//  Copyright 2010 Christian Beer. All rights reserved.
+//  Created by Christian Beer on 12.04.12.
+//  Copyright (c) 2012 Christian Beer. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 #import "CBTable.h"
-#import "CBConfigurableDataSourceAndDelegate.h"
 
-@interface CBConfigurableTableViewController : UITableViewController {
-    BOOL _kbDidShow;    
-}
+@interface CBConfigurableDataSourceAndDelegate : NSObject <CBTableDelegate,UITableViewDataSource,UITableViewDelegate>
 
-@property (nonatomic, retain) CBConfigurableDataSourceAndDelegate *dataSource;
+@property (nonatomic, retain) UITableView *tableView;
+@property (nonatomic, retain) UIViewController *controller;
 
 @property (nonatomic, retain) CBTable *model;
 @property (nonatomic, retain) id data;
@@ -24,15 +22,13 @@
 @property (nonatomic, assign) UITableViewRowAnimation removeAnimation;
 @property (nonatomic, assign) UITableViewRowAnimation reloadAnimation;
 
+- (id) initWithTableView:(UITableView*)tableView;
 
-- (id)initWithTableModel:(CBTable*)model;
-- (id)initWithTableModel:(CBTable*)model andData:(NSObject*)object;
+
+#pragma mark Value access
 
 - (void) setValue:(id)value forCell:(CBCell*)cell withReload:(BOOL)reload;
 - (void) setValue:(id)value forCell:(CBCell*)cell;
 - (id) valueForCell:(CBCell*)cell;
-
-- (void) addKeyboardObservers;
-- (void) removeKeyboardObservers;
 
 @end
