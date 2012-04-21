@@ -151,7 +151,7 @@
     CBCell *cbCell = [_model cellForRowAtIndexPath:indexPath];
 	if ([cbCell hasEditor]) {
         if ([cbCell respondsToSelector:@selector(openEditorInController:)]) {
-            [cbCell openEditorInController:self];
+            [cbCell openEditorInController:self.controller];
         }
 	}
 	

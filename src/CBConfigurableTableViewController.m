@@ -19,23 +19,17 @@
 
 @synthesize dataSource = _dataSource;
 
-@dynamic model;
-@dynamic data;
+@synthesize model = _model;
+@synthesize data = _data;
 
-@dynamic addAnimation;
-@dynamic removeAnimation;
-@dynamic reloadAnimation;
+@synthesize addAnimation = _addAnimation;
+@synthesize removeAnimation = _removeAnimation;
+@synthesize reloadAnimation = _reloadAnimation;
 
 
 - (id) initWithStyle:(UITableViewStyle)style {
 	self = [super initWithStyle:style];
     if (!self) return nil;
-        
-    self.dataSource = [[[CBConfigurableDataSourceAndDelegate alloc] initWithTableView:self.tableView] autorelease];
-    
-    self.tableView.dataSource = self.dataSource;
-    self.tableView.delegate = self.dataSource;
-    self.tableView.allowsSelectionDuringEditing = YES;
     
 	return self;
 }
@@ -50,16 +44,8 @@
 	self = [self initWithStyle:UITableViewStyleGrouped];
     if (!self) return nil;
     
-    self.dataSource = [[[CBConfigurableDataSourceAndDelegate alloc] initWithTableView:self.tableView] autorelease];
-    
-    self.tableView.dataSource = self.dataSource;
-    self.tableView.delegate = self.dataSource;
-    self.tableView.allowsSelectionDuringEditing = YES;
-
-    self.dataSource.model = self.model;
-    self.dataSource.model.delegate = self.dataSource;
-
-    self.dataSource.data = object;
+    _model = model;
+    _data = object;
     
     return self;
 }
@@ -67,12 +53,32 @@
     return [self initWithTableModel:model andData:nil];
 }
 
-- (void)viewDidLoad
+- (void) loadView
+{
+    [super loadView];
+    
+    self.dataSource = [[[CBConfigurableDataSourceAndDelegate alloc] initWithTableView:self.tableView] autorelease];
+    self.dataSource.controller = self;
+    
+    self.tableView.dataSource = self.dataSource;
+    self.tableView.delegate = self.dataSource;
+    self.tableView.allowsSelectionDuringEditing = YES;
+
+    self.dataSource.model = _model;
+    self.dataSource.model.delegate = self.dataSource;
+    
+    self.dataSource.data = _data;
+    
+    [self.tableView reloadData];
+}
+
+/*- (void)viewDidLoad
 {
     [super viewDidLoad];
     
     if (!self.dataSource) {
         self.dataSource = [[[CBConfigurableDataSourceAndDelegate alloc] initWithTableView:self.tableView] autorelease];
+        self.dataSource.controller = self;
     
         self.tableView.dataSource = self.dataSource;
         self.tableView.delegate = self.dataSource;
@@ -82,6 +88,7 @@
         self.dataSource.model.delegate = self.dataSource;
     }
 }
+*/
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
@@ -91,13 +98,12 @@
     return self.dataSource.data;
 }
 - (void) setData: (NSObject *) aData {
+    _data = aData;
     self.dataSource.data = aData;
 }
 
-- (CBTable *) model {
-    return self.dataSource.model;
-}
 - (void) setModel: (CBTable *) aModel {
+    _model = aModel;
     self.dataSource.model = aModel;
 
     [self.tableView reloadData];
