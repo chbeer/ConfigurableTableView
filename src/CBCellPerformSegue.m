@@ -40,7 +40,7 @@
 - (UITableViewCell*) createTableViewCellForTableView:(UITableView*)tableView {
 	UITableViewCell *cell =  [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
 													reuseIdentifier:[self reuseIdentifier]];
-	cell.textLabel.textAlignment = UITextAlignmentCenter;
+	cell.textLabel.textAlignment = UITextAlignmentLeft;
 	cell.textLabel.font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize] + 2];
     
     cell.textLabel.enabled = self.enabled;
@@ -51,6 +51,7 @@
 {
     [super setupCell:cell withObject:object inTableView:tableView];
     cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 }
 
 - (BOOL) hasEditor {
@@ -66,7 +67,8 @@
     
     id sender = self.sender ?: self;
     
-    [controller performSelector:@selector(performSegueWithIdentifier:sender:) withObject:self.segueIdentifier withObject:sender];
+    [controller performSelector:@selector(performSegueWithIdentifier:sender:) 
+                     withObject:self.segueIdentifier withObject:sender];
 }
 
 @end
