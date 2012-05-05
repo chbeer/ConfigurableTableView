@@ -177,7 +177,7 @@
                 }
             }
             
-            _currentTextViewHeight = _textViewCell.textView.contentSize.height;
+            _currentTextViewHeight = _textViewCell.textView.contentSize.height + 10;
             
             height = MAX(_textViewCell.textView.contentSize.height, height);
             
