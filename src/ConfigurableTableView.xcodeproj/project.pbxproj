@@ -16,6 +16,8 @@
 		AA0E4CB91381525100A2FCF0 /* CBEditorTargetAction.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD27264129EBC9500ABEDF8 /* CBEditorTargetAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA39A4CF10FC5BD50038C291 /* CBEditorNumeric.m in Sources */ = {isa = PBXBuildFile; fileRef = AA39A4CD10FC5BD50038C291 /* CBEditorNumeric.m */; };
 		AA39A4D310FC5C2E0038C291 /* CBNumericEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA39A4D110FC5C2E0038C291 /* CBNumericEditorController.m */; };
+		AA438C18153AD511001226B4 /* CBCellPerformSegue.h in Headers */ = {isa = PBXBuildFile; fileRef = AA438C16153AD511001226B4 /* CBCellPerformSegue.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA438C19153AD511001226B4 /* CBCellPerformSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = AA438C17153AD511001226B4 /* CBCellPerformSegue.m */; };
 		AA6422071144FF100093A091 /* CBCellStringInlineEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = AA6422051144FF100093A091 /* CBCellStringInlineEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA6422081144FF100093A091 /* CBCellStringInlineEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6422061144FF100093A091 /* CBCellStringInlineEditor.m */; };
 		AA65526011119B390048C23B /* CBCellOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = AA65525E11119B390048C23B /* CBCellOptions.m */; };
@@ -108,6 +110,8 @@
 		AA0E4CB51381520700A2FCF0 /* CBConfigTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; name = CBConfigTableViewCell.h; path = CBConfigurableTableView/CBConfigTableViewCell.h; sourceTree = "<group>"; };
 		AA39A4CD10FC5BD50038C291 /* CBEditorNumeric.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBEditorNumeric.m; sourceTree = "<group>"; };
 		AA39A4D110FC5C2E0038C291 /* CBNumericEditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBNumericEditorController.m; sourceTree = "<group>"; };
+		AA438C16153AD511001226B4 /* CBCellPerformSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBCellPerformSegue.h; path = CBConfigurableTableView/CBCellPerformSegue.h; sourceTree = "<group>"; };
+		AA438C17153AD511001226B4 /* CBCellPerformSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCellPerformSegue.m; sourceTree = "<group>"; };
 		AA6422051144FF100093A091 /* CBCellStringInlineEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBCellStringInlineEditor.h; path = CBConfigurableTableView/CBCellStringInlineEditor.h; sourceTree = "<group>"; };
 		AA6422061144FF100093A091 /* CBCellStringInlineEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCellStringInlineEditor.m; sourceTree = "<group>"; };
 		AA65525E11119B390048C23B /* CBCellOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCellOptions.m; sourceTree = "<group>"; };
@@ -360,6 +364,8 @@
 				AAD1103311E4835100072707 /* CBCellCharacter.m */,
 				AA96511B123B8E41005F9CF4 /* CBCellButtons.h */,
 				AA96511C123B8E41005F9CF4 /* CBCellButtons.m */,
+				AA438C16153AD511001226B4 /* CBCellPerformSegue.h */,
+				AA438C17153AD511001226B4 /* CBCellPerformSegue.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -470,6 +476,7 @@
 				AADC28641121824300E71852 /* CBDatePickerController.h in Headers */,
 				AA6422071144FF100093A091 /* CBCellStringInlineEditor.h in Headers */,
 				AA0E4CB71381521300A2FCF0 /* CBConfigTableViewCell.h in Headers */,
+				AA438C18153AD511001226B4 /* CBCellPerformSegue.h in Headers */,
 				AA747D9F0F9514B9006C5449 /* ConfigurableTableView_Prefix.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -572,6 +579,7 @@
 				AA99C6E013695528002C5386 /* CBEditorStringInline.m in Sources */,
 				AABB397014879D4900A1AD86 /* CBCellNumericStepper.m in Sources */,
 				AABB397714879F6700A1AD86 /* CBStepperCell.m in Sources */,
+				AA438C19153AD511001226B4 /* CBCellPerformSegue.m in Sources */,
 				AACB802D1536F464002CCDD2 /* CBConfigurableDataSourceAndDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

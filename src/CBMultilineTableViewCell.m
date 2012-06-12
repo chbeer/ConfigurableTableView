@@ -31,9 +31,21 @@
     [super dealloc];
 }
 
-+ (CGFloat) calculateHeightInTableView:(UITableView*)tableView withText:(NSString*)text 
-							   andFont:(UIFont*)font {
++ (CGFloat) calculateHeightInTableView:(UITableView*)tableView 
+                              withText:(NSString*)text andFont:(UIFont*)font
+                      andAccessoryType:(UITableViewCellAccessoryType)accessoryType
+{
 	CGFloat width = CBCTVCellLabelWidth(tableView);
+    switch (accessoryType) {
+        case UITableViewCellAccessoryCheckmark:
+        case UITableViewCellAccessoryDisclosureIndicator:
+        case UITableViewCellAccessoryDetailDisclosureButton:
+            width -= 25;
+            break;
+            
+        default:
+            break;
+    }
 	
 	CGSize constraint = CGSizeMake(width, MAX_HEIGHT);
 	
@@ -48,6 +60,11 @@
         height = MAX(MIN(size.height + 16, MAX_HEIGHT), 44.0);
     }	
 	return height;
+}
++ (CGFloat) calculateHeightInTableView:(UITableView*)tableView withText:(NSString*)text 
+							   andFont:(UIFont*)font {
+	return [self calculateHeightInTableView:tableView withText:text andFont:font 
+                           andAccessoryType:UITableViewCellAccessoryNone];
 }
 
 @end

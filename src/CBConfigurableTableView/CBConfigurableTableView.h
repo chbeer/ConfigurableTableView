@@ -28,6 +28,7 @@
 #import "CBCellOptions.h"
 #import "CBCellCharacter.h"
 #import "CBCellButtons.h"
+#import "CBCellPerformSegue.h"
 
 #import "CBEditorString.h"
 #import "CBEditorStringInline.h"

@@ -20,9 +20,9 @@
 
 @synthesize textView = _textView;
 
-@synthesize keyboardType = _keyboardType;
-@synthesize autocorrectionType = _autocorrectionType;
-@synthesize autocapitalizationType = _autocapitalizationType;
+@dynamic keyboardType;
+@dynamic autocorrectionType;
+@dynamic autocapitalizationType;
 
 - (id)initWithReuseIdentifier:(NSString *)identifier 
                      andLabel:(NSString*)label {
@@ -33,9 +33,9 @@
 		
 		_textView = [[UITextView alloc] initWithFrame:self.contentView.bounds];
 		_textView.font = [UIFont boldSystemFontOfSize:18];
-		_textView.keyboardAppearance = _keyboardType;
-        _textView.autocorrectionType = _autocorrectionType;
-        _textView.autocapitalizationType = _autocapitalizationType;
+		_textView.keyboardAppearance = UIKeyboardAppearanceAlert;
+        _textView.autocorrectionType = UITextAutocorrectionTypeDefault;
+        _textView.autocapitalizationType = UITextAutocapitalizationTypeNone;
 		_textView.delegate = self;
         _textView.backgroundColor = self.contentView.backgroundColor;
         _textView.scrollEnabled = NO;
@@ -66,7 +66,7 @@
 - (void)layoutSubviews {
 	[super layoutSubviews];
 	
-	_textView.frame  = self.contentView.bounds;
+	_textView.frame  = CGRectInset(self.contentView.bounds, 2, 5);
     
     if (self.textLabel.superview) {
         [self.textLabel removeFromSuperview];
@@ -136,8 +136,37 @@
     }
 }
 
+#pragma mark - Accessors
+
 - (void)setValue:(id)value {
 	_textView.text = [NSString stringWithFormat:@"%@", value];
+}
+
+- (void)setKeyboardType:(UIKeyboardType)keyboardType
+{
+    self.textView.keyboardType = keyboardType;
+}
+- (UIKeyboardType)keyboardType
+{
+    return self.textView.keyboardType;
+}
+
+- (void)setAutocorrectionType:(UITextAutocorrectionType)autocorrectionType
+{
+    self.textView.autocorrectionType = autocorrectionType;
+}
+- (UITextAutocorrectionType)autocorrectionType
+{
+    return self.textView.autocorrectionType;
+}
+
+- (void)setAutocapitalizationType:(UITextAutocapitalizationType)autocapitalizationType
+{
+    self.textView.autocapitalizationType = autocapitalizationType;
+}
+- (UITextAutocapitalizationType)autocapitalizationType
+{
+    return self.textView.autocapitalizationType;
 }
 
 @end
