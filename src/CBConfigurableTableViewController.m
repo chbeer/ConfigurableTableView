@@ -74,13 +74,14 @@
     if (!self.dataSource) {
         self.dataSource = [[[CBConfigurableDataSourceAndDelegate alloc] initWithTableView:self.tableView] autorelease];
     
-        self.tableView.dataSource = self.dataSource;
-        self.tableView.delegate = self.dataSource;
-        self.tableView.allowsSelectionDuringEditing = YES;
-
         self.dataSource.model = self.model;
         self.dataSource.model.delegate = self.dataSource;
     }
+
+    self.tableView.dataSource = self.dataSource;
+    self.tableView.delegate = self.dataSource;
+    self.tableView.allowsSelectionDuringEditing = YES;
+
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
