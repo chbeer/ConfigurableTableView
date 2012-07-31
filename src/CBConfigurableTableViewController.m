@@ -104,10 +104,13 @@
 }
 
 - (void) setModel: (CBTable *) aModel {
-    _model = aModel;
-    self.dataSource.model = aModel;
+    if (_model != aModel) {
+        [_model release];
+        _model = [aModel retain];
+        self.dataSource.model = aModel;
 
-    [self.tableView reloadData];
+        [self.tableView reloadData];
+    }
 }
 
 

@@ -13,6 +13,8 @@
 
 @interface CBConfigurableTableViewController : UITableViewController {
     BOOL _kbDidShow;    
+
+    CBTable *_model;
 }
 
 @property (nonatomic, retain) CBConfigurableDataSourceAndDelegate *dataSource;
