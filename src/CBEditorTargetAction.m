@@ -16,7 +16,7 @@
 		_target = target;
         _selector = selector;
         
-        _inline = NO;
+        _inline = YES;
 	}
 	return self;
 }
