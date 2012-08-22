@@ -21,7 +21,7 @@
 	return self;
 }
 
-+ (CBEditorPicker*) editorWithOptions:(NSArray*)options {
++ (id) editorWithOptions:(NSArray*)options {
 	CBEditorPicker *editor = [[[self class] alloc] initWithOptions:options];
 	return [editor autorelease];
 }
