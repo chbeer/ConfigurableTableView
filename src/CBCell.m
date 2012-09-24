@@ -28,6 +28,8 @@
 
 @synthesize enabled = _enabled;
 
+@synthesize nibReuseIdentifier = nibReuseIdentifier;
+
 - (id) initWithTitle:(NSString*)title {
 	if (self = [super init]) {
 		_title = [title copy];
@@ -92,6 +94,12 @@
     return self;
 }
 
+- (id) applyNibReuseIdentifier:(NSString*)reuseIdentifier;
+{
+    self.nibReuseIdentifier = reuseIdentifier;
+    return self;
+}
+
 - (void) dealloc {
     [_tag release], _tag = nil;
 
@@ -127,6 +135,10 @@
 }
 
 - (UITableViewCell*) createTableViewCellForTableView:(UITableView*)tableView {
+    if (self.nibReuseIdentifier) {
+        return [tableView dequeueReusableCellWithIdentifier:self.nibReuseIdentifier];
+    }
+    
 	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:[self tableViewCellStyle]
 												   reuseIdentifier:[self reuseIdentifier]];
 	

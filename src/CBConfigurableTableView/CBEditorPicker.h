@@ -17,6 +17,6 @@
 
 - (id) initWithOptions:(NSArray*)options;
 
-+ (CBEditorPicker*) editorWithOptions:(NSArray*)options;
++ (id) editorWithOptions:(NSArray*)options;
 
 @end

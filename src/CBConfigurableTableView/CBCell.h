@@ -50,6 +50,8 @@
 
 @property (readonly) NSString *reuseIdentifier;
 
+@property (nonatomic, copy) NSString *nibReuseIdentifier;
+
 @property (nonatomic, retain) CBEditor *editor;
 
 @property (nonatomic, retain) NSString *iconName;
@@ -69,6 +71,8 @@
 - (id) applyIconName:(NSString*)iconName;
 - (id) applyStyle:(UITableViewCellStyle)style;
 - (id) applyEnabled:(BOOL)enabled;
+
+- (id) applyNibReuseIdentifier:(NSString*)reuseIdentifier;
 
 @end
 
