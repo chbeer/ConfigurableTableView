@@ -111,7 +111,7 @@
         return sect.footerView.bounds.size.height;
     } else if ([sect.footerTitle length] > 0) {
         CGFloat width = tableView.bounds.size.width;
-        CGSize constrain = CGSizeMake(width > 400 ? width - 120 : width - 40, 1000);
+        CGSize constrain = CGSizeMake(width > 400 ? width - 120 : width - 50, 1000);
         CGSize size = [sect.footerTitle sizeWithFont:[UIFont systemFontOfSize:16]
                                    constrainedToSize:constrain 
                                        lineBreakMode:UILineBreakModeWordWrap];
