@@ -38,6 +38,7 @@
 #import "CBEditorNumeric.h"
 #import "CBEditorOpenURL.h"
 #import "CBEditorTargetAction.h"
+#import "CBEditorStepper.h"
 
 #import "CBPickerOption.h"
 

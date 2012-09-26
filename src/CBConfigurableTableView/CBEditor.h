@@ -33,6 +33,8 @@
 - (UITableViewCell*) cell:(CBCell*)cell didCreateTableViewCell:(UITableViewCell*)tableViewCell;
 - (void) cell:(CBCell*)cell didSetupTableViewCell:(UITableViewCell*)tableViewCell withObject:(id)object inTableView:(UITableView*)tableView;
 
+- (CGSize) editorAccessorySize;
+
 @end
 
 
@@ -42,6 +44,7 @@
 + (id) editor;
 
 - (BOOL) isInline;
+- (CGSize) editorAccessorySize;
 
 - (void) openEditorForCell:(CBCell*)cell inController:(CBConfigurableTableViewController*)ctrl;
 

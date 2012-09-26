@@ -22,4 +22,9 @@
 	return YES;
 }
 
+- (CGSize) editorAccessorySize
+{
+    return CGSizeZero;
+}
+
 @end
