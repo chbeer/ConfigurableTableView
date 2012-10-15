@@ -13,6 +13,7 @@
 @class CBEditor;
 @class CBEditorController;
 @class CBSection;
+@class CBCell;
 
 @protocol CBCell <NSObject>
 
@@ -26,13 +27,17 @@
 /** Use this to setup the TableViewCell. Needs only overridden for special cells. 
  * Otherwise override setValue:ofCell: */
 - (void) setupCell:(UITableViewCell*)cell withObject:(NSObject*)object inTableView:(UITableView*)tableView;
-- (CGFloat) heightForCellInTableView:(UITableView*)tableView withObject:(NSObject*)object;
 
 - (BOOL) hasEditor;
 - (BOOL) isEditorInline;
 - (void) openEditorInController:(CBConfigurableTableViewController*)controller fromTableViewCell:(UITableViewCell*)cell;
 - (void) openEditorInController:(CBConfigurableTableViewController*)controller;
 - (void) setEditor:(CBEditor*)editor;
+
+@optional
+
+- (CGFloat) heightForCell:(CBCell*)cell inTableView:(UITableView*)tableView withObject:(NSObject*)object;
+- (CGFloat) heightForCellInTableView:(UITableView*)tableView withObject:(NSObject*)object;
 
 @end
 
@@ -73,6 +78,8 @@
 - (id) applyEnabled:(BOOL)enabled;
 
 - (id) applyNibReuseIdentifier:(NSString*)reuseIdentifier;
+
+- (UITableViewCellAccessoryType) accessoryType;
 
 @end
 

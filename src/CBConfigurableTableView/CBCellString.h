@@ -24,6 +24,6 @@
 
 #pragma mark private
 
-- (CGFloat) calculateHeightForCellInTableView:(UITableView*)tableView withText:(NSString*)text;
+- (CGFloat) calculateHeightForCell:(CBCell*)cell inTableView:(UITableView*)tableView withText:(NSString*)text;
 
 @end

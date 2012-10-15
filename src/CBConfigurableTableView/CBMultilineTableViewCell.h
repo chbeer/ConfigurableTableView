@@ -14,10 +14,8 @@
 @interface CBMultilineTableViewCell : CBConfigTableViewCell {
 }
 
-+ (CGFloat) calculateHeightInTableView:(UITableView*)tableView 
-                              withText:(NSString*)text andFont:(UIFont*)font
-                      andAccessoryType:(UITableViewCellAccessoryType)accessoryType;
-+ (CGFloat) calculateHeightInTableView:(UITableView*)tableView withText:(NSString*)text 
-							   andFont:(UIFont*)font;
++ (CGFloat) calculateHeightForCell:(CBCell*)cell
+                       inTableView:(UITableView*)tableView
+                          withText:(NSString*)text andFont:(UIFont*)font;;
 
 @end

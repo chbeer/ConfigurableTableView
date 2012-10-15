@@ -90,13 +90,15 @@
 	return [cell autorelease];
 }
 
-- (CGFloat) calculateHeightForCellInTableView:(UITableView*)tableView withText:(NSString*)text {
+- (CGFloat) calculateHeightForCell:(CBCell*)cell inTableView:(UITableView*)tableView withText:(NSString*)text
+{
 	CGFloat height = 44;
 
 	if (text) {
-		height = [CBMultilineTableViewCell calculateHeightInTableView:tableView 
-															 withText:text
-															  andFont:_font];// + 10;
+		height = [CBMultilineTableViewCell calculateHeightForCell:cell
+                                                      inTableView:tableView
+                                                         withText:text
+                                                          andFont:_font];// + 10;
         if (height < 0) {
             height = 0;
         } else if (height > 2009) {
@@ -120,8 +122,9 @@
     if (_multiline) {     
 		[cell.textLabel setFrame:CGRectMake(10, 10,
 											CBCTVCellLabelWidth(tableView),
-											[self calculateHeightForCellInTableView:tableView 
-																		   withText:cell.textLabel.text] - 20)];
+											[self calculateHeightForCell:self
+                                                             inTableView:tableView
+                                                                withText:cell.textLabel.text] - 20)];
 	} 
 }
 
@@ -148,7 +151,7 @@
         } else {
             text = self.title;
         }
-		height = [self calculateHeightForCellInTableView:tableView withText:text];
+		height = [self calculateHeightForCell:self inTableView:tableView withText:text];
 	} else if (_font) {
         height = [_font pointSize] + 10;
     }

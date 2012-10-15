@@ -23,7 +23,5 @@
 - (id) applyMaxValue:(float)maxValue;
 - (id) applyStepValue:(float)step;
 - (id) applyMinValue:(float)minValue maxValue:(float)maxValue stepValue:(float)stepValue;
-- (id) applyShowValue:(BOOL)showValue;
-- (id) applyShowValue:(BOOL)showValue withFormat:(NSString*)format;
 
 @end
