@@ -112,10 +112,18 @@
 - (void) setValue:(id)value 
 		   ofCell:(UITableViewCell*)cell
 	  inTableView:(UITableView*)tableView {
-    if(self.style == UITableViewCellStyleDefault && !self.title) {
-        cell.textLabel.text = value ? [NSString stringWithFormat:@"%@", value] : @"";
+    
+    NSString *translatedValue = nil;
+    if (self.valueTranslation) {
+        translatedValue = self.valueTranslation(value);
     } else {
-        cell.detailTextLabel.text = value ? [NSString stringWithFormat:@"%@", value] : @"";
+        translatedValue = value ? [NSString stringWithFormat:@"%@", value] : @"";
+    }
+    
+    if(self.style == UITableViewCellStyleDefault && !self.title) {
+        cell.textLabel.text = translatedValue;
+    } else {
+        cell.detailTextLabel.text = translatedValue;
         cell.detailTextLabel.enabled = self.enabled;
     }
     

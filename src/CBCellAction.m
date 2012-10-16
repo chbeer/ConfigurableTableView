@@ -32,6 +32,15 @@
 	
 	return [cell autorelease];
 }
++ (id)cellWithTitle:(NSString *)title actionBlock:(CBCellActionBlock)block;
+{
+    CBCellAction *cell = [[[self class] alloc] initWithTitle:title];
+	
+	cell.actionBlock = block;
+    cell.enabled = YES;
+	
+	return [cell autorelease];
+}
 
 #pragma mark CBCell protocol
 
@@ -66,7 +75,11 @@
 - (void) openEditorInController:(CBConfigurableTableViewController *)controller {
     if (!self.enabled) return;
     
-    [[UIApplication sharedApplication] sendAction:self.action to:self.target from:self forEvent:nil];
+    if (self.actionBlock) {
+        self.actionBlock();
+    } else {
+        [[UIApplication sharedApplication] sendAction:self.action to:self.target from:self forEvent:nil];
+    }
 }
 
 @end
