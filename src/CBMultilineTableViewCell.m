@@ -9,6 +9,8 @@
 
 #import "CBMultilineTableViewCell.h"
 
+#import "CBEditor.h"
+
 #define FONT_SIZE 18
 #define MAX_HEIGHT 10000
 
@@ -31,12 +33,13 @@
     [super dealloc];
 }
 
-+ (CGFloat) calculateHeightInTableView:(UITableView*)tableView 
-                              withText:(NSString*)text andFont:(UIFont*)font
-                      andAccessoryType:(UITableViewCellAccessoryType)accessoryType
++ (CGFloat) calculateHeightForCell:(CBCell*)cell
+                       inTableView:(UITableView*)tableView
+                          withText:(NSString*)text
+                           andFont:(UIFont*)font
 {
 	CGFloat width = CBCTVCellLabelWidth(tableView);
-    switch (accessoryType) {
+    switch (cell.accessoryType) {
         case UITableViewCellAccessoryCheckmark:
         case UITableViewCellAccessoryDisclosureIndicator:
         case UITableViewCellAccessoryDetailDisclosureButton:
@@ -45,6 +48,11 @@
             
         default:
             break;
+    }
+    
+    if (cell.editor && [cell.editor respondsToSelector:@selector(editorAccessorySize)]) {
+        CBEditor *editor = cell.editor;
+        width -= [editor editorAccessorySize].width;
     }
 	
 	CGSize constraint = CGSizeMake(width, MAX_HEIGHT);
@@ -61,10 +69,6 @@
     }	
 	return height;
 }
-+ (CGFloat) calculateHeightInTableView:(UITableView*)tableView withText:(NSString*)text 
-							   andFont:(UIFont*)font {
-	return [self calculateHeightInTableView:tableView withText:text andFont:font 
-                           andAccessoryType:UITableViewCellAccessoryNone];
-}
+
 
 @end

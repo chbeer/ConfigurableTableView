@@ -10,11 +10,17 @@
 
 #import "CBCell.h"
 
+
+typedef NSString*(^CBCellValueTranslationBLock)(id value);
+
+
 @interface CBCellString : CBCell 
 
 @property (nonatomic, assign) BOOL multiline;
 @property (nonatomic, retain) UIFont *font;
 @property (nonatomic, retain) UIFont *detailFont;
+
+@property (nonatomic, copy) CBCellValueTranslationBLock valueTranslation;
 
 + (id) cellMultilineWithValuePath:(NSString*)path;
 
@@ -24,6 +30,6 @@
 
 #pragma mark private
 
-- (CGFloat) calculateHeightForCellInTableView:(UITableView*)tableView withText:(NSString*)text;
+- (CGFloat) calculateHeightForCell:(CBCell*)cell inTableView:(UITableView*)tableView withText:(NSString*)text;
 
 @end

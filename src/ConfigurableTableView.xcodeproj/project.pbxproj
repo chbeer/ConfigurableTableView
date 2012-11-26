@@ -138,7 +138,7 @@
 		AAA9424C110C66C70045A98E /* CBMultilineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBMultilineTableViewCell.h; path = CBConfigurableTableView/CBMultilineTableViewCell.h; sourceTree = "<group>"; };
 		AAA9424D110C66C70045A98E /* CBMultilineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBMultilineTableViewCell.m; sourceTree = "<group>"; };
 		AAA945B3110DA1A70045A98E /* CBCellImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCellImage.m; sourceTree = "<group>"; };
-		AAA945E6110DA9C20045A98E /* CBImageEditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBImageEditorController.m; sourceTree = "<group>"; };
+		AAA945E6110DA9C20045A98E /* CBImageEditorController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CBImageEditorController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		AAA9466D110DB4FC0045A98E /* CBCTVGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBCTVGlobal.h; path = CBConfigurableTableView/CBCTVGlobal.h; sourceTree = "<group>"; };
 		AAA9466E110DB4FC0045A98E /* CBCTVGlobal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCTVGlobal.m; sourceTree = "<group>"; };
 		AABB396F14879D4900A1AD86 /* CBCellNumericStepper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCellNumericStepper.m; sourceTree = "<group>"; };

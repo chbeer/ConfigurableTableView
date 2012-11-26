@@ -111,9 +111,9 @@
         return sect.footerView.bounds.size.height;
     } else if ([sect.footerTitle length] > 0) {
         CGFloat width = tableView.bounds.size.width;
-        CGSize constrain = CGSizeMake(width > 400 ? width - 120 : width - 50, 1000);
+        CGSize constraint = CGSizeMake(width - 50, 1000);//CGSizeMake(width > 400 ? width - 120 : width - 50, 1000);
         CGSize size = [sect.footerTitle sizeWithFont:[UIFont systemFontOfSize:16]
-                                   constrainedToSize:constrain 
+                                   constrainedToSize:constraint
                                        lineBreakMode:UILineBreakModeWordWrap];
         return size.height + 10;
     } else {
@@ -160,7 +160,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	CBCell *cbCell = [_model cellForRowAtIndexPath:indexPath];
-    CGFloat height = [cbCell heightForCellInTableView:tableView withObject:_data];
+    CGFloat height = 44;
+    if ([cbCell respondsToSelector:@selector(heightForCell:inTableView:withObject:)]) {
+        height = [cbCell heightForCell:cbCell inTableView:tableView withObject:_data];
+    } else if ([cbCell respondsToSelector:@selector(heightForCellInTableView:withObject:)]) {
+        height = [cbCell heightForCellInTableView:tableView withObject:_data];
+    }
     NSAssert(!isnan(height), @"Height should not be NaN!");
     return height;
 }

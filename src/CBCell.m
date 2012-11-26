@@ -167,25 +167,37 @@
     }
 }
 
+- (UITableViewCellAccessoryType) accessoryType
+{
+    if ([self hasEditor]) {
+        if (![self isEditorInline]) {
+            return UITableViewCellAccessoryDisclosureIndicator;
+        } else {
+            return UITableViewCellAccessoryNone;
+        }
+    } else {
+        return UITableViewCellAccessoryNone;
+    }
+}
+
 - (void) setupCell:(UITableViewCell*)cell withObject:(NSObject*)object inTableView:(UITableView*)tableView {
 	cell.textLabel.text = _title;
 
     if ([self hasEditor]) {
         if (![self isEditorInline]) {
             cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.editingAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
         } else {
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.accessoryType = UITableViewCellAccessoryNone;
             cell.editingAccessoryType = UITableViewCellAccessoryNone;
         }
     } else {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.accessoryType = UITableViewCellAccessoryNone;
         cell.editingAccessoryType = UITableViewCellAccessoryNone;
     }
-    
+
+    cell.accessoryType = [self accessoryType];
+
     if (_iconName) {
         cell.imageView.image = [UIImage imageNamed:_iconName];
     }
