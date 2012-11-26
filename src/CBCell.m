@@ -75,6 +75,13 @@
 	return cell;
 }
 
++ (id) cellWithNibReuseIdentifier:(NSString*)nibReuseIdentifier valuePath:(NSString*)valueKeyPath
+{
+    CBCell *cell = [self cellWithTitle:nil valuePath:valueKeyPath];
+	cell.nibReuseIdentifier = nibReuseIdentifier;
+	return cell;
+}
+
 - (id)applyIconName:(NSString*)iconName {
     self.iconName = iconName;
     return self;
@@ -155,6 +162,9 @@
 
 /* Override! */
 - (void) setValue:(id)value ofCell:(UITableViewCell*)cell inTableView:(UITableView*)tableView {
+    if ([cell respondsToSelector:@selector(setObject:)]) {
+        [cell performSelector:@selector(setObject:) withObject:value];
+    }
 }
 
 - (void) setupCell:(UITableViewCell*)cell withObject:(NSObject*)object inTableView:(UITableView*)tableView {
