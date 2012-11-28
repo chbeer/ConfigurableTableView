@@ -22,7 +22,7 @@
 }
 
 + (id) editorWithOptions:(NSArray*)options {
-	CBEditorPicker *editor = [[[self class] alloc] initWithOptions:options];
+	CBEditorPicker *editor = [(CBEditorPicker*)[[self class] alloc] initWithOptions:options];
 	return [editor autorelease];
 }
 

@@ -20,7 +20,7 @@
 		
 		NSMutableDictionary *d = [[NSMutableDictionary alloc] init];
 		for (CBPickerOption *o in options) {
-			[d setObject:o forKey:o.value];
+			[d setObject:o forKey:(id)o.value];
 		}
 		_options = d;
 	}
