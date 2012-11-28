@@ -71,6 +71,8 @@
 + (id) cellWithTitle:(NSString*)title valuePath:(NSString*)valueKeyPath 
             iconName:(NSString*)iconName editor:(CBEditor*)editor;
 
++ (id) cellWithNibReuseIdentifier:(NSString*)nibReuseIdentifier valuePath:(NSString*)valuePath;
+
 - (id) applyTag:(NSString *)tag;
 - (id) applyEditor:(CBEditor *)editor;
 - (id) applyIconName:(NSString*)iconName;
