@@ -42,6 +42,7 @@
 - (id)initWithReuseIdentifier:(NSString *)identifier andLabel:(NSString*)label {
 	if (self = [self initWithReuseIdentifier:identifier]) {
 		_textField.placeholder = label;
+        _textField.accessibilityLabel = label;
 	}
 	return self;
 }
