@@ -107,6 +107,12 @@
     return self;
 }
 
+- (id) applyAccessibilityLabel:(NSString*)accessibilityLabel;
+{
+    self.accessibilityLabel = accessibilityLabel;
+    return self;
+}
+
 - (void) dealloc {
     [_tag release], _tag = nil;
 
@@ -197,6 +203,7 @@
     }
 
     cell.accessoryType = [self accessoryType];
+    cell.accessibilityLabel = self.accessibilityLabel;
 
     if (_iconName) {
         cell.imageView.image = [UIImage imageNamed:_iconName];

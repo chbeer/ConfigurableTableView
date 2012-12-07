@@ -10,6 +10,7 @@
 
 #import "CBSection.h"
 #import "CBCell.h"
+#import "CBEditor.h"
 
 @implementation CBConfigurableDataSourceAndDelegate
 
@@ -132,7 +133,7 @@
         cell = [cellModel createTableViewCellForTableView:tableView];
 		
 		if (cellModel.editor && [cellModel.editor respondsToSelector:@selector(cell:didCreateTableViewCell:)]) {
-			cell = [cellModel.editor cell:cellModel didCreateTableViewCell:cell];
+			cell = [(id<CBEditor>)cellModel.editor cell:cellModel didCreateTableViewCell:cell];
 		}
 		
     }

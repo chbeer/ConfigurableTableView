@@ -52,6 +52,7 @@
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *valueKeyPath;
+@property (nonatomic, copy) NSString *accessibilityLabel;
 
 @property (readonly) NSString *reuseIdentifier;
 
@@ -78,6 +79,7 @@
 - (id) applyIconName:(NSString*)iconName;
 - (id) applyStyle:(UITableViewCellStyle)style;
 - (id) applyEnabled:(BOOL)enabled;
+- (id) applyAccessibilityLabel:(NSString*)accessibilityLabel;
 
 - (id) applyNibReuseIdentifier:(NSString*)reuseIdentifier;
 
