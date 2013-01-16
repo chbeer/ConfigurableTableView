@@ -32,6 +32,7 @@
 		self.selectionStyle = UITableViewCellSelectionStyleNone;
 		
 		_textView = [[UITextView alloc] initWithFrame:self.contentView.bounds];
+        _textView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 		_textView.font = [UIFont boldSystemFontOfSize:18];
 		_textView.keyboardAppearance = UIKeyboardAppearanceAlert;
         _textView.autocorrectionType = UITextAutocorrectionTypeDefault;
