@@ -147,7 +147,7 @@
 - (void)setMinLabel:(NSString*)min maxLabel:(NSString*)max {
     if (min) {
         if (!minLabel) {
-            minLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 13)];
+            minLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 15)];
             minLabel.font = [UIFont systemFontOfSize:[UIFont smallSystemFontSize]];
             minLabel.textColor = [UIColor darkGrayColor];
             minLabel.backgroundColor = [UIColor clearColor];
@@ -163,7 +163,7 @@
 	
     if (max) {
         if (!maxLabel) {
-            maxLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 13)];
+            maxLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 15)];
             maxLabel.font = [UIFont systemFontOfSize:[UIFont smallSystemFontSize]];
             maxLabel.textColor = [UIColor darkGrayColor];
             maxLabel.textAlignment = UITextAlignmentRight;

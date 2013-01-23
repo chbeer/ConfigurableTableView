@@ -65,7 +65,7 @@
                        constrainedToSize:constraint 
                            lineBreakMode:UILineBreakModeWordWrap];
         
-        height = MAX(MIN(size.height + 16, MAX_HEIGHT), 44.0);
+        height = MAX(MIN(size.height + 20, MAX_HEIGHT), 44.0);
     }	
 	return height;
 }
