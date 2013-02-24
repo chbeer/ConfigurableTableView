@@ -112,11 +112,11 @@
         return sect.footerView.bounds.size.height;
     } else if ([sect.footerTitle length] > 0) {
         CGFloat width = tableView.bounds.size.width;
-        CGSize constraint = CGSizeMake(width - 50, 1000);//CGSizeMake(width > 400 ? width - 120 : width - 50, 1000);
+        CGSize constraint = CGSizeMake(width - 54, 1000);//CGSizeMake(width > 400 ? width - 120 : width - 50, 1000);
         CGSize size = [sect.footerTitle sizeWithFont:[UIFont systemFontOfSize:16]
                                    constrainedToSize:constraint
                                        lineBreakMode:UILineBreakModeWordWrap];
-        return size.height + 10;
+        return size.height + 18;
     } else {
         return 0.0;
     }
