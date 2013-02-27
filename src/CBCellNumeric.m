@@ -29,6 +29,12 @@
 	[super dealloc];
 }
 
+- (id) applyNumberFormatter:(NSNumberFormatter*)numberFormatter
+{
+    self.numberFormatter = numberFormatter;
+    return self;
+}
+
 #pragma mark CBCell protocol
 
 - (void) setValue:(id)value ofCell:(UITableViewCell*)cell inTableView:(UITableView*)tableView {

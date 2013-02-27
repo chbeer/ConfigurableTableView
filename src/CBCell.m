@@ -113,6 +113,12 @@
     return self;
 }
 
+- (id) applyValueTransformer:(CBCellValueTransformerHandler)valueTransformerHandler;
+{
+    self.valueTransformerHandler = valueTransformerHandler;
+    return self;
+}
+
 - (void) dealloc {
     [_tag release], _tag = nil;
 
@@ -219,7 +225,12 @@
 	
 	if (object && _valueKeyPath) {
 		id val = [object valueForKeyPath:_valueKeyPath];
-		[self setValue:val ofCell:cell inTableView:tableView];
+        
+        if (self.valueTransformerHandler) {
+            val = self.valueTransformerHandler(val);
+        }
+
+        [self setValue:val ofCell:cell inTableView:tableView];
 	}
     
     if ([self hasEditor] && _editor && [_editor respondsToSelector:@selector(cell:didSetupTableViewCell:withObject:inTableView:)]) {

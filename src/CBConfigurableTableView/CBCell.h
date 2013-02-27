@@ -15,6 +15,10 @@
 @class CBSection;
 @class CBCell;
 
+
+typedef id(^CBCellValueTransformerHandler)(id value);
+
+
 @protocol CBCell <NSObject>
 
 - (NSString*) title;
@@ -63,6 +67,9 @@
 @property (nonatomic, retain) NSString *iconName;
 @property (nonatomic, assign, getter=isEnabled) BOOL enabled;
 
+@property (nonatomic, copy) CBCellValueTransformerHandler valueTransformerHandler;
+
+
 - (id) initWithTitle:(NSString*)title;
 - (id) initWithTitle:(NSString*)title andValuePath:(NSString*)valueKeyPath;
 
@@ -80,6 +87,7 @@
 - (id) applyStyle:(UITableViewCellStyle)style;
 - (id) applyEnabled:(BOOL)enabled;
 - (id) applyAccessibilityLabel:(NSString*)accessibilityLabel;
+- (id) applyValueTransformer:(CBCellValueTransformerHandler)valueTransformerHandler;
 
 - (id) applyNibReuseIdentifier:(NSString*)reuseIdentifier;
 
