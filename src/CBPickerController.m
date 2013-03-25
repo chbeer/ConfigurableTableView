@@ -110,6 +110,10 @@
 
 - (void) closeEditor {
 	[UIView beginAnimations:@"picker" context:nil];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationDidStopSelector:@selector(closeAnimationDidStop:finished:context:)];
+    [UIView setAnimationDuration:0.2];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     
 	self.view.alpha = 0.0;
     
@@ -124,10 +128,13 @@
 	_controller.tableView.frame = tvf;
 	
 	[UIView commitAnimations];
+}
+ - (void)closeAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
+{
+    [self.view removeFromSuperview];
 	
-	[self.view removeFromSuperview];
-	
-	[_controller.tableView deselectRowAtIndexPath:[_controller.tableView indexPathForSelectedRow] animated:YES];
+	[_controller.tableView deselectRowAtIndexPath:[_controller.tableView indexPathForSelectedRow]
+                                         animated:YES];
 }
 
 - (BOOL) setSelectedValue:(id)value {
