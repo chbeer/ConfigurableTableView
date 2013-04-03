@@ -13,8 +13,6 @@
     CBCell *_cell;
 }
 
-@synthesize stepper = _stepper;
-
 @synthesize minValue    = _minValue;
 @synthesize maxValue    = _maxValue;
 @synthesize stepValue   = _stepValue;
@@ -53,10 +51,13 @@
 - (UITableViewCell*) cell:(CBCell*)cell didCreateTableViewCell:(UITableViewCell*)tableViewCell {
     _cell = cell;
     
+    return tableViewCell;
+}
+- (void)cell:(CBCell *)cell didSetupTableViewCell:(UITableViewCell *)tableViewCell withObject:(id)object inTableView:(UITableView *)tableView
+{
     UIStepper *stepper = [[UIStepper alloc] initWithFrame:CGRectZero];
     [stepper sizeToFit];
     tableViewCell.accessoryView = stepper;
-    self.stepper = stepper;
     [stepper release];
     
     stepper.minimumValue = _minValue;
@@ -68,8 +69,6 @@
     [stepper addTarget:self action:@selector(stepperChanged:) forControlEvents:UIControlEventValueChanged];
     
     tableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
-
-    return tableViewCell;
 }
 
 - (CGSize) editorAccessorySize;

@@ -14,8 +14,6 @@
 @property (nonatomic, assign) float maxValue;
 @property (nonatomic, assign) float stepValue;
 
-@property (nonatomic, retain) UIStepper *stepper;
-
 
 + (id) editorWithMinValue:(float)min maxValue:(float)max stepValue:(float)step;
 
