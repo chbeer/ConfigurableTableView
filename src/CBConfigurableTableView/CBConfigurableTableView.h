@@ -39,6 +39,7 @@
 #import "CBEditorOpenURL.h"
 #import "CBEditorTargetAction.h"
 #import "CBEditorStepper.h"
+#import "CBEditorOptionsSubtable.h"
 
 #import "CBPickerOption.h"
 

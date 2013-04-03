@@ -35,6 +35,8 @@
 		AAA1590C10F4B66C0080D3B7 /* CBTextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1590810F4B66C0080D3B7 /* CBTextFieldTableViewCell.m */; };
 		AAA1590E10F4B66C0080D3B7 /* CBTextViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1590A10F4B66C0080D3B7 /* CBTextViewTableViewCell.m */; };
 		AAA1591710F4B6AA0080D3B7 /* CBEditableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1591510F4B6AA0080D3B7 /* CBEditableTableViewCell.m */; };
+		AAA50CB8170B4217008E9017 /* CBEditorOptionsSubtable.h in Headers */ = {isa = PBXBuildFile; fileRef = AAA50CB6170B4216008E9017 /* CBEditorOptionsSubtable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AAA50CB9170B4217008E9017 /* CBEditorOptionsSubtable.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA50CB7170B4217008E9017 /* CBEditorOptionsSubtable.m */; };
 		AAA9424E110C66C70045A98E /* CBMultilineTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = AAA9424C110C66C70045A98E /* CBMultilineTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AAA9424F110C66C70045A98E /* CBMultilineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA9424D110C66C70045A98E /* CBMultilineTableViewCell.m */; };
 		AAA945B5110DA1A70045A98E /* CBCellImage.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA945B3110DA1A70045A98E /* CBCellImage.m */; };
@@ -135,6 +137,8 @@
 		AAA1590810F4B66C0080D3B7 /* CBTextFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTextFieldTableViewCell.m; sourceTree = "<group>"; };
 		AAA1590A10F4B66C0080D3B7 /* CBTextViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTextViewTableViewCell.m; sourceTree = "<group>"; };
 		AAA1591510F4B6AA0080D3B7 /* CBEditableTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBEditableTableViewCell.m; sourceTree = "<group>"; };
+		AAA50CB6170B4216008E9017 /* CBEditorOptionsSubtable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBEditorOptionsSubtable.h; sourceTree = "<group>"; };
+		AAA50CB7170B4217008E9017 /* CBEditorOptionsSubtable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBEditorOptionsSubtable.m; sourceTree = "<group>"; };
 		AAA9424C110C66C70045A98E /* CBMultilineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CBMultilineTableViewCell.h; path = CBConfigurableTableView/CBMultilineTableViewCell.h; sourceTree = "<group>"; };
 		AAA9424D110C66C70045A98E /* CBMultilineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBMultilineTableViewCell.m; sourceTree = "<group>"; };
 		AAA945B3110DA1A70045A98E /* CBCellImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCellImage.m; sourceTree = "<group>"; };
@@ -395,6 +399,8 @@
 				AAD27250129EBAF600ABEDF8 /* CBEditorTargetAction.m */,
 				AA20294C160116AA00C25C98 /* CBEditorStepper.h */,
 				AA20294D160116AA00C25C98 /* CBEditorStepper.m */,
+				AAA50CB6170B4216008E9017 /* CBEditorOptionsSubtable.h */,
+				AAA50CB7170B4217008E9017 /* CBEditorOptionsSubtable.m */,
 			);
 			name = Editors;
 			sourceTree = "<group>";
@@ -485,6 +491,7 @@
 				AA438C18153AD511001226B4 /* CBCellPerformSegue.h in Headers */,
 				AA20294E160116AA00C25C98 /* CBEditorStepper.h in Headers */,
 				AA747D9F0F9514B9006C5449 /* ConfigurableTableView_Prefix.pch in Headers */,
+				AAA50CB8170B4217008E9017 /* CBEditorOptionsSubtable.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +596,7 @@
 				AA438C19153AD511001226B4 /* CBCellPerformSegue.m in Sources */,
 				AACB802D1536F464002CCDD2 /* CBConfigurableDataSourceAndDelegate.m in Sources */,
 				AA20294F160116AA00C25C98 /* CBEditorStepper.m in Sources */,
+				AAA50CB9170B4217008E9017 /* CBEditorOptionsSubtable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
