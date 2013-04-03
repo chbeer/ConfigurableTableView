@@ -16,9 +16,12 @@
 @synthesize enabled = _enabled;
 
 - (id) initWithTitle:(NSString*)title {
-	if (self = [super initWithTitle:title]) {
-        _enabled = YES;
-	}
+	self = [super initWithTitle:title];
+    if (!self) return nil;
+    
+    _textAlignment = UITextAlignmentCenter;
+    _enabled = YES;
+
 	return self;
 }
 
@@ -42,6 +45,17 @@
 	return [cell autorelease];
 }
 
+- (id) applyTextAlignment:(UITextAlignment)textAlignment
+{
+    self.textAlignment = textAlignment;
+    return self;
+}
+- (id) applyTableViewCellAccessoryType:(UITableViewCellAccessoryType)accessoryType;
+{
+    self.cellAccessoryType = accessoryType;
+    return self;
+}
+
 #pragma mark CBCell protocol
 
 - (NSString*) reuseIdentifier {
@@ -51,7 +65,7 @@
 - (UITableViewCell*) createTableViewCellForTableView:(UITableView*)tableView {
 	UITableViewCell *cell =  [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
 													reuseIdentifier:[self reuseIdentifier]];
-	cell.textLabel.textAlignment = UITextAlignmentCenter;
+	cell.textLabel.textAlignment = self.textAlignment;
 	cell.textLabel.font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize] + 2];
     
     cell.textLabel.enabled = _enabled;
@@ -62,6 +76,7 @@
 {
     [super setupCell:cell withObject:object inTableView:tableView];
     cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    cell.accessoryType = self.cellAccessoryType;
 }
 
 - (BOOL) hasEditor {

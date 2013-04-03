@@ -18,7 +18,13 @@ typedef void(^CBCellActionBlock)(void);
 
 @property (nonatomic, copy) CBCellActionBlock actionBlock;
 
+@property (nonatomic, assign) UITextAlignment               textAlignment;
+@property (nonatomic, assign) UITableViewCellAccessoryType  cellAccessoryType;
+
 + (id)cellWithTitle:(NSString *)title target:(id)target action:(SEL)selector;
 + (id)cellWithTitle:(NSString *)title actionBlock:(CBCellActionBlock)block;
+
+- (id) applyTextAlignment:(UITextAlignment)textAlignment;
+- (id) applyTableViewCellAccessoryType:(UITableViewCellAccessoryType)accessoryType;
 
 @end
