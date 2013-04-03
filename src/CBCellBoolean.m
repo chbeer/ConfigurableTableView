@@ -72,15 +72,17 @@
 		_switch = [[UISwitch alloc] init];
 		[_switch addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
 	}
-	cell.accessoryView = _switch;
     
 	CGPoint o = cell.textLabel.frame.origin;
 	CGSize s = cell.textLabel.frame.size;
-	cell.textLabel.frame = CGRectMake(o.x, _switch.frame.origin.y, s.width - _switch.frame.size.width, _switch.frame.size.height);
+	cell.textLabel.frame = CGRectMake(o.x, o.y, s.width - _switch.frame.size.width, s.height);
+    cell.textLabel.numberOfLines = 0;
     
     _switch.enabled = self.enabled;
     
     [super setupCell:cell withObject:object inTableView:tableView];
+    
+    cell.accessoryView = _switch;
 }
 
 - (void) switchChanged:(id)sender {
@@ -92,6 +94,17 @@
 		[_object setValue:[NSNumber numberWithBool:value] 
                forKeyPath:self.valueKeyPath];
 	}
+}
+
+- (CGFloat) heightForCellInTableView:(UITableView*)tableView withObject:(NSObject*)object
+{
+	CGFloat height = 44;
+
+    CGSize constraints = CGSizeMake(CBCTVCellLabelWidth(tableView) - 79 - 10, 2009);
+    height = [self.title sizeWithFont:[UIFont boldSystemFontOfSize:17]
+                    constrainedToSize:constraints lineBreakMode:NSLineBreakByWordWrapping].height + 20;
+    
+	return height;
 }
 
 @end

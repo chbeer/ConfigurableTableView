@@ -237,6 +237,10 @@
 
         [_editor cell:self didSetupTableViewCell:cell withObject:object inTableView:tableView];
         
+    } else {
+        
+        cell.accessoryView = nil;
+        
     }
 }
 - (CGFloat) heightForCellInTableView:(UITableView*)tableView withObject:(NSObject*)object {
