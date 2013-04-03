@@ -162,7 +162,9 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	CBCell *cbCell = [_model cellForRowAtIndexPath:indexPath];
     CGFloat height = 44;
-    if ([cbCell respondsToSelector:@selector(heightForCell:inTableView:withObject:)]) {
+    if ([cbCell respondsToSelector:@selector(heightForCell:atIndexPath:inTableView:withObject:)]) {
+        height = [cbCell heightForCell:cbCell atIndexPath:indexPath inTableView:tableView withObject:_data];
+    } else if ([cbCell respondsToSelector:@selector(heightForCell:inTableView:withObject:)]) {
         height = [cbCell heightForCell:cbCell inTableView:tableView withObject:_data];
     } else if ([cbCell respondsToSelector:@selector(heightForCellInTableView:withObject:)]) {
         height = [cbCell heightForCellInTableView:tableView withObject:_data];

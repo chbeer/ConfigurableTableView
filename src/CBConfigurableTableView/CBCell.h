@@ -40,6 +40,7 @@ typedef id(^CBCellValueTransformerHandler)(id value);
 
 @optional
 
+- (CGFloat) heightForCell:(CBCell*)cell atIndexPath:(NSIndexPath*)indexPath inTableView:(UITableView*)tableView withObject:(NSObject*)object;
 - (CGFloat) heightForCell:(CBCell*)cell inTableView:(UITableView*)tableView withObject:(NSObject*)object;
 - (CGFloat) heightForCellInTableView:(UITableView*)tableView withObject:(NSObject*)object;
 
