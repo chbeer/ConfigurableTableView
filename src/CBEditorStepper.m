@@ -48,13 +48,10 @@
 
 #pragma mark - CBEditor
 
-- (UITableViewCell*) cell:(CBCell*)cell didCreateTableViewCell:(UITableViewCell*)tableViewCell {
-    _cell = cell;
-    
-    return tableViewCell;
-}
 - (void)cell:(CBCell *)cell didSetupTableViewCell:(UITableViewCell *)tableViewCell withObject:(id)object inTableView:(UITableView *)tableView
 {
+    _cell = cell;
+
     UIStepper *stepper = [[UIStepper alloc] initWithFrame:CGRectZero];
     [stepper sizeToFit];
     tableViewCell.accessoryView = stepper;
