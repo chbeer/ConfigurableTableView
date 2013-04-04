@@ -90,6 +90,7 @@
                                                                                                           andData:controller.data] autorelease];
     self.controller = tableView;
     tableView.title = self.title;
+    tableView.contentSizeForViewInPopover = controller.contentSizeForViewInPopover;
     [controller.navigationController pushViewController:tableView animated:YES];
     [tableView autorelease];
 }
