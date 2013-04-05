@@ -79,6 +79,7 @@
     cell.textLabel.numberOfLines = 0;
     
     _switch.enabled = self.enabled;
+    cell.accessoryView = _switch;
     
     [super setupCell:cell withObject:object inTableView:tableView];
     
