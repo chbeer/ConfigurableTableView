@@ -22,6 +22,8 @@
 + (id) cellWithTitle:(NSString *)title valuePath:(NSString *)valueKeyPath timeStyle:(NSDateFormatterStyle)timeStyle editor:(CBEditor*)editor;
 
 - (id) applyDateStyle:(NSDateFormatterStyle)dateStyle;
-- (id) applyDateTime:(NSDateFormatterStyle)timeStyle;
+- (id) applyTimeStyle:(NSDateFormatterStyle)timeStyle;
+
+- (id) applyRelativeDateFormatting:(BOOL)relativeDateFormatting;
 
 @end

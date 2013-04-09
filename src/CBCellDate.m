@@ -51,9 +51,14 @@
     self.dateFormatter.dateStyle = dateStyle;
     return self;
 }
-- (id) applyDateTime:(NSDateFormatterStyle)timeStyle
+- (id) applyTimeStyle:(NSDateFormatterStyle)timeStyle
 {
     self.dateFormatter.timeStyle = timeStyle;
+    return self;
+}
+- (id) applyRelativeDateFormatting:(BOOL)relativeDateFormatting
+{
+    self.dateFormatter.doesRelativeDateFormatting = relativeDateFormatting;
     return self;
 }
 
