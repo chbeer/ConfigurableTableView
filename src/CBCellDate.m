@@ -61,6 +61,11 @@
     self.dateFormatter.doesRelativeDateFormatting = relativeDateFormatting;
     return self;
 }
+- (id) applyPlaceholderText:(NSString*)placeholder
+{
+    self.placeholderText = placeholder;
+    return self;
+}
 
 - (void) dealloc {
 	[_dateFormatter release];
@@ -78,7 +83,7 @@
 	if (value && [value isKindOfClass:[NSDate class]]) {
 		cell.detailTextLabel.text = [_dateFormatter stringFromDate:(NSDate*)value];
 	} else {
-		cell.detailTextLabel.text = @"";
+		cell.detailTextLabel.text = self.placeholderText ?: @"";
 	}
 }
 

@@ -13,7 +13,8 @@
 	NSDateFormatter *_dateFormatter;
 }
 
-@property (nonatomic, retain) NSDateFormatter *dateFormatter;
+@property (nonatomic, retain)   NSDateFormatter *dateFormatter;
+@property (nonatomic, copy)     NSString *placeholderText;
 
 + (id) cellWithTitle:(NSString *)title valuePath:(NSString *)valueKeyPath dateStyle:(NSDateFormatterStyle)dateStyle;
 + (id) cellWithTitle:(NSString *)title valuePath:(NSString *)valueKeyPath dateStyle:(NSDateFormatterStyle)dateStyle editor:(CBEditor*)editor;
@@ -25,5 +26,6 @@
 - (id) applyTimeStyle:(NSDateFormatterStyle)timeStyle;
 
 - (id) applyRelativeDateFormatting:(BOOL)relativeDateFormatting;
+- (id) applyPlaceholderText:(NSString*)placeholder;
 
 @end
