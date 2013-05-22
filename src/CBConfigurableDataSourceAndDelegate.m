@@ -24,6 +24,8 @@
 @synthesize removeAnimation = _removeAnimation;
 @synthesize reloadAnimation = _reloadAnimation;
 
+@synthesize endEditingWhenScrolled = _endEditingWhenScrolled;
+
 
 - (id) initWithTableView:(UITableView*)tableView;
 {
@@ -239,6 +241,15 @@
 - (void) table:(CBTable*)table section:(CBSection*)section cellsRemovedAtIndexPaths:(NSArray*)indexPaths {
 	[self.tableView deleteRowsAtIndexPaths:indexPaths
 						  withRowAnimation:_removeAnimation];
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    if (self.endEditingWhenScrolled) {
+        [self.tableView endEditing:YES];
+    }
 }
 
 @end

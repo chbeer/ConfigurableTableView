@@ -22,6 +22,8 @@
 @property (nonatomic, assign) UITableViewRowAnimation removeAnimation;
 @property (nonatomic, assign) UITableViewRowAnimation reloadAnimation;
 
+@property (nonatomic, assign) BOOL endEditingWhenScrolled;
+
 - (id) initWithTableView:(UITableView*)tableView;
 
 
