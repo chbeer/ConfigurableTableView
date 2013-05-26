@@ -11,6 +11,7 @@
 #import "CBCell.h"
 
 @class CBConfigurableTableViewController;
+@class CBConfigurableDataSourceAndDelegate;
 
 @protocol CBEditorDelegate <NSObject>
 
@@ -34,6 +35,8 @@
 - (void) cell:(CBCell*)cell didSetupTableViewCell:(UITableViewCell*)tableViewCell withObject:(id)object inTableView:(UITableView*)tableView;
 
 - (CGSize) editorAccessorySize;
+
+- (void) configurableDataSource:(CBConfigurableDataSourceAndDelegate*)dataSource cell:(CBCell*)cell accessoryButtonTappedForRowWithIndexPath:(NSIndexPath*)indexPath;
 
 @end
 

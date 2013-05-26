@@ -17,6 +17,7 @@
 
 
 typedef id(^CBCellValueTransformerHandler)(id value);
+typedef void(^CBCellAccessoryButtonHandler)(CBCell *cell, UITableView *tableView, NSIndexPath *indexPath);
 
 
 @protocol CBCell <NSObject>
@@ -69,7 +70,7 @@ typedef id(^CBCellValueTransformerHandler)(id value);
 @property (nonatomic, assign, getter=isEnabled) BOOL enabled;
 
 @property (nonatomic, copy) CBCellValueTransformerHandler valueTransformerHandler;
-
+@property (nonatomic, copy) CBCellAccessoryButtonHandler  accessoryButtonHandler;
 
 - (id) initWithTitle:(NSString*)title;
 - (id) initWithTitle:(NSString*)title andValuePath:(NSString*)valueKeyPath;
@@ -89,6 +90,7 @@ typedef id(^CBCellValueTransformerHandler)(id value);
 - (id) applyEnabled:(BOOL)enabled;
 - (id) applyAccessibilityLabel:(NSString*)accessibilityLabel;
 - (id) applyValueTransformer:(CBCellValueTransformerHandler)valueTransformerHandler;
+- (id) applyAccessoryButtonHandler:(CBCellAccessoryButtonHandler) accessoryButtonHandler;
 
 - (id) applyNibReuseIdentifier:(NSString*)reuseIdentifier;
 

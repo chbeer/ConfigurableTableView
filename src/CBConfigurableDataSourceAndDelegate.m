@@ -161,6 +161,18 @@
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    CBCell *cbCell = [_model cellForRowAtIndexPath:indexPath];
+    if (cbCell.accessoryButtonHandler) {
+        cbCell.accessoryButtonHandler(cbCell, tableView, indexPath);
+        return;
+    }
+    if (cbCell.editor && [cbCell.editor respondsToSelector:@selector(configurableDataSource:cell:accessoryButtonTappedForRowWithIndexPath:)]) {
+        [cbCell.editor configurableDataSource:self cell:cbCell accessoryButtonTappedForRowWithIndexPath:indexPath];
+    }
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	CBCell *cbCell = [_model cellForRowAtIndexPath:indexPath];
     CGFloat height = 44;

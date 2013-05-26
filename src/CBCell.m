@@ -119,6 +119,12 @@
     return self;
 }
 
+- (id) applyAccessoryButtonHandler:(CBCellAccessoryButtonHandler) accessoryButtonHandler;
+{
+    self.accessoryButtonHandler = accessoryButtonHandler;
+    return self;
+}
+
 - (void) dealloc {
     [_tag release], _tag = nil;
 
