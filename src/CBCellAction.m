@@ -65,11 +65,7 @@
 - (UITableViewCell*) createTableViewCellForTableView:(UITableView*)tableView {
 	UITableViewCell *cell =  [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
 													reuseIdentifier:[self reuseIdentifier]];
-	cell.textLabel.textAlignment = self.textAlignment;
-	cell.textLabel.font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize] + 2];
-    
-    cell.textLabel.enabled = _enabled;
-	
+
 	return [cell autorelease];
 }
 - (void)setupCell:(UITableViewCell *)cell withObject:(NSObject *)object inTableView:(UITableView *)tableView
@@ -77,6 +73,12 @@
     [super setupCell:cell withObject:object inTableView:tableView];
     cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     cell.accessoryType = self.cellAccessoryType;
+    
+    cell.textLabel.textAlignment = self.textAlignment;
+	cell.textLabel.font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize] + 2];
+    
+    cell.textLabel.enabled = _enabled;
+
 }
 
 - (BOOL) hasEditor {
