@@ -113,7 +113,7 @@
 }
 
 - (CGFloat) heightForCellInTableView:(UITableView*)tableView withObject:(NSObject*)object {
-	float height = 44;
+	float height = 50;
 	
 	if (self.title && ![@"" isEqual:self.title]) {
 		height += 26;

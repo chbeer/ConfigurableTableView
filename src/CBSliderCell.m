@@ -8,10 +8,6 @@
 
 #import "CBSliderCell.h"
 
-#define kCellHeight				25.0
-#define kCellLeftOffset			8.0
-#define kCellTopOffset			10.0 
-
 @implementation CBSliderCell
 
 @synthesize minValue = _minValue;
@@ -74,12 +70,8 @@
 	}
 }
 
-- (void) displayValue {
-    CGRect contentRect = [self.contentView bounds];
-    CGRect frame = CGRectMake(contentRect.origin.x + kCellLeftOffset, kCellTopOffset, 
-							  roundf(contentRect.size.width - 2 * kCellLeftOffset), 
-							  kCellHeight);
-    
+- (void) displayValue
+{
     NSString *v = nil;
     if (_valueFormat) {
         v = [NSString stringWithFormat:_valueFormat, slider.value];
@@ -87,39 +79,41 @@
         v = [NSString stringWithFormat:@"%f", slider.value];
     }
     self.detailTextLabel.text = v;
-    self.detailTextLabel.frame = CGRectMake(frame.size.width - 50, kCellTopOffset, 
-                                            50, kCellHeight);
 }
-- (void) layoutSubviews {
+- (void) layoutSubviews
+{
 	[super layoutSubviews];
+    
     CGRect contentRect = [self.contentView bounds];
+    CGFloat contentWidth = contentRect.size.width - 2 * self.textLabel.frame.origin.x;
 	
-	// In this example we will never be editing, but this illustrates the appropriate pattern
-	CGRect frame = CGRectMake(contentRect.origin.x + kCellLeftOffset, kCellTopOffset, 
-							  roundf(contentRect.size.width - 2 * kCellLeftOffset), 
-							  kCellHeight);
+    [self.textLabel sizeToFit];
+    self.textLabel.frame = ({
+        CGRect rect = self.textLabel.frame;
+        rect.origin.y = 10;
+        rect.size.width = contentWidth;
+        rect;
+    });
 	
-	float nameLabelHeight = 0;
-	if (self.textLabel && self.textLabel.text && ![self.textLabel.text isEqualToString:@""]) {
-		nameLabelHeight = kCellHeight;
-		self.textLabel.frame = CGRectMake(kCellLeftOffset, kCellTopOffset, 
-										  frame.size.width, kCellHeight);
-	}
-	
-	CGRect slFrame = CGRectMake(kCellLeftOffset,
-								kCellTopOffset + nameLabelHeight + 3,
-								frame.size.width,
-								slider.bounds.size.height);
-	slider.frame = slFrame;
+	slider.frame = ({
+        CGRect rect = self.textLabel.frame;
+        if (self.detailTextLabel.text) {
+            rect.origin.y = CGRectGetMaxY(self.detailTextLabel.frame) + 4;
+        } else {
+            rect.origin.y = CGRectGetMaxY(self.textLabel.frame) + 4;
+        }
+        rect.size.height = slider.bounds.size.height;
+        rect;
+    });
     
 	if (minLabel && maxLabel) {
-		float slFrameHalf = roundf(slFrame.size.width / 2);
-		CGRect minFrame = CGRectMake(kCellLeftOffset,
-									 slider.frame.origin.y + slider.frame.size.height + 2,
+		float slFrameHalf = roundf(slider.frame.size.width / 2);
+		CGRect minFrame = CGRectMake(self.textLabel.frame.origin.x,
+									 CGRectGetMaxY(slider.frame) + 2,
 									 slFrameHalf,
 									 minLabel.frame.size.height);
-		CGRect maxFrame = CGRectMake(kCellLeftOffset + slFrameHalf,
-									 slider.frame.origin.y + slider.frame.size.height + 2,
+		CGRect maxFrame = CGRectMake(self.textLabel.frame.origin.x + slFrameHalf,
+									 CGRectGetMaxY(slider.frame) + 2,
 									 slFrameHalf,
 									 minLabel.frame.size.height);
 		
