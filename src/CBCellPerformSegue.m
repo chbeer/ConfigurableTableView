@@ -41,7 +41,9 @@
 	UITableViewCell *cell =  [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
 													reuseIdentifier:[self reuseIdentifier]];
 	cell.textLabel.textAlignment = UITextAlignmentLeft;
-	cell.textLabel.font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize] + 2];
+    if (CBIsIOS7()) {
+        cell.textLabel.font = [UIFont systemFontOfSize:[UIFont labelFontSize]];
+    }
     
     cell.textLabel.enabled = self.enabled;
 	

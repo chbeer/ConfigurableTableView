@@ -42,20 +42,23 @@
 }
 
 
-#define kCellLeftOffset     8.0
-#define kCellTopOffset		10.0
-
 - (void)layoutSubviews {
 	[super layoutSubviews];
-    CGRect r = [self.contentView bounds];
     
-    r.origin.x += kCellLeftOffset;
-    r.size.width -= kCellLeftOffset * 2;
+    CGRect contentRect = [self.contentView bounds];
+    CGRect textLabelRect = self.textLabel.frame;
+    CGRect textFieldRect = textLabelRect;
+    
+    CGFloat contentWidth = contentRect.size.width - 2 * textLabelRect.origin.x;
+    CGFloat textFieldWidth = 50;
+    
+    textLabelRect.size.width -= textFieldWidth;
+    
+    textFieldRect.origin.x = textLabelRect.origin.x + contentWidth - textFieldWidth;
+    textFieldRect.size.width = textFieldWidth;
 
-    _textField.frame = r;
-	
-    r.size.width -= 50;
-    self.textLabel.frame = r;
+    self.textLabel.frame = textLabelRect;
+    _textField.frame = textFieldRect;
 }
 
 - (void)stopEditing {
