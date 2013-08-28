@@ -9,6 +9,7 @@
 
 #import "CBMultilineTableViewCell.h"
 
+#import "CBCTVGlobal.h"
 #import "CBEditor.h"
 
 #define FONT_SIZE 18
@@ -67,7 +68,7 @@
         
         height = MAX(MIN(size.height + 20, MAX_HEIGHT), 44.0);
     }	
-	return height;
+	return ceilf(height);
 }
 
 

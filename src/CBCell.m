@@ -8,6 +8,7 @@
 
 #import "CBCell.h"
 
+#import "CBCTVGlobal.h"
 #import "CBEditor.h"
 
 #import "CBConfigTableViewCell.h"
@@ -275,13 +276,3 @@
 
 @end
 
-/// Utility Methods
-
-CGFloat CBCTVCellLabelWidth(UITableView *tableView) {
-	CGFloat margin = 20;
-	if (tableView.style == UITableViewStyleGrouped) {
-		margin += 20;
-	}
-	
-	return tableView.frame.size.width - margin;
-}

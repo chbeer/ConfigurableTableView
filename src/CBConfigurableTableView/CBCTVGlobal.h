@@ -24,9 +24,11 @@ UIImage *CBUIImageScale(UIImage *img, CGSize dest);
 
 
 BOOL CBCTVIsIPad();
+BOOL CBCTVIsIOS7();
 
 BOOL CBIsIOSVersionGreaterEqual(int maj, int min);
 
+CGFloat CBCTVCellLabelWidth(UITableView *tableView);
 
 
 @interface UIColor (CBConfigurableTableView) 

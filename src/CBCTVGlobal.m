@@ -120,6 +120,11 @@ UIImage *CBUIImageScale(UIImage *img, CGSize dest) {
 BOOL CBCTVIsIPad() {
     return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad);
 }
+BOOL CBCTVIsIOS7()
+{
+    float version = [[UIDevice currentDevice].systemVersion floatValue];
+    return (version >= 7.0);
+}
 
 
 BOOL CBIsIOSVersionGreaterEqual(int checkMaj, int checkMin) {
@@ -138,6 +143,19 @@ BOOL CBIsIOSVersionGreaterEqual(int checkMaj, int checkMin) {
     return YES;
 }
 
+CGFloat CBCTVCellLabelWidth(UITableView *tableView)
+{
+    if (CBCTVIsIOS7()) {
+        return tableView.frame.size.width - 30;
+    }
+    
+	CGFloat margin = 20;
+	if (tableView.style == UITableViewStyleGrouped) {
+		margin += 20;
+	}
+	
+	return tableView.frame.size.width - margin;
+}
 
 
 @implementation UIColor (CBConfigurableTableView) 

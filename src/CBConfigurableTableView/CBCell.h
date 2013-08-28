@@ -97,8 +97,3 @@ typedef void(^CBCellAccessoryButtonHandler)(CBCell *cell, UITableView *tableView
 - (UITableViewCellAccessoryType) accessoryType;
 
 @end
-
-
-/// Utility Methods
-
-CGFloat CBCTVCellLabelWidth(UITableView *tableView);
