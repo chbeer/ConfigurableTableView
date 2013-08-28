@@ -54,8 +54,6 @@
 
     UIStepper *stepper = [[UIStepper alloc] initWithFrame:CGRectZero];
     [stepper sizeToFit];
-    tableViewCell.accessoryView = stepper;
-    [stepper release];
     
     stepper.minimumValue = _minValue;
     stepper.maximumValue = _maxValue;
@@ -64,7 +62,22 @@
     stepper.value = [[cell.controller valueForCell:cell] floatValue];
     
     [stepper addTarget:self action:@selector(stepperChanged:) forControlEvents:UIControlEventValueChanged];
+
+    CGRect containerFrame = stepper.bounds;
+    containerFrame.size.width += 5;
+    UIView *container = [[UIView alloc] initWithFrame:containerFrame];
     
+    stepper.frame = ({
+        CGRect frame = stepper.frame;
+        frame.origin.x += 5;
+        frame;
+    });
+    [container addSubview:stepper];
+    [stepper release];
+    
+    tableViewCell.accessoryView = container;
+    [container release];
+
     tableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
