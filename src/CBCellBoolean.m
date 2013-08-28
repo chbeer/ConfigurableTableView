@@ -8,6 +8,8 @@
 
 #import "CBConfigurableTableView/CBCellBoolean.h"
 
+#import "CBCTVGlobal.h"
+
 
 @implementation CBCellBoolean
 
@@ -101,11 +103,11 @@
 {
 	CGFloat height = 44;
 
-    CGSize constraints = CGSizeMake(CBCTVCellLabelWidth(tableView) - 79 - 10, 2009);
+    CGSize constraints = CGSizeMake(CBCTVCellLabelWidth(tableView) - _switch.bounds.size.width, 2009);
     height = [self.title sizeWithFont:[UIFont boldSystemFontOfSize:17]
                     constrainedToSize:constraints lineBreakMode:NSLineBreakByWordWrapping].height + 20;
     
-	return height;
+	return MAX(ceilf(height), 44);
 }
 
 @end
