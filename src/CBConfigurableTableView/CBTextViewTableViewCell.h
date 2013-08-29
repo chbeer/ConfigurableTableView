@@ -19,6 +19,8 @@
 - (void) textViewTableViewCellDidBeginEditing:(CBTextViewTableViewCell*)cell;
 - (void) textViewTableViewCell:(CBTextViewTableViewCell*)cell didChangeTextTo:(NSString*)text;
 
+- (void)textViewTableViewCell:(CBTextViewTableViewCell*)cell didChangeSelection:(UITextView *)textView;
+
 @end
 
 
