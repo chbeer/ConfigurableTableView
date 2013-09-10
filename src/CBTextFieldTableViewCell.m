@@ -7,6 +7,8 @@
 
 #import "CBTextFieldTableViewCell.h"
 
+#import "CBCTVGlobal.h"
+
 // table view cell content offsets
 #define kCellLeftOffset			10.0
 #define kCellTopOffset			10.0
@@ -28,7 +30,7 @@
 		self.selectionStyle = UITableViewCellSelectionStyleNone;
 		
 		UITextField *textField = [[UITextField alloc] initWithFrame:CGRectZero];
-		textField.font = [UIFont boldSystemFontOfSize:18];
+		textField.font = [UIFont systemFontOfSize:[UIFont labelFontSize]];
 		textField.keyboardAppearance = UIKeyboardAppearanceAlert;
 		textField.clearButtonMode = UITextFieldViewModeWhileEditing;
         textField.backgroundColor = self.backgroundColor;
@@ -66,10 +68,10 @@
 	CGRect contentRect = [self.contentView bounds];
 	
 	// In this example we will never be editing, but this illustrates the appropriate pattern
-	CGRect frame = CGRectMake(	kCellLeftOffset,
-								kCellTopOffset,
-								contentRect.size.width - (kCellLeftOffset*2.0),
-								kTextFieldHeight);
+    CGFloat horizontalMargin = CBCTVIsIOS7() ? 15.0 : 10.0;
+	CGRect frame = CGRectMake(horizontalMargin, kCellTopOffset,
+                              contentRect.size.width - (horizontalMargin*2.0),
+                              kTextFieldHeight);
 	_textField.frame  = frame;
 
     _textField.keyboardType = _keyboardType;
