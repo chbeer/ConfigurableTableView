@@ -25,6 +25,7 @@
 @synthesize valueKeyPath = _valueKeyPath;
 
 @synthesize editor = _editor;
+@synthesize icon = _icon;
 @synthesize iconName = _iconName;
 
 @synthesize enabled = _enabled;
@@ -83,6 +84,11 @@
 	return cell;
 }
 
+- (id) applyIcon:(UIImage*)icon;
+{
+    self.icon = icon;
+    return self;
+}
 - (id)applyIconName:(NSString*)iconName {
     self.iconName = iconName;
     return self;
@@ -133,14 +139,15 @@
 	[_valueKeyPath release];
 	
 	[_editor release];
-	
+
+	[_icon release], _icon = nil;
 	[_iconName release], _iconName = nil;
     
     [super dealloc];
 }
 
 - (NSString*) description {
-	return [NSString stringWithFormat:@"CBCell {title: %@, keyPath: %@}", _title, _valueKeyPath];
+	return [NSString stringWithFormat:@"%@ {title: %@, keyPath: %@, tag: %@}", NSStringFromClass([self class]), _title, _valueKeyPath, _tag];
 }
 
 // returns CBCell for linking message sending
@@ -218,7 +225,9 @@
     cell.accessoryType = [self accessoryType];
     cell.accessibilityLabel = self.accessibilityLabel;
 
-    if (_iconName) {
+    if (_icon) {
+        cell.imageView.image = _icon;
+    } else if (_iconName) {
         cell.imageView.image = [UIImage imageNamed:_iconName];
     }
     

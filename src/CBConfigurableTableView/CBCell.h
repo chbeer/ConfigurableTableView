@@ -66,6 +66,7 @@ typedef void(^CBCellAccessoryButtonHandler)(CBCell *cell, UITableView *tableView
 
 @property (nonatomic, retain) CBEditor *editor;
 
+@property (nonatomic, retain) UIImage *icon;
 @property (nonatomic, retain) NSString *iconName;
 @property (nonatomic, assign, getter=isEnabled) BOOL enabled;
 
@@ -85,6 +86,7 @@ typedef void(^CBCellAccessoryButtonHandler)(CBCell *cell, UITableView *tableView
 
 - (id) applyTag:(NSString *)tag;
 - (id) applyEditor:(CBEditor *)editor;
+- (id) applyIcon:(UIImage*)icon;
 - (id) applyIconName:(NSString*)iconName;
 - (id) applyStyle:(UITableViewCellStyle)style;
 - (id) applyEnabled:(BOOL)enabled;
