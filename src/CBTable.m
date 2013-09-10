@@ -17,18 +17,19 @@
 @dynamic sections;
 
 - (id) initWithSections:(NSArray*)sections {
-	if (self = [super init]) {
-		
-		_sections = [sections mutableCopy];
+	self = [super init];
+    if (!self) return nil;
+    
+    _sections = [sections mutableCopy];
+    for (CBSection *section in _sections) {
+        section.table = self;
+    }
 
-	}
 	return self;
 }
-- (id) init {
-	if (self = [self initWithSections:[NSArray array]]) {
-		
-	}
-	return self;
+- (id) init
+{
+	return [self initWithSections:[NSArray array]];
 }
 
 
@@ -64,22 +65,33 @@
 
 #pragma mark Section access
 
+- (NSArray*) visibleSections
+{
+    static NSPredicate *_predicate;
+    if (!_predicate) {
+        _predicate = [[NSPredicate predicateWithFormat:@"hidden == NO"] retain];
+    }
+    
+    return [_sections filteredArrayUsingPredicate:_predicate];
+}
+
 - (NSUInteger) sectionCount {
-	return _sections.count;
+	return [self visibleSections].count;
 }
 
 - (id) sectionAtIndex:(NSUInteger)index {
-	return [_sections objectAtIndex:index];
+	return [[self visibleSections] objectAtIndex:index];
 }
 
 - (NSUInteger) indexOfSection:(CBSection*)section {
-	return [_sections indexOfObject:section];
+	return [[self visibleSections] indexOfObject:section];
 }
 - (NSUInteger) indexOfSectionWithTag:(NSString*)tag {
     return [self indexOfSection:[self sectionWithTag:tag]];
 }
 
-- (id) addSection:(CBSection*)section {
+- (id) addSection:(CBSection*)section
+{
 	section.table = self;
 	[_sections addObject:section];
 	
@@ -90,7 +102,8 @@
 	return section;
 }
 
-- (id) insertSection:(CBSection*)section atIndex:(NSUInteger)index {
+- (id) insertSection:(CBSection*)section atIndex:(NSUInteger)index
+{
 	section.table = self;
 	[_sections insertObject:section atIndex:index];
 	
@@ -101,7 +114,8 @@
 	return section;
 }
 
-- (void) addSections:(CBSection*)section, ... {
+- (void) addSections:(CBSection*)section, ...
+{
 	[self addSection:section];
 	
 	va_list args;
@@ -135,14 +149,12 @@
 - (id) sectionWithTag:(NSString*)tag {
     if (!tag || [@"" isEqual:tag]) return nil;
     
-    // linear search since we are optimized for a small amount of sections
-    for (CBSection *section in _sections) {
-        if ([tag isEqual:section.tag]) {
-            return section;
-        }
-    }
+    static NSPredicate *_predicate;
+    if (!_predicate) _predicate = [[NSPredicate predicateWithFormat:@"tag == $TAG"] retain];
     
-    return nil;
+    NSArray *result = [_sections filteredArrayUsingPredicate:[_predicate predicateWithSubstitutionVariables:@{@"TAG": tag}]];
+    
+    return result.count == 0 ? nil : [result objectAtIndex:0];
 }
 - (id) cellWithTag:(NSString*)tag {
     if (!tag || [@"" isEqual:tag]) return nil;
@@ -181,7 +193,7 @@
 	
 	int s = 0;
 	int r;
-	for (CBSection *sect in _sections) {
+	for (CBSection *sect in [self visibleSections]) {
 		if ((r = [sect indexOfCell:cell]) != NSNotFound) {
 			row = r;
 			section = s;

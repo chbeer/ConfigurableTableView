@@ -40,6 +40,7 @@
 @property (nonatomic, assign) CBConfigurableTableViewController *controller;
 @property (nonatomic, assign) CBTable *table;
 
+@property (nonatomic, assign) BOOL hidden;
 @property (nonatomic, copy) NSString *tag;
 
 @property (nonatomic, copy) NSString *title;

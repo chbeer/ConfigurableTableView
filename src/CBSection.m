@@ -24,6 +24,7 @@
 @synthesize controller = _controller;
 @synthesize table = _table;
 
+@synthesize hidden = _hidden;
 @synthesize tag = _tag;
 
 @dynamic title;
@@ -98,7 +99,7 @@
 }
 
 - (NSString*) description {
-	return [NSString stringWithFormat:@"CBSection {title: %@, cells: %@}", _title, _cells];
+	return [NSString stringWithFormat:@"CBSection {title: %@, tag: %@, hidden: %d, cells: %@}", _title, _tag, _hidden, _cells];
 }
 
 #pragma mark Cell access
@@ -258,6 +259,25 @@
 
 - (NSArray*) cells {
 	return [[_cells copy] autorelease];
+}
+
+- (void) setHidden:(BOOL)hidden
+{
+    if (_hidden != hidden) {
+        NSUInteger index = [_table indexOfSection:self];
+        
+        _hidden = hidden;
+        
+        if (_hidden) {
+            if (index != NSNotFound && _table.delegate && [_table.delegate respondsToSelector:@selector(table:sectionRemovedAtIndex:)]) {
+                [_table.delegate table:_table sectionRemovedAtIndex:index];
+            }
+        } else {
+            if (_table.delegate && [_table.delegate respondsToSelector:@selector(table:sectionAdded:)]) {
+                [_table.delegate table:_table sectionAdded:self];
+            }
+        }
+    }
 }
 
 @end

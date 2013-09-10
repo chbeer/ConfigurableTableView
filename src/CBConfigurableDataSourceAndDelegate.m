@@ -65,7 +65,8 @@
     return [_model sectionCount];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
 	CBSection *cbSection = [_model sectionAtIndex:section];
     if (cbSection.controller == nil) {
         cbSection.controller = self.controller;
