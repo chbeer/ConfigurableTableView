@@ -66,19 +66,19 @@
     
     for (id option in self.options) {
         NSString *label = option;
-        NSString *iconName = nil;
+        UIImage *icon = nil;
         id value = option;
         if ([option isKindOfClass:[CBPickerOption class]]) {
             label = [option label];
-            iconName = [option iconName];
+            icon = [option icon];
             value = [(CBPickerOption*)option value];
         }
         
         id cell = [section addCell:[CBCellAction cellWithTitle:label target:self action:@selector(selectOption:)]];
         [cell setTextAlignment:UITextAlignmentLeft];
         
-        if (iconName) {
-            [cell applyIconName:iconName];
+        if (icon) {
+            [cell applyIcon:icon];
         }
         
         if ([currentValue isEqual:value]) {

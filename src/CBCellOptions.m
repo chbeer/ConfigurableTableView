@@ -74,8 +74,8 @@
         CBPickerOption *option = value;
         [super setValue:option.label ofCell:cell inTableView:tableView];
         
-        if (option.iconName) {
-            cell.imageView.image = [UIImage imageNamed:option.iconName];
+        if (option.icon) {
+            cell.imageView.image = option.icon;
         } else {
             cell.imageView.image = nil;
         }

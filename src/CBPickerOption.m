@@ -13,25 +13,30 @@
 
 @synthesize value = _value;
 @synthesize label = _label;
-@synthesize iconName = _iconName;
+@synthesize icon = _icon;
 
 - (void)dealloc {
     self.value = nil;
     self.label = nil;
-    self.iconName = nil;
+    self.icon = nil;
     
     [super dealloc];
 }
 
-+ (CBPickerOption*) optionWithValue:(NSObject*)value label:(NSString*)label iconName:(NSString *)iconName {
++ (CBPickerOption*) optionWithValue:(NSObject*)value label:(NSString*)label icon:(UIImage *)icon
+{
 	CBPickerOption *o = [[CBPickerOption alloc] init];
 	o.value = value;
 	o.label = label;
-    o.iconName = iconName;
+    o.icon = icon;
 	return [o autorelease];
 }
++ (CBPickerOption*) optionWithValue:(NSObject*)value label:(NSString*)label iconName:(NSString *)iconName {
+    UIImage *image = [UIImage imageNamed:iconName];
+    return [self optionWithValue:value label:label icon:image];
+}
 + (CBPickerOption*) optionWithValue:(NSObject*)value label:(NSString*)label {
-	return [self optionWithValue:value label:label iconName:nil];
+	return [self optionWithValue:value label:label icon:nil];
 }
 
 + (NSArray*) arrayWithPickerOptionsValuesAndLabels:(NSObject*)firstValue, ... {
@@ -57,6 +62,9 @@
 CBPickerOption* CBPickerOptionMake(NSObject *value, NSString *label) {
     return [CBPickerOption optionWithValue:value label:label];
 }
-CBPickerOption* CBPickerOptionMakeWithIcon(NSObject *value, NSString *label, NSString *iconName) {
+CBPickerOption* CBPickerOptionMakeWithIcon(NSObject *value, NSString *label, UIImage *icon) {
+    return [CBPickerOption optionWithValue:value label:label icon:icon];
+}
+CBPickerOption* CBPickerOptionMakeWithIconName(NSObject *value, NSString *label, NSString *iconName) {
     return [CBPickerOption optionWithValue:value label:label iconName:iconName];
 }

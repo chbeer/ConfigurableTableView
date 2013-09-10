@@ -6,20 +6,21 @@
 //  Copyright 2010 Christian Beer. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface CBPickerOption : NSObject {
 	NSObject *_value;
 	NSString *_label;
     
-    NSString *_iconName;
+    UIImage *_icon;
 }
 
-@property (nonatomic, retain) NSObject *value;
-@property (nonatomic, copy) NSString *label;
-@property (nonatomic, copy) NSString *iconName;
+@property (nonatomic, retain)   NSObject *value;
+@property (nonatomic, copy)     NSString *label;
+@property (nonatomic, retain)   UIImage *icon;
 
 + (CBPickerOption*) optionWithValue:(NSObject*)value label:(NSString*)label;
++ (CBPickerOption*) optionWithValue:(NSObject*)value label:(NSString*)label icon:(UIImage*)icon;
 + (CBPickerOption*) optionWithValue:(NSObject*)value label:(NSString*)label iconName:(NSString*)iconName;
 
 + (NSArray*) arrayWithPickerOptionsValuesAndLabels:(NSObject*)firstValue, ...;
@@ -28,4 +29,5 @@
 
 
 CBPickerOption* CBPickerOptionMake(NSObject *value, NSString *label);
-CBPickerOption* CBPickerOptionMakeWithIcon(NSObject *value, NSString *label, NSString *iconName);
+CBPickerOption* CBPickerOptionMakeWithIcon(NSObject *value, NSString *label, UIImage *icon);
+CBPickerOption* CBPickerOptionMakeWithIconName(NSObject *value, NSString *label, NSString *iconName);
