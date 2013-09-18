@@ -8,6 +8,7 @@
 
 #import "CBConfigurableDataSourceAndDelegate.h"
 
+#import "CBCTVGlobal.h"
 #import "CBSection.h"
 #import "CBCell.h"
 #import "CBEditor.h"
@@ -114,9 +115,19 @@
     if (sect.footerView) {
         return sect.footerView.bounds.size.height;
     } else if ([sect.footerTitle length] > 0) {
+        CGFloat fontSize;
+        CGFloat margin;
+        if (CBCTVIsIOS7()) {
+            fontSize = 14;
+            margin = 30;
+        } else {
+            fontSize = 16;
+            margin = 54;
+        }
+        
         CGFloat width = tableView.bounds.size.width;
-        CGSize constraint = CGSizeMake(width - 54, 1000);//CGSizeMake(width > 400 ? width - 120 : width - 50, 1000);
-        CGSize size = [sect.footerTitle sizeWithFont:[UIFont systemFontOfSize:16]
+        CGSize constraint = CGSizeMake(width - margin, 1000);//CGSizeMake(width > 400 ? width - 120 : width - 50, 1000);
+        CGSize size = [sect.footerTitle sizeWithFont:[UIFont systemFontOfSize:fontSize]
                                    constrainedToSize:constraint
                                        lineBreakMode:UILineBreakModeWordWrap];
         return size.height + 18;
