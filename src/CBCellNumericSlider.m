@@ -9,6 +9,7 @@
 #import "CBConfigurableTableView/CBCellNumericSlider.h"
 
 #import "CBConfigurableTableView/CBSliderCell.h"
+#import "CBCTVGlobal.h"
 
 @implementation CBCellNumericSlider
 
@@ -112,15 +113,16 @@
 	[super setupCell:cell withObject:object inTableView:tableView];
 }
 
-- (CGFloat) heightForCellInTableView:(UITableView*)tableView withObject:(NSObject*)object {
-	float height = 50;
+- (CGFloat) heightForCellInTableView:(UITableView*)tableView withObject:(NSObject*)object
+{
+	float height = CBCTVIsIOS7() ? 55 : 44;
 	
 	if (self.title && ![@"" isEqual:self.title]) {
 		height += 26;
 	}
 	
 	if (_minLabel || _maxLabel) {
-		height += 22;
+		height += 12;
 	}
 		
 	return height;

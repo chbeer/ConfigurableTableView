@@ -8,6 +8,9 @@
 
 #import "CBSliderCell.h"
 
+#import "CBCTVGlobal.h"
+
+
 @implementation CBSliderCell
 
 @synthesize minValue = _minValue;
@@ -96,23 +99,32 @@
     });
 	
 	slider.frame = ({
-        CGRect rect = self.textLabel.frame;
-        if (self.detailTextLabel.text) {
-            rect.origin.y = CGRectGetMaxY(self.detailTextLabel.frame) + 4;
+        CGRect rect;
+        if (self.textLabel.text) {
+            rect = self.textLabel.frame;
+            if (self.detailTextLabel.text) {
+                rect.origin.y = CGRectGetMaxY(self.detailTextLabel.frame) + 4;
+            } else {
+                rect.origin.y = CGRectGetMaxY(self.textLabel.frame) + 4;
+            }
         } else {
-            rect.origin.y = CGRectGetMaxY(self.textLabel.frame) + 4;
+            rect = contentRect;
+            rect.origin.y = 10;
+            rect.origin.x += CBCTVIsIOS7() ? 15 : 10;
+            rect.size.width -= CBCTVIsIOS7() ? 30 : 20;
         }
         rect.size.height = slider.bounds.size.height;
         rect;
     });
+    [slider sizeToFit];
     
 	if (minLabel && maxLabel) {
 		float slFrameHalf = roundf(slider.frame.size.width / 2);
-		CGRect minFrame = CGRectMake(self.textLabel.frame.origin.x,
+		CGRect minFrame = CGRectMake(slider.frame.origin.x,
 									 CGRectGetMaxY(slider.frame) + 2,
 									 slFrameHalf,
 									 minLabel.frame.size.height);
-		CGRect maxFrame = CGRectMake(self.textLabel.frame.origin.x + slFrameHalf,
+		CGRect maxFrame = CGRectMake(slider.frame.origin.x + slFrameHalf,
 									 CGRectGetMaxY(slider.frame) + 2,
 									 slFrameHalf,
 									 minLabel.frame.size.height);
