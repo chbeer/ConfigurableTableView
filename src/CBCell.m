@@ -229,9 +229,14 @@
         cell.imageView.image = _icon;
     } else if (_iconName) {
         cell.imageView.image = [UIImage imageNamed:_iconName];
+    } else {
+        cell.imageView.image = nil;
     }
     
     cell.textLabel.enabled = self.enabled;
+    if (!self.enabled) {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
     
     if ([cell isKindOfClass:[CBConfigTableViewCell class]]) {
         CBConfigTableViewCell *cfgCell = (CBConfigTableViewCell*)cell;
