@@ -83,7 +83,7 @@
 
 - (CGSize) editorAccessorySize;
 {
-    return CGSizeMake(94, 27);
+    return CGSizeMake(94 + 5, 27);
 }
 
 #pragma mark -
