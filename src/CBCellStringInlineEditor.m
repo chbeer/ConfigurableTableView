@@ -148,44 +148,58 @@
             height = 150;
             
         } else {
+            
+            CGFloat paddingLeft = 0.0;
+            if (tableView.style == UITableViewStyleGrouped) {
+                paddingLeft = tableView.frame.size.width >= 400.0 ? 20.0 : 10.0;
+            }
         
             NSString *text = [object valueForKeyPath:self.valueKeyPath];
-            if (!_textViewCell.textView.text || ![_textViewCell.textView.text isEqual:text]) {
-                
-                CGFloat paddingLeft = 0.0;
-                if (tableView.style == UITableViewStyleGrouped) {
-                    paddingLeft = tableView.frame.size.width >= 400.0 ? 20.0 : 10.0;
-                }
-                
-                CGRect r = _textViewCell.textView.frame;
-                r.size.width = tableView.frame.size.width - (paddingLeft * 2);
-                _textViewCell.textView.frame = r;
-                
-                _textViewCell.textView.text = text;
-                if (_font) {
-                    _textViewCell.textView.font = _font;
-                }
-                
-                r.size.height = _textViewCell.textView.contentSize.height;
-                _textViewCell.textView.frame = r;
-                
-                
-                if (_textViewCell.textView.frame.size.height < 36.0f) {
-                    CGRect rect = _textViewCell.textView.frame;
-                    rect.size.height = 36.0f;
-                    _textViewCell.textView.frame = rect;
-                }
+//            if (!_textViewCell.textView.text || ![_textViewCell.textView.text isEqual:text]) {
+//                
+//                CGRect r = _textViewCell.textView.frame;
+//                r.size.width = tableView.frame.size.width - (paddingLeft * 2);
+//                _textViewCell.textView.frame = r;
+//                
+//                _textViewCell.textView.text = text;
+//                if (_font) {
+//                    _textViewCell.textView.font = _font;
+//                }
+//                
+//                r.size.height = _textViewCell.textView.contentSize.height;
+//                _textViewCell.textView.frame = r;
+//                
+//                
+//                if (_textViewCell.textView.frame.size.height < 36.0f) {
+//                    CGRect rect = _textViewCell.textView.frame;
+//                    rect.size.height = 36.0f;
+//                    _textViewCell.textView.frame = rect;
+//                }
+//            }
+//            
+//            _currentTextViewHeight = _textViewCell.textView.contentSize.height + 10;
+//            
+//            height = MAX(_textViewCell.textView.contentSize.height, height);
+//            
+//            if (_textViewCell.editing) {
+//                height += 19;
+//            } else {
+//                height += 5;
+//            }
+            
+            CGSize size = [text sizeWithFont:_textViewCell.textView.font
+                             constrainedToSize:CGSizeMake(tableView.frame.size.width - (paddingLeft * 2), 1000)
+                                 lineBreakMode:NSLineBreakByWordWrapping];
+            
+            height = size.height + 20;
+            
+            if (_textViewCell.textView.isFirstResponder) {
+                height += _textViewCell.textView.font.pointSize + 10;
             }
             
-            _currentTextViewHeight = _textViewCell.textView.contentSize.height + 10;
+            height = MAX(height, CBCTVIsIPad() ? 55 : 44);
             
-            height = MAX(_textViewCell.textView.contentSize.height, height);
-            
-            if (_textViewCell.editing) {
-                height += 19;
-            } else {
-                height += 5;
-            }
+            _currentTextViewHeight = height;
 
         }
     }
