@@ -76,7 +76,9 @@
     cell.accessoryType = self.cellAccessoryType;
     
     cell.textLabel.textAlignment = self.textAlignment;
-	cell.textLabel.font = [UIFont boldSystemFontOfSize:[UIFont systemFontSize] + 2];
+    if (!self.font) {
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:cell.textLabel.font.pointSize];
+    }
     
     cell.textLabel.enabled = _enabled;
 }
