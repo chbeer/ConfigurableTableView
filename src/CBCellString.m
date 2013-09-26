@@ -14,8 +14,6 @@
 @implementation CBCellString
 
 @synthesize multiline = _multiline;
-@synthesize font = _font;
-@synthesize detailFont = _detailFont;
 
 
 - (id) initWithTitle:(NSString*)title {
@@ -51,15 +49,6 @@
 	return cell;
 }
 
-- (id)applyFont:(UIFont*)font {
-    self.font = font;
-    return self;
-}
-- (id)applyDetailFont:(UIFont*)font {
-    self.detailFont = font;
-    return self;
-}
-
 - (id)applyMultiline {
     self.multiline = YES;
     self.style = UITableViewCellStyleDefault;
@@ -70,8 +59,8 @@
 
 - (NSString*) reuseIdentifier {
 	NSString *reuseId = _multiline ? @"CBString_Multiline" : @"CBCellString";
-    if (_font) {
-        reuseId = [reuseId stringByAppendingFormat:@"%x", [[_font description] hash]];
+    if (self.font) {
+        reuseId = [reuseId stringByAppendingFormat:@"%x", [[self.font description] hash]];
     }
     return [reuseId stringByAppendingFormat:@"_%d", self.style];
 }
@@ -98,7 +87,7 @@
 		height = [CBMultilineTableViewCell calculateHeightForCell:cell
                                                       inTableView:tableView
                                                          withText:text
-                                                          andFont:_font];// + 10;
+                                                          andFont:self.font];// + 10;
         if (height < 0) {
             height = 0;
         } else if (height > 2009) {
@@ -136,19 +125,6 @@
 	} 
 }
 
-- (void) setupCell:(UITableViewCell *)cell withObject:(NSObject *)object inTableView:(UITableView *)tableView {
-    [super setupCell:cell
-          withObject:object 
-         inTableView:tableView];
-    
-    if (_font) {
-		cell.textLabel.font = _font;
-	}
-    if (_detailFont) {
-		cell.detailTextLabel.font = _detailFont;
-	}
-}
-
 - (CGFloat) heightForCellInTableView:(UITableView*)tableView withObject:(NSObject*)object {
 	CGFloat height = 44;
 	
@@ -160,8 +136,8 @@
             text = self.title;
         }
 		height = [self calculateHeightForCell:self inTableView:tableView withText:text];
-	} else if (_font) {
-        height = [_font pointSize] + 10;
+	} else if (self.font) {
+        height = [self.font pointSize] + 10;
     }
 
 	return height;

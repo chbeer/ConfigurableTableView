@@ -25,6 +25,10 @@
 @synthesize valueKeyPath = _valueKeyPath;
 
 @synthesize editor = _editor;
+
+@synthesize font = _font;
+@synthesize detailFont = _detailFont;
+
 @synthesize icon = _icon;
 @synthesize iconName = _iconName;
 
@@ -82,6 +86,15 @@
     CBCell *cell = [self cellWithTitle:nil valuePath:valueKeyPath];
 	cell.nibReuseIdentifier = nibReuseIdentifier;
 	return cell;
+}
+
+- (id)applyFont:(UIFont*)font {
+    self.font = font;
+    return self;
+}
+- (id)applyDetailFont:(UIFont*)font {
+    self.detailFont = font;
+    return self;
 }
 
 - (id) applyIcon:(UIImage*)icon;
@@ -225,6 +238,13 @@
     cell.accessoryType = [self accessoryType];
     cell.accessibilityLabel = self.accessibilityLabel;
 
+    if (_font) {
+		cell.textLabel.font = _font;
+	}
+    if (_detailFont) {
+		cell.detailTextLabel.font = _detailFont;
+	}
+    
     if (_icon) {
         cell.imageView.image = _icon;
     } else if (_iconName) {
