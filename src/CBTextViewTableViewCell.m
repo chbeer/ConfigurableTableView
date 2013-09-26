@@ -67,7 +67,8 @@
 - (void)layoutSubviews {
 	[super layoutSubviews];
 	
-	_textView.frame  = CGRectInset(self.contentView.bounds, 2, 5);
+    CGFloat dx = CBCTVIsIOS7() ? 10 : 2;
+	_textView.frame  = CGRectInset(self.contentView.bounds, dx, 5);
     
     if (self.textLabel.superview) {
         [self.textLabel removeFromSuperview];
