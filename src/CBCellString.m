@@ -8,6 +8,8 @@
 
 #import "CBConfigurableTableView/CBCellString.h"
 
+#import "CBCTVGlobal.h"
+
 #import "CBConfigurableTableView/CBEditor.h"
 #import "CBConfigurableTableView/CBMultilineTableViewCell.h"
 

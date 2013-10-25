@@ -242,17 +242,17 @@
 
 - (void) textViewTableViewCellDidBeginEditing:(CBTextViewTableViewCell *)cell {
     if (CBIsIOSVersionGreaterEqual(4, 0)) {
-        NSIndexPath *indexPath = [self.controller.model indexPathOfCell:self];
-        [self.controller.tableView scrollToRowAtIndexPath:indexPath 
-                                         atScrollPosition:UITableViewScrollPositionBottom
+        NSIndexPath *indexPath = [[self.controller model] indexPathOfCell:self];
+        [[self.controller tableView] scrollToRowAtIndexPath:indexPath
+                                           atScrollPosition:UITableViewScrollPositionBottom
                                                  animated:YES];
     }
 }
 
 - (void) textViewTableViewCell:(CBTextViewTableViewCell *)cell didChangeTextTo:(NSString *)text {
     if (CBIsIOSVersionGreaterEqual(4, 0) && _currentTextViewHeight != cell.textView.contentSize.height) {
-        [self.controller.tableView beginUpdates];
-        [self.controller.tableView endUpdates];
+        [[self.controller tableView] beginUpdates];
+        [[self.controller tableView] endUpdates];
     }
 }
 

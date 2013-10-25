@@ -8,6 +8,9 @@
 
 #import "CBCellPerformSegue.h"
 
+#import "CBCTVGlobal.h"
+
+
 @implementation CBCellPerformSegue
 
 @synthesize segueIdentifier = _segueIdentifier;
@@ -41,7 +44,7 @@
 	UITableViewCell *cell =  [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
 													reuseIdentifier:[self reuseIdentifier]];
 	cell.textLabel.textAlignment = UITextAlignmentLeft;
-    if (CBIsIOS7()) {
+    if (CBCTVIsIOS7()) {
         cell.textLabel.font = [UIFont systemFontOfSize:[UIFont labelFontSize]];
     }
     
