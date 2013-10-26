@@ -10,10 +10,18 @@
 
 #import "CBCTVGlobal.h"
 
+@interface CBCellBoolean ()
+
+@property (nonatomic, readonly, strong) UISwitch *switchControl;
+
+@end
+
 
 @implementation CBCellBoolean
 
 @synthesize inverted = _inverted;
+
+@dynamic switchControl;
 
 - (void) dealloc {
 	[_switch release];
@@ -31,15 +39,15 @@
 
 - (void) setWorking:(BOOL)working
 {
-    _switch.hidden = working;
+    self.switchControl.hidden = working;
     if (!working && _activityView) {
         [_activityView removeFromSuperview];
     } else {
         _activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [_activityView sizeToFit];
-        _activityView.center = _switch.center;
+        _activityView.center = self.switchControl.center;
         [_activityView startAnimating];
-        [_switch.superview addSubview:_activityView];
+        [self.switchControl.superview addSubview:_activityView];
         [_activityView release];
     }
 }
@@ -67,30 +75,35 @@
 	}
 }
 
+- (UISwitch*)switchControl
+{
+    if (_switch) return _switch;
+    
+    _switch = [[UISwitch alloc] init];
+    [_switch addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
+    
+    return _switch;
+}
+
 - (void) setupCell:(UITableViewCell*)cell withObject:(NSObject*)object inTableView:(UITableView*)tableView {
 	_object = object;
 	
-	if (!_switch) {
-		_switch = [[UISwitch alloc] init];
-		[_switch addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
-	}
-    
 	CGPoint o = cell.textLabel.frame.origin;
 	CGSize s = cell.textLabel.frame.size;
-	cell.textLabel.frame = CGRectMake(o.x, o.y, s.width - _switch.frame.size.width, s.height);
+	cell.textLabel.frame = CGRectMake(o.x, o.y, s.width - self.switchControl.frame.size.width, s.height);
     cell.textLabel.numberOfLines = 0;
     
-    _switch.enabled = self.enabled;
-    cell.accessoryView = _switch;
+    self.switchControl.enabled = self.enabled;
+    cell.accessoryView = self.switchControl;
     
     [super setupCell:cell withObject:object inTableView:tableView];
     
-    cell.accessoryView = _switch;
+    cell.accessoryView = self.switchControl;
 }
 
 - (void) switchChanged:(id)sender {
 	if (_object && self.valueKeyPath) {
-        BOOL value = _switch.on;
+        BOOL value = self.switchControl.on;
         if (_inverted) {
             value = !value;
         }
@@ -103,8 +116,8 @@
 {
 	CGFloat height = 44;
 
-    CGSize constraints = CGSizeMake(CBCTVCellLabelWidth(tableView) - _switch.bounds.size.width, 2009);
-    height = [self.title sizeWithFont:[UIFont boldSystemFontOfSize:17]
+    CGSize constraints = CGSizeMake(CBCTVCellLabelWidth(tableView) - self.switchControl.bounds.size.width, 2009);
+    height = [self.title sizeWithFont:[UIFont systemFontOfSize:[UIFont labelFontSize]]
                     constrainedToSize:constraints lineBreakMode:NSLineBreakByWordWrapping].height + 20;
     
 	return MAX(ceilf(height), 44);
