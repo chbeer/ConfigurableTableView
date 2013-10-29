@@ -142,7 +142,7 @@
         height = [self.font pointSize] + 10;
     }
 
-	return height;
+	return MAX(height, 44);
 }
 
 @end
