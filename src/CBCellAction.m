@@ -8,6 +8,8 @@
 
 #import "CBCellAction.h"
 
+#import "CBCTVGlobal.h"
+
 @implementation CBCellAction
 
 @synthesize target = _target;
@@ -77,7 +79,12 @@
     
     cell.textLabel.textAlignment = self.textAlignment;
     if (!self.font) {
-        cell.textLabel.font = [UIFont boldSystemFontOfSize:cell.textLabel.font.pointSize];
+        if (CBCTVIsIOS7()) {
+            cell.textLabel.font = [UIFont systemFontOfSize:[UIFont labelFontSize]];
+            cell.textLabel.textColor = [cell.textLabel tintColor];
+        } else {
+            cell.textLabel.font = [UIFont boldSystemFontOfSize:cell.textLabel.font.pointSize];
+        }
     }
     
     cell.textLabel.enabled = _enabled;
