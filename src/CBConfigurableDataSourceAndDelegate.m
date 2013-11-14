@@ -70,7 +70,7 @@
 {
 	CBSection *cbSection = [_model sectionAtIndex:section];
     if (cbSection.controller == nil) {
-        cbSection.controller = self.controller;
+        cbSection.controller = (CBConfigurableTableViewController*)self.controller;
     }
     return [cbSection cellCount];
 }
@@ -140,7 +140,7 @@
     
 	CBCell *cellModel = [_model cellForRowAtIndexPath:indexPath];
     
-    cellModel.controller = self.controller;
+    cellModel.controller = (CBConfigurableTableViewController*)self.controller;
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellModel.reuseIdentifier];
     if (cell == nil) {
@@ -166,7 +166,7 @@
     CBCell *cbCell = [_model cellForRowAtIndexPath:indexPath];
 	if ([cbCell hasEditor]) {
         if ([cbCell respondsToSelector:@selector(openEditorInController:)]) {
-            [cbCell openEditorInController:self.controller];
+            [cbCell openEditorInController:(CBConfigurableTableViewController*)self.controller];
         }
 	}
 	
