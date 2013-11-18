@@ -108,8 +108,6 @@
         [_model release];
         _model = [aModel retain];
         self.dataSource.model = aModel;
-
-        [self.tableView reloadData];
     }
 }
 
