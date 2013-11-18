@@ -263,18 +263,24 @@
 
 - (void) setHidden:(BOOL)hidden
 {
+    [self setHidden:hidden tellDelegate:YES];
+}
+- (void) setHidden:(BOOL)hidden tellDelegate:(BOOL)tellDelegate
+{
     if (_hidden != hidden) {
         NSUInteger index = [_table indexOfSection:self];
         
         _hidden = hidden;
         
-        if (_hidden) {
-            if (index != NSNotFound && _table.delegate && [_table.delegate respondsToSelector:@selector(table:sectionRemovedAtIndex:)]) {
-                [_table.delegate table:_table sectionRemovedAtIndex:index];
-            }
-        } else {
-            if (_table.delegate && [_table.delegate respondsToSelector:@selector(table:sectionAdded:)]) {
-                [_table.delegate table:_table sectionAdded:self];
+        if (tellDelegate) {
+            if (_hidden) {
+                if (index != NSNotFound && _table.delegate && [_table.delegate respondsToSelector:@selector(table:sectionRemovedAtIndex:)]) {
+                    [_table.delegate table:_table sectionRemovedAtIndex:index];
+                }
+            } else {
+                if (_table.delegate && [_table.delegate respondsToSelector:@selector(table:sectionAdded:)]) {
+                    [_table.delegate table:_table sectionAdded:self];
+                }
             }
         }
     }

@@ -78,4 +78,6 @@
 - (void) removeCells:(CBCell*)cell, ...NS_REQUIRES_NIL_TERMINATION;
 - (id) removeCellWithTag:(NSString*)cellTag;
 
+- (void) setHidden:(BOOL)hidden tellDelegate:(BOOL)delegate;
+
 @end
