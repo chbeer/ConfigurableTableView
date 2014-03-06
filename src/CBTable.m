@@ -191,8 +191,8 @@
 	NSUInteger section = NSNotFound;
 	NSUInteger row = NSNotFound;
 	
-	int s = 0;
-	int r;
+	NSUInteger s = 0;
+	NSUInteger r;
 	for (CBSection *sect in [self visibleSections]) {
 		if ((r = [sect indexOfCell:cell]) != NSNotFound) {
 			row = r;
