@@ -62,9 +62,9 @@
 - (NSString*) reuseIdentifier {
 	NSString *reuseId = _multiline ? @"CBString_Multiline" : @"CBCellString";
     if (self.font) {
-        reuseId = [reuseId stringByAppendingFormat:@"%x", [[self.font description] hash]];
+        reuseId = [reuseId stringByAppendingFormat:@"%lx", (unsigned long)[[self.font description] hash]];
     }
-    return [reuseId stringByAppendingFormat:@"_%d", self.style];
+    return [reuseId stringByAppendingFormat:@"_%ld", self.style];
 }
 
 - (UITableViewCell*) createTableViewCellForTableView:(UITableView*)tableView {

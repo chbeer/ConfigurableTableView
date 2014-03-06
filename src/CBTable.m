@@ -132,7 +132,7 @@
 }
 
 - (void) removeSection:(CBSection*)section {
-	int idx = [_sections indexOfObject:section];
+	NSUInteger idx = [_sections indexOfObject:section];
 	if (idx != NSNotFound) {
 		[_sections removeObject:section];
 	
