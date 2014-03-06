@@ -86,8 +86,8 @@
         }
     }
     
-    CBConfigurableTableViewController *tableView = [[[CBConfigurableTableViewController alloc] initWithTableModel:model
-                                                                                                          andData:controller.data] autorelease];
+    CBConfigurableTableViewController *tableView = [[CBConfigurableTableViewController alloc] initWithTableModel:model
+                                                                                                         andData:controller.data];
     self.controller = tableView;
     tableView.title = self.title;
     tableView.contentSizeForViewInPopover = controller.contentSizeForViewInPopover;
