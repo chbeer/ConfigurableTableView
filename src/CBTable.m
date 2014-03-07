@@ -188,23 +188,15 @@
 #pragma mark Cell access
 
 - (NSIndexPath*) indexPathOfCell:(CBCell*)cell {
-	NSUInteger section = NSNotFound;
-	NSUInteger row = NSNotFound;
-	
-	NSUInteger s = 0;
-	NSUInteger r;
+	NSUInteger section = 0;
+	NSUInteger row;
 	for (CBSection *sect in [self visibleSections]) {
-		if ((r = [sect indexOfCell:cell]) != NSNotFound) {
-			row = r;
-			section = s;
+		if ((row = [sect indexOfCell:cell]) != NSNotFound) {
+			return [NSIndexPath indexPathForRow:row inSection:section];
 		}
-		s++;
+		section++;
 	}
-	if (section != NSNotFound && row != NSNotFound) {
-		return [NSIndexPath indexPathForRow:row inSection:section];
-	} else {
-		return NULL;
-	}
+    return nil;
 }
 - (NSIndexPath*) indexPathOfCellWithTag:(NSString*)cellTag;
 {
