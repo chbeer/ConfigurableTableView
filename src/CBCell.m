@@ -173,7 +173,7 @@
 
 - (NSString*) reuseIdentifier {
     // return different reuse identifier for different cell styles.
-	return [NSString stringWithFormat:@"%@_%ld", NSStringFromClass([self class]), self.style];
+	return [NSString stringWithFormat:@"%@_%ld", NSStringFromClass([self class]), (long)self.style];
 }
 
 - (UITableViewCellStyle) tableViewCellStyle {
