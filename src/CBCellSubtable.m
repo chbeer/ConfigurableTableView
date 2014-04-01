@@ -6,10 +6,10 @@
 //  Copyright 2010 Christian Beer. All rights reserved.
 //
 
-#import "CBConfigurableTableView/CBCellSubtable.h"
+#import "CBCellSubtable.h"
 
-#import "CBConfigurableTableView/CBConfigurableTableViewController.h"
-#import "CBConfigurableTableView/CBTable.h"
+#import "CBConfigurableTableViewController.h"
+#import "CBTable.h"
 
 @implementation CBCellSubtable
 

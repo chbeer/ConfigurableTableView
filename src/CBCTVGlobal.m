@@ -6,7 +6,7 @@
 //  Copyright 2010 Christian Beer. All rights reserved.
 //
 
-#import "CBConfigurableTableView/CBCTVGlobal.h"
+#import "CBCTVGlobal.h"
 
 NSString* CBCTVBundlePath() {
 	NSString* path = [[[NSBundle mainBundle] resourcePath]

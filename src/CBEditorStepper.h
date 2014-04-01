@@ -6,7 +6,7 @@
 //
 //
 
-#import <CBConfigurableTableView/CBConfigurableTableView.h>
+#import "CBConfigurableTableView.h"
 
 @interface CBEditorStepper : CBEditor
 

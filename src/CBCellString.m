@@ -6,12 +6,12 @@
 //  Copyright 2010 Christian Beer. All rights reserved.
 //
 
-#import "CBConfigurableTableView/CBCellString.h"
+#import "CBCellString.h"
 
 #import "CBCTVGlobal.h"
 
-#import "CBConfigurableTableView/CBEditor.h"
-#import "CBConfigurableTableView/CBMultilineTableViewCell.h"
+#import "CBEditor.h"
+#import "CBMultilineTableViewCell.h"
 
 @implementation CBCellString
 

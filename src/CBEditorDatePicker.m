@@ -6,9 +6,9 @@
 //  Copyright 2010 Christian Beer. All rights reserved.
 //
 
-#import "CBConfigurableTableView/CBEditorDatePicker.h"
+#import "CBEditorDatePicker.h"
 
-#import "CBConfigurableTableView/CBDatePickerController.h"
+#import "CBDatePickerController.h"
 
 @implementation CBEditorDatePicker
 

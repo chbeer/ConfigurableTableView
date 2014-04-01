@@ -8,9 +8,9 @@
 
 #import "CBEditorPicker.h"
 
-#import "CBConfigurableTableView/CBConfigurableTableViewController.h"
+#import "CBConfigurableTableViewController.h"
 
-#import "CBConfigurableTableView/CBOptionsPickerController.h"
+#import "CBOptionsPickerController.h"
 
 @implementation CBEditorPicker
 

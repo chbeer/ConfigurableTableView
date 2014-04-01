@@ -6,10 +6,10 @@
 //  Copyright 2010 Christian Beer. All rights reserved.
 //
 
-#import "CBConfigurableTableView/CBEditorString.h"
+#import "CBEditorString.h"
 
-#import "CBConfigurableTableView/CBStringEditorController.h"
-#import "CBConfigurableTableView/CBConfigurableTableViewController.h"
+#import "CBStringEditorController.h"
+#import "CBConfigurableTableViewController.h"
 
 @implementation CBEditorString
 

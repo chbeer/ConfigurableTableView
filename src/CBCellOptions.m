@@ -6,9 +6,9 @@
 //  Copyright 2010 Christian Beer. All rights reserved.
 //
 
-#import "CBConfigurableTableView/CBCellOptions.h"
+#import "CBCellOptions.h"
 
-#import "CBConfigurableTableView/CBPickerOption.h"
+#import "CBPickerOption.h"
 
 @implementation CBCellOptions
 

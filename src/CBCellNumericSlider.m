@@ -6,9 +6,9 @@
 //  Copyright 2010 Christian Beer. All rights reserved.
 //
 
-#import "CBConfigurableTableView/CBCellNumericSlider.h"
+#import "CBCellNumericSlider.h"
 
-#import "CBConfigurableTableView/CBSliderCell.h"
+#import "CBSliderCell.h"
 #import "CBCTVGlobal.h"
 
 @implementation CBCellNumericSlider

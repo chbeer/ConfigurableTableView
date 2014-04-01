@@ -6,7 +6,7 @@
 //  Copyright 2010 Christian Beer. All rights reserved.
 //
 
-#import "CBConfigurableTableView/CBCellPassword.h"
+#import "CBCellPassword.h"
 
 
 @implementation CBCellPassword

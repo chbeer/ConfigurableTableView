@@ -6,7 +6,7 @@
 //  Copyright 2010 Christian Beer. All rights reserved.
 //
 
-#import "CBConfigurableTableView/CBCellNumeric.h"
+#import "CBCellNumeric.h"
 
 
 @implementation CBCellNumeric
