@@ -99,8 +99,11 @@
     return self.dataSource.data;
 }
 - (void) setData: (NSObject *) aData {
-    _data = aData;
-    self.dataSource.data = aData;
+    if (_data != aData) {
+        [_data release];
+        _data = [aData retain];
+        self.dataSource.data = aData;
+    }
 }
 
 - (void) setModel: (CBTable *) aModel {
