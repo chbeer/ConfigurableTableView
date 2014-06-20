@@ -12,7 +12,7 @@
 #import "CBEditorController.h"
 
 @interface CBStringEditorController : UITableViewController <CBEditorController,UITableViewDelegate,UITableViewDataSource, UITextFieldDelegate> {
-	id<CBEditorDelegate> _delegate;
+	__unsafe_unretained id<CBEditorDelegate> _delegate;
 	CBCell *_cell;	
 	CBConfigurableTableViewController *_controller;	
 	

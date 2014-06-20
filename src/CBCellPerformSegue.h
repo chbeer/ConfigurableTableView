@@ -11,7 +11,7 @@
 @interface CBCellPerformSegue : CBCell
 
 @property (nonatomic, copy) NSString *segueIdentifier;
-@property (nonatomic, retain) id sender;
+@property (nonatomic, strong) id sender;
 
 + (id)cellWithTitle:(NSString *)title segueIdentifier:(NSString*)segueIdentifier sender:(id)sender;
 

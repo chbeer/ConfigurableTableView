@@ -35,9 +35,7 @@
 - (void)dealloc {
 	self.delegate = NULL;
 	
-	[_picker release];
 	
-    [super dealloc];
 }
 
 - (IBAction)done:(id)sender {

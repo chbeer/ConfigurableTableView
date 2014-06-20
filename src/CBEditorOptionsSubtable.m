@@ -14,12 +14,12 @@
 
 @interface CBEditorOptionsSubtable ()
 
-@property (nonatomic, readwrite, retain) NSArray *options;
+@property (nonatomic, readwrite, strong) NSArray *options;
 
-@property (nonatomic, assign) CBCell                            *originCell;
-@property (nonatomic, assign) CBConfigurableTableViewController *originController;
+@property (nonatomic, weak) CBCell                            *originCell;
+@property (nonatomic, weak) CBConfigurableTableViewController *originController;
 
-@property (nonatomic, assign) CBConfigurableTableViewController *controller;
+@property (nonatomic, strong) CBConfigurableTableViewController *controller;
 
 @end
 
@@ -37,7 +37,7 @@
 
 + (id) editorWithOptions:(NSArray*)options {
 	id editor = [(CBEditorOptionsSubtable*)[[self class] alloc] initWithOptions:options];
-	return [editor autorelease];
+	return editor;
 }
 
 - (id) applyTitle:(NSString*)title;
@@ -91,8 +91,8 @@
     self.controller = tableView;
     tableView.title = self.title;
     tableView.contentSizeForViewInPopover = controller.contentSizeForViewInPopover;
-    [controller.navigationController pushViewController:tableView animated:YES];
-    [tableView autorelease];
+    [controller.navigationController pushViewController:tableView
+                                               animated:YES];
 }
 
 - (BOOL) isInline {

@@ -17,10 +17,10 @@
     CBTable *_model;
 }
 
-@property (nonatomic, retain) CBConfigurableDataSourceAndDelegate *dataSource;
+@property (nonatomic, strong) CBConfigurableDataSourceAndDelegate *dataSource;
 
-@property (nonatomic, retain) CBTable *model;
-@property (nonatomic, retain) id data;
+@property (nonatomic, strong) CBTable *model;
+@property (nonatomic, strong) id data;
 
 @property (nonatomic, assign) UITableViewRowAnimation addAnimation;
 @property (nonatomic, assign) UITableViewRowAnimation removeAnimation;

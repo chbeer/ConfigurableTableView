@@ -10,7 +10,7 @@
 
 @interface CBStepperCell : CBConfigTableViewCell
 
-@property (nonatomic, retain)               UIStepper *stepper;;
+@property (nonatomic, strong)               UIStepper *stepper;;
 
 @property (nonatomic, assign)               float minValue;
 @property (nonatomic, assign)               float maxValue;

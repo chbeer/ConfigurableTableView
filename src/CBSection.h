@@ -22,8 +22,8 @@
 
 
 @interface CBSection : NSObject {
-	CBConfigurableTableViewController *_controller;
-	CBTable *_table;
+	CBConfigurableTableViewController *__weak _controller;
+	CBTable *__weak _table;
     
     NSString *_tag;
 	
@@ -37,20 +37,20 @@
 	UIView *_footerView;
 }
 
-@property (nonatomic, assign) CBConfigurableTableViewController *controller;
-@property (nonatomic, assign) CBTable *table;
+@property (nonatomic, weak) CBConfigurableTableViewController *controller;
+@property (nonatomic, weak) CBTable *table;
 
 @property (nonatomic, assign) BOOL hidden;
 @property (nonatomic, copy) NSString *tag;
 
 @property (nonatomic, copy) NSString *title;
 
-@property (readonly) NSArray *cells;
+@property (weak, readonly) NSArray *cells;
 
-@property (nonatomic, retain) UIView *headerView;
+@property (nonatomic, strong) UIView *headerView;
 
-@property (nonatomic, retain) NSString *footerTitle;
-@property (nonatomic, retain) UIView *footerView;
+@property (nonatomic, strong) NSString *footerTitle;
+@property (nonatomic, strong) UIView *footerView;
 
 - (id) initWithTitle:(NSString*)title andCells:(NSArray*)cells;
 - (id) initWithTitle:(NSString*)title;

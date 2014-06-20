@@ -55,7 +55,7 @@
 				valuePath:(NSString*)valueKeyPath {
 	CBCell *cell = [[[self class] alloc] initWithTitle:title 
                                           andValuePath:valueKeyPath];
-	return [cell autorelease];
+	return cell;
 }
 + (id) cellWithTitle:(NSString*)title 
 				valuePath:(NSString*)valueKeyPath 
@@ -146,17 +146,13 @@
 }
 
 - (void) dealloc {
-    [_tag release], _tag = nil;
+    _tag = nil;
 
-	[_title release];
-	[_valueKeyPath release];
 	
-	[_editor release];
 
-	[_icon release], _icon = nil;
-	[_iconName release], _iconName = nil;
+	_icon = nil;
+	_iconName = nil;
     
-    [super dealloc];
 }
 
 - (NSString*) description {
@@ -188,7 +184,7 @@
 	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:[self tableViewCellStyle]
 												   reuseIdentifier:[self reuseIdentifier]];
 	
-	return [cell autorelease];
+	return cell;
 }
 
 - (id) valueFromObject:(NSObject*)object {
@@ -303,8 +299,7 @@
 }
 - (void) setEditor:(CBEditor*)editor {
 	if (_editor != editor) {
-		[_editor release];
-        _editor = [editor retain];
+        _editor = editor;
 	}
 }
 

@@ -31,7 +31,7 @@
     
     cell.enabled = YES;
 	
-	return [cell autorelease];
+	return cell;
 }
 
 #pragma mark CBCell protocol
@@ -50,7 +50,7 @@
     
     cell.textLabel.enabled = self.enabled;
 	
-	return [cell autorelease];
+	return cell;
 }
 - (void)setupCell:(UITableViewCell *)cell withObject:(NSObject *)object inTableView:(UITableView *)tableView
 {
@@ -72,8 +72,8 @@
     
     id sender = self.sender ?: self;
     
-    [controller performSelector:@selector(performSegueWithIdentifier:sender:) 
-                     withObject:self.segueIdentifier withObject:sender];
+    [(id)controller performSelector:@selector(performSegueWithIdentifier:sender:)
+                         withObject:self.segueIdentifier withObject:sender];
 }
 
 @end

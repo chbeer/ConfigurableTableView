@@ -23,14 +23,13 @@
 
 + (CBEditorOpenURL*) editorWithURL:(NSURL*)url {
 	CBEditorOpenURL *editor = [[[self class] alloc] initWithURL:url];
-	return [editor autorelease];
+	return editor;
 }
 
 
 - (void) dealloc {
-    [_url release], _url = nil;
+    _url = nil;
     
-    [super dealloc];
 }
 
 - (void) openEditorForCell:(CBCell*)cell inController:(CBConfigurableTableViewController*)ctrl {

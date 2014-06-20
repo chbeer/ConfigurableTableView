@@ -23,7 +23,7 @@
 
 + (id) editorWithTarget:(id)target action:(SEL)selector {
 	CBEditorTargetAction *editor = [[[self class] alloc] initWithTarget:target action:selector];
-	return [editor autorelease];
+	return editor;
 }
 
 - (BOOL) isInline {

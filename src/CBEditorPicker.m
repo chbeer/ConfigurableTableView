@@ -23,7 +23,7 @@
 
 + (id) editorWithOptions:(NSArray*)options {
 	CBEditorPicker *editor = [(CBEditorPicker*)[[self class] alloc] initWithOptions:options];
-	return [editor autorelease];
+	return editor;
 }
 
 - (void) openEditorForCell:(CBCell*)cell inController:(CBConfigurableTableViewController*)ctrl {

@@ -31,12 +31,12 @@
 @interface CBTable : NSObject {
 	NSMutableArray *_sections;
 	
-	id<CBTableDelegate> _delegate;
+	id<CBTableDelegate> __weak _delegate;
 }
 
-@property (nonatomic, assign) id<CBTableDelegate> delegate;
+@property (nonatomic, weak) id<CBTableDelegate> delegate;
 
-@property (readonly) NSArray *sections;
+@property (weak, readonly) NSArray *sections;
 
 
 - (id) init;

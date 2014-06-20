@@ -23,11 +23,6 @@
 	return self;
 }
 
-- (void) dealloc {
-	[_numberFormatter release];
-	
-	[super dealloc];
-}
 
 - (id) applyNumberFormatter:(NSNumberFormatter*)numberFormatter
 {

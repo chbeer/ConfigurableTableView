@@ -22,11 +22,11 @@
 
 
 @interface CBCTVEditorViewController : UIViewController <CBEditorController> {
-	id<CBEditorDelegate> _delegate;
+	id<CBEditorDelegate> __weak _delegate;
 	CBCell *_cell;	
 	CBConfigurableTableViewController *_controller;	
 }
 
-@property (nonatomic, assign) id<CBEditorDelegate> delegate;
+@property (nonatomic, weak) id<CBEditorDelegate> delegate;
 
 @end

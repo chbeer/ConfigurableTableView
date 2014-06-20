@@ -77,8 +77,6 @@
 
 - (void)dealloc {
 	_textView.delegate = nil;
-    [_textView release];
-    [super dealloc];
 }
 
 - (void)stopEditing {
@@ -105,16 +103,15 @@
         inputToolbar.translucent = YES;
         
         [inputToolbar setItems:[NSArray arrayWithObjects:
-                                [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace 
+                                [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace 
                                                                                target:nil 
-                                                                               action:0] autorelease],
-                                [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                                                               action:0],
+                                [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                                                target:self
-                                                                               action:@selector(doneEditing:)] autorelease],
+                                                                               action:@selector(doneEditing:)],
                                 nil]];
         
         _textView.inputAccessoryView = inputToolbar;
-        [inputToolbar release];
     }
 }
 

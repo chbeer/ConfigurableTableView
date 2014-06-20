@@ -57,7 +57,7 @@
 {
     [super loadView];
     
-    self.dataSource = [[[CBConfigurableDataSourceAndDelegate alloc] initWithTableView:self.tableView] autorelease];
+    self.dataSource = [[CBConfigurableDataSourceAndDelegate alloc] initWithTableView:self.tableView];
     self.dataSource.controller = self;
     
     self.tableView.dataSource = self.dataSource;
@@ -100,16 +100,14 @@
 }
 - (void) setData: (NSObject *) aData {
     if (_data != aData) {
-        [_data release];
-        _data = [aData retain];
+        _data = aData;
         self.dataSource.data = aData;
     }
 }
 
 - (void) setModel: (CBTable *) aModel {
     if (_model != aModel) {
-        [_model release];
-        _model = [aModel retain];
+        _model = aModel;
         self.dataSource.model = aModel;
     }
 }

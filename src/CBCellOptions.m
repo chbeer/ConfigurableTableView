@@ -31,7 +31,7 @@
 	CBCellOptions *cell = [[[self class] alloc] initWithTitle:title 
                                                  andValuePath:valuePath
                                              andPickerOptions:options];
-	return [cell autorelease];
+	return cell;
 }
 
 + (CBCellOptions*) cellWithTitle:(NSString*)title valuePath:(NSString*)valuePath pickerOptions:(NSArray*)options editor:(CBEditor*)editor {
@@ -39,7 +39,7 @@
                                                  andValuePath:valuePath
                                              andPickerOptions:options];
 	cell.editor = editor;
-	return [cell autorelease];
+	return cell;
 }
 
 - (CBCellOptions*) applyDefaultValue:(NSObject*) defaultValue;
@@ -51,10 +51,9 @@
 
 - (void) dealloc
 {
-	[_options release], _options = nil;
-    [_defaultValue release], _defaultValue = nil;
+	_options = nil;
+    _defaultValue = nil;
 	
-	[super dealloc];
 }
 
 

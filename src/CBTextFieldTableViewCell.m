@@ -36,7 +36,6 @@
         textField.backgroundColor = self.backgroundColor;
         textField.delegate = self;
 		[self setTextField:textField];
-		[textField release];
 	}
 	return self;
 }
@@ -50,9 +49,7 @@
 }
 
 - (void)setTextField:(UITextField *)inView {
-	[inView retain];
 	
-	[_textField release];
 	
 	_textField = inView;
 
@@ -89,9 +86,8 @@
 		[_textField resignFirstResponder];
 	}
 	
-    [_textField release], _textField = nil;
+    _textField = nil;
 	
-    [super dealloc];
 }
 
 - (void)stopEditing {

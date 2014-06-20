@@ -12,11 +12,11 @@
 
 @interface CBConfigurableDataSourceAndDelegate : NSObject <CBTableDelegate,UITableViewDataSource,UITableViewDelegate>
 
-@property (nonatomic, retain) UITableView *tableView;
-@property (nonatomic, retain) UIViewController *controller;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UIViewController *controller;
 
-@property (nonatomic, retain) CBTable *model;
-@property (nonatomic, retain) id data;
+@property (nonatomic, strong) CBTable *model;
+@property (nonatomic, strong) id data;
 
 @property (nonatomic, assign) UITableViewRowAnimation addAnimation;
 @property (nonatomic, assign) UITableViewRowAnimation removeAnimation;

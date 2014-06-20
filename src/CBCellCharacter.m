@@ -23,7 +23,7 @@
 - (UITableViewCell*) createTableViewCellForTableView:(UITableView*)tableView {
 	CBCharacterTableViewCell *cell = [[CBCharacterTableViewCell alloc] initWithReuseIdentifier:[self reuseIdentifier]];
 	
-	return [cell autorelease];
+	return cell;
 }
 
 - (void) setValue:(id)value ofCell:(CBCharacterTableViewCell *)cell inTableView:(UITableView *)tableView {

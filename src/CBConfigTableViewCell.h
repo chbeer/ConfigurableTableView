@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface CBConfigTableViewCell : UITableViewCell {
-    id _object;
+    id __weak _object;
 	NSString *_keyPath;
 }
 
-@property (nonatomic, assign) id object;
+@property (nonatomic, weak) id object;
 @property (nonatomic, copy) NSString *keyPath;
 
 @end

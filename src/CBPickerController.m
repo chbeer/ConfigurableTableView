@@ -33,9 +33,6 @@
 		
 		[_toolbar setItems:[NSArray arrayWithObjects:cancelBtn, spacer, doneBtn, nil] animated:NO];
 		
-		[cancelBtn release];
-		[spacer release];
-		[doneBtn release];
 		
 		[self.view addSubview:_toolbar];
 		
@@ -43,11 +40,6 @@
 	return self;
 }
 
-- (void)dealloc {
-	[_toolbar release];
-	
-    [super dealloc];
-}
 
 
 - (IBAction)cancel:(id)sender {

@@ -28,7 +28,6 @@
         _textField.delegate = self;
         _textField.textColor = [UIColor tableViewCellValueTextColor];
 		[self.contentView addSubview:_textField];
-		[_textField release];
 		
 		self.selectionStyle = UITableViewCellSelectionStyleNone;
 	}
@@ -38,7 +37,6 @@
 - (void) dealloc {
     _textField.delegate = nil;
     
-    [super dealloc];
 }
 
 

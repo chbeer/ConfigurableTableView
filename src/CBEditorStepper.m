@@ -24,7 +24,7 @@
     editor.minValue = min;
     editor.maxValue = max;
     editor.stepValue = step;
-	return [editor autorelease];
+	return editor;
 }
 
 - (id) applyMinValue:(float)minValue {
@@ -73,10 +73,8 @@
         frame;
     });
     [container addSubview:stepper];
-    [stepper release];
     
     tableViewCell.accessoryView = container;
-    [container release];
 
     tableViewCell.selectionStyle = UITableViewCellSelectionStyleNone;
 }

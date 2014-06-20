@@ -25,7 +25,7 @@
 
 
 @interface CBTextViewTableViewCell : CBConfigTableViewCell <UITextViewDelegate> {
-    id<CBTextViewTableViewCellDelegate> _delegate;
+    id<CBTextViewTableViewCellDelegate> __weak _delegate;
 
 	UITextView *_textView;
     
@@ -34,7 +34,7 @@
     UITextAutocapitalizationType _autocapitalizationType;
 }
 
-@property (nonatomic, assign) id<CBTextViewTableViewCellDelegate> delegate;
+@property (nonatomic, weak) id<CBTextViewTableViewCellDelegate> delegate;
 
 @property (nonatomic, readonly) UITextView *textView;
 

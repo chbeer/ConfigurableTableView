@@ -54,10 +54,9 @@
 }
 
 - (void) dealloc {
-    [slider release], slider = nil;
-    [_valueFormat release], _valueFormat = nil;
+    slider = nil;
+    _valueFormat = nil;
     
-    [super dealloc];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -159,7 +158,6 @@
             minLabel.backgroundColor = [UIColor clearColor];
             minLabel.opaque = NO;
             [self.contentView addSubview:minLabel];
-            [minLabel release];
         }
         minLabel.text = min;
     } else {

@@ -35,7 +35,7 @@
     
     cell.enabled = YES;
 	
-	return [cell autorelease];
+	return cell;
 }
 + (id)cellWithTitle:(NSString *)title actionBlock:(CBCellActionBlock)block;
 {
@@ -44,7 +44,7 @@
 	cell.actionBlock = block;
     cell.enabled = YES;
 	
-	return [cell autorelease];
+	return cell;
 }
 
 - (id) applyTextAlignment:(UITextAlignment)textAlignment
@@ -68,7 +68,7 @@
 	UITableViewCell *cell =  [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
 													reuseIdentifier:[self reuseIdentifier]];
 
-	return [cell autorelease];
+	return cell;
 }
 - (void)setupCell:(UITableViewCell *)cell withObject:(NSObject *)object inTableView:(UITableView *)tableView
 {

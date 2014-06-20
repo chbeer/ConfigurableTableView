@@ -3,14 +3,14 @@
 @protocol CBEditableTableViewCellDelegate;
 
 @interface CBEditableTableViewCell : UITableViewCell {
-    id <CBEditableTableViewCellDelegate> _delegate;
+    id <CBEditableTableViewCellDelegate> __weak _delegate;
     BOOL _inlineEditing;
 }
 
 - (id)initWithReuseIdentifier:(NSString *)identifier;
 
 // Exposes the delegate property to other objects.
-@property (nonatomic, assign) id <CBEditableTableViewCellDelegate> delegate;
+@property (nonatomic, weak) id <CBEditableTableViewCellDelegate> delegate;
 @property (nonatomic, assign, getter=isInlineEditing) BOOL inlineEditing;
 
 // Informs the cell to stop editing, resulting in keyboard/pickers/etc. being ordered out 

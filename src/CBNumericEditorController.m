@@ -26,7 +26,7 @@
 	
     CBTextFieldTableViewCell *cell = (CBTextFieldTableViewCell*)[tableView dequeueReusableCellWithIdentifier:MyIndetifier];
     if (cell == nil) {
-        cell = [[[CBTextFieldTableViewCell alloc] initWithReuseIdentifier:MyIndetifier] autorelease];
+        cell = [[CBTextFieldTableViewCell alloc] initWithReuseIdentifier:MyIndetifier];
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
 		
 		_textField = (UITextField*)cell.textField;

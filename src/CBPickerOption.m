@@ -15,13 +15,6 @@
 @synthesize label = _label;
 @synthesize icon = _icon;
 
-- (void)dealloc {
-    self.value = nil;
-    self.label = nil;
-    self.icon = nil;
-    
-    [super dealloc];
-}
 
 + (CBPickerOption*) optionWithValue:(NSObject*)value label:(NSString*)label icon:(UIImage *)icon
 {
@@ -29,7 +22,7 @@
 	o.value = value;
 	o.label = label;
     o.icon = icon;
-	return [o autorelease];
+	return o;
 }
 + (CBPickerOption*) optionWithValue:(NSObject*)value label:(NSString*)label iconName:(NSString *)iconName {
     UIImage *image = [UIImage imageNamed:iconName];

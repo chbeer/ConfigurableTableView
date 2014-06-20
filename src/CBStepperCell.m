@@ -30,7 +30,6 @@
     [stepper sizeToFit];
     self.accessoryView = stepper;
     self.stepper = stepper;
-    [stepper release];
 		
     [stepper addTarget:self action:@selector(stepperChanged:) forControlEvents:UIControlEventValueChanged];
 		
@@ -49,11 +48,6 @@
                reuseIdentifier:identifier];
 }
 
-- (void) dealloc {
-    self.stepper = nil;
-    
-    [super dealloc];
-}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     

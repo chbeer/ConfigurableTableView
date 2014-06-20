@@ -23,11 +23,6 @@
 
 @dynamic switchControl;
 
-- (void) dealloc {
-	[_switch release];
-	
-	[super dealloc];
-}
 
 #pragma mark - Accessors
 
@@ -48,7 +43,6 @@
         _activityView.center = self.switchControl.center;
         [_activityView startAnimating];
         [self.switchControl.superview addSubview:_activityView];
-        [_activityView release];
     }
 }
 
@@ -60,7 +54,7 @@
     
 	cell.selectionStyle = UITableViewCellSelectionStyleNone;
 	
-	return [cell autorelease];
+	return cell;
 }
 
 - (void) setValue:(id)value ofCell:(UITableViewCell*)cell inTableView:(UITableView*)tableView {

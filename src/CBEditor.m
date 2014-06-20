@@ -12,7 +12,7 @@
 
 + (id) editor {
 	CBEditor *editor = [[[self class] alloc] init];
-	return [editor autorelease];
+	return editor;
 }
 
 - (void) openEditorForCell:(CBCell*)cell inController:(CBConfigurableTableViewController*)ctrl {

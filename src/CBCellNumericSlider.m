@@ -30,7 +30,7 @@
 	cell.minLabel = min;
 	cell.maxLabel = max;
     
-	return [cell autorelease];
+	return cell;
 }
 
 - (id) initWithTitle:(NSString*)title {
@@ -50,9 +50,8 @@
 }
 
 - (void) dealloc {
-    [_valueFormat release], _valueFormat = nil;
+    _valueFormat = nil;
     
-    [super dealloc];
 }
 
 - (CBCellNumericSlider*) applyShowValue:(BOOL)showValue {
@@ -87,7 +86,7 @@
 
 - (UITableViewCell*) createTableViewCellForTableView:(UITableView*)tableView {
     UITableViewCellStyle style = _showValue ? UITableViewCellStyleValue1 : UITableViewCellStyleDefault;
-	return [[[CBSliderCell alloc] initWithStyle:style reuseIdentifier:[self reuseIdentifier]] autorelease];
+	return [[CBSliderCell alloc] initWithStyle:style reuseIdentifier:[self reuseIdentifier]];
 }
 
 - (void) setValue:(id)value ofCell:(UITableViewCell*)cell inTableView:(UITableView*)tableView {

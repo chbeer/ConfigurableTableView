@@ -25,9 +25,8 @@
 }
 
 - (void) dealloc {
-    [_buttons release], _buttons = nil;
+    _buttons = nil;
     
-    [super dealloc];
 }
 
 #pragma mark CBCell protocol
@@ -46,7 +45,6 @@
     bg.backgroundColor = [UIColor clearColor];
     bg.opaque = NO;
     cell.backgroundView = bg;
-    [bg release];
     
     CGRect r = cell.contentView.bounds;
     CGFloat bw = (r.size.width - (10 * (_buttons.count - 1))) / _buttons.count;
@@ -60,7 +58,7 @@
         [cell.contentView addSubview:btn];
     }
     
-	return [cell autorelease];
+	return cell;
 }
 
 - (BOOL) hasEditor {

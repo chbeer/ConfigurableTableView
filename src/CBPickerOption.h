@@ -15,9 +15,9 @@
     UIImage *_icon;
 }
 
-@property (nonatomic, retain)   NSObject *value;
+@property (nonatomic, strong)   NSObject *value;
 @property (nonatomic, copy)     NSString *label;
-@property (nonatomic, retain)   UIImage *icon;
+@property (nonatomic, strong)   UIImage *icon;
 
 + (CBPickerOption*) optionWithValue:(NSObject*)value label:(NSString*)label;
 + (CBPickerOption*) optionWithValue:(NSObject*)value label:(NSString*)label icon:(UIImage*)icon;

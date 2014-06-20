@@ -32,7 +32,7 @@
 }
 
 @property (nonatomic, assign) BOOL multiline;
-@property (nonatomic, retain) UIFont *font;
+@property (nonatomic, strong) UIFont *font;
 
 @property (nonatomic, assign) float minHeight;
 @property (nonatomic, assign) float maxHeight;

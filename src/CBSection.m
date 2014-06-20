@@ -52,7 +52,7 @@
 
 + (id) sectionWithTitle:(NSString*)title {
 	CBSection *section = [[CBSection alloc] initWithTitle:title];
-	return [section autorelease];
+	return section;
 }
 + (id) sectionWithTitle:(NSString*)title andCells:(CBCell*)cell, ... {
 	CBSection *section = [[CBSection alloc] initWithTitle:title];
@@ -62,21 +62,16 @@
     va_start(args, cell);
 	[section addCellsVargs:args];
 	
-	return [section autorelease];
+	return section;
 }
 
 - (void) dealloc {
-    [_tag release], _tag = nil;
+    _tag = nil;
 
-	[_title release];
-	[_cells release];
     
-	[_headerView release];
     
-    [_footerTitle release], _footerTitle = nil;
-	[_footerView release];
+    _footerTitle = nil;
 	
-	[super dealloc];
 }
 
 - (NSString*) title {
@@ -84,7 +79,6 @@
 }
 - (void) setTitle:(NSString *)title {
     if (_title != title) {
-        [_title release];
         _title = [title copy];
         
         NSIndexSet *idxs = [NSIndexSet indexSetWithIndex:[_table indexOfSection:self]];
@@ -208,7 +202,6 @@
 - (id) removeCell:(CBCell*)cell {
 	NSIndexPath *idx = [_table indexPathOfCell:cell];
 	
-    [cell retain];
 	[_cells removeObject:cell];
 	
 	if (_table.delegate && [_table.delegate respondsToSelector:@selector(table:section:cellRemovedAtIndexPath:)]) {
@@ -216,7 +209,7 @@
 					   section:self cellRemovedAtIndexPath:idx];
 	}
 	
-	return [cell autorelease];
+	return cell;
 }
 - (void) removeCellsInArray:(NSArray*)cells {
     NSMutableArray *indexPaths = [NSMutableArray array];
@@ -250,15 +243,15 @@
 }
 - (id) removeCellWithTag:(NSString*)cellTag
 {
-    CBCell *cell = [[self cellWithTag:cellTag] retain];
+    CBCell *cell = [self cellWithTag:cellTag];
     if (cell) {
         [self removeCell:cell];
     }
-    return [cell autorelease];
+    return cell;
 }
 
 - (NSArray*) cells {
-	return [[_cells copy] autorelease];
+	return [_cells copy];
 }
 
 - (void) setHidden:(BOOL)hidden

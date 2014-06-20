@@ -41,7 +41,6 @@
     self.font = nil;
     self.detailFont = nil;
     
-    [super dealloc];
 }
 
 + (id) cellMultilineWithValuePath:(NSString*)path {
@@ -78,7 +77,7 @@
 									  reuseIdentifier:[self reuseIdentifier]];
 	}
 	
-	return [cell autorelease];
+	return cell;
 }
 
 - (CGFloat) calculateHeightForCell:(CBCell*)cell inTableView:(UITableView*)tableView withText:(NSString*)text

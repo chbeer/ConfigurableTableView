@@ -43,17 +43,14 @@
 - (void)dealloc
 {
     self.model = nil;
-    self.data = nil;
     
-    [super dealloc];
 }
 
 #pragma mark -
 
 - (void) setModel: (CBTable *) aModel {
     if (_model != aModel) {
-        [_model release];
-        _model = [aModel retain];
+        _model = aModel;
 		_model.delegate = self;
 		
 		[self.tableView reloadData];

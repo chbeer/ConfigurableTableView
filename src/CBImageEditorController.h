@@ -11,7 +11,6 @@
 #import "CBEditorController.h"
 
 @interface CBImageEditorController : UIViewController <CBEditorController,UIScrollViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIActionSheetDelegate> {
-	id<CBEditorDelegate> _delegate;
 	CBCell *_cell;	
 	CBConfigurableTableViewController *_controller;	
 	

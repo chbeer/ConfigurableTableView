@@ -27,7 +27,7 @@
     cell.minValue = min;
     cell.maxValue = max;
     cell.stepValue = step;
-	return [cell autorelease];
+	return cell;
 }
 
 - (id) initWithTitle:(NSString*)title {
@@ -74,7 +74,7 @@
 
 - (UITableViewCell*) createTableViewCellForTableView:(UITableView*)tableView {
     CBStepperCell *cell = [[CBStepperCell alloc] initWithReuseIdentifier:[self reuseIdentifier]];
-	return [cell autorelease];
+	return cell;
 }
 
 - (void) setValue:(id)value ofCell:(UITableViewCell*)cell inTableView:(UITableView*)tableView {

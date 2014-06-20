@@ -38,7 +38,7 @@
 	CBTableViewCellImage *cell = [[CBTableViewCellImage alloc] initWithStyle:UITableViewCellStyleDefault
                                                              reuseIdentifier:[self reuseIdentifier]];
 
-	return [cell autorelease];
+	return cell;
 }
 
 - (UIImage *)thumbnailOfSize:(CGSize)size image:(UIImage*)img {

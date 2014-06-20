@@ -10,7 +10,7 @@
 
 @interface CBEditorOptionsSubtable : CBEditor
 
-@property (nonatomic, readonly, retain) NSArray *options;
+@property (nonatomic, readonly, strong) NSArray *options;
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *sectionTitle;

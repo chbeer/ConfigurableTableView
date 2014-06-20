@@ -17,7 +17,7 @@ NSString* CBCTVBundlePath() {
 NSBundle* CBCTVBundle() {
 	static NSBundle* bundle = nil;
 	if (!bundle) {
-		bundle = [[NSBundle bundleWithPath:CBCTVBundlePath()] retain];
+		bundle = [NSBundle bundleWithPath:CBCTVBundlePath()];
 	}
 	return bundle;
 }

@@ -19,9 +19,8 @@
 
 - (void)dealloc {
     
-    [_textField release], _textField = nil;
+    _textField = nil;
     
-    [super dealloc];
 }
 
 #pragma mark -

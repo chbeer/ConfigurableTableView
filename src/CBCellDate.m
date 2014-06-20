@@ -28,7 +28,7 @@
     cell.dateFormatter.dateStyle = dateStyle;
     cell.dateFormatter.timeStyle = NSDateFormatterNoStyle;
     cell.editor = editor;
-    return [cell autorelease];
+    return cell;
 }
 + (id) cellWithTitle:(NSString *)title valuePath:(NSString *)valueKeyPath dateStyle:(NSDateFormatterStyle)dateStyle
 {
@@ -39,7 +39,7 @@
     cell.dateFormatter.dateStyle = NSDateFormatterNoStyle;
     cell.dateFormatter.timeStyle = timeStyle;
     cell.editor = editor;
-    return [cell autorelease];
+    return cell;
 }
 + (id) cellWithTitle:(NSString *)title valuePath:(NSString *)valueKeyPath timeStyle:(NSDateFormatterStyle)timeStyle
 {
@@ -67,11 +67,6 @@
     return self;
 }
 
-- (void) dealloc {
-	[_dateFormatter release];
-	
-	[super dealloc];
-}
 
 #pragma mark CBCell protocol
 

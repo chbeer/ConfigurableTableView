@@ -88,8 +88,8 @@
 	if (_multiline) {
 		cell = _textViewCell;
 	} else {
-		cell = [[[CBTextFieldTableViewCell alloc] initWithReuseIdentifier:[self reuseIdentifier] 
-                                                                 andLabel:self.title] autorelease];
+		cell = [[CBTextFieldTableViewCell alloc] initWithReuseIdentifier:[self reuseIdentifier] 
+                                                                 andLabel:self.title];
 	}
     
 	return cell;

@@ -12,15 +12,20 @@
 #import "CBStringEditorController.h"
 
 @implementation CBEditorPassword
+{
+    CBStringEditorController *_editorController;
+}
 
 - (void) openEditorForCell:(CBCell*)cell 
-			  inController:(CBConfigurableTableViewController*)ctrl {
-	CBStringEditorController *pc = [[CBStringEditorController alloc] initWithText:[ctrl valueForCell:cell] 
-																		 andTitle:cell.title];
-	pc.secureTextEntry = YES;
-	[pc openEditorForCell:cell inController:ctrl];
-	
-	[pc autorelease];
+			  inController:(CBConfigurableTableViewController*)ctrl
+{
+    if (!_editorController) {
+        CBStringEditorController *pc = [[CBStringEditorController alloc] initWithText:[ctrl valueForCell:cell]
+                                                                             andTitle:cell.title];
+        pc.secureTextEntry = YES;
+        _editorController = pc;
+    }
+	[_editorController openEditorForCell:cell inController:ctrl];
 }
 
 - (BOOL) isInline {

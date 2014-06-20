@@ -13,7 +13,7 @@ typedef void(^CBCellActionBlock)(void);
 
 @interface CBCellAction : CBCell
 
-@property (nonatomic, assign) id target;
+@property (nonatomic, weak) id target;
 @property (nonatomic, assign) SEL action;
 
 @property (nonatomic, copy) CBCellActionBlock actionBlock;

@@ -17,7 +17,7 @@
 
 }
 
-@property (nonatomic, retain) UITextField *textField;
+@property (nonatomic, strong) UITextField *textField;
 
 @property (nonatomic, assign) UIKeyboardType keyboardType;
 @property (nonatomic, assign) UITextAutocorrectionType autocorrectionType;

@@ -28,7 +28,6 @@
 																				target:self
 																				action:@selector(cancel:)];
 		self.navigationItem.leftBarButtonItem = cancel;
-		[cancel release];
 		
 		_saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave 
 																   target:self
@@ -56,10 +55,9 @@
 }
 
 - (void)dealloc {
-	[_saveButton release], _saveButton = nil;
-	[_text release], _text = nil;
+	_saveButton = nil;
+	_text = nil;
 	
-    [super dealloc];
 }
 
 -(void) viewDidAppear:(BOOL)animated {
@@ -83,7 +81,7 @@
 	
     CBTextFieldTableViewCell *cell = (CBTextFieldTableViewCell*)[tableView dequeueReusableCellWithIdentifier:MyIndetifier];
     if (cell == nil) {
-        cell = [[[CBTextFieldTableViewCell alloc] initWithReuseIdentifier:MyIndetifier] autorelease];
+        cell = [[CBTextFieldTableViewCell alloc] initWithReuseIdentifier:MyIndetifier];
 		cell.selectionStyle = UITableViewCellSelectionStyleNone;
 		
 		_textField = (UITextField*)cell.textField;

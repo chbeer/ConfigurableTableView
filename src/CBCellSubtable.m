@@ -20,7 +20,7 @@
 	
 	CBCellSubtable *cell = [[[self class] alloc] initWithTitle:title 
                                                       andModel:model];
-	return [cell autorelease];
+	return cell;
 }
 + (id) cellWithTitle:(NSString*)title sections:(CBSection*)section, ... {
 	CBTable *model = [[CBTable alloc] init];
@@ -34,23 +34,17 @@
 	CBCellSubtable *cell = [[[self class] alloc] initWithTitle:title 
                                                       andModel:model];
 	
-	[model release];
 	
-	return [cell autorelease];
+	return cell;
 }
 
 - (id) initWithTitle:(NSString*)title andModel:(CBTable*)model {
 	if (self = [super initWithTitle:title]) {
-		_model = [model retain];
+		_model = model;
 	}
 	return self;
 }
 
-- (void) dealloc {
-	[_model release];
-	
-	[super dealloc];
-}
 
 #pragma mark CBCell protocol
 
@@ -59,8 +53,8 @@
 }
 
 - (UITableViewCell*) createTableViewCellForTableView:(UITableView*)tableView {
-	return [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-								  reuseIdentifier:[self reuseIdentifier]] autorelease];
+	return [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+								  reuseIdentifier:[self reuseIdentifier]];
 }
 
 - (void) setupCell:(UITableViewCell*)cell withObject:(NSObject*)object inTableView:(UITableView*)tableView {
@@ -76,8 +70,8 @@
 	return YES;
 }
 - (void) openEditorInController:(CBConfigurableTableViewController*)controller {
-	CBConfigurableTableViewController *tableView = [[[CBConfigurableTableViewController alloc] initWithTableModel:_model 
-																										andData:controller.data] autorelease];
+	CBConfigurableTableViewController *tableView = [[CBConfigurableTableViewController alloc] initWithTableModel:_model 
+																										andData:controller.data];
     tableView.contentSizeForViewInPopover = controller.contentSizeForViewInPopover;
 	[controller.navigationController pushViewController:tableView animated:YES];
 }

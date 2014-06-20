@@ -35,11 +35,11 @@
 
 + (CBTable*) table {
 	CBTable *table = [[CBTable alloc] init];
-	return [table autorelease];
+	return table;
 }
 + (CBTable*) tableWithSectionArray:(NSArray*)sections {
 	CBTable *table = [[CBTable alloc] initWithSections:sections];
-	return [table autorelease];
+	return table;
 }
 + (CBTable*) tableWithSections:(CBSection*)section, ... {
 	CBTable *table = [[CBTable alloc] init];
@@ -50,14 +50,9 @@
     va_start(args, section);
 	[table addSectionsVargs:args];
 	
-	return [table autorelease];
+	return table;
 }
 
-- (void) dealloc {
-	[_sections release];
-	
-	[super dealloc];
-}
 
 - (NSString*) description {
 	return [NSString stringWithFormat:@"CBTable {sections: %@}", _sections];
@@ -69,7 +64,7 @@
 {
     static NSPredicate *_predicate;
     if (!_predicate) {
-        _predicate = [[NSPredicate predicateWithFormat:@"hidden == NO"] retain];
+        _predicate = [NSPredicate predicateWithFormat:@"hidden == NO"];
     }
     
     return [_sections filteredArrayUsingPredicate:_predicate];
@@ -143,14 +138,14 @@
 }
 
 - (NSArray*) sections {
-	return [[_sections copy] autorelease];
+	return [_sections copy];
 }
 
 - (id) sectionWithTag:(NSString*)tag {
     if (!tag || [@"" isEqual:tag]) return nil;
     
     static NSPredicate *_predicate;
-    if (!_predicate) _predicate = [[NSPredicate predicateWithFormat:@"tag == $TAG"] retain];
+    if (!_predicate) _predicate = [NSPredicate predicateWithFormat:@"tag == $TAG"];
     
     NSArray *result = [_sections filteredArrayUsingPredicate:[_predicate predicateWithSubstitutionVariables:@{@"TAG": tag}]];
     

@@ -50,8 +50,8 @@ typedef void(^CBCellAccessoryButtonHandler)(CBCell *cell, UITableView *tableView
 
 @interface CBCell : NSObject <CBCell>
 
-@property (nonatomic, assign) CBConfigurableTableViewController *controller;
-@property (nonatomic, assign) CBSection* section;
+@property (nonatomic, weak) CBConfigurableTableViewController *controller;
+@property (nonatomic, weak) CBSection* section;
 
 @property (nonatomic, assign) UITableViewCellStyle style;
 @property (nonatomic, copy) NSString *tag;
@@ -60,17 +60,17 @@ typedef void(^CBCellAccessoryButtonHandler)(CBCell *cell, UITableView *tableView
 @property (nonatomic, copy) NSString *valueKeyPath;
 @property (nonatomic, copy) NSString *accessibilityLabel;
 
-@property (readonly) NSString *reuseIdentifier;
+@property (weak, readonly) NSString *reuseIdentifier;
 
 @property (nonatomic, copy) NSString *nibReuseIdentifier;
 
-@property (nonatomic, retain) CBEditor *editor;
+@property (nonatomic, strong) CBEditor *editor;
 
-@property (nonatomic, retain) UIFont *font;
-@property (nonatomic, retain) UIFont *detailFont;
+@property (nonatomic, strong) UIFont *font;
+@property (nonatomic, strong) UIFont *detailFont;
 
-@property (nonatomic, retain) UIImage *icon;
-@property (nonatomic, retain) NSString *iconName;
+@property (nonatomic, strong) UIImage *icon;
+@property (nonatomic, strong) NSString *iconName;
 @property (nonatomic, assign, getter=isEnabled) BOOL enabled;
 
 @property (nonatomic, copy) CBCellValueTransformerHandler valueTransformerHandler;

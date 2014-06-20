@@ -12,6 +12,9 @@
 #import "CBConfigurableTableViewController.h"
 
 @implementation CBEditorString
+{
+    CBStringEditorController *_editorController;
+}
 
 @synthesize keyboardType = _keyboardType;
 @synthesize autocorrectionType = _autocorrectionType;
@@ -64,14 +67,15 @@
 
 - (void) openEditorForCell:(CBCell*)cell 
 			  inController:(CBConfigurableTableViewController*)ctrl {
-	CBStringEditorController *pc = [[CBStringEditorController alloc] initWithText:[ctrl valueForCell:cell] 
-																		 andTitle:cell.title];
-	pc.keyboardType = _keyboardType;
-	pc.autocorrectionType = _autocorrectionType;
-    pc.autocapitalizationType = _autocapitalizationType;
-	[pc openEditorForCell:cell inController:ctrl];
-	
-	[pc autorelease];
+    if (!_editorController) {
+        CBStringEditorController *pc = [[CBStringEditorController alloc] initWithText:[ctrl valueForCell:cell]
+                                                                             andTitle:cell.title];
+        pc.keyboardType = _keyboardType;
+        pc.autocorrectionType = _autocorrectionType;
+        pc.autocapitalizationType = _autocapitalizationType;
+        _editorController = pc;
+    }
+    [_editorController openEditorForCell:cell inController:ctrl];
 }
 
 - (BOOL) isInline {

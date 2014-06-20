@@ -14,7 +14,7 @@
 	NSNumberFormatter *_numberFormatter;
 }
 
-@property (nonatomic, retain) NSNumberFormatter *numberFormatter;
+@property (nonatomic, strong) NSNumberFormatter *numberFormatter;
 
 - (id) applyNumberFormatter:(NSNumberFormatter*)numberFormatter;
 

@@ -13,7 +13,7 @@
 	NSDateFormatter *_dateFormatter;
 }
 
-@property (nonatomic, retain)   NSDateFormatter *dateFormatter;
+@property (nonatomic, strong)   NSDateFormatter *dateFormatter;
 @property (nonatomic, copy)     NSString *placeholderText;
 
 + (id) cellWithTitle:(NSString *)title valuePath:(NSString *)valueKeyPath dateStyle:(NSDateFormatterStyle)dateStyle;

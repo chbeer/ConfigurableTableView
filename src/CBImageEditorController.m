@@ -40,14 +40,12 @@
 																				target:self
 																				action:@selector(cancel:)];
 		self.navigationItem.leftBarButtonItem = cancel;
-		[cancel release];
 		
 		UIBarButtonItem *saveButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave 
 																					target:self
 																					action:@selector(save:)];
 		saveButton.style = UIBarButtonItemStyleDone;
 		self.navigationItem.rightBarButtonItem = saveButton;
-		[saveButton release];
 		/*
 		self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera
 																								target:self 
@@ -66,11 +64,10 @@
 }
 
 - (void)dealloc {
-	[_scrollView release], _scrollView = nil;
-	[_imageView release], _imageView = nil;
-	[_toolBar release], _toolBar = nil;
+	_scrollView = nil;
+	_imageView = nil;
+	_toolBar = nil;
 	
-    [super dealloc];
 }
 
 - (void) setImage:(UIImage*)image {
@@ -111,7 +108,6 @@
 //	imagePicker.allowsEditing = YES;
 	imagePicker.wantsFullScreenLayout = YES;
 	[self presentViewController:imagePicker animated:YES completion:NULL];
-	[imagePicker release];
 }
 
 - (void) actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -167,7 +163,6 @@
 								  [self canTakePicture] ? CBCTVLocalizedString(@"Take Picture") : nil,
 								  nil];
 	[actionSheet showInView:self.view];
-	[actionSheet release];
 }
 
 -(void)cancel:(id)sender {
