@@ -10,7 +10,7 @@
 #import "CBEditor.h"
 
 @interface CBEditorTargetAction : CBEditor {
-    id _target;
+    __weak id _target;
     SEL _selector;
     
     BOOL _inline;
