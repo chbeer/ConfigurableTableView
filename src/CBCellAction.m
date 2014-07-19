@@ -81,7 +81,7 @@
     if (!self.font) {
         if (CBCTVIsIOS7()) {
             cell.textLabel.font = [UIFont systemFontOfSize:[UIFont labelFontSize]];
-            cell.textLabel.textColor = [cell.textLabel tintColor];
+            cell.textLabel.textColor = [tableView tintColor];
         } else {
             cell.textLabel.font = [UIFont boldSystemFontOfSize:cell.textLabel.font.pointSize];
         }
