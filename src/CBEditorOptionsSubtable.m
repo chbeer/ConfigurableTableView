@@ -121,8 +121,9 @@
         }
         
         [self.originController setValue:val forCell:self.originCell];
-        
-        [self.controller.navigationController popViewControllerAnimated:YES];
+        if (self.shouldReturnAfterSelection) {
+            [self.controller.navigationController popViewControllerAnimated:YES];
+        }
     });
 }
 

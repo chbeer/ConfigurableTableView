@@ -15,6 +15,8 @@
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *sectionTitle;
 
+@property (nonatomic, assign) BOOL shouldReturnAfterSelection;
+
 - (id) initWithOptions:(NSArray*)options;
 
 + (id) editorWithOptions:(NSArray*)options;
