@@ -91,7 +91,7 @@
             return v.frame.size.height;
         }
     } else if ([[self tableView:tableView titleForHeaderInSection:section] length] > 0) {
-        return [tableView sectionHeaderHeight] + (tableView.style == UITableViewStyleGrouped ? 24 : 0);
+        return [tableView sectionHeaderHeight] + (tableView.style == UITableViewStyleGrouped ? 38 : 0);
     }
     return 0;
 }
