@@ -53,7 +53,7 @@
         _model = aModel;
 		_model.delegate = self;
 		
-		[self.tableView reloadData];
+		if (aModel) [self.tableView reloadData];
     }
 }
 
