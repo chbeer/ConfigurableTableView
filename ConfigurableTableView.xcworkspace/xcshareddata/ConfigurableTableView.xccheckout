@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>63500CE3-F966-41E7-A587-42CFA370C27F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ConfigurableTableView</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6E5CF4AE-9518-4323-A434-891E4004A4B4</key>
+		<string>https://github.com/chbeer/ConfigurableTableView.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ConfigurableTableView.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6E5CF4AE-9518-4323-A434-891E4004A4B4</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/chbeer/ConfigurableTableView.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6E5CF4AE-9518-4323-A434-891E4004A4B4</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6E5CF4AE-9518-4323-A434-891E4004A4B4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ConfigurableTableView</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -149,6 +149,7 @@
 		AABB397214879D5500A1AD86 /* CBCellNumericStepper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCellNumericStepper.h; sourceTree = "<group>"; };
 		AABB397414879F6700A1AD86 /* CBStepperCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; path = CBStepperCell.h; sourceTree = "<group>"; };
 		AABB397514879F6700A1AD86 /* CBStepperCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBStepperCell.m; sourceTree = "<group>"; };
+		AABD1F8319B71B1D00376CC3 /* ConfigurableTableView.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; name = ConfigurableTableView.podspec; path = ../ConfigurableTableView.podspec; sourceTree = "<group>"; };
 		AACB802A1536F464002CCDD2 /* CBConfigurableDataSourceAndDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBConfigurableDataSourceAndDelegate.h; sourceTree = "<group>"; };
 		AACB802B1536F464002CCDD2 /* CBConfigurableDataSourceAndDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBConfigurableDataSourceAndDelegate.m; sourceTree = "<group>"; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -240,6 +241,7 @@
 		0867D691FE84028FC02AAC07 /* ConfigurableTableView */ = {
 			isa = PBXGroup;
 			children = (
+				AABD1F8319B71B1D00376CC3 /* ConfigurableTableView.podspec */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
