@@ -12,16 +12,20 @@
 #import "CBConfigurableTableViewController.h"
 
 @implementation CBEditorNumeric
+{
+    CBNumericEditorController *_editorController;
+}
 
-- (void) openEditorForCell:(CBCell*)cell 
-			  inController:(CBConfigurableTableViewController*)ctrl {
-	CBNumericEditorController *pc = [[CBNumericEditorController alloc] initWithValue:[ctrl valueForCell:cell] 
-																		   andTitle:cell.title];
-	[pc openEditorForCell:cell inController:ctrl];
+- (void) openEditorForCell:(CBCell*)cell
+              inController:(CBConfigurableTableViewController*)ctrl {
+    CBNumericEditorController *pc = [[CBNumericEditorController alloc] initWithValue:[ctrl valueForCell:cell]
+                                                                            andTitle:cell.title];
+    _editorController = pc;
+    [_editorController openEditorForCell:cell inController:ctrl];
 }
 
 - (BOOL) isInline {
-	return NO;
+    return NO;
 }
 
 @end

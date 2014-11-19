@@ -10,29 +10,29 @@
 	<string>ConfigurableTableView</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>6E5CF4AE-9518-4323-A434-891E4004A4B4</key>
+		<key>BD812ECFC1BF415E1640BEE5EBF088986B4BC3DE</key>
 		<string>https://github.com/chbeer/ConfigurableTableView.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>ConfigurableTableView.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>6E5CF4AE-9518-4323-A434-891E4004A4B4</key>
+		<key>BD812ECFC1BF415E1640BEE5EBF088986B4BC3DE</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/chbeer/ConfigurableTableView.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>6E5CF4AE-9518-4323-A434-891E4004A4B4</string>
+	<string>BD812ECFC1BF415E1640BEE5EBF088986B4BC3DE</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>6E5CF4AE-9518-4323-A434-891E4004A4B4</string>
+			<string>BD812ECFC1BF415E1640BEE5EBF088986B4BC3DE</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ConfigurableTableView</string>
 		</dict>
