@@ -23,5 +23,6 @@
 
 - (id) applyTitle:(NSString*)title;
 - (id) applySectionTitle:(NSString*)sectionTitle;
+- (id) applyShouldReturnAfterSelection:(BOOL)shouldReturn;
 
 @end

@@ -31,7 +31,15 @@
 		UIBarButtonItem *doneBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
 																				 target:self action:@selector(done:)];
 		
-		[_toolbar setItems:[NSArray arrayWithObjects:cancelBtn, spacer, doneBtn, nil] animated:NO];
+        UIBarButtonItem *spacer1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                                                                 target:nil action:NULL];
+        spacer1.width = 30;
+        UIBarButtonItem *spacer2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                                                                 target:nil action:NULL];
+        spacer2.width = 30;
+        
+		[_toolbar setItems:@[spacer1, cancelBtn, spacer, doneBtn, spacer2]
+                  animated:NO];
 		
 		
 		[self.view addSubview:_toolbar];

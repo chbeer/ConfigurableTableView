@@ -50,6 +50,11 @@
     self.sectionTitle = sectionTitle;
     return self;
 }
+- (id) applyShouldReturnAfterSelection:(BOOL)shouldReturn;
+{
+    self.shouldReturnAfterSelection = shouldReturn;
+    return self;
+}
 
 #pragma mark -
 
@@ -111,11 +116,13 @@
     
     UITableViewCell *cell = [self.controller.tableView cellForRowAtIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    
+
+    id value = [self.options objectAtIndex:indexPath.row];
+
     double delayInSeconds = 0.5;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        id val = [self.options objectAtIndex:indexPath.row];
+        id val = value;
         if ([val isKindOfClass:[CBPickerOption class]]) {
             val = ((CBPickerOption*)val).value;
         }

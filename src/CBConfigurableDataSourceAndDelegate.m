@@ -34,8 +34,6 @@
     if (!self) return nil;
     
     self.tableView = tableView;
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
     
     return self;
 }
@@ -50,9 +48,15 @@
 
 - (void) setModel: (CBTable *) aModel {
     if (_model != aModel) {
+        self.tableView.delegate = nil;
+        self.tableView.dataSource = nil;
+        
         _model = aModel;
 		_model.delegate = self;
-		
+
+        
+        self.tableView.delegate = self;
+        self.tableView.dataSource = self;
 		if (aModel) [self.tableView reloadData];
     }
 }
@@ -115,8 +119,8 @@
         CGFloat fontSize;
         CGFloat margin;
         if (CBCTVIsIOS7()) {
-            fontSize = 14;
-            margin = 30;
+            fontSize = 13;
+            margin = 33.5;
         } else {
             fontSize = 16;
             margin = 54;
@@ -130,6 +134,35 @@
         return size.height + 18;
     } else {
         return 0.0;
+    }
+}
+- (BOOL) hasSectionFooterView
+{
+    for (CBSection *section in _model.sections) {
+        if (section.footerView) {
+            return YES;
+        }
+    }
+    return NO;
+}
+- (BOOL) hasSectionFooterTitle
+{
+    for (CBSection *section in _model.sections) {
+        if (section.footerTitle.length > 0) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+- (BOOL)respondsToSelector:(SEL)aSelector
+{
+    if (aSelector == @selector(tableView:heightForFooterInSection:) && ![self hasSectionFooterView]) {
+        return NO;
+    } else if (aSelector == @selector(tableView:titleForFooterInSection::) && ![self hasSectionFooterTitle]) {
+        return NO;
+    } else {
+        return [super respondsToSelector:aSelector];
     }
 }
 
@@ -161,7 +194,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     CBCell *cbCell = [_model cellForRowAtIndexPath:indexPath];
-	if ([cbCell hasEditor]) {
+	if (cbCell.enabled && [cbCell hasEditor]) {
         if ([cbCell respondsToSelector:@selector(openEditorInController:)]) {
             [cbCell openEditorInController:(CBConfigurableTableViewController*)self.controller];
         }
