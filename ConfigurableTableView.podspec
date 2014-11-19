@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "ConfigurableTableView"
-  s.version      = "1.4"
+  s.version      = "1.5"
   s.summary      = "UITableViewDataSource and -Delegate that defines the sections and cells in the table using a lightweight data model."
   s.homepage     = "https://github.com/chbeer/ConfigurableTableView"
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
