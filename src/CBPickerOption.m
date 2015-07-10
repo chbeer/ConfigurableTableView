@@ -11,28 +11,40 @@
 
 @implementation CBPickerOption
 
-@synthesize value = _value;
-@synthesize label = _label;
-@synthesize icon = _icon;
-
-
-+ (CBPickerOption*) optionWithValue:(NSObject*)value label:(NSString*)label icon:(UIImage *)icon
++ (instancetype) optionWithValue:(id)value label:(NSString*)label icon:(UIImage *)icon footerText:(NSString*)footerText enabled:(BOOL)enabled;
 {
-	CBPickerOption *o = [[CBPickerOption alloc] init];
-	o.value = value;
-	o.label = label;
+    CBPickerOption *o = [CBPickerOption new];
+    o.value = value;
+    o.label = label;
     o.icon = icon;
-	return o;
+    o.footerText = footerText;
+    o.enabled = enabled;
+    return o;
 }
-+ (CBPickerOption*) optionWithValue:(NSObject*)value label:(NSString*)label iconName:(NSString *)iconName {
++ (instancetype) optionWithValue:(id)value label:(NSString*)label footerText:(NSString*)footerText enabled:(BOOL)enabled;
+{
+    return [self optionWithValue:value label:label icon:nil footerText:footerText enabled:enabled];
+}
++ (instancetype) optionWithValue:(id)value label:(NSString*)label footerText:(NSString*)footerText;
+{
+    return [self optionWithValue:value label:label footerText:footerText enabled:YES];
+}
++ (instancetype) optionWithValue:(id)value label:(NSString*)label icon:(UIImage *)icon
+{
+    return [self optionWithValue:value label:label icon:icon footerText:nil enabled:YES];
+}
++ (instancetype) optionWithValue:(id)value label:(NSString*)label iconName:(NSString *)iconName
+{
     UIImage *image = [UIImage imageNamed:iconName];
     return [self optionWithValue:value label:label icon:image];
 }
-+ (CBPickerOption*) optionWithValue:(NSObject*)value label:(NSString*)label {
++ (instancetype) optionWithValue:(NSObject*)value label:(NSString*)label
+{
 	return [self optionWithValue:value label:label icon:nil];
 }
 
-+ (NSArray*) arrayWithPickerOptionsValuesAndLabels:(NSObject*)firstValue, ... {
++ (NSArray*) arrayWithPickerOptionsValuesAndLabels:(NSObject*)firstValue, ...
+{
     NSMutableArray *array = [NSMutableArray array];
     
     va_list args;

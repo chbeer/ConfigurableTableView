@@ -155,37 +155,6 @@
             }
         
             NSString *text = [object valueForKeyPath:self.valueKeyPath];
-//            if (!_textViewCell.textView.text || ![_textViewCell.textView.text isEqual:text]) {
-//                
-//                CGRect r = _textViewCell.textView.frame;
-//                r.size.width = tableView.frame.size.width - (paddingLeft * 2);
-//                _textViewCell.textView.frame = r;
-//                
-//                _textViewCell.textView.text = text;
-//                if (_font) {
-//                    _textViewCell.textView.font = _font;
-//                }
-//                
-//                r.size.height = _textViewCell.textView.contentSize.height;
-//                _textViewCell.textView.frame = r;
-//                
-//                
-//                if (_textViewCell.textView.frame.size.height < 36.0f) {
-//                    CGRect rect = _textViewCell.textView.frame;
-//                    rect.size.height = 36.0f;
-//                    _textViewCell.textView.frame = rect;
-//                }
-//            }
-//            
-//            _currentTextViewHeight = _textViewCell.textView.contentSize.height + 10;
-//            
-//            height = MAX(_textViewCell.textView.contentSize.height, height);
-//            
-//            if (_textViewCell.editing) {
-//                height += 19;
-//            } else {
-//                height += 5;
-//            }
             
             CGSize size = [text sizeWithFont:_textViewCell.textView.font
                              constrainedToSize:CGSizeMake(tableView.frame.size.width - (paddingLeft * 2), 1000)
@@ -217,26 +186,6 @@
 - (BOOL) hasEditor {
     return NO;
 }
-
-// hack for iOS 3 in work! Doesn't work by now!
-/*
-- (void) openEditorInController:(CBConfigurableTableViewController *)controller {
-    if (!CBIsIOSVersionGreaterEqual(4, 0)) {
-        UITextView *textView = [_textViewCell.textView retain];
-        [_textViewCell.textView removeFromSuperview];
-        textView.layer.cornerRadius = 3.0;
-        textView.layer.borderWidth = 1.0;
-        textView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-        textView.layer.backgroundColor = [_textViewCell.contentView.backgroundColor CGColor];
-        textView.layer.opaque = YES;
-        textView.userInteractionEnabled = YES;
-        textView.scrollEnabled = YES;
-        textView.frame = CGRectInset(_controller.tableView.frame, 3, 3);
-        textView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-        [_controller.view addSubview:textView];
-        [textView release];
-    }
-}*/
 
 #pragma mark CBTextViewTableViewCellDelegate
 

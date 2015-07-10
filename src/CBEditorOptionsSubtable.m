@@ -23,10 +23,19 @@
 
 @end
 
+@interface CBCellActionOption : CBCellAction
+
+@property (nonatomic, strong) CBPickerOption *option;
+
++ (instancetype)cellWithTitle:(NSString *)title option:(CBPickerOption*)option target:(id)target action:(SEL)selector;
+
+@end
+
 
 @implementation CBEditorOptionsSubtable
 
-- (id) initWithOptions:(NSArray*)options {
+- (id) initWithOptions:(NSArray*)options
+{
     self = [super init];
     if (!self) return nil;
     
@@ -35,7 +44,8 @@
 	return self;
 }
 
-+ (id) editorWithOptions:(NSArray*)options {
++ (id) editorWithOptions:(NSArray*)options
+{
 	id editor = [(CBEditorOptionsSubtable*)[[self class] alloc] initWithOptions:options];
 	return editor;
 }
@@ -65,22 +75,39 @@
     self.originController = controller;
     
     CBTable *model = [CBTable table];
-    CBSection *section = [model addSection:[CBSection sectionWithTitle:self.sectionTitle]];
+    CBSection *section = nil;
+    BOOL firstSection = YES;
     
     id currentValue = [controller valueForCell:cell];
     
     for (id option in self.options) {
         NSString *label = option;
         UIImage *icon = nil;
+        NSString *footerTitle = nil;
+        BOOL enabled = YES;
         id value = option;
         if ([option isKindOfClass:[CBPickerOption class]]) {
-            label = [option label];
-            icon = [option icon];
-            value = [(CBPickerOption*)option value];
+            CBPickerOption *po = option;
+            
+            label = po.label;
+            icon = po.icon;
+            value = po.value;
+            footerTitle = po.footerText;
+            enabled = po.enabled;
         }
         
-        id cell = [section addCell:[CBCellAction cellWithTitle:label target:self action:@selector(selectOption:)]];
+        if (!section) {
+            section = [model addSection:[CBSection sectionWithTitle:firstSection ? self.sectionTitle : nil]];
+        }
+        
+        if (footerTitle && !firstSection) {
+            section = [model addSection:[CBSection sectionWithTitle:nil]];
+        }
+        
+        id cell = [section addCell:[CBCellActionOption cellWithTitle:label option:option
+                                                              target:self action:@selector(selectOption:)]];
         [cell setTextAlignment:UITextAlignmentLeft];
+        [cell setEnabled:enabled];
         
         if (icon) {
             [cell applyIcon:icon];
@@ -89,6 +116,12 @@
         if ([currentValue isEqual:value]) {
             [cell applyTableViewCellAccessoryType:UITableViewCellAccessoryCheckmark];
         }
+        
+        if (footerTitle) {
+            section.footerTitle = footerTitle;
+        }
+        
+        firstSection = NO;
     }
     
     CBConfigurableTableViewController *tableView = [[CBConfigurableTableViewController alloc] initWithTableModel:model
@@ -108,7 +141,8 @@
 
 - (IBAction)selectOption:(id)sender
 {
-    NSIndexPath *indexPath = [self.controller.model indexPathOfCell:sender];
+    CBCellActionOption *actionCell = sender;
+    NSIndexPath *indexPath = [self.controller.model indexPathOfCell:actionCell];
     
     for (UITableViewCell *cell in [self.controller.tableView visibleCells]) {
         cell.accessoryType = UITableViewCellAccessoryNone;
@@ -117,7 +151,7 @@
     UITableViewCell *cell = [self.controller.tableView cellForRowAtIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryCheckmark;
 
-    id value = [self.options objectAtIndex:indexPath.row];
+    id value = actionCell.option.value;
 
     double delayInSeconds = 0.5;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
@@ -132,6 +166,23 @@
             [self.controller.navigationController popViewControllerAnimated:YES];
         }
     });
+}
+
+@end
+
+@implementation CBCellActionOption
+
++ (instancetype)cellWithTitle:(NSString *)title option:(CBPickerOption*)option target:(id)target action:(SEL)action
+{
+    CBCellActionOption *cell = [[[self class] alloc] initWithTitle:title];
+    
+    cell.target = target;
+    cell.action = action;
+    
+    cell.enabled = YES;
+    cell.option = option;
+    
+    return cell;
 }
 
 @end

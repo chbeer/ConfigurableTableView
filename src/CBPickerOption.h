@@ -8,20 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CBPickerOption : NSObject {
-	NSObject *_value;
-	NSString *_label;
-    
-    UIImage *_icon;
-}
+@interface CBPickerOption : NSObject
 
-@property (nonatomic, strong)   NSObject *value;
+@property (nonatomic, strong)   id value;
 @property (nonatomic, copy)     NSString *label;
 @property (nonatomic, strong)   UIImage *icon;
 
-+ (CBPickerOption*) optionWithValue:(NSObject*)value label:(NSString*)label;
-+ (CBPickerOption*) optionWithValue:(NSObject*)value label:(NSString*)label icon:(UIImage*)icon;
-+ (CBPickerOption*) optionWithValue:(NSObject*)value label:(NSString*)label iconName:(NSString*)iconName;
+@property (nonatomic, copy)     NSString *footerText;
+@property (nonatomic, assign, getter= isEnabled) BOOL enabled;
+
++ (instancetype) optionWithValue:(id)value label:(NSString*)label;
++ (instancetype) optionWithValue:(id)value label:(NSString*)label icon:(UIImage*)icon;
++ (instancetype) optionWithValue:(id)value label:(NSString*)label iconName:(NSString*)iconName;
++ (instancetype) optionWithValue:(id)value label:(NSString*)label footerText:(NSString*)footerText;
++ (instancetype) optionWithValue:(id)value label:(NSString*)label footerText:(NSString*)footerText enabled:(BOOL)enabled;
 
 + (NSArray*) arrayWithPickerOptionsValuesAndLabels:(NSObject*)firstValue, ...;
 

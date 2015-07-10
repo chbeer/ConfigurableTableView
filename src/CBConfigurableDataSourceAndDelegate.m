@@ -55,9 +55,11 @@
 		_model.delegate = self;
 
         
-        self.tableView.delegate = self;
-        self.tableView.dataSource = self;
-		if (aModel) [self.tableView reloadData];
+        if (aModel) {
+            self.tableView.delegate = self;
+            self.tableView.dataSource = self;
+            [self.tableView reloadData];
+        }
     }
 }
 
@@ -159,7 +161,7 @@
 {
     if (aSelector == @selector(tableView:heightForFooterInSection:) && ![self hasSectionFooterView]) {
         return NO;
-    } else if (aSelector == @selector(tableView:titleForFooterInSection::) && ![self hasSectionFooterTitle]) {
+    } else if (aSelector == @selector(tableView:titleForFooterInSection:) && ![self hasSectionFooterTitle]) {
         return NO;
     } else {
         return [super respondsToSelector:aSelector];

@@ -12,7 +12,7 @@
 
 @interface CBConfigurableDataSourceAndDelegate : NSObject <CBTableDelegate,UITableViewDataSource,UITableViewDelegate>
 
-@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, weak) UITableView *tableView;
 @property (nonatomic, weak) UIViewController *controller;
 
 @property (nonatomic, strong) CBTable *model;
