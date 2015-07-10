@@ -51,7 +51,7 @@
     _textField.tag = kCBEditorStringInlineTag;
     _textField.delegate = self;
     _textField.adjustsFontSizeToFitWidth = YES;
-    _textField.textAlignment = UITextAlignmentRight;
+    _textField.textAlignment = NSTextAlignmentRight;
     _textField.secureTextEntry = _secureTextEntry;
     
     [tableViewCell.contentView addSubview:_textField];

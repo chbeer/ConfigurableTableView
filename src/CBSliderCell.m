@@ -170,7 +170,7 @@
             maxLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 15)];
             maxLabel.font = [UIFont systemFontOfSize:[UIFont smallSystemFontSize]];
             maxLabel.textColor = [UIColor darkGrayColor];
-            maxLabel.textAlignment = UITextAlignmentRight;
+            maxLabel.textAlignment = NSTextAlignmentRight;
             maxLabel.backgroundColor = [UIColor clearColor];
             maxLabel.opaque = NO;
             [self.contentView addSubview:maxLabel];

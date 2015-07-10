@@ -21,7 +21,7 @@
 	self = [super initWithTitle:title];
     if (!self) return nil;
     
-    _textAlignment = UITextAlignmentCenter;
+    _textAlignment = NSTextAlignmentCenter;
     _enabled = YES;
 
 	return self;

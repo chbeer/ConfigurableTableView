@@ -132,7 +132,7 @@
         CGSize constraint = CGSizeMake(width - margin, 1000);//CGSizeMake(width > 400 ? width - 120 : width - 50, 1000);
         CGSize size = [sect.footerTitle sizeWithFont:[UIFont systemFontOfSize:fontSize]
                                    constrainedToSize:constraint
-                                       lineBreakMode:UILineBreakModeWordWrap];
+                                       lineBreakMode:NSLineBreakByWordWrapping];
         return size.height + 18;
     } else {
         return 0.0;

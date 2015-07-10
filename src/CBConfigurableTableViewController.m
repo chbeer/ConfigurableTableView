@@ -172,7 +172,7 @@
 
     } else {
 
-        heightDifference = [[notif.userInfo objectForKey:UIKeyboardBoundsUserInfoKey] CGRectValue].size.height;
+        heightDifference = CGRectGetHeight([[notif.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue]);
         
         if (!self.navigationController.toolbarHidden) {
             heightDifference -= self.navigationController.toolbar.bounds.size.height;

@@ -106,7 +106,7 @@
         
         id cell = [section addCell:[CBCellActionOption cellWithTitle:label option:option
                                                               target:self action:@selector(selectOption:)]];
-        [cell setTextAlignment:UITextAlignmentLeft];
+        [cell setTextAlignment:NSTextAlignmentLeft];
         [cell setEnabled:enabled];
         
         if (icon) {

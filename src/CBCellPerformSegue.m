@@ -43,7 +43,7 @@
 - (UITableViewCell*) createTableViewCellForTableView:(UITableView*)tableView {
 	UITableViewCell *cell =  [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
 													reuseIdentifier:[self reuseIdentifier]];
-	cell.textLabel.textAlignment = UITextAlignmentLeft;
+	cell.textLabel.textAlignment = NSTextAlignmentLeft;
     if (CBCTVIsIOS7()) {
         cell.textLabel.font = [UIFont systemFontOfSize:[UIFont labelFontSize]];
     }

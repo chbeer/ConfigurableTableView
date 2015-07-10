@@ -23,7 +23,7 @@
 
 		self.textLabel.text = @"";
 		self.textLabel.numberOfLines = 0;
-		self.textLabel.lineBreakMode = UILineBreakModeWordWrap;
+		self.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
 		
     }
     return self;
@@ -61,7 +61,7 @@
     @synchronized(text){
         CGSize size = [text sizeWithFont:fnt
                        constrainedToSize:constraint 
-                           lineBreakMode:UILineBreakModeWordWrap];
+                           lineBreakMode:NSLineBreakByWordWrapping];
         
         height = MAX(MIN(size.height + 20, MAX_HEIGHT), 44.0);
     }	

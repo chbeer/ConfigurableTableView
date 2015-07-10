@@ -23,7 +23,7 @@
 	if (self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier]) {
 		_textField = [[UITextField alloc] initWithFrame:CGRectMake(0.0, 0.0, 50.0, 30.0)];
 		_textField.font = [UIFont systemFontOfSize:18];
-		_textField.textAlignment = UITextAlignmentRight;
+		_textField.textAlignment = NSTextAlignmentRight;
         _textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         _textField.delegate = self;
         _textField.textColor = [UIColor tableViewCellValueTextColor];
