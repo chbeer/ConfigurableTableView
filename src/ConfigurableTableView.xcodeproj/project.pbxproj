@@ -654,6 +654,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"-Werror=undeclared-selector",
+					"-Werror=enum-conversion",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 			};
@@ -667,6 +671,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = (
+					"-Werror=undeclared-selector",
+					"-Werror=enum-conversion",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 			};

@@ -47,7 +47,7 @@
 	return cell;
 }
 
-- (id) applyTextAlignment:(UITextAlignment)textAlignment
+- (id) applyTextAlignment:(NSTextAlignment)textAlignment
 {
     self.textAlignment = textAlignment;
     return self;

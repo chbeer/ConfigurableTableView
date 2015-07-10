@@ -9,7 +9,7 @@
 @synthesize inlineEditing = _inlineEditing;
 
 - (id)initWithReuseIdentifier:(NSString *)identifier {
-	if (self = [super initWithStyle:UITableViewStylePlain reuseIdentifier:identifier]) {
+	if (self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier]) {
 	}
 	return self;
 }

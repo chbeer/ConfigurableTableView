@@ -53,6 +53,10 @@
 - (IBAction)cancel:(id)sender {
 	[self closeEditor];
 }
+- (IBAction)done:(id)sender {
+    // needs to be overwritten by subclass
+    [self closeEditor];
+}
 
 #pragma mark -
 
