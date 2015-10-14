@@ -189,6 +189,8 @@
 		AAEF39C71BCF042F0000509E /* UIImageAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AA717C4D112006C500FB5173 /* UIImageAdditions.m */; settings = {ASSET_TAGS = (); }; };
 		AAEF39C81BCF042F0000509E /* CBConfigurableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CBF710C8FC86003D3A14 /* CBConfigurableTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		AAEF39C91BCF042F0000509E /* CBConfigurableDataSourceAndDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AACB802B1536F464002CCDD2 /* CBConfigurableDataSourceAndDelegate.m */; settings = {ASSET_TAGS = (); }; };
+		AAEF3A3C1BCF13AA0000509E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD5CCE310C90E02003D3A14 /* UIKit.framework */; };
+		AAEF3A3E1BCF13B50000509E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEF3A3D1BCF13B50000509E /* CoreGraphics.framework */; };
 		AAFC018B11105D7F00E5F04D /* CBCellAction.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFC018911105D7F00E5F04D /* CBCellAction.m */; };
 /* End PBXBuildFile section */
 
@@ -299,6 +301,7 @@
 		AAEF39701BCF03A30000509E /* ConfigurableTableView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ConfigurableTableView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAEF39721BCF03A30000509E /* ConfigurableTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfigurableTableView.h; sourceTree = "<group>"; };
 		AAEF39741BCF03A30000509E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAEF3A3D1BCF13B50000509E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		AAFC018911105D7F00E5F04D /* CBCellAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCellAction.m; sourceTree = "<group>"; };
 		D2AAC07E0554694100DB518D /* libCBConfigurableTableView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCBConfigurableTableView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -308,6 +311,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAEF3A3E1BCF13B50000509E /* CoreGraphics.framework in Frameworks */,
+				AAEF3A3C1BCF13AA0000509E /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +354,7 @@
 		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AAEF3A3D1BCF13B50000509E /* CoreGraphics.framework */,
 				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
 				AAD5CCE310C90E02003D3A14 /* UIKit.framework */,
 			);
@@ -1045,6 +1051,7 @@
 				AAEF39771BCF03A30000509E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
