@@ -23,11 +23,11 @@
 
 @protocol CBEditor <NSObject>
 
-+ (id) editor;
++ (instancetype) editor;
 
 - (BOOL) isInline;
 
-- (void) openEditorForCell:(CBCell*)cell inController:(CBConfigurableTableViewController*)ctrl;
+- (void) openEditorForCell:(CBCell*)cell inController:(UIViewController*)ctrl;
 
 @optional
 
@@ -44,11 +44,11 @@
 @interface CBEditor : NSObject <CBEditor> {
 }
 
-+ (id) editor;
++ (instancetype) editor;
 
 - (BOOL) isInline;
 - (CGSize) editorAccessorySize;
 
-- (void) openEditorForCell:(CBCell*)cell inController:(CBConfigurableTableViewController*)ctrl;
+- (void) openEditorForCell:(CBCell*)cell inController:(UIViewController*)ctrl;
 
 @end

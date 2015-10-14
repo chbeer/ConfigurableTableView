@@ -36,7 +36,7 @@
 
 @synthesize nibReuseIdentifier = nibReuseIdentifier;
 
-- (id) initWithTitle:(NSString*)title {
+- (instancetype) initWithTitle:(NSString*)title {
 	if (self = [super init]) {
 		_title = [title copy];
         _style = UITableViewCellStyleDefault;
@@ -44,102 +44,102 @@
 	}
 	return self;
 }
-- (id) initWithTitle:(NSString*)title andValuePath:(NSString*)valueKeyPath {
+- (instancetype) initWithTitle:(NSString*)title andValuePath:(NSString*)valueKeyPath {
 	if (self = [self initWithTitle:title]) {
 		_valueKeyPath = [valueKeyPath copy];
 	}
 	return self;
 }
 
-+ (id) cellWithTitle:(NSString*)title 
-				valuePath:(NSString*)valueKeyPath {
++ (instancetype) cellWithTitle:(NSString*)title
+                     valuePath:(NSString*)valueKeyPath {
 	CBCell *cell = [[[self class] alloc] initWithTitle:title 
                                           andValuePath:valueKeyPath];
 	return cell;
 }
-+ (id) cellWithTitle:(NSString*)title 
-				valuePath:(NSString*)valueKeyPath 
-				   editor:(CBEditor*)editor {
++ (instancetype) cellWithTitle:(NSString*)title
+                     valuePath:(NSString*)valueKeyPath
+                        editor:(CBEditor*)editor {
 	CBCell *cell = [self cellWithTitle:title valuePath:valueKeyPath];
 	cell.editor = editor;
 	return cell;
 }
-+ (id) cellWithTitle:(NSString*)title 
-           valuePath:(NSString*)valueKeyPath 
-            iconName:(NSString*)iconName {
++ (instancetype) cellWithTitle:(NSString*)title
+                     valuePath:(NSString*)valueKeyPath
+                      iconName:(NSString*)iconName {
 	CBCell *cell = [self cellWithTitle:title valuePath:valueKeyPath];
 	cell.iconName = iconName;
 	return cell;
 }
-+ (id) cellWithTitle:(NSString*)title 
-           valuePath:(NSString*)valueKeyPath 
-            iconName:(NSString*)iconName
-              editor:(CBEditor*)editor {
++ (instancetype) cellWithTitle:(NSString*)title
+                     valuePath:(NSString*)valueKeyPath
+                      iconName:(NSString*)iconName
+                        editor:(CBEditor*)editor {
 	CBCell *cell = [self cellWithTitle:title valuePath:valueKeyPath];
 	cell.iconName = iconName;
     cell.editor = editor;
 	return cell;
 }
 
-+ (id) cellWithNibReuseIdentifier:(NSString*)nibReuseIdentifier valuePath:(NSString*)valueKeyPath
++ (instancetype) cellWithNibReuseIdentifier:(NSString*)nibReuseIdentifier valuePath:(NSString*)valueKeyPath
 {
     CBCell *cell = [self cellWithTitle:nil valuePath:valueKeyPath];
 	cell.nibReuseIdentifier = nibReuseIdentifier;
 	return cell;
 }
 
-- (id)applyFont:(UIFont*)font {
+- (instancetype)applyFont:(UIFont*)font {
     self.font = font;
     return self;
 }
-- (id)applyDetailFont:(UIFont*)font {
+- (instancetype)applyDetailFont:(UIFont*)font {
     self.detailFont = font;
     return self;
 }
 
-- (id) applyIcon:(UIImage*)icon;
+- (instancetype) applyIcon:(UIImage*)icon;
 {
     self.icon = icon;
     return self;
 }
-- (id)applyIconName:(NSString*)iconName {
+- (instancetype)applyIconName:(NSString*)iconName {
     self.iconName = iconName;
     return self;
 }
-- (id) applyTag:(NSString *)tag {
+- (instancetype) applyTag:(NSString *)tag {
     self.tag = tag;
     return self;
 }
-- (id) applyStyle:(UITableViewCellStyle)style;
+- (instancetype) applyStyle:(UITableViewCellStyle)style;
 {
     self.style = style;
     return self;
 }
-- (id) applyEnabled:(BOOL)enabled;
+- (instancetype) applyEnabled:(BOOL)enabled;
 {
     self.enabled = enabled;
     return self;
 }
 
-- (id) applyNibReuseIdentifier:(NSString*)reuseIdentifier;
+- (instancetype) applyNibReuseIdentifier:(NSString*)reuseIdentifier;
 {
     self.nibReuseIdentifier = reuseIdentifier;
     return self;
 }
 
-- (id) applyAccessibilityLabel:(NSString*)accessibilityLabel;
+- (instancetype) applyAccessibilityLabel:(NSString*)accessibilityLabel;
 {
     self.accessibilityLabel = accessibilityLabel;
     return self;
 }
 
-- (id) applyValueTransformer:(CBCellValueTransformerHandler)valueTransformerHandler;
+- (instancetype) applyValueTransformer:(CBCellValueTransformerHandler)valueTransformerHandler;
 {
     self.valueTransformerHandler = valueTransformerHandler;
     return self;
 }
 
-- (id) applyAccessoryButtonHandler:(CBCellAccessoryButtonHandler) accessoryButtonHandler;
+- (instancetype) applyAccessoryButtonHandler:(CBCellAccessoryButtonHandler) accessoryButtonHandler;
 {
     self.accessoryButtonHandler = accessoryButtonHandler;
     return self;
@@ -175,14 +175,17 @@
 - (UITableViewCellStyle) tableViewCellStyle {
     return self.style;
 }
+- (Class) tableViewCellClass {
+    return [UITableViewCell class];
+}
 
 - (UITableViewCell*) createTableViewCellForTableView:(UITableView*)tableView {
     if (self.nibReuseIdentifier) {
         return [tableView dequeueReusableCellWithIdentifier:self.nibReuseIdentifier];
     }
     
-	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:[self tableViewCellStyle]
-												   reuseIdentifier:[self reuseIdentifier]];
+	UITableViewCell *cell = [[[self tableViewCellClass] alloc] initWithStyle:[self tableViewCellStyle]
+                                                             reuseIdentifier:[self reuseIdentifier]];
 	
 	return cell;
 }

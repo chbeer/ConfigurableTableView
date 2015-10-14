@@ -17,7 +17,7 @@
 
 @synthesize enabled = _enabled;
 
-- (id) initWithTitle:(NSString*)title {
+- (instancetype) initWithTitle:(NSString*)title {
 	self = [super initWithTitle:title];
     if (!self) return nil;
     
@@ -27,7 +27,7 @@
 	return self;
 }
 
-+ (id)cellWithTitle:(NSString *)title target:(id)target action:(SEL)action {
++ (instancetype)cellWithTitle:(NSString *)title target:(id)target action:(SEL)action {
 	CBCellAction *cell = [[[self class] alloc] initWithTitle:title];
 	
 	cell.target = target;
@@ -37,7 +37,7 @@
 	
 	return cell;
 }
-+ (id)cellWithTitle:(NSString *)title actionBlock:(CBCellActionBlock)block;
++ (instancetype)cellWithTitle:(NSString *)title actionBlock:(CBCellActionBlock)block;
 {
     CBCellAction *cell = [[[self class] alloc] initWithTitle:title];
 	
@@ -47,12 +47,12 @@
 	return cell;
 }
 
-- (id) applyTextAlignment:(NSTextAlignment)textAlignment
+- (instancetype) applyTextAlignment:(NSTextAlignment)textAlignment
 {
     self.textAlignment = textAlignment;
     return self;
 }
-- (id) applyTableViewCellAccessoryType:(UITableViewCellAccessoryType)accessoryType;
+- (instancetype) applyTableViewCellAccessoryType:(UITableViewCellAccessoryType)accessoryType;
 {
     self.cellAccessoryType = accessoryType;
     return self;

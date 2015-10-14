@@ -52,13 +52,13 @@
 @property (nonatomic, strong) NSString *footerTitle;
 @property (nonatomic, strong) UIView *footerView;
 
-- (id) initWithTitle:(NSString*)title andCells:(NSArray*)cells;
-- (id) initWithTitle:(NSString*)title;
+- (instancetype) initWithTitle:(NSString*)title andCells:(NSArray*)cells;
+- (instancetype) initWithTitle:(NSString*)title;
 
 - (CBSection*) applyTag:(NSString *)tag;
 
-+ (id) sectionWithTitle:(NSString*)title;
-+ (id) sectionWithTitle:(NSString*)title andCells:(CBCell*)cell, ...NS_REQUIRES_NIL_TERMINATION;
++ (instancetype) sectionWithTitle:(NSString*)title;
++ (instancetype) sectionWithTitle:(NSString*)title andCells:(CBCell*)cell, ...NS_REQUIRES_NIL_TERMINATION;
 
 - (NSInteger) cellCount;
 - (id) cellAtIndex:(NSUInteger)idx;

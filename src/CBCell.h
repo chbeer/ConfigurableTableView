@@ -45,6 +45,9 @@ typedef void(^CBCellAccessoryButtonHandler)(CBCell *cell, UITableView *tableView
 - (CGFloat) heightForCell:(CBCell*)cell inTableView:(UITableView*)tableView withObject:(NSObject*)object;
 - (CGFloat) heightForCellInTableView:(UITableView*)tableView withObject:(NSObject*)object;
 
+- (UITableViewCellStyle) tableViewCellStyle;
+- (Class) tableViewCellClass;
+
 @end
 
 
@@ -76,30 +79,30 @@ typedef void(^CBCellAccessoryButtonHandler)(CBCell *cell, UITableView *tableView
 @property (nonatomic, copy) CBCellValueTransformerHandler valueTransformerHandler;
 @property (nonatomic, copy) CBCellAccessoryButtonHandler  accessoryButtonHandler;
 
-- (id) initWithTitle:(NSString*)title;
-- (id) initWithTitle:(NSString*)title andValuePath:(NSString*)valueKeyPath;
+- (instancetype) initWithTitle:(NSString*)title;
+- (instancetype) initWithTitle:(NSString*)title andValuePath:(NSString*)valueKeyPath;
 
-+ (id) cellWithTitle:(NSString*)title valuePath:(NSString*)valueKeyPath;
-+ (id) cellWithTitle:(NSString*)title valuePath:(NSString*)valueKeyPath editor:(CBEditor*)editor;
-+ (id) cellWithTitle:(NSString*)title valuePath:(NSString*)valueKeyPath iconName:(NSString*)iconName;
-+ (id) cellWithTitle:(NSString*)title valuePath:(NSString*)valueKeyPath 
-            iconName:(NSString*)iconName editor:(CBEditor*)editor;
++ (instancetype) cellWithTitle:(NSString*)title valuePath:(NSString*)valueKeyPath;
++ (instancetype) cellWithTitle:(NSString*)title valuePath:(NSString*)valueKeyPath editor:(CBEditor*)editor;
++ (instancetype) cellWithTitle:(NSString*)title valuePath:(NSString*)valueKeyPath iconName:(NSString*)iconName;
++ (instancetype) cellWithTitle:(NSString*)title valuePath:(NSString*)valueKeyPath
+                      iconName:(NSString*)iconName editor:(CBEditor*)editor;
 
-+ (id) cellWithNibReuseIdentifier:(NSString*)nibReuseIdentifier valuePath:(NSString*)valuePath;
++ (instancetype) cellWithNibReuseIdentifier:(NSString*)nibReuseIdentifier valuePath:(NSString*)valuePath;
 
-- (id) applyTag:(NSString *)tag;
-- (id) applyEditor:(CBEditor *)editor;
-- (id) applyFont:(UIFont*)font;
-- (id) applyDetailFont:(UIFont*)font;
-- (id) applyIcon:(UIImage*)icon;
-- (id) applyIconName:(NSString*)iconName;
-- (id) applyStyle:(UITableViewCellStyle)style;
-- (id) applyEnabled:(BOOL)enabled;
-- (id) applyAccessibilityLabel:(NSString*)accessibilityLabel;
-- (id) applyValueTransformer:(CBCellValueTransformerHandler)valueTransformerHandler;
-- (id) applyAccessoryButtonHandler:(CBCellAccessoryButtonHandler) accessoryButtonHandler;
+- (instancetype) applyTag:(NSString *)tag;
+- (instancetype) applyEditor:(CBEditor *)editor;
+- (instancetype) applyFont:(UIFont*)font;
+- (instancetype) applyDetailFont:(UIFont*)font;
+- (instancetype) applyIcon:(UIImage*)icon;
+- (instancetype) applyIconName:(NSString*)iconName;
+- (instancetype) applyStyle:(UITableViewCellStyle)style;
+- (instancetype) applyEnabled:(BOOL)enabled;
+- (instancetype) applyAccessibilityLabel:(NSString*)accessibilityLabel;
+- (instancetype) applyValueTransformer:(CBCellValueTransformerHandler)valueTransformerHandler;
+- (instancetype) applyAccessoryButtonHandler:(CBCellAccessoryButtonHandler) accessoryButtonHandler;
 
-- (id) applyNibReuseIdentifier:(NSString*)reuseIdentifier;
+- (instancetype) applyNibReuseIdentifier:(NSString*)reuseIdentifier;
 
 - (UITableViewCellAccessoryType) accessoryType;
 

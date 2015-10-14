@@ -21,10 +21,10 @@ typedef void(^CBCellActionBlock)(void);
 @property (nonatomic, assign) NSTextAlignment               textAlignment;
 @property (nonatomic, assign) UITableViewCellAccessoryType  cellAccessoryType;
 
-+ (id)cellWithTitle:(NSString *)title target:(id)target action:(SEL)selector;
-+ (id)cellWithTitle:(NSString *)title actionBlock:(CBCellActionBlock)block;
++ (instancetype)cellWithTitle:(NSString *)title target:(id)target action:(SEL)selector;
++ (instancetype)cellWithTitle:(NSString *)title actionBlock:(CBCellActionBlock)block;
 
-- (id) applyTextAlignment:(NSTextAlignment)textAlignment;
-- (id) applyTableViewCellAccessoryType:(UITableViewCellAccessoryType)accessoryType;
+- (instancetype) applyTextAlignment:(NSTextAlignment)textAlignment;
+- (instancetype) applyTableViewCellAccessoryType:(UITableViewCellAccessoryType)accessoryType;
 
 @end

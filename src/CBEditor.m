@@ -10,7 +10,7 @@
 
 @implementation CBEditor
 
-+ (id) editor {
++ (instancetype) editor {
 	CBEditor *editor = [[[self class] alloc] init];
 	return editor;
 }

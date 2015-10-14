@@ -36,7 +36,7 @@
 @synthesize footerTitle = _footerTitle;
 @synthesize footerView = _footerView;
 
-- (id) initWithTitle:(NSString*)title andCells:(NSArray*)cells {
+- (instancetype) initWithTitle:(NSString*)title andCells:(NSArray*)cells {
 	if (self = [super init]) {
 		_title = [title copy];
 		
@@ -44,17 +44,17 @@
 	}
 	return self;
 }
-- (id) initWithTitle:(NSString*)title {
+- (instancetype) initWithTitle:(NSString*)title {
 	if (self = [self initWithTitle:title andCells:[NSArray array]]) {
 	}
 	return self;
 }
 
-+ (id) sectionWithTitle:(NSString*)title {
++ (instancetype) sectionWithTitle:(NSString*)title {
 	CBSection *section = [[CBSection alloc] initWithTitle:title];
 	return section;
 }
-+ (id) sectionWithTitle:(NSString*)title andCells:(CBCell*)cell, ... {
++ (instancetype) sectionWithTitle:(NSString*)title andCells:(CBCell*)cell, ... {
 	CBSection *section = [[CBSection alloc] initWithTitle:title];
 	[section addCell:cell];
 	
@@ -87,7 +87,7 @@
     }
 }
 
-- (id) applyTag:(NSString *)tag {
+- (instancetype) applyTag:(NSString *)tag {
     self.tag = tag;
     return self;
 }
