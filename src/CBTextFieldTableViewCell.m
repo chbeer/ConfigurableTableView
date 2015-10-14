@@ -65,10 +65,17 @@
 	CGRect contentRect = [self.contentView bounds];
 	
 	// In this example we will never be editing, but this illustrates the appropriate pattern
-    CGFloat horizontalMargin = CBCTVIsIOS7() ? 15.0 : 10.0;
-	CGRect frame = CGRectMake(horizontalMargin, kCellTopOffset,
-                              contentRect.size.width - (horizontalMargin*2.0),
-                              kTextFieldHeight);
+    CGRect frame;
+    if ([self respondsToSelector:@selector(layoutMargins)]) {
+        frame = UIEdgeInsetsInsetRect(self.contentView.bounds, self.layoutMargins);
+        
+    } else {
+        CGFloat horizontalMargin = CBCTVIsIOS7() ? 15.0 : 10.0;
+        frame = CGRectMake(horizontalMargin, kCellTopOffset,
+                           contentRect.size.width - (horizontalMargin*2.0),
+                           kTextFieldHeight);
+    }
+	
 	_textField.frame  = frame;
 
     _textField.keyboardType = _keyboardType;

@@ -67,8 +67,17 @@
 - (void)layoutSubviews {
 	[super layoutSubviews];
 	
-    CGFloat dx = CBCTVIsIOS7() ? 10 : 2;
-	_textView.frame  = CGRectInset(self.contentView.bounds, dx, 5);
+    if ([self respondsToSelector:@selector(layoutMargins)]) {
+        UIEdgeInsets margins = self.layoutMargins;
+        margins.left -= 4;
+        margins.right -= 4;
+        CGRect frame = UIEdgeInsetsInsetRect(self.contentView.bounds, margins);
+        _textView.frame  = frame;
+        
+    } else {
+        CGFloat dx = CBCTVIsIOS7() ? 10 : 2;
+        _textView.frame  = CGRectInset(self.contentView.bounds, dx, 5);
+    }
     
     if (self.textLabel.superview) {
         [self.textLabel removeFromSuperview];
