@@ -1,6 +1,8 @@
 Configurable Table View
 =======================
 
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 A Configurable Table View is a UITableView extension for iOS (universal) based on a lightweight model structure. It defines the sections and cells in the table. There are different cells for different types of data like text, numeric, boolean, etc. Each cell knows how to display the data. You can also very easily add your own cell types for special cells. 
 
 Each cell has a keyValuePath it uses to access the data it displays. The data object this keyValuePath accesses is set at the Configurable Table View.
