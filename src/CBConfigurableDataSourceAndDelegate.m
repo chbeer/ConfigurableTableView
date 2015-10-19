@@ -9,6 +9,8 @@
 #import "CBConfigurableDataSourceAndDelegate.h"
 
 #import "CBCTVGlobal.h"
+#import "NSString+CBCTV.h"
+
 #import "CBSection.h"
 #import "CBCell.h"
 #import "CBEditor.h"
@@ -130,9 +132,9 @@
         
         CGFloat width = tableView.bounds.size.width;
         CGSize constraint = CGSizeMake(width - margin, 1000);//CGSizeMake(width > 400 ? width - 120 : width - 50, 1000);
-        CGSize size = [sect.footerTitle sizeWithFont:[UIFont systemFontOfSize:fontSize]
-                                   constrainedToSize:constraint
-                                       lineBreakMode:NSLineBreakByWordWrapping];
+        CGSize size = [sect.footerTitle cbctv_sizeWithFont:[UIFont systemFontOfSize:fontSize]
+                                         constrainedToSize:constraint
+                                             lineBreakMode:NSLineBreakByWordWrapping];
         return size.height + 18;
     } else {
         return 0.0;
@@ -198,7 +200,7 @@
     CBCell *cbCell = [_model cellForRowAtIndexPath:indexPath];
 	if (cbCell.enabled && [cbCell hasEditor]) {
         if ([cbCell respondsToSelector:@selector(openEditorInController:)]) {
-            [cbCell openEditorInController:(CBConfigurableTableViewController*)self.controller];
+            [cbCell openEditorInController:self.controller];
         }
 	}
 	

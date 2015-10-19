@@ -9,6 +9,7 @@
 #import "CBCellBoolean.h"
 
 #import "CBCTVGlobal.h"
+#import "NSString+CBCTV.h"
 
 @interface CBCellBoolean ()
 
@@ -111,8 +112,8 @@
 	CGFloat height = 44;
 
     CGSize constraints = CGSizeMake(CBCTVCellLabelWidth(tableView) - self.switchControl.bounds.size.width, 2009);
-    height = [self.title sizeWithFont:[UIFont systemFontOfSize:[UIFont labelFontSize]]
-                    constrainedToSize:constraints lineBreakMode:NSLineBreakByWordWrapping].height + 20;
+    height = [self.title cbctv_sizeWithFont:[UIFont systemFontOfSize:[UIFont labelFontSize]]
+                          constrainedToSize:constraints lineBreakMode:NSLineBreakByWordWrapping].height + 20;
     
 	return MAX(ceilf(height), 44);
 }

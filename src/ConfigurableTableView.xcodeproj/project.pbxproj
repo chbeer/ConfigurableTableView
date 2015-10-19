@@ -191,6 +191,10 @@
 		AAEF39C91BCF042F0000509E /* CBConfigurableDataSourceAndDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AACB802B1536F464002CCDD2 /* CBConfigurableDataSourceAndDelegate.m */; settings = {ASSET_TAGS = (); }; };
 		AAEF3A3C1BCF13AA0000509E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD5CCE310C90E02003D3A14 /* UIKit.framework */; };
 		AAEF3A3E1BCF13B50000509E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEF3A3D1BCF13B50000509E /* CoreGraphics.framework */; };
+		AAEF3D421BD512BB0000509E /* NSString+CBCTV.h in Headers */ = {isa = PBXBuildFile; fileRef = AAEF3D401BD512BB0000509E /* NSString+CBCTV.h */; settings = {ASSET_TAGS = (); }; };
+		AAEF3D431BD512BB0000509E /* NSString+CBCTV.h in Headers */ = {isa = PBXBuildFile; fileRef = AAEF3D401BD512BB0000509E /* NSString+CBCTV.h */; settings = {ASSET_TAGS = (); }; };
+		AAEF3D441BD512BB0000509E /* NSString+CBCTV.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEF3D411BD512BB0000509E /* NSString+CBCTV.m */; settings = {ASSET_TAGS = (); }; };
+		AAEF3D451BD512BB0000509E /* NSString+CBCTV.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEF3D411BD512BB0000509E /* NSString+CBCTV.m */; settings = {ASSET_TAGS = (); }; };
 		AAFC018B11105D7F00E5F04D /* CBCellAction.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFC018911105D7F00E5F04D /* CBCellAction.m */; };
 /* End PBXBuildFile section */
 
@@ -302,6 +306,8 @@
 		AAEF39721BCF03A30000509E /* ConfigurableTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfigurableTableView.h; sourceTree = "<group>"; };
 		AAEF39741BCF03A30000509E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAEF3A3D1BCF13B50000509E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AAEF3D401BD512BB0000509E /* NSString+CBCTV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CBCTV.h"; sourceTree = "<group>"; };
+		AAEF3D411BD512BB0000509E /* NSString+CBCTV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CBCTV.m"; sourceTree = "<group>"; };
 		AAFC018911105D7F00E5F04D /* CBCellAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCellAction.m; sourceTree = "<group>"; };
 		D2AAC07E0554694100DB518D /* libCBConfigurableTableView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCBConfigurableTableView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -392,6 +398,8 @@
 			children = (
 				AA717C4C112006C500FB5173 /* UIImageAdditions.h */,
 				AA717C4D112006C500FB5173 /* UIImageAdditions.m */,
+				AAEF3D401BD512BB0000509E /* NSString+CBCTV.h */,
+				AAEF3D411BD512BB0000509E /* NSString+CBCTV.m */,
 			);
 			name = Additions;
 			sourceTree = "<group>";
@@ -561,6 +569,7 @@
 				AAEF397C1BCF03FE0000509E /* CBCellBoolean.h in Headers */,
 				AAEF398A1BCF03FE0000509E /* CBEditorStringInline.h in Headers */,
 				AAEF39851BCF03FE0000509E /* CBCellCharacter.h in Headers */,
+				AAEF3D431BD512BB0000509E /* NSString+CBCTV.h in Headers */,
 				AAEF397B1BCF03FE0000509E /* CBCellNumeric.h in Headers */,
 				AAEF39921BCF03FE0000509E /* CBPickerOption.h in Headers */,
 				AAEF39931BCF03FE0000509E /* CBTable.h in Headers */,
@@ -627,6 +636,7 @@
 				AADC278D11217E9000E71852 /* CBEditor.h in Headers */,
 				AADC278E11217E9000E71852 /* CBSection.h in Headers */,
 				AADC278F11217E9000E71852 /* CBTable.h in Headers */,
+				AAEF3D421BD512BB0000509E /* NSString+CBCTV.h in Headers */,
 				AADC279611217EEA00E71852 /* CBEditorController.h in Headers */,
 				AADC279711217EEA00E71852 /* CBImageEditorController.h in Headers */,
 				AADC279811217EEA00E71852 /* CBNumericEditorController.h in Headers */,
@@ -692,7 +702,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0700;
 				TargetAttributes = {
 					AAEF396F1BCF03A30000509E = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -751,6 +761,7 @@
 				AAEF39B61BCF042F0000509E /* CBCell.m in Sources */,
 				AAEF39C71BCF042F0000509E /* UIImageAdditions.m in Sources */,
 				AAEF399A1BCF042F0000509E /* CBCellString.m in Sources */,
+				AAEF3D451BD512BB0000509E /* NSString+CBCTV.m in Sources */,
 				AAEF39B11BCF042F0000509E /* CBEditorStepper.m in Sources */,
 				AAEF39A81BCF042F0000509E /* CBCellPerformSegue.m in Sources */,
 				AAEF39A11BCF042F0000509E /* CBCellPassword.m in Sources */,
@@ -807,6 +818,7 @@
 				AAA158DA10F4B4E10080D3B7 /* CBEditorString.m in Sources */,
 				AAA158DE10F4B50D0080D3B7 /* CBStringEditorController.m in Sources */,
 				AAA1590C10F4B66C0080D3B7 /* CBTextFieldTableViewCell.m in Sources */,
+				AAEF3D441BD512BB0000509E /* NSString+CBCTV.m in Sources */,
 				AAA1590E10F4B66C0080D3B7 /* CBTextViewTableViewCell.m in Sources */,
 				AAA1591710F4B6AA0080D3B7 /* CBEditableTableViewCell.m in Sources */,
 				AAE94AE310F4EF0900234EA2 /* CBCellPassword.m in Sources */,
@@ -888,6 +900,7 @@
 		1DEB922308733DC00010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_THUMB_SUPPORT = NO;
@@ -962,7 +975,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = ConfigurableTableView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = de.chbeer.ios.ConfigurableTableView;
@@ -1010,7 +1023,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = ConfigurableTableView/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = de.chbeer.ios.ConfigurableTableView;

@@ -10,6 +10,7 @@
 #import "CBMultilineTableViewCell.h"
 
 #import "CBCTVGlobal.h"
+#import "NSString+CBCTV.h"
 #import "CBEditor.h"
 
 #define FONT_SIZE 18
@@ -59,9 +60,9 @@
 	
     CGFloat height = 0.0;
     @synchronized(text){
-        CGSize size = [text sizeWithFont:fnt
-                       constrainedToSize:constraint 
-                           lineBreakMode:NSLineBreakByWordWrapping];
+        CGSize size = [text cbctv_sizeWithFont:fnt
+                             constrainedToSize:constraint
+                                 lineBreakMode:NSLineBreakByWordWrapping];
         
         height = MAX(MIN(size.height + 20, MAX_HEIGHT), 44.0);
     }	

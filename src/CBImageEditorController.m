@@ -106,7 +106,6 @@
 	imagePicker.sourceType = sourceType;
 	imagePicker.delegate = self;
 //	imagePicker.allowsEditing = YES;
-	imagePicker.wantsFullScreenLayout = YES;
 	[self presentViewController:imagePicker animated:YES completion:NULL];
 }
 

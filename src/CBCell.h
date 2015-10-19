@@ -35,8 +35,8 @@ typedef void(^CBCellAccessoryButtonHandler)(CBCell *cell, UITableView *tableView
 
 - (BOOL) hasEditor;
 - (BOOL) isEditorInline;
-- (void) openEditorInController:(CBConfigurableTableViewController*)controller fromTableViewCell:(UITableViewCell*)cell;
-- (void) openEditorInController:(CBConfigurableTableViewController*)controller;
+- (void) openEditorInController:(UIViewController*)controller fromTableViewCell:(UITableViewCell*)cell;
+- (void) openEditorInController:(UIViewController*)controller;
 - (void) setEditor:(CBEditor*)editor;
 
 @optional

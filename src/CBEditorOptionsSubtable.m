@@ -128,7 +128,7 @@
                                                                                                          andData:controller.data];
     self.controller = tableView;
     tableView.title = self.title;
-    tableView.contentSizeForViewInPopover = controller.contentSizeForViewInPopover;
+    tableView.preferredContentSize = controller.preferredContentSize;
     [controller.navigationController pushViewController:tableView
                                                animated:YES];
 }

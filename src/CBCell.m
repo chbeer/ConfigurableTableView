@@ -294,10 +294,10 @@
     return [_editor isInline];
 }
 
-- (void) openEditorInController:(CBConfigurableTableViewController*)controller {
+- (void) openEditorInController:(UIViewController*)controller {
 	[_editor openEditorForCell:self inController:controller];
 }
-- (void) openEditorInController:(CBConfigurableTableViewController*)controller fromTableViewCell:(UITableViewCell *)cell {
+- (void) openEditorInController:(UIViewController*)controller fromTableViewCell:(UITableViewCell *)cell {
     [self openEditorInController:controller];
 }
 - (void) setEditor:(CBEditor*)editor {

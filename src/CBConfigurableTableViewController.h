@@ -11,7 +11,17 @@
 #import "CBTable.h"
 #import "CBConfigurableDataSourceAndDelegate.h"
 
-@interface CBConfigurableTableViewController : UITableViewController {
+@protocol CBConfigurableTableViewController <NSObject>
+
+- (void) setValue:(id)value forCell:(CBCell*)cell withReload:(BOOL)reload;
+- (void) setValue:(id)value forCell:(CBCell*)cell;
+- (id) valueForCell:(CBCell*)cell;
+
+@end
+
+
+@interface CBConfigurableTableViewController : UITableViewController <CBConfigurableTableViewController>
+{
     BOOL _kbDidShow;    
 
     CBTable *_model;
@@ -29,10 +39,6 @@
 
 - (id)initWithTableModel:(CBTable*)model;
 - (id)initWithTableModel:(CBTable*)model andData:(NSObject*)object;
-
-- (void) setValue:(id)value forCell:(CBCell*)cell withReload:(BOOL)reload;
-- (void) setValue:(id)value forCell:(CBCell*)cell;
-- (id) valueForCell:(CBCell*)cell;
 
 - (void) addKeyboardObservers;
 - (void) removeKeyboardObservers;

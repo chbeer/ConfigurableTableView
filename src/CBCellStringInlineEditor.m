@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "CBCTVGlobal.h"
+#import "NSString+CBCTV.h"
 
 #import "CBTextFieldTableViewCell.h"
 #import "CBMultilineTableViewCell.h"
@@ -156,9 +157,9 @@
         
             NSString *text = [object valueForKeyPath:self.valueKeyPath];
             
-            CGSize size = [text sizeWithFont:_textViewCell.textView.font
-                             constrainedToSize:CGSizeMake(tableView.frame.size.width - (paddingLeft * 2), 1000)
-                                 lineBreakMode:NSLineBreakByWordWrapping];
+            CGSize size = [text cbctv_sizeWithFont:_textViewCell.textView.font
+                                 constrainedToSize:CGSizeMake(tableView.frame.size.width - (paddingLeft * 2), 1000)
+                                     lineBreakMode:NSLineBreakByWordWrapping];
             
             height = size.height + 20;
             

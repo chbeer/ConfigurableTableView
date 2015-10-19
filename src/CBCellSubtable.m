@@ -72,7 +72,7 @@
 - (void) openEditorInController:(CBConfigurableTableViewController*)controller {
 	CBConfigurableTableViewController *tableView = [[CBConfigurableTableViewController alloc] initWithTableModel:_model 
 																										andData:controller.data];
-    tableView.contentSizeForViewInPopover = controller.contentSizeForViewInPopover;
+    tableView.preferredContentSize = controller.preferredContentSize;
 	[controller.navigationController pushViewController:tableView animated:YES];
 }
 - (void) setEditor:(CBEditor*)editor {

@@ -15,7 +15,7 @@
 	return editor;
 }
 
-- (void) openEditorForCell:(CBCell*)cell inController:(CBConfigurableTableViewController*)ctrl {
+- (void) openEditorForCell:(CBCell*)cell inController:(UIViewController*)ctrl {
 }
 
 - (BOOL) isInline {
