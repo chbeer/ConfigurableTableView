@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AAEF396F1BCF03A30000509E"
-               BuildableName = "ConfigurableTableView.framework"
-               BlueprintName = "ConfigurableTableView"
+               BuildableName = "CBConfigurableTableView.framework"
+               BlueprintName = "CBConfigurableTableView"
                ReferencedContainer = "container:ConfigurableTableView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,8 +46,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AAEF396F1BCF03A30000509E"
-            BuildableName = "ConfigurableTableView.framework"
-            BlueprintName = "ConfigurableTableView"
+            BuildableName = "CBConfigurableTableView.framework"
+            BlueprintName = "CBConfigurableTableView"
             ReferencedContainer = "container:ConfigurableTableView.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,8 +64,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AAEF396F1BCF03A30000509E"
-            BuildableName = "ConfigurableTableView.framework"
-            BlueprintName = "ConfigurableTableView"
+            BuildableName = "CBConfigurableTableView.framework"
+            BlueprintName = "CBConfigurableTableView"
             ReferencedContainer = "container:ConfigurableTableView.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
