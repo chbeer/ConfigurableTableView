@@ -6,7 +6,7 @@
 //  Copyright 2010 Christian Beer. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for ConfigurableTableView.
 FOUNDATION_EXPORT double ConfigurableTableViewVersionNumber;
@@ -16,7 +16,10 @@ FOUNDATION_EXPORT const unsigned char ConfigurableTableViewVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <ConfigurableTableView/PublicHeader.h>
 
+
 #import "CBConfigurableTableViewController.h"
+
+#import "CBCTVGlobal.h"
 
 #import "CBTable.h"
 #import "CBCell.h"
@@ -52,3 +55,14 @@ FOUNDATION_EXPORT const unsigned char ConfigurableTableViewVersionString[];
 #import "CBPickerOption.h"
 
 #import "CBConfigurableDataSourceAndDelegate.h"
+
+#import "CBEditorController.h"
+#import "CBPickerController.h"
+#import "CBDatePickerController.h"
+#import "CBOptionsPickerController.h"
+#import "CBStringEditorController.h"
+#import "CBNumericEditorController.h"
+#import "CBImageEditorController.h"
+
+#import "CBTextFieldTableViewCell.h"
+#import "CBTextViewTableViewCell.h"

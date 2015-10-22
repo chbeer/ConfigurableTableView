@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 #import "CBCell.h"
-#import "CBEditableTableViewCell.h"
 
 #import "CBTextViewTableViewCell.h"
 
