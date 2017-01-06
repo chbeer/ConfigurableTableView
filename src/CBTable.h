@@ -39,29 +39,29 @@
 @property (weak, readonly) NSArray *sections;
 
 
-- (id) init;
-- (id) initWithSections:(NSArray*)sections;
+- (instancetype) init;
+- (instancetype) initWithSections:(NSArray*)sections;
 
 + (CBTable*) table;
 + (CBTable*) tableWithSectionArray:(NSArray*)sections;
 + (CBTable*) tableWithSections:(CBSection*)section, ...NS_REQUIRES_NIL_TERMINATION;
 
 - (NSUInteger) sectionCount;
-- (id) sectionAtIndex:(NSUInteger)index;
+- (CBSection*) sectionAtIndex:(NSUInteger)index;
 - (NSUInteger) indexOfSection:(CBSection*)section;
 - (NSUInteger) indexOfSectionWithTag:(NSString*)tag;
-- (id) addSection:(CBSection*)section;
-- (id) insertSection:(CBSection*)section atIndex:(NSUInteger)index;
+- (CBSection*) addSection:(CBSection*)section;
+- (CBSection*) insertSection:(CBSection*)section atIndex:(NSUInteger)index;
 - (void) removeSection:(CBSection*)section;
 - (void) addSections:(CBSection*)section, ...NS_REQUIRES_NIL_TERMINATION;
 
-- (id) sectionWithTag:(NSString*)tag;
-- (id) cellWithTag:(NSString*)tag;
-- (id) cellWithValueKeyPath:(NSString*)valuePath;
+- (CBSection*) sectionWithTag:(NSString*)tag;
+- (CBCell*) cellWithTag:(NSString*)tag;
+- (CBCell*) cellWithValueKeyPath:(NSString*)valuePath;
 
 - (NSIndexPath*) indexPathOfCell:(CBCell*)cell;
 - (NSIndexPath*) indexPathOfCellWithTag:(NSString*)cellTag;
-- (id) cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (CBCell*) cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

@@ -55,28 +55,28 @@
 - (instancetype) initWithTitle:(NSString*)title andCells:(NSArray*)cells;
 - (instancetype) initWithTitle:(NSString*)title;
 
-- (CBSection*) applyTag:(NSString *)tag;
+- (instancetype) applyTag:(NSString *)tag;
 
 + (instancetype) sectionWithTitle:(NSString*)title;
 + (instancetype) sectionWithTitle:(NSString*)title andCells:(CBCell*)cell, ...NS_REQUIRES_NIL_TERMINATION;
 
 - (NSInteger) cellCount;
-- (id) cellAtIndex:(NSUInteger)idx;
+- (CBCell*) cellAtIndex:(NSUInteger)idx;
 - (NSUInteger) indexOfCell:(CBCell*)cell;
 - (NSUInteger) indexOfCellWithTag:(NSString*)tag;
-- (id) addCell:(CBCell*)cell;
-- (id) insertCell:(CBCell*)cell atIndex:(NSUInteger)index;
+- (CBCell*) addCell:(CBCell*)cell;
+- (CBCell*) insertCell:(CBCell*)cell atIndex:(NSUInteger)index;
 - (void) insertCells:(NSArray*)cells atIndex:(NSUInteger)index;
 - (void) addCells:(CBCell*)cell, ...NS_REQUIRES_NIL_TERMINATION;
 - (void) addCellsFromArray:(NSArray*)cells;
 
-- (id) cellWithTag:(NSString*)tag;
-- (id) cellWithValueKeyPath:(NSString*)valuePath;
+- (CBCell*) cellWithTag:(NSString*)tag;
+- (CBCell*) cellWithValueKeyPath:(NSString*)valuePath;
 
-- (id) removeCell:(CBCell*)cell;
+- (CBCell*) removeCell:(CBCell*)cell;
 - (void) removeCellsInArray:(NSArray*)cells;
 - (void) removeCells:(CBCell*)cell, ...NS_REQUIRES_NIL_TERMINATION;
-- (id) removeCellWithTag:(NSString*)cellTag;
+- (CBCell*) removeCellWithTag:(NSString*)cellTag;
 
 - (void) setHidden:(BOOL)hidden tellDelegate:(BOOL)delegate;
 

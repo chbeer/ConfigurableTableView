@@ -102,7 +102,7 @@
 	return _cells.count;
 }
 
-- (id) cellAtIndex:(NSUInteger)idx {
+- (CBCell*) cellAtIndex:(NSUInteger)idx {
 	return [_cells objectAtIndex:idx];
 }
 - (NSUInteger) indexOfCell:(CBCell*)cell {
@@ -112,7 +112,7 @@
 	return [_cells indexOfObject:[self cellWithTag:tag]];
 }
 
-- (id) addCell:(CBCell*)cell {
+- (CBCell*) addCell:(CBCell*)cell {
 	cell.section = self;
 	[_cells addObject:cell];
 	
@@ -124,7 +124,7 @@
 	
 	return cell;
 }
-- (id) insertCell:(CBCell*)cell atIndex:(NSUInteger)index {
+- (CBCell*) insertCell:(CBCell*)cell atIndex:(NSUInteger)index {
 	cell.section = self;
 	[_cells insertObject:cell atIndex:index];
 	
@@ -151,7 +151,7 @@
 	}
 }
 
-- (id) cellWithTag:(NSString*)tag {
+- (CBCell*) cellWithTag:(NSString*)tag {
     if (!tag || [@"" isEqual:tag]) return nil;
     
     // linear search since we are optimized for a small amount of cells
@@ -163,7 +163,7 @@
     
     return nil;
 }
-- (id) cellWithValueKeyPath:(NSString*)valuePath
+- (CBCell*) cellWithValueKeyPath:(NSString*)valuePath
 {
     if (!valuePath || [@"" isEqual:valuePath]) return nil;
     
@@ -199,7 +199,7 @@
 	va_end(args);
 }
 
-- (id) removeCell:(CBCell*)cell {
+- (CBCell*) removeCell:(CBCell*)cell {
 	NSIndexPath *idx = [_table indexPathOfCell:cell];
 	
 	[_cells removeObject:cell];
@@ -241,7 +241,7 @@
     
     [self removeCellsInArray:cells];
 }
-- (id) removeCellWithTag:(NSString*)cellTag
+- (CBCell*) removeCellWithTag:(NSString*)cellTag
 {
     CBCell *cell = [self cellWithTag:cellTag];
     if (cell) {

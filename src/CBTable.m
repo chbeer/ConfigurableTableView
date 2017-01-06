@@ -16,7 +16,7 @@
 
 @dynamic sections;
 
-- (id) initWithSections:(NSArray*)sections {
+- (instancetype) initWithSections:(NSArray*)sections {
 	self = [super init];
     if (!self) return nil;
     
@@ -27,7 +27,7 @@
 
 	return self;
 }
-- (id) init
+- (instancetype) init
 {
 	return [self initWithSections:[NSArray array]];
 }
@@ -74,7 +74,7 @@
 	return [self visibleSections].count;
 }
 
-- (id) sectionAtIndex:(NSUInteger)index {
+- (CBSection*) sectionAtIndex:(NSUInteger)index {
 	return [[self visibleSections] objectAtIndex:index];
 }
 
@@ -85,7 +85,7 @@
     return [self indexOfSection:[self sectionWithTag:tag]];
 }
 
-- (id) addSection:(CBSection*)section
+- (CBSection*) addSection:(CBSection*)section
 {
 	section.table = self;
 	[_sections addObject:section];
@@ -97,7 +97,7 @@
 	return section;
 }
 
-- (id) insertSection:(CBSection*)section atIndex:(NSUInteger)index
+- (CBSection*) insertSection:(CBSection*)section atIndex:(NSUInteger)index
 {
 	section.table = self;
 	[_sections insertObject:section atIndex:index];
@@ -141,7 +141,7 @@
 	return [_sections copy];
 }
 
-- (id) sectionWithTag:(NSString*)tag {
+- (CBSection*) sectionWithTag:(NSString*)tag {
     if (!tag || [@"" isEqual:tag]) return nil;
     
     static NSPredicate *_predicate;
@@ -151,7 +151,7 @@
     
     return result.count == 0 ? nil : [result objectAtIndex:0];
 }
-- (id) cellWithTag:(NSString*)tag {
+- (CBCell*) cellWithTag:(NSString*)tag {
     if (!tag || [@"" isEqual:tag]) return nil;
     
     // linear search since we are optimized for a small amount of sections
@@ -165,7 +165,7 @@
     
     return nil;
 }
-- (id) cellWithValueKeyPath:(NSString*)valuePath {
+- (CBCell*) cellWithValueKeyPath:(NSString*)valuePath {
     if (!valuePath || [@"" isEqual:valuePath]) return nil;
     
     // linear search since we are optimized for a small amount of sections
@@ -197,7 +197,7 @@
 {
     return [self indexPathOfCell:[self cellWithTag:cellTag]];
 }
-- (id) cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (CBCell*) cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	CBSection *sect = [self sectionAtIndex:indexPath.section];
 	return [sect cellAtIndex:indexPath.row];
 }
