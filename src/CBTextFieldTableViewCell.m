@@ -76,6 +76,12 @@
                            kTextFieldHeight);
     }
 	
+    if (self.imageView != nil && self.imageView.bounds.size.width > 0) {
+        CGFloat delta = self.imageView.bounds.size.width + 8;
+        frame.origin.x += delta;
+        frame.size.width -= delta;
+    }
+    
 	_textField.frame  = frame;
 
     _textField.keyboardType = _keyboardType;
