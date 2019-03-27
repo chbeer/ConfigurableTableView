@@ -16,8 +16,9 @@
     BOOL _inline;
 }
 
-+ (id) editorWithTarget:(id)target action:(SEL)selector;
+- (instancetype) initWithTarget:(id __nullable)target action:(SEL)selector;
++ (instancetype) editorWithTarget:(id __nullable)target action:(SEL)selector;
 
-- (id) applyHasDisclosureIndicator:(BOOL)hasDisclosureIndicator;
+- (instancetype) applyHasDisclosureIndicator:(BOOL)hasDisclosureIndicator;
 
 @end

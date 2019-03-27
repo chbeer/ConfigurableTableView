@@ -11,7 +11,7 @@
 
 @implementation CBEditorTargetAction
 
-- (id) initWithTarget:(id)target action:(SEL)selector {
+- (instancetype) initWithTarget:(id __nullable)target action:(SEL)selector {
 	if (self = [super init]) {
 		_target = target;
         _selector = selector;
@@ -21,7 +21,7 @@
 	return self;
 }
 
-+ (id) editorWithTarget:(id)target action:(SEL)selector {
++ (instancetype) editorWithTarget:(id __nullable)target action:(SEL)selector {
 	CBEditorTargetAction *editor = [[[self class] alloc] initWithTarget:target action:selector];
 	return editor;
 }
@@ -39,7 +39,7 @@
                                          forEvent:nil]; 
 }
 
-- (id) applyHasDisclosureIndicator:(BOOL)hasDisclosureIndicator;
+- (instancetype) applyHasDisclosureIndicator:(BOOL)hasDisclosureIndicator;
 {
     _inline = !hasDisclosureIndicator;
     return self;

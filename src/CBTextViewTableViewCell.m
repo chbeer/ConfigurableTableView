@@ -24,6 +24,10 @@
 @dynamic autocorrectionType;
 @dynamic autocapitalizationType;
 
+- (Class) textViewClass {
+    return [UITextView class];
+}
+
 - (id)initWithReuseIdentifier:(NSString *)identifier 
                      andLabel:(NSString*)label {
 	if (self = [super initWithStyle:UITableViewCellStyleDefault
@@ -31,19 +35,7 @@
         // turn off selection use
 		self.selectionStyle = UITableViewCellSelectionStyleNone;
 		
-		_textView = [[UITextView alloc] initWithFrame:self.contentView.bounds];
-        _textView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-		_textView.font = [UIFont boldSystemFontOfSize:18];
-		_textView.keyboardAppearance = UIKeyboardAppearanceAlert;
-        _textView.autocorrectionType = UITextAutocorrectionTypeDefault;
-        _textView.autocapitalizationType = UITextAutocapitalizationTypeNone;
-		_textView.delegate = self;
-        _textView.backgroundColor = self.contentView.backgroundColor;
-        _textView.scrollEnabled = NO;
-        _textView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
-        _textView.scrollsToTop = NO;
-        _textView.userInteractionEnabled = NO;
-		[self.contentView addSubview:_textView];
+		[self.contentView addSubview:self.textView];
         
 	}
 	return self;
@@ -51,6 +43,22 @@
 
 - (id)initWithReuseIdentifier:(NSString *)identifier {
 	return [self initWithReuseIdentifier:identifier andLabel:nil];
+}
+
+- (UITextView*) textView {
+    if (_textView) { return _textView; }
+    _textView = [[[self textViewClass] alloc] initWithFrame:self.contentView.bounds];
+    _textView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    _textView.font = [UIFont boldSystemFontOfSize:18];
+    _textView.autocorrectionType = UITextAutocorrectionTypeDefault;
+    _textView.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    _textView.delegate = self;
+    _textView.backgroundColor = self.contentView.backgroundColor;
+    _textView.scrollEnabled = NO;
+    _textView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
+    _textView.scrollsToTop = NO;
+    _textView.userInteractionEnabled = NO;
+    return _textView;
 }
 
 - (void) setEditing:(BOOL)editing animated:(BOOL)animated {

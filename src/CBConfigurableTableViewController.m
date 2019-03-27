@@ -68,8 +68,6 @@
     self.dataSource.model.delegate = self.dataSource;
     
     self.dataSource.data = _data;
-    
-    [self.tableView reloadData];
 }
 
 /*- (void)viewDidLoad

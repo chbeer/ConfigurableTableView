@@ -48,4 +48,6 @@
 
 - (void) addDoneToolbarInputAccessoryView;
 
+- (Class) textViewClass;
+
 @end

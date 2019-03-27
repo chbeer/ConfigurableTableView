@@ -60,7 +60,10 @@
         if (aModel) {
             self.tableView.delegate = self;
             self.tableView.dataSource = self;
-            [self.tableView reloadData];
+            
+            if (self.controller.isViewLoaded) {
+                [self.tableView reloadData];
+            }
         }
     }
 }
@@ -221,6 +224,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	CBCell *cbCell = [_model cellForRowAtIndexPath:indexPath];
+    cbCell.controller = self.controller;
     CGFloat height = 44;
     if ([cbCell respondsToSelector:@selector(heightForCell:atIndexPath:inTableView:withObject:)]) {
         height = [cbCell heightForCell:cbCell atIndexPath:indexPath inTableView:tableView withObject:_data];
