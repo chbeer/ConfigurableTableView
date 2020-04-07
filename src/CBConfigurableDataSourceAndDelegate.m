@@ -175,26 +175,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-	CBCell *cellModel = [_model cellForRowAtIndexPath:indexPath];
-    
-    cellModel.controller = (CBConfigurableTableViewController*)self.controller;
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellModel.reuseIdentifier];
-    if (cell == nil) {
-        cell = [cellModel createTableViewCellForTableView:tableView];
-		
-		if (cellModel.editor && [cellModel.editor respondsToSelector:@selector(cell:didCreateTableViewCell:)]) {
-			cell = [(id<CBEditor>)cellModel.editor cell:cellModel didCreateTableViewCell:cell];
-		}
-		
-    }
-    
-    // Set up the cell...
-	[cellModel setupCell:cell 
-			  withObject:_data 
-			 inTableView:tableView];
-	
-    return cell;
+    CBSection *section = [_model sectionAtIndex:indexPath.section];
+    return [section tableView:tableView
+            cellForRowAtIndex:indexPath.row
+                   controller:self.controller
+                       object:_data];    
 }
 
 #pragma mark UITableViewDelegate

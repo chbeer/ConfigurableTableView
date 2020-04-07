@@ -80,4 +80,6 @@
 
 - (void) setHidden:(BOOL)hidden tellDelegate:(BOOL)delegate;
 
+- (UITableViewCell*) tableView:(UITableView*)tableView cellForRowAtIndex:(NSInteger)index controller:(UIViewController*)ctrl object:(id)object;
+
 @end

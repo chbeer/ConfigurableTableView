@@ -27,6 +27,12 @@
 		AA717C4E112006C500FB5173 /* UIImageAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = AA717C4C112006C500FB5173 /* UIImageAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AA717C4F112006C600FB5173 /* UIImageAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AA717C4D112006C500FB5173 /* UIImageAdditions.m */; };
 		AA747D9F0F9514B9006C5449 /* ConfigurableTableView_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* ConfigurableTableView_Prefix.pch */; };
+		AA864E07242E38BA00426FE3 /* CBSectionOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = AA864E05242E38BA00426FE3 /* CBSectionOptions.h */; };
+		AA864E08242E38BA00426FE3 /* CBSectionOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = AA864E06242E38BA00426FE3 /* CBSectionOptions.m */; };
+		AA864E0B242E3A6D00426FE3 /* CBCellStaticString.h in Headers */ = {isa = PBXBuildFile; fileRef = AA864E09242E3A6C00426FE3 /* CBCellStaticString.h */; };
+		AA864E0C242E3A6D00426FE3 /* CBCellStaticString.h in Headers */ = {isa = PBXBuildFile; fileRef = AA864E09242E3A6C00426FE3 /* CBCellStaticString.h */; };
+		AA864E0D242E3A6D00426FE3 /* CBCellStaticString.m in Sources */ = {isa = PBXBuildFile; fileRef = AA864E0A242E3A6C00426FE3 /* CBCellStaticString.m */; };
+		AA864E0E242E3A6D00426FE3 /* CBCellStaticString.m in Sources */ = {isa = PBXBuildFile; fileRef = AA864E0A242E3A6C00426FE3 /* CBCellStaticString.m */; };
 		AA96511E123B8E41005F9CF4 /* CBCellButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = AA96511C123B8E41005F9CF4 /* CBCellButtons.m */; };
 		AA987C8E11B4F3270066D3BE /* CBEditorOpenURL.m in Sources */ = {isa = PBXBuildFile; fileRef = AA987C8C11B4F3270066D3BE /* CBEditorOpenURL.m */; };
 		AA99AFC710CD212E00538E1F /* CBCellSubtable.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99AFC510CD212E00538E1F /* CBCellSubtable.m */; };
@@ -140,61 +146,61 @@
 		AAEF39961BCF03FE0000509E /* CBEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC278911217E9000E71852 /* CBEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AAEF39971BCF04070000509E /* CBConfigurableTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AAD5CBF610C8FC86003D3A14 /* CBConfigurableTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AAEF39981BCF04070000509E /* CBConfigurableDataSourceAndDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = AACB802A1536F464002CCDD2 /* CBConfigurableDataSourceAndDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AAEF39991BCF042F0000509E /* CBCTVGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA9466E110DB4FC0045A98E /* CBCTVGlobal.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF399A1BCF042F0000509E /* CBCellString.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CC3B10C90623003D3A14 /* CBCellString.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF399B1BCF042F0000509E /* CBCellStringInlineEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6422061144FF100093A091 /* CBCellStringInlineEditor.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF399C1BCF042F0000509E /* CBCellNumeric.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CDD810C91A3A003D3A14 /* CBCellNumeric.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF399D1BCF042F0000509E /* CBCellBoolean.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CE6D10C9537C003D3A14 /* CBCellBoolean.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF399E1BCF042F0000509E /* CBCellNumericSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CEF010C95C20003D3A14 /* CBCellNumericSlider.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF399F1BCF042F0000509E /* CBCellNumericStepper.m in Sources */ = {isa = PBXBuildFile; fileRef = AABB396F14879D4900A1AD86 /* CBCellNumericStepper.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39A01BCF042F0000509E /* CBCellSubtable.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99AFC510CD212E00538E1F /* CBCellSubtable.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39A11BCF042F0000509E /* CBCellPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE94AE110F4EF0900234EA2 /* CBCellPassword.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39A21BCF042F0000509E /* CBCellDate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE94F7910F5D4F400234EA2 /* CBCellDate.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39A31BCF042F0000509E /* CBCellImage.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA945B3110DA1A70045A98E /* CBCellImage.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39A41BCF042F0000509E /* CBCellAction.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFC018911105D7F00E5F04D /* CBCellAction.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39A51BCF042F0000509E /* CBCellOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = AA65525E11119B390048C23B /* CBCellOptions.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39A61BCF042F0000509E /* CBCellCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD1103311E4835100072707 /* CBCellCharacter.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39A71BCF042F0000509E /* CBCellButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = AA96511C123B8E41005F9CF4 /* CBCellButtons.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39A81BCF042F0000509E /* CBCellPerformSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = AA438C17153AD511001226B4 /* CBCellPerformSegue.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39A91BCF042F0000509E /* CBEditorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CFEC10C9671E003D3A14 /* CBEditorPicker.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39AA1BCF042F0000509E /* CBEditorString.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA158D810F4B4E10080D3B7 /* CBEditorString.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39AB1BCF042F0000509E /* CBEditorStringInline.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C6DE13695528002C5386 /* CBEditorStringInline.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39AC1BCF042F0000509E /* CBEditorNumeric.m in Sources */ = {isa = PBXBuildFile; fileRef = AA39A4CD10FC5BD50038C291 /* CBEditorNumeric.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39AD1BCF042F0000509E /* CBEditorPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE94AE610F4EF9300234EA2 /* CBEditorPassword.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39AE1BCF042F0000509E /* CBEditorDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE94F5310F5D31500234EA2 /* CBEditorDatePicker.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39AF1BCF042F0000509E /* CBEditorOpenURL.m in Sources */ = {isa = PBXBuildFile; fileRef = AA987C8C11B4F3270066D3BE /* CBEditorOpenURL.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39B01BCF042F0000509E /* CBEditorTargetAction.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD27250129EBAF600ABEDF8 /* CBEditorTargetAction.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39B11BCF042F0000509E /* CBEditorStepper.m in Sources */ = {isa = PBXBuildFile; fileRef = AA20294D160116AA00C25C98 /* CBEditorStepper.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39B21BCF042F0000509E /* CBEditorOptionsSubtable.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA50CB7170B4217008E9017 /* CBEditorOptionsSubtable.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39B31BCF042F0000509E /* CBPickerOption.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE8E952110FAC9D00352032 /* CBPickerOption.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39B41BCF042F0000509E /* CBTable.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CBFC10C8FDDB003D3A14 /* CBTable.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39B51BCF042F0000509E /* CBSection.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CC0410C9009C003D3A14 /* CBSection.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39B61BCF042F0000509E /* CBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CC0010C8FEE2003D3A14 /* CBCell.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39B71BCF042F0000509E /* CBEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5D07210C97290003D3A14 /* CBEditor.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39B81BCF042F0000509E /* CBConfigTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD110C911E489EE00072707 /* CBConfigTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39B91BCF042F0000509E /* CBSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CED610C95AC3003D3A14 /* CBSliderCell.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39BA1BCF042F0000509E /* CBMultilineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA9424D110C66C70045A98E /* CBMultilineTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39BB1BCF042F0000509E /* CBCharacterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD1103711E4838200072707 /* CBCharacterTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39BC1BCF042F0000509E /* CBTextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1590810F4B66C0080D3B7 /* CBTextFieldTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39BD1BCF042F0000509E /* CBTextViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1590A10F4B66C0080D3B7 /* CBTextViewTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39BE1BCF042F0000509E /* CBStepperCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AABB397514879F6700A1AD86 /* CBStepperCell.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39BF1BCF042F0000509E /* CBEditableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1591510F4B6AA0080D3B7 /* CBEditableTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39C01BCF042F0000509E /* CBEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA04E27B1111144D0019434D /* CBEditorController.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39C11BCF042F0000509E /* CBPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CFE310C96676003D3A14 /* CBPickerController.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39C21BCF042F0000509E /* CBStringEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA158DC10F4B50D0080D3B7 /* CBStringEditorController.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39C31BCF042F0000509E /* CBDatePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE94F1010F5CE4700234EA2 /* CBDatePickerController.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39C41BCF042F0000509E /* CBOptionsPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE94F1510F5CF2400234EA2 /* CBOptionsPickerController.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39C51BCF042F0000509E /* CBNumericEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA39A4D110FC5C2E0038C291 /* CBNumericEditorController.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39C61BCF042F0000509E /* CBImageEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA945E6110DA9C20045A98E /* CBImageEditorController.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39C71BCF042F0000509E /* UIImageAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AA717C4D112006C500FB5173 /* UIImageAdditions.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39C81BCF042F0000509E /* CBConfigurableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CBF710C8FC86003D3A14 /* CBConfigurableTableViewController.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF39C91BCF042F0000509E /* CBConfigurableDataSourceAndDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AACB802B1536F464002CCDD2 /* CBConfigurableDataSourceAndDelegate.m */; settings = {ASSET_TAGS = (); }; };
+		AAEF39991BCF042F0000509E /* CBCTVGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA9466E110DB4FC0045A98E /* CBCTVGlobal.m */; };
+		AAEF399A1BCF042F0000509E /* CBCellString.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CC3B10C90623003D3A14 /* CBCellString.m */; };
+		AAEF399B1BCF042F0000509E /* CBCellStringInlineEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = AA6422061144FF100093A091 /* CBCellStringInlineEditor.m */; };
+		AAEF399C1BCF042F0000509E /* CBCellNumeric.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CDD810C91A3A003D3A14 /* CBCellNumeric.m */; };
+		AAEF399D1BCF042F0000509E /* CBCellBoolean.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CE6D10C9537C003D3A14 /* CBCellBoolean.m */; };
+		AAEF399E1BCF042F0000509E /* CBCellNumericSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CEF010C95C20003D3A14 /* CBCellNumericSlider.m */; };
+		AAEF399F1BCF042F0000509E /* CBCellNumericStepper.m in Sources */ = {isa = PBXBuildFile; fileRef = AABB396F14879D4900A1AD86 /* CBCellNumericStepper.m */; };
+		AAEF39A01BCF042F0000509E /* CBCellSubtable.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99AFC510CD212E00538E1F /* CBCellSubtable.m */; };
+		AAEF39A11BCF042F0000509E /* CBCellPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE94AE110F4EF0900234EA2 /* CBCellPassword.m */; };
+		AAEF39A21BCF042F0000509E /* CBCellDate.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE94F7910F5D4F400234EA2 /* CBCellDate.m */; };
+		AAEF39A31BCF042F0000509E /* CBCellImage.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA945B3110DA1A70045A98E /* CBCellImage.m */; };
+		AAEF39A41BCF042F0000509E /* CBCellAction.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFC018911105D7F00E5F04D /* CBCellAction.m */; };
+		AAEF39A51BCF042F0000509E /* CBCellOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = AA65525E11119B390048C23B /* CBCellOptions.m */; };
+		AAEF39A61BCF042F0000509E /* CBCellCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD1103311E4835100072707 /* CBCellCharacter.m */; };
+		AAEF39A71BCF042F0000509E /* CBCellButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = AA96511C123B8E41005F9CF4 /* CBCellButtons.m */; };
+		AAEF39A81BCF042F0000509E /* CBCellPerformSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = AA438C17153AD511001226B4 /* CBCellPerformSegue.m */; };
+		AAEF39A91BCF042F0000509E /* CBEditorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CFEC10C9671E003D3A14 /* CBEditorPicker.m */; };
+		AAEF39AA1BCF042F0000509E /* CBEditorString.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA158D810F4B4E10080D3B7 /* CBEditorString.m */; };
+		AAEF39AB1BCF042F0000509E /* CBEditorStringInline.m in Sources */ = {isa = PBXBuildFile; fileRef = AA99C6DE13695528002C5386 /* CBEditorStringInline.m */; };
+		AAEF39AC1BCF042F0000509E /* CBEditorNumeric.m in Sources */ = {isa = PBXBuildFile; fileRef = AA39A4CD10FC5BD50038C291 /* CBEditorNumeric.m */; };
+		AAEF39AD1BCF042F0000509E /* CBEditorPassword.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE94AE610F4EF9300234EA2 /* CBEditorPassword.m */; };
+		AAEF39AE1BCF042F0000509E /* CBEditorDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE94F5310F5D31500234EA2 /* CBEditorDatePicker.m */; };
+		AAEF39AF1BCF042F0000509E /* CBEditorOpenURL.m in Sources */ = {isa = PBXBuildFile; fileRef = AA987C8C11B4F3270066D3BE /* CBEditorOpenURL.m */; };
+		AAEF39B01BCF042F0000509E /* CBEditorTargetAction.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD27250129EBAF600ABEDF8 /* CBEditorTargetAction.m */; };
+		AAEF39B11BCF042F0000509E /* CBEditorStepper.m in Sources */ = {isa = PBXBuildFile; fileRef = AA20294D160116AA00C25C98 /* CBEditorStepper.m */; };
+		AAEF39B21BCF042F0000509E /* CBEditorOptionsSubtable.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA50CB7170B4217008E9017 /* CBEditorOptionsSubtable.m */; };
+		AAEF39B31BCF042F0000509E /* CBPickerOption.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE8E952110FAC9D00352032 /* CBPickerOption.m */; };
+		AAEF39B41BCF042F0000509E /* CBTable.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CBFC10C8FDDB003D3A14 /* CBTable.m */; };
+		AAEF39B51BCF042F0000509E /* CBSection.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CC0410C9009C003D3A14 /* CBSection.m */; };
+		AAEF39B61BCF042F0000509E /* CBCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CC0010C8FEE2003D3A14 /* CBCell.m */; };
+		AAEF39B71BCF042F0000509E /* CBEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5D07210C97290003D3A14 /* CBEditor.m */; };
+		AAEF39B81BCF042F0000509E /* CBConfigTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD110C911E489EE00072707 /* CBConfigTableViewCell.m */; };
+		AAEF39B91BCF042F0000509E /* CBSliderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CED610C95AC3003D3A14 /* CBSliderCell.m */; };
+		AAEF39BA1BCF042F0000509E /* CBMultilineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA9424D110C66C70045A98E /* CBMultilineTableViewCell.m */; };
+		AAEF39BB1BCF042F0000509E /* CBCharacterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD1103711E4838200072707 /* CBCharacterTableViewCell.m */; };
+		AAEF39BC1BCF042F0000509E /* CBTextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1590810F4B66C0080D3B7 /* CBTextFieldTableViewCell.m */; };
+		AAEF39BD1BCF042F0000509E /* CBTextViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1590A10F4B66C0080D3B7 /* CBTextViewTableViewCell.m */; };
+		AAEF39BE1BCF042F0000509E /* CBStepperCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AABB397514879F6700A1AD86 /* CBStepperCell.m */; };
+		AAEF39BF1BCF042F0000509E /* CBEditableTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA1591510F4B6AA0080D3B7 /* CBEditableTableViewCell.m */; };
+		AAEF39C01BCF042F0000509E /* CBEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA04E27B1111144D0019434D /* CBEditorController.m */; };
+		AAEF39C11BCF042F0000509E /* CBPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CFE310C96676003D3A14 /* CBPickerController.m */; };
+		AAEF39C21BCF042F0000509E /* CBStringEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA158DC10F4B50D0080D3B7 /* CBStringEditorController.m */; };
+		AAEF39C31BCF042F0000509E /* CBDatePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE94F1010F5CE4700234EA2 /* CBDatePickerController.m */; };
+		AAEF39C41BCF042F0000509E /* CBOptionsPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE94F1510F5CF2400234EA2 /* CBOptionsPickerController.m */; };
+		AAEF39C51BCF042F0000509E /* CBNumericEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA39A4D110FC5C2E0038C291 /* CBNumericEditorController.m */; };
+		AAEF39C61BCF042F0000509E /* CBImageEditorController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA945E6110DA9C20045A98E /* CBImageEditorController.m */; };
+		AAEF39C71BCF042F0000509E /* UIImageAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AA717C4D112006C500FB5173 /* UIImageAdditions.m */; };
+		AAEF39C81BCF042F0000509E /* CBConfigurableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD5CBF710C8FC86003D3A14 /* CBConfigurableTableViewController.m */; };
+		AAEF39C91BCF042F0000509E /* CBConfigurableDataSourceAndDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AACB802B1536F464002CCDD2 /* CBConfigurableDataSourceAndDelegate.m */; };
 		AAEF3A3C1BCF13AA0000509E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD5CCE310C90E02003D3A14 /* UIKit.framework */; };
 		AAEF3A3E1BCF13B50000509E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEF3A3D1BCF13B50000509E /* CoreGraphics.framework */; };
-		AAEF3D421BD512BB0000509E /* NSString+CBCTV.h in Headers */ = {isa = PBXBuildFile; fileRef = AAEF3D401BD512BB0000509E /* NSString+CBCTV.h */; settings = {ASSET_TAGS = (); }; };
-		AAEF3D431BD512BB0000509E /* NSString+CBCTV.h in Headers */ = {isa = PBXBuildFile; fileRef = AAEF3D401BD512BB0000509E /* NSString+CBCTV.h */; settings = {ASSET_TAGS = (); }; };
-		AAEF3D441BD512BB0000509E /* NSString+CBCTV.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEF3D411BD512BB0000509E /* NSString+CBCTV.m */; settings = {ASSET_TAGS = (); }; };
-		AAEF3D451BD512BB0000509E /* NSString+CBCTV.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEF3D411BD512BB0000509E /* NSString+CBCTV.m */; settings = {ASSET_TAGS = (); }; };
+		AAEF3D421BD512BB0000509E /* NSString+CBCTV.h in Headers */ = {isa = PBXBuildFile; fileRef = AAEF3D401BD512BB0000509E /* NSString+CBCTV.h */; };
+		AAEF3D431BD512BB0000509E /* NSString+CBCTV.h in Headers */ = {isa = PBXBuildFile; fileRef = AAEF3D401BD512BB0000509E /* NSString+CBCTV.h */; };
+		AAEF3D441BD512BB0000509E /* NSString+CBCTV.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEF3D411BD512BB0000509E /* NSString+CBCTV.m */; };
+		AAEF3D451BD512BB0000509E /* NSString+CBCTV.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEF3D411BD512BB0000509E /* NSString+CBCTV.m */; };
 		AAFC018B11105D7F00E5F04D /* CBCellAction.m in Sources */ = {isa = PBXBuildFile; fileRef = AAFC018911105D7F00E5F04D /* CBCellAction.m */; };
 		AAFE09C31BD962580045C8DF /* CBTextViewTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = AADC279D11217F1300E71852 /* CBTextViewTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AAFE09C41BD9627B0045C8DF /* CBConfigTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = AA0E4CB51381520700A2FCF0 /* CBConfigTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -227,6 +233,10 @@
 		AA717C4C112006C500FB5173 /* UIImageAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageAdditions.h; sourceTree = "<group>"; };
 		AA717C4D112006C500FB5173 /* UIImageAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageAdditions.m; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* ConfigurableTableView_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurableTableView_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		AA864E05242E38BA00426FE3 /* CBSectionOptions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBSectionOptions.h; sourceTree = "<group>"; };
+		AA864E06242E38BA00426FE3 /* CBSectionOptions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBSectionOptions.m; sourceTree = "<group>"; };
+		AA864E09242E3A6C00426FE3 /* CBCellStaticString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCellStaticString.h; sourceTree = "<group>"; };
+		AA864E0A242E3A6C00426FE3 /* CBCellStaticString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCellStaticString.m; sourceTree = "<group>"; };
 		AA96511B123B8E41005F9CF4 /* CBCellButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCellButtons.h; sourceTree = "<group>"; };
 		AA96511C123B8E41005F9CF4 /* CBCellButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCellButtons.m; sourceTree = "<group>"; };
 		AA987C8C11B4F3270066D3BE /* CBEditorOpenURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBEditorOpenURL.m; sourceTree = "<group>"; };
@@ -417,6 +427,15 @@
 			name = Additions;
 			sourceTree = "<group>";
 		};
+		AA864E04242E386C00426FE3 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				AA864E05242E38BA00426FE3 /* CBSectionOptions.h */,
+				AA864E06242E38BA00426FE3 /* CBSectionOptions.m */,
+			);
+			name = Sections;
+			sourceTree = "<group>";
+		};
 		AAA1590F10F4B6700080D3B7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,6 +469,7 @@
 		AAD5CBFA10C8FDCF003D3A14 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AA864E04242E386C00426FE3 /* Sections */,
 				AAD5CE6B10C952FD003D3A14 /* Cells */,
 				AAD5CFE110C96659003D3A14 /* Editors */,
 				AAE8E950110FAC7700352032 /* Data */,
@@ -498,6 +518,8 @@
 				AA96511C123B8E41005F9CF4 /* CBCellButtons.m */,
 				AA438C16153AD511001226B4 /* CBCellPerformSegue.h */,
 				AA438C17153AD511001226B4 /* CBCellPerformSegue.m */,
+				AA864E09242E3A6C00426FE3 /* CBCellStaticString.h */,
+				AA864E0A242E3A6C00426FE3 /* CBCellStaticString.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -587,6 +609,7 @@
 				AAEF39851BCF03FE0000509E /* CBCellCharacter.h in Headers */,
 				AAEF3D431BD512BB0000509E /* NSString+CBCTV.h in Headers */,
 				AAEF397B1BCF03FE0000509E /* CBCellNumeric.h in Headers */,
+				AA864E0C242E3A6D00426FE3 /* CBCellStaticString.h in Headers */,
 				AAEF39921BCF03FE0000509E /* CBPickerOption.h in Headers */,
 				AAEF39931BCF03FE0000509E /* CBTable.h in Headers */,
 				AAFE09C81BD9627B0045C8DF /* CBTextFieldTableViewCell.h in Headers */,
@@ -631,6 +654,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA864E0B242E3A6D00426FE3 /* CBCellStaticString.h in Headers */,
 				AAD5CBF810C8FC86003D3A14 /* CBConfigurableTableViewController.h in Headers */,
 				AACB802C1536F464002CCDD2 /* CBConfigurableDataSourceAndDelegate.h in Headers */,
 				AAD5CC3C10C90623003D3A14 /* CBCellString.h in Headers */,
@@ -671,6 +695,7 @@
 				AADC279B11217EEA00E71852 /* CBStringEditorController.h in Headers */,
 				AADC279F11217F1300E71852 /* CBTextFieldTableViewCell.h in Headers */,
 				AADC27A011217F1300E71852 /* CBTextViewTableViewCell.h in Headers */,
+				AA864E07242E38BA00426FE3 /* CBSectionOptions.h in Headers */,
 				AADC27A111217F1300E71852 /* CBEditableTableViewCell.h in Headers */,
 				AADC28621121823000E71852 /* CBConfigurableTableView.h in Headers */,
 				AABB39781487A15E00A1AD86 /* CBCellNumericStepper.h in Headers */,
@@ -796,6 +821,7 @@
 				AAEF39C41BCF042F0000509E /* CBOptionsPickerController.m in Sources */,
 				AAEF39A71BCF042F0000509E /* CBCellButtons.m in Sources */,
 				AAEF39A21BCF042F0000509E /* CBCellDate.m in Sources */,
+				AA864E0E242E3A6D00426FE3 /* CBCellStaticString.m in Sources */,
 				AAEF39C91BCF042F0000509E /* CBConfigurableDataSourceAndDelegate.m in Sources */,
 				AAEF39B81BCF042F0000509E /* CBConfigTableViewCell.m in Sources */,
 				AAEF39B71BCF042F0000509E /* CBEditor.m in Sources */,
@@ -842,6 +868,7 @@
 				AAD5D07310C97290003D3A14 /* CBEditor.m in Sources */,
 				AA99AFC710CD212E00538E1F /* CBCellSubtable.m in Sources */,
 				AAA158DA10F4B4E10080D3B7 /* CBEditorString.m in Sources */,
+				AA864E08242E38BA00426FE3 /* CBSectionOptions.m in Sources */,
 				AAA158DE10F4B50D0080D3B7 /* CBStringEditorController.m in Sources */,
 				AAA1590C10F4B66C0080D3B7 /* CBTextFieldTableViewCell.m in Sources */,
 				AAEF3D441BD512BB0000509E /* NSString+CBCTV.m in Sources */,
@@ -864,6 +891,7 @@
 				AA04E27C1111144D0019434D /* CBEditorController.m in Sources */,
 				AA65526011119B390048C23B /* CBCellOptions.m in Sources */,
 				AA717C4F112006C600FB5173 /* UIImageAdditions.m in Sources */,
+				AA864E0D242E3A6D00426FE3 /* CBCellStaticString.m in Sources */,
 				AA6422081144FF100093A091 /* CBCellStringInlineEditor.m in Sources */,
 				AA987C8E11B4F3270066D3BE /* CBEditorOpenURL.m in Sources */,
 				AAD1103511E4835100072707 /* CBCellCharacter.m in Sources */,

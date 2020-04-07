@@ -11,6 +11,7 @@
 #import "CBConfigurableTableViewController.h"
 #import "CBTable.h"
 #import "CBCell.h"
+#import "CBEditor.h"
 
 @interface CBSection (Private)
 
@@ -277,6 +278,33 @@
             }
         }
     }
+}
+
+- (UITableViewCell*) tableView:(UITableView*)tableView
+             cellForRowAtIndex:(NSInteger)index
+                    controller:(UIViewController*)ctrl
+                        object:(id)object
+{
+    CBCell *cellModel = [self cellAtIndex:index];
+    cellModel.controller = (CBConfigurableTableViewController*)ctrl;
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellModel.reuseIdentifier];
+    if (cell == nil) {
+        cell = [cellModel createTableViewCellForTableView:tableView];
+        
+        if (cellModel.editor && [cellModel.editor respondsToSelector:@selector(cell:didCreateTableViewCell:)]) {
+            cell = [(id<CBEditor>)cellModel.editor cell:cellModel didCreateTableViewCell:cell];
+        }
+        
+    }
+    
+    // Set up the cell...
+    [cellModel setupCell:cell
+              withObject:object
+             inTableView:tableView];
+    
+    return cell;
+
 }
 
 @end

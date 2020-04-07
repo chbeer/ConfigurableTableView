@@ -25,6 +25,8 @@ FOUNDATION_EXPORT const unsigned char ConfigurableTableViewVersionString[];
 #import "CBCell.h"
 #import "CBSection.h"
 
+#import "CBSectionOptions.h"
+
 #import "CBCellString.h"
 #import "CBCellStringInlineEditor.h"
 #import "CBCellNumeric.h"
