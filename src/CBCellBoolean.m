@@ -10,6 +10,8 @@
 
 #import "CBCTVGlobal.h"
 #import "NSString+CBCTV.h"
+#import "CBConfigurableTableViewController.h"
+#import "CBConfigurableDataSourceAndDelegate.h"
 
 @interface CBCellBoolean ()
 
@@ -77,6 +79,11 @@
     _switch = [[UISwitch alloc] init];
     [_switch addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
     
+    if (@available(iOS 13.4, *)) {
+        UIPointerInteraction *pointerInteraction = [UIPointerInteraction new];
+        [_switch addInteraction:pointerInteraction];
+    }
+    
     return _switch;
 }
 
@@ -96,14 +103,15 @@
     cell.accessoryView = self.switchControl;
 }
 
-- (void) switchChanged:(id)sender {
+- (void) switchChanged:(id)sender
+{
 	if (_object && self.valueKeyPath) {
         BOOL value = self.switchControl.on;
         if (_inverted) {
             value = !value;
         }
-		[_object setValue:[NSNumber numberWithBool:value] 
-               forKeyPath:self.valueKeyPath];
+        [self.controller.dataSource setValue:[NSNumber numberWithBool:value]
+                                     forCell:self withReload:NO];
 	}
 }
 

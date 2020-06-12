@@ -13,6 +13,8 @@
 
 @property (nonatomic, copy) NSString *value;
 
-+ (id) cellWithTitle:(NSString*)title value:(NSString*)value;
+- (instancetype) initWithTitle:(NSString *)title value:(NSString*)value;
+
++ (instancetype) cellWithTitle:(NSString*)title value:(NSString*)value;
 
 @end

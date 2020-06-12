@@ -13,18 +13,21 @@ typedef void(^CBCellActionBlock)(void);
 
 @interface CBCellAction : CBCell
 
-@property (nonatomic, weak) id target;
-@property (nonatomic, assign) SEL action;
+@property (nonatomic, weak) id _Nullable target;
+@property (nonatomic, assign) SEL _Nullable action;
 
-@property (nonatomic, copy) CBCellActionBlock actionBlock;
+@property (nonatomic, copy) CBCellActionBlock _Nullable actionBlock;
 
 @property (nonatomic, assign) NSTextAlignment               textAlignment;
 @property (nonatomic, assign) UITableViewCellAccessoryType  cellAccessoryType;
 
-+ (instancetype)cellWithTitle:(NSString *)title target:(id)target action:(SEL)selector;
-+ (instancetype)cellWithTitle:(NSString *)title actionBlock:(CBCellActionBlock)block;
+- (instancetype _Nonnull)initWithTitle:(NSString * _Nullable)title target:(id _Nullable)target action:(SEL _Nonnull)selector;
+- (instancetype _Nonnull)initWithTitle:(NSString * _Nullable)title actionBlock:(CBCellActionBlock _Nonnull)block;
 
-- (instancetype) applyTextAlignment:(NSTextAlignment)textAlignment;
-- (instancetype) applyTableViewCellAccessoryType:(UITableViewCellAccessoryType)accessoryType;
++ (instancetype _Nonnull)cellWithTitle:(NSString * _Nullable)title target:(id _Nullable)target action:(SEL _Nonnull)selector;
++ (instancetype _Nonnull)cellWithTitle:(NSString * _Nullable)title actionBlock:(CBCellActionBlock _Nonnull)block;
+
+- (instancetype _Nonnull) applyTextAlignment:(NSTextAlignment)textAlignment;
+- (instancetype _Nonnull) applyTableViewCellAccessoryType:(UITableViewCellAccessoryType)accessoryType;
 
 @end

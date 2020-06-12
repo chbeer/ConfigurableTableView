@@ -17,21 +17,34 @@
 
 @synthesize enabled = _enabled;
 
-- (instancetype) initWithTitle:(NSString*)title {
+- (instancetype)initWithTitle:(NSString *)title target:(id)target action:(SEL)selector
+{
 	self = [super initWithTitle:title];
     if (!self) return nil;
     
+    NSAssert(selector != NULL, @"action can not be nil");
+
+    _target = target;
+    _action = selector;
     _textAlignment = NSTextAlignmentCenter;
     _enabled = YES;
 
 	return self;
 }
+- (instancetype)initWithTitle:(NSString *)title actionBlock:(CBCellActionBlock)block
+{
+    self = [super initWithTitle:title];
+    if (!self) return nil;
+    
+    _actionBlock = [block copy];
+    _textAlignment = NSTextAlignmentCenter;
+    _enabled = YES;
+
+    return self;
+}
 
 + (instancetype)cellWithTitle:(NSString *)title target:(id)target action:(SEL)action {
-	CBCellAction *cell = [[[self class] alloc] initWithTitle:title];
-	
-	cell.target = target;
-	cell.action = action;
+    CBCellAction *cell = [[[self class] alloc] initWithTitle:title target:target action:action];
     
     cell.enabled = YES;
 	

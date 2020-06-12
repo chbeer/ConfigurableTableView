@@ -114,6 +114,7 @@
         cell.textLabel.text = translatedValue;
     } else {
         cell.detailTextLabel.text = translatedValue;
+        cell.detailTextLabel.numberOfLines = 0;
         cell.detailTextLabel.enabled = self.enabled;
     }
     

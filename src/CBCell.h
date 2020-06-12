@@ -16,34 +16,35 @@
 @class CBCell;
 
 
-typedef id(^CBCellValueTransformerHandler)(id value);
-typedef void(^CBCellAccessoryButtonHandler)(CBCell *cell, UITableView *tableView, NSIndexPath *indexPath);
+typedef id _Nullable (^CBCellValueTransformerHandler)(id _Nullable value);
+typedef void(^CBCellDidSetValueHandler)(id _Nullable value, CBCell * _Nonnull cell, UIViewController * _Nonnull dataSource);
+typedef void(^CBCellAccessoryButtonHandler)(CBCell * _Nonnull cell, UITableView * _Nonnull tableView, NSIndexPath * _Nonnull indexPath);
 
 
 @protocol CBCell <NSObject>
 
-- (NSString*) title;
+- (NSString* _Nullable) title;
 
-- (NSString*) reuseIdentifier;
-- (UITableViewCell*) createTableViewCellForTableView:(UITableView*)tableView;
+- (NSString* _Nonnull) reuseIdentifier;
+- (UITableViewCell* _Nonnull) createTableViewCellForTableView:(UITableView* _Nonnull)tableView;
 
 /** Use this to update the value in the tableViewCell */
-- (void) setValue:(id)value ofCell:(UITableViewCell*)cell inTableView:(UITableView*)tableView;
+- (void) setValue:(id _Nullable)value ofCell:(UITableViewCell* _Nonnull)cell inTableView:(UITableView* _Nonnull)tableView;
 /** Use this to setup the TableViewCell. Needs only overridden for special cells. 
  * Otherwise override setValue:ofCell: */
-- (void) setupCell:(UITableViewCell*)cell withObject:(NSObject*)object inTableView:(UITableView*)tableView;
+- (void) setupCell:(UITableViewCell* _Nonnull)cell withObject:(NSObject* _Nullable)object inTableView:(UITableView* _Nonnull)tableView;
 
 - (BOOL) hasEditor;
 - (BOOL) isEditorInline;
-- (void) openEditorInController:(UIViewController*)controller fromTableViewCell:(UITableViewCell*)cell;
-- (void) openEditorInController:(UIViewController*)controller;
-- (void) setEditor:(CBEditor*)editor;
+- (void) openEditorInController:(UIViewController* _Nonnull)controller fromTableViewCell:(UITableViewCell* _Nonnull)cell;
+- (void) openEditorInController:(UIViewController* _Nonnull)controller;
+- (void) setEditor:(CBEditor* _Nullable)editor;
 
 @optional
 
-- (CGFloat) heightForCell:(CBCell*)cell atIndexPath:(NSIndexPath*)indexPath inTableView:(UITableView*)tableView withObject:(NSObject*)object;
-- (CGFloat) heightForCell:(CBCell*)cell inTableView:(UITableView*)tableView withObject:(NSObject*)object;
-- (CGFloat) heightForCellInTableView:(UITableView*)tableView withObject:(NSObject*)object;
+- (CGFloat) heightForCell:(CBCell* _Nonnull)cell atIndexPath:(NSIndexPath* _Nonnull)indexPath inTableView:(UITableView* _Nonnull)tableView withObject:(NSObject*)object;
+- (CGFloat) heightForCell:(CBCell* _Nonnull)cell inTableView:(UITableView* _Nonnull)tableView withObject:(NSObject* _Nullable)object;
+- (CGFloat) heightForCellInTableView:(UITableView* _Nonnull)tableView withObject:(NSObject* _Nullable)object;
 
 - (UITableViewCellStyle) tableViewCellStyle;
 - (Class) tableViewCellClass;
@@ -63,7 +64,7 @@ typedef void(^CBCellAccessoryButtonHandler)(CBCell *cell, UITableView *tableView
 @property (nonatomic, copy) NSString *valueKeyPath;
 @property (nonatomic, copy) NSString *accessibilityLabel;
 
-@property (weak, readonly) NSString *reuseIdentifier;
+@property (nonatomic, readonly) NSString * _Nonnull reuseIdentifier;
 
 @property (nonatomic, copy) NSString *nibReuseIdentifier;
 
@@ -74,18 +75,21 @@ typedef void(^CBCellAccessoryButtonHandler)(CBCell *cell, UITableView *tableView
 
 @property (nonatomic, strong) UIImage *icon;
 @property (nonatomic, strong) NSString *iconName;
+
 @property (nonatomic, assign, getter=isEnabled) BOOL enabled;
+@property (nonatomic, readonly, getter=isHidden) BOOL hidden;
 
 @property (nonatomic, copy) CBCellValueTransformerHandler valueTransformerHandler;
+@property (nonatomic, copy) CBCellDidSetValueHandler didSetValueHandler;
 @property (nonatomic, copy) CBCellAccessoryButtonHandler  accessoryButtonHandler;
 
-- (instancetype) initWithTitle:(NSString*)title;
-- (instancetype) initWithTitle:(NSString*)title andValuePath:(NSString*)valueKeyPath;
+- (instancetype _Nonnull) initWithTitle:(NSString* _Nullable)title;
+- (instancetype _Nonnull) initWithTitle:(NSString* _Nullable)title andValuePath:(NSString* _Nullable)valueKeyPath;
 
-+ (instancetype) cellWithTitle:(NSString*)title valuePath:(NSString*)valueKeyPath;
-+ (instancetype) cellWithTitle:(NSString*)title valuePath:(NSString*)valueKeyPath editor:(CBEditor*)editor;
-+ (instancetype) cellWithTitle:(NSString*)title valuePath:(NSString*)valueKeyPath iconName:(NSString*)iconName;
-+ (instancetype) cellWithTitle:(NSString*)title valuePath:(NSString*)valueKeyPath
++ (instancetype _Nonnull) cellWithTitle:(NSString* _Nullable)title valuePath:(NSString* _Nullable)valueKeyPath;
++ (instancetype _Nonnull) cellWithTitle:(NSString* _Nullable)title valuePath:(NSString* _Nullable)valueKeyPath editor:(CBEditor* _Nullable)editor;
++ (instancetype _Nonnull) cellWithTitle:(NSString*)title valuePath:(NSString*)valueKeyPath iconName:(NSString*)iconName;
++ (instancetype _Nonnull) cellWithTitle:(NSString*)title valuePath:(NSString*)valueKeyPath
                       iconName:(NSString*)iconName editor:(CBEditor*)editor;
 
 + (instancetype) cellWithNibReuseIdentifier:(NSString*)nibReuseIdentifier valuePath:(NSString*)valuePath;
@@ -98,9 +102,11 @@ typedef void(^CBCellAccessoryButtonHandler)(CBCell *cell, UITableView *tableView
 - (instancetype) applyIconName:(NSString*)iconName;
 - (instancetype) applyStyle:(UITableViewCellStyle)style;
 - (instancetype) applyEnabled:(BOOL)enabled;
+- (instancetype) applyHidden:(BOOL)hidden;
 - (instancetype) applyAccessibilityLabel:(NSString*)accessibilityLabel;
 - (instancetype) applyValueTransformer:(CBCellValueTransformerHandler)valueTransformerHandler;
 - (instancetype) applyAccessoryButtonHandler:(CBCellAccessoryButtonHandler) accessoryButtonHandler;
+- (instancetype) applyDidSetValueHandler:(CBCellDidSetValueHandler) didSetValueHandler;
 
 - (instancetype) applyNibReuseIdentifier:(NSString*)reuseIdentifier;
 

@@ -45,20 +45,25 @@
 
 @property (nonatomic, copy) NSString *title;
 
-@property (weak, readonly) NSArray *cells;
+@property (weak, readonly) NSArray<CBCell*> *cells;
 
 @property (nonatomic, strong) UIView *headerView;
 
 @property (nonatomic, strong) NSString *footerTitle;
 @property (nonatomic, strong) UIView *footerView;
 
-- (instancetype) initWithTitle:(NSString*)title andCells:(NSArray*)cells;
-- (instancetype) initWithTitle:(NSString*)title;
+- (instancetype _Nonnull) initWithTitle:(NSString* _Nullable)title andCells:(NSArray<CBCell*>*)cells;
+- (instancetype _Nonnull) initWithTitle:(NSString* _Nullable)title;
 
-- (instancetype) applyTag:(NSString *)tag;
+- (instancetype _Nonnull) applyTag:(NSString * _Nonnull)tag;
 
-+ (instancetype) sectionWithTitle:(NSString*)title;
-+ (instancetype) sectionWithTitle:(NSString*)title andCells:(CBCell*)cell, ...NS_REQUIRES_NIL_TERMINATION;
++ (instancetype _Nonnull) sectionWithTitle:(NSString* _Nullable)title;
++ (instancetype _Nonnull) sectionWithTitle:(NSString* _Nullable)title andCells:(CBCell*)cell, ...NS_REQUIRES_NIL_TERMINATION;
+
+- (NSInteger) visibleCellCount;
+- (CBCell*) visibleCellAtIndex:(NSUInteger)idx;
+- (NSUInteger) indexOfVisibleCell:(CBCell*)cell;
+- (NSUInteger) indexOfVisibleCellWithTag:(NSString*)tag;
 
 - (NSInteger) cellCount;
 - (CBCell*) cellAtIndex:(NSUInteger)idx;

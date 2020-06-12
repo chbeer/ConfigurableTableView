@@ -21,6 +21,9 @@
 
 
 @implementation CBSection
+{
+    NSArray *_visibleCells;
+}
 
 @synthesize controller = _controller;
 @synthesize table = _table;
@@ -52,11 +55,11 @@
 }
 
 + (instancetype) sectionWithTitle:(NSString*)title {
-	CBSection *section = [[CBSection alloc] initWithTitle:title];
+	CBSection *section = [[self alloc] initWithTitle:title];
 	return section;
 }
 + (instancetype) sectionWithTitle:(NSString*)title andCells:(CBCell*)cell, ... {
-	CBSection *section = [[CBSection alloc] initWithTitle:title];
+	CBSection *section = [[self alloc] initWithTitle:title];
 	[section addCell:cell];
 	
 	va_list args;
@@ -99,7 +102,31 @@
 
 #pragma mark Cell access
 
-- (NSInteger) cellCount {
+- (void) reloadVisibleCells
+{
+    _visibleCells = [_cells filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id  _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+        CBCell *cell = evaluatedObject;
+        return cell.hidden == NO;
+    }]];
+}
+
+- (NSInteger) visibleCellCount
+{
+    [self reloadVisibleCells];
+    return _visibleCells.count;
+}
+- (CBCell*) visibleCellAtIndex:(NSUInteger)idx {
+    return [_visibleCells objectAtIndex:idx];
+}
+- (NSUInteger) indexOfVisibleCell:(CBCell*)cell {
+    return [_visibleCells indexOfObject:cell];
+}
+- (NSUInteger) indexOfVisibleCellWithTag:(NSString*)tag {
+    return [_visibleCells indexOfObject:[self cellWithTag:tag]];
+}
+
+- (NSInteger) cellCount
+{
 	return _cells.count;
 }
 
@@ -118,9 +145,10 @@
 	[_cells addObject:cell];
 	
 	if (_table.delegate && [_table.delegate respondsToSelector:@selector(table:section:cellAdded:)]) {
+        NSIndexPath *indexPath = [_table indexPathOfCell:cell];
 		[_table.delegate table:self.table 
 					   section:self
-					 cellAdded:cell];
+          cellAddedAtIndexPath:indexPath];
 	}
 	
 	return cell;
@@ -130,25 +158,30 @@
 	[_cells insertObject:cell atIndex:index];
 	
 	if (_table.delegate && [_table.delegate respondsToSelector:@selector(table:section:cellAdded:)]) {
+        NSIndexPath *indexPath = [_table indexPathOfCell:cell];
 		[_table.delegate table:self.table 
 					   section:self 
-					 cellAdded:cell];
+          cellAddedAtIndexPath:indexPath];
 	}
 	
 	return cell;
 }
 - (void) insertCells:(NSArray*)cells atIndex:(NSUInteger)index {
     NSUInteger idx = index;
+    NSMutableArray *indexPaths = [NSMutableArray array];
+    NSInteger section = [_table indexOfSection:self];
     for (CBCell *cell in cells) {
         cell.section = self;
         [_cells insertObject:cell atIndex:idx];
+        [indexPaths addObject:[NSIndexPath indexPathForRow:idx inSection:section]];
         idx++;
     }
 	
 	if (_table.delegate && [_table.delegate respondsToSelector:@selector(table:section:cellsAdded:)]) {
+        
 		[_table.delegate table:self.table 
 					   section:self 
-                    cellsAdded:cells];
+        cellsAddedAtIndexPaths:indexPaths];
 	}
 }
 
@@ -285,7 +318,7 @@
                     controller:(UIViewController*)ctrl
                         object:(id)object
 {
-    CBCell *cellModel = [self cellAtIndex:index];
+    CBCell *cellModel = [self visibleCellAtIndex:index];
     cellModel.controller = (CBConfigurableTableViewController*)ctrl;
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellModel.reuseIdentifier];

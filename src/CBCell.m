@@ -10,11 +10,20 @@
 
 #import "CBCTVGlobal.h"
 #import "CBEditor.h"
+#import "CBTable.h"
 
 #import "CBConfigTableViewCell.h"
+#import "CBConfigurableTableViewController.h"
+#import "CBConfigurableDataSourceAndDelegate.h"
+
+@interface CBCell ()
+@property (nonatomic, assign, getter=isHidden) BOOL hidden;
+@end
+
 
 @implementation CBCell
 
+// TODO: switch to DataSource
 @synthesize controller = _controller;
 @synthesize section = _section;
 
@@ -33,6 +42,7 @@
 @synthesize iconName = _iconName;
 
 @synthesize enabled = _enabled;
+@synthesize hidden = _hidden;
 
 @synthesize nibReuseIdentifier = nibReuseIdentifier;
 
@@ -41,6 +51,7 @@
 		_title = [title copy];
         _style = UITableViewCellStyleDefault;
         _enabled = YES;
+        _hidden = NO;
 	}
 	return self;
 }
@@ -86,6 +97,12 @@
     CBCell *cell = [self cellWithTitle:nil valuePath:valueKeyPath];
 	cell.nibReuseIdentifier = nibReuseIdentifier;
 	return cell;
+}
+
+- (instancetype) applyHidden:(BOOL)hidden
+{
+    self.hidden = hidden;
+    return self;
 }
 
 - (instancetype)applyFont:(UIFont*)font {
@@ -145,6 +162,12 @@
     return self;
 }
 
+- (instancetype) applyDidSetValueHandler:(CBCellDidSetValueHandler) didSetValueHandler
+{
+    self.didSetValueHandler = didSetValueHandler;
+    return self;
+}
+
 - (void) dealloc {
     _tag = nil;
 
@@ -181,7 +204,8 @@
 
 - (UITableViewCell*) createTableViewCellForTableView:(UITableView*)tableView {
     if (self.nibReuseIdentifier) {
-        return [tableView dequeueReusableCellWithIdentifier:self.nibReuseIdentifier];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.nibReuseIdentifier];
+        if (cell) return cell;
     }
     
 	UITableViewCell *cell = [[[self tableViewCellClass] alloc] initWithStyle:[self tableViewCellStyle]

@@ -73,6 +73,10 @@
     
     CBPickerOption *option = [_options objectAtIndex:index];
     [self.controller.data setValue:option.value forKeyPath:_valueKeyPath];
+    
+    NSIndexPath *indexPath = [self.controller.model indexPathOfCell:sender];
+    [self.controller.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section]
+                             withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 @end

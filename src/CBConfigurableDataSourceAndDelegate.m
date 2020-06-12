@@ -55,13 +55,12 @@
         
         _model = aModel;
 		_model.delegate = self;
-
         
         if (aModel) {
             self.tableView.delegate = self;
             self.tableView.dataSource = self;
             
-            if (self.controller.isViewLoaded) {
+            if (self.controller.isViewLoaded && self.tableView.window != nil) {
                 [self.tableView reloadData];
             }
         }
@@ -80,7 +79,7 @@
     if (cbSection.controller == nil) {
         cbSection.controller = (CBConfigurableTableViewController*)self.controller;
     }
-    return [cbSection cellCount];
+    return [cbSection visibleCellCount];
 }
 
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -185,7 +184,7 @@
 #pragma mark UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    CBCell *cbCell = [_model cellForRowAtIndexPath:indexPath];
+    CBCell *cbCell = [_model visibleCellForRowAtIndexPath:indexPath];
 	if (cbCell.enabled && [cbCell hasEditor]) {
         if ([cbCell respondsToSelector:@selector(openEditorInController:)]) {
             [cbCell openEditorInController:self.controller];
@@ -197,7 +196,7 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    CBCell *cbCell = [_model cellForRowAtIndexPath:indexPath];
+    CBCell *cbCell = [_model visibleCellForRowAtIndexPath:indexPath];
     if (cbCell.accessoryButtonHandler) {
         cbCell.accessoryButtonHandler(cbCell, tableView, indexPath);
         return;
@@ -208,7 +207,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-	CBCell *cbCell = [_model cellForRowAtIndexPath:indexPath];
+	CBCell *cbCell = [_model visibleCellForRowAtIndexPath:indexPath];
     cbCell.controller = self.controller;
     CGFloat height = 44;
     if ([cbCell respondsToSelector:@selector(heightForCell:atIndexPath:inTableView:withObject:)]) {
@@ -235,9 +234,13 @@
 {
 	if (_data && cell.valueKeyPath) {
 		[_data setValue:value forKeyPath:cell.valueKeyPath];
+        
+        if (cell.didSetValueHandler) {
+            cell.didSetValueHandler(value, cell, self.controller);
+        }
 		
 		NSIndexPath *idx = [_model indexPathOfCell:cell];
-		if (reload && idx) {
+        if (reload && idx && self.tableView.window != nil) {
             [self.tableView reloadRowsAtIndexPaths:@[idx]
                                   withRowAnimation:_reloadAnimation];
 		}
@@ -255,38 +258,54 @@
 
 #pragma mark CBTableDelegate
 
-- (void) table:(CBTable*)table sectionAdded:(CBSection*)section {
+- (void) table:(CBTable*)table sectionAdded:(CBSection*)section
+{
+    if (self.tableView.window == nil) { return; }
 	NSIndexSet *idxSet = [NSIndexSet indexSetWithIndex:[table indexOfSection:section]];
 	[self.tableView insertSections:idxSet 
                   withRowAnimation:_addAnimation];
 }
+- (void) table:(CBTable*)table sectionsAdded:(NSArray<CBSection*>*)sections
+{
+    if (self.tableView.window == nil) { return; }
+    NSMutableIndexSet *idxSet = [NSMutableIndexSet indexSet];
+    for (CBSection *section in sections) {
+        [idxSet addIndex:[table indexOfSection:section]];
+    }
+    [self.tableView insertSections:idxSet
+                  withRowAnimation:_addAnimation];
 
-- (void) table:(CBTable*)table sectionRemovedAtIndex:(NSUInteger)index {
+}
+
+- (void) table:(CBTable*)table sectionRemovedAtIndex:(NSUInteger)index
+{
+    if (self.tableView.window == nil) { return; }
 	NSIndexSet *idxSet = [NSIndexSet indexSetWithIndex:index];
 	[self.tableView deleteSections:idxSet 
                   withRowAnimation:_removeAnimation];
 }
 
-- (void) table:(CBTable*)table section:(CBSection*)section cellAdded:(CBCell*)cell {
-	NSIndexPath *idxPath = [table indexPathOfCell:cell];
-	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:idxPath] 
+- (void) table:(CBTable*)table section:(CBSection*)section cellAddedAtIndexPath:(NSIndexPath*)indexPath
+{
+    if (self.tableView.window == nil) { return; }
+	[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
 						  withRowAnimation:_addAnimation];
 }
-- (void) table:(CBTable*)table section:(CBSection*)section cellsAdded:(NSArray*)cells {
-    NSMutableArray *indexPaths = [NSMutableArray array];
-    for (CBCell *cell in cells) {
-        NSIndexPath *idxPath = [table indexPathOfCell:cell];
-        [indexPaths addObject:idxPath];
-    }
-	
+- (void) table:(CBTable*)table section:(CBSection*)section cellsAddedAtIndexPaths:(NSArray<NSIndexPath*>*)indexPaths
+{
+    if (self.tableView.window == nil) { return; }
 	[self.tableView insertRowsAtIndexPaths:indexPaths
 						  withRowAnimation:_addAnimation];
 }
-- (void) table:(CBTable*)table section:(CBSection*)section cellRemovedAtIndexPath:(NSIndexPath*)indexPath {
+- (void) table:(CBTable*)table section:(CBSection*)section cellRemovedAtIndexPath:(NSIndexPath*)indexPath
+{
+    if (self.tableView.window == nil) { return; }
 	[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] 
 						  withRowAnimation:_removeAnimation];
 }
-- (void) table:(CBTable*)table section:(CBSection*)section cellsRemovedAtIndexPaths:(NSArray*)indexPaths {
+- (void) table:(CBTable*)table section:(CBSection*)section cellsRemovedAtIndexPaths:(NSArray*)indexPaths
+{
+    if (self.tableView.window == nil) { return; }
 	[self.tableView deleteRowsAtIndexPaths:indexPaths
 						  withRowAnimation:_removeAnimation];
 }
